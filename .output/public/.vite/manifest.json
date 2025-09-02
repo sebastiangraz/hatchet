@@ -1,0 +1,40 @@
+{
+  "../../../../~start/default-client-entry.tsx": {
+    "file": "assets/main-D93Drt9I.js",
+    "name": "main",
+    "src": "../../../../~start/default-client-entry.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/routes/about.tsx?tsr-split=component",
+      "src/routes/index.tsx?tsr-split=component"
+    ],
+    "assets": [
+      "assets/app-BQjolM1z.css"
+    ]
+  },
+  "/Users/graz/d/hatchet/src/styles/app.css": {
+    "file": "assets/app-BQjolM1z.css",
+    "src": "/Users/graz/d/hatchet/src/styles/app.css"
+  },
+  "src/routes/about.tsx?tsr-split=component": {
+    "file": "assets/about-ByOkCVVY.js",
+    "name": "about",
+    "src": "src/routes/about.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../../../../~start/default-client-entry.tsx"
+    ],
+    "css": [
+      "assets/about-CWIoMshG.css"
+    ]
+  },
+  "src/routes/index.tsx?tsr-split=component": {
+    "file": "assets/index-C4oa7SLp.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../../../../~start/default-client-entry.tsx"
+    ]
+  }
+}
