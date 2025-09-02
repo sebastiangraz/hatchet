@@ -1,1 +1,15 @@
 node_modules
+package-lock.json
+
+.DS_Store
+.cache
+.env
+.vercel
+.output
+.nitro
+.tanstack
+
+/build/
+/api/
+/server/build
+.env
