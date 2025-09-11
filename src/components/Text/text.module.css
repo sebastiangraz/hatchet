@@ -1,0 +1,31 @@
+.h1 {
+  composes: h1 from global;
+}
+
+.h2 {
+  composes: h2 from global;
+}
+
+.h3 {
+  composes: h3 from global;
+}
+
+.body {
+  composes: paragraph from global;
+}
+
+.small {
+  composes: small from global;
+}
+
+.caps {
+  composes: caps from global;
+}
+
+.balance {
+  text-wrap: balance;
+}
+
+.secondary {
+  color: var(--fg-secondary);
+}
