@@ -10,18 +10,16 @@
 
   .grid-parent {
     --margin: minmax(0, 1fr);
-    --max-width: 1104px;
+    --gridSize: 48px;
+    --columns: 12;
+    --gaps: 11;
 
-    /* Explicit calculation parameters - easily adjustable */
-    --target-unit-size: 48px; /* Desired size for columns and gaps */
-    --target-viewport: 1296px; /* Viewport width where target size is reached */
-    --columns: 12; /* Number of columns */
-    --gaps: 11; /* Number of gaps (columns - 1) */
-
-    /* Calculate unit size: scales from 0 to target-unit-size at target-viewport */
+    --maxWidth: calc(
+      ((var(--columns) + var(--gaps)) * var(--gridSize)) + var(--gridSize) * 4
+    );
     --unit-size: min(
-      var(--target-unit-size),
-      calc(var(--target-unit-size) / var(--target-viewport) * 100vw)
+      var(--gridSize),
+      calc(var(--gridSize) / var(--maxWidth) * 100vw)
     );
     --gap: var(--unit-size);
 
