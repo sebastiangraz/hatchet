@@ -1,4 +1,7 @@
 .hero {
   composes: grid-parent from global;
   composes: checker from global;
+  & > h1 {
+    grid-column: start / end;
+  }
 }

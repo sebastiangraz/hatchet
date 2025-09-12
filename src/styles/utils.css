@@ -1,25 +1,42 @@
-.checker {
-  background-image:
-    linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
-    linear-gradient(var(--fg-border) 1px, transparent 1px);
-  background-size: 2rlh 2rlh;
-  background-repeat: round;
-  background-position: 0px 0px;
-}
+@layer utils {
+  .checker {
+    background-image:
+      linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
+      linear-gradient(var(--fg-border) 1px, transparent 1px);
+    background-size: 2rlh 2rlh;
+    background-repeat: round;
+    background-position: 0px 0px;
+  }
 
-.grid-parent {
-  --margin: minmax(0, 1fr);
-  --max-width: 1104px;
-  display: grid;
-  grid-template-columns:
-    [bleedstart]
-    var(--margin)
-    [start]
-    repeat(12, minmax(0, calc(var(--max-width) / 12)))
-    [end]
-    var(--margin)
-    [bleedend];
-  & > * {
-    grid-column: start / end;
+  .grid-parent {
+    --margin: minmax(0, 1fr);
+    --max-width: 1104px;
+
+    /* Explicit calculation parameters - easily adjustable */
+    --target-unit-size: 48px; /* Desired size for columns and gaps */
+    --target-viewport: 1296px; /* Viewport width where target size is reached */
+    --columns: 12; /* Number of columns */
+    --gaps: 11; /* Number of gaps (columns - 1) */
+
+    /* Calculate unit size: scales from 0 to target-unit-size at target-viewport */
+    --unit-size: min(
+      var(--target-unit-size),
+      calc(var(--target-unit-size) / var(--target-viewport) * 100vw)
+    );
+    --gap: var(--unit-size);
+
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns:
+      [bleedstart]
+      var(--margin)
+      [start]
+      repeat(12, var(--unit-size))
+      [end]
+      var(--margin)
+      [bleedend];
+    & > * {
+      grid-column: start / end;
+    }
   }
 }
