@@ -64,7 +64,7 @@
   --h2: clamp(2.5rem, 1.3636rem + 4.5455vw, 4.5rem);
   --h3: clamp(2rem, 1.7159rem + 1.1364vw, 2.5rem);
   --body: clamp(1rem, 0.929rem + 0.2841vw, 1.125rem);
-  --small: clamp(0.875rem, 0.804rem + 0.2841vw, 1rem);
+  --small: clamp(0.6875rem, 0.581rem + 0.4261vw, 0.875rem);
 
   --font-martina: "martina", serif;
   --font-judge-extended: "judge-extended", sans-serif;
@@ -81,6 +81,15 @@
     --fg-secondary: hsl(var(--navy) / var(--opacity-6));
     --fg-tertiary: hsl(var(--navy) / var(--opacity-5));
     --fg-border: hsl(var(--navy) / var(--opacity-2));
+  }
+  [data-theme="dark"] {
+    --bg: hsl(var(--navy));
+    --fg: hsl(var(--cyan));
+    --bg-dark: hsl(var(--navy-dark));
+    --fg-dark: hsl(var(--cyan-dark));
+    --fg-secondary: hsl(var(--cyan) / var(--opacity-6));
+    --fg-tertiary: hsl(var(--cyan) / var(--opacity-5));
+    --fg-border: hsl(var(--cyan) / var(--opacity-2));
   }
 }
 
@@ -116,8 +125,8 @@
     color: inherit;
     font-family: var(--font-judge-extended);
     line-height: 1;
-    margin-block-start: 4rlh;
-    margin-block-end: 1rlh;
+    margin-block-start: 2rlh;
+    margin-block-end: 2rlh;
   }
 
   .h1 {

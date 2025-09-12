@@ -8,6 +8,14 @@
     background-position: 0px 0px;
   }
 
+  .flex {
+    --gap: 2rlh;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    flex-wrap: wrap;
+  }
+
   .grid-parent {
     --margin: minmax(0, 1fr);
     --gridSize: 48px;
@@ -24,7 +32,7 @@
     --gap: var(--unit-size);
 
     display: grid;
-    gap: var(--gap);
+    column-gap: var(--gap);
     grid-template-columns:
       [bleedstart]
       var(--margin)

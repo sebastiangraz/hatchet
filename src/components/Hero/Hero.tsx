@@ -1,5 +1,6 @@
 import { theme } from "~/types";
 import { Text } from "~/components/Text/Text";
+import { Button } from "~/components/Button/Button";
 import styles from "./hero.module.css";
 
 interface HeroProps {
@@ -19,6 +20,10 @@ export const Hero = (props: HeroProps) => {
     <section data-theme={theme} className={styles.hero}>
       <Text.H1 balance>{title}</Text.H1>
       <Text.Body balance> {description} </Text.Body>
+      <div className="flex">
+        <Button href="/about">Start for free</Button>
+        <Button theme="dark">Documentation</Button>
+      </div>
     </section>
   );
 };

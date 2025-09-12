@@ -1,11 +1,17 @@
 .hero {
   composes: grid-parent from global;
   composes: checker from global;
+  row-gap: 2rlh;
+  padding-block-start: 4rlh;
+  padding-block-end: 4rlh;
   & > h1 {
     grid-column: start / end;
   }
   p {
     max-width: 40rem;
     margin-inline: auto;
+  }
+  :global(.flex) {
+    place-self: center;
   }
 }
