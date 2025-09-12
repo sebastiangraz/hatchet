@@ -4,4 +4,8 @@
   & > h1 {
     grid-column: start / end;
   }
+  p {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
 }

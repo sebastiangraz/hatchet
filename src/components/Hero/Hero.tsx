@@ -18,7 +18,7 @@ export const Hero = (props: HeroProps) => {
   return (
     <section data-theme={theme} className={styles.hero}>
       <Text.H1 balance>{title}</Text.H1>
-      <Text.Body> {description} </Text.Body>
+      <Text.Body balance> {description} </Text.Body>
     </section>
   );
 };

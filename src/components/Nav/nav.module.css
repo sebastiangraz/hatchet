@@ -1,0 +1,14 @@
+.nav {
+  composes: grid-parent from global;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: start / end;
+}
+.menu {
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
