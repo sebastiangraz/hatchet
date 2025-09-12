@@ -12,3 +12,6 @@
   display: flex;
   gap: 1rem;
 }
+.logo {
+  display: flex;
+}
