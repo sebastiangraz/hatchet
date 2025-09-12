@@ -1,31 +1,11 @@
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
-import postcssCustomMedia from "postcss-custom-media";
 import postcssGlobalData from "@csstools/postcss-global-data";
 import postcssPresetEnv from "postcss-preset-env";
 import viteReact from "@vitejs/plugin-react";
 
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [
-        postcssGlobalData({
-          files: ["./src/styles/global.css", "./src/styles/utils.css"],
-        }),
-        postcssCustomMedia(),
-        postcssPresetEnv({
-          autoprefixer: {
-            flexbox: "no-2009",
-          },
-          stage: 1,
-          features: {
-            "custom-media-queries": true,
-          },
-        }),
-      ],
-    },
-  },
   server: {
     port: 3000,
   },
@@ -33,7 +13,28 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    tanstackStart(),
+    tanstackStart({
+      customViteReactPlugin: true,
+    }),
     viteReact(),
   ],
+  css: {
+    postcss: {
+      plugins: [
+        postcssGlobalData({
+          files: ["./src/styles/global.css", "./src/styles/utils.css"],
+        }),
+        postcssPresetEnv({
+          autoprefixer: {
+            flexbox: "no-2009",
+          },
+          stage: 2,
+          features: {
+            "custom-media-queries": true,
+            "custom-properties": false,
+          },
+        }),
+      ],
+    },
+  },
 });

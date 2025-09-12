@@ -120,9 +120,6 @@ h2 {
 .h1 {
   font-size: var(--h1);
   letter-spacing: -0.02em;
-  @media (--1) {
-    opacity: 0.5;
-  }
 }
 .h2 {
   font-size: var(--h2);
