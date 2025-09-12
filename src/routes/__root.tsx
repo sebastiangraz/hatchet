@@ -12,6 +12,12 @@ import CSSGlobal from "~/styles/global.css?url";
 import CSSUtils from "~/styles/utils.css?url";
 
 export const Route = createRootRoute({
+  // head: () => ({
+  //   links: [
+  //     { rel: "stylesheet", href: CSSGlobal },
+  //     { rel: "stylesheet", href: CSSUtils },
+  //   ],
+  // }),
   head: () => ({
     links: [
       { rel: "stylesheet", href: CSSGlobal },

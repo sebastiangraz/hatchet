@@ -1,4 +1,13 @@
-.grid-container {
+.checker {
+  background-image:
+    linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
+    linear-gradient(var(--fg-border) 1px, transparent 1px);
+  background-size: 2rlh 2rlh;
+  background-repeat: round;
+  background-position: 0px 0px;
+}
+
+.grid-parent {
   --margin: minmax(0, 1fr);
   --max-width: 1104px;
   display: grid;
@@ -10,13 +19,7 @@
     [end]
     var(--margin)
     [bleedend];
-}
-
-.grid {
-  background-image:
-    linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
-    linear-gradient(var(--fg-border) 1px, transparent 1px);
-  background-size: 2rlh 2rlh;
-  background-repeat: round;
-  background-position: 0px 0px;
+  & > * {
+    grid-column: start / end;
+  }
 }

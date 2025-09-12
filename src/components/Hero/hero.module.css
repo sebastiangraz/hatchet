@@ -1,0 +1,4 @@
+.hero {
+  composes: grid-parent from global;
+  composes: checker from global;
+}
