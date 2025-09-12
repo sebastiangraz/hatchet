@@ -99,15 +99,6 @@ body {
   color: var(--fg);
 }
 
-.grid {
-  background-image:
-    linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
-    linear-gradient(var(--fg-border) 1px, transparent 1px);
-  background-size: 2rlh 2rlh;
-  background-repeat: round;
-  background-position: 0px 0px;
-}
-
 section {
   background-color: var(--bg);
   color: var(--fg);
@@ -125,6 +116,9 @@ h2 {
 .h1 {
   font-size: var(--h1);
   letter-spacing: -0.02em;
+  @media (--1) {
+    color: red;
+  }
 }
 .h2 {
   font-size: var(--h2);
@@ -151,3 +145,6 @@ main {
   text-align: center;
   margin: 0 auto;
 }
+@custom-media --1 (min-width: 38em);
+@custom-media --2 (min-width: 68em);
+@custom-media --3 (min-width: 90em);

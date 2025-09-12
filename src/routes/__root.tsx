@@ -9,10 +9,14 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import CSSGlobal from "~/styles/global.css?url";
+import CSSUtils from "~/styles/utils.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
-    links: [{ rel: "stylesheet", href: CSSGlobal }],
+    links: [
+      { rel: "stylesheet", href: CSSGlobal },
+      { rel: "stylesheet", href: CSSUtils },
+    ],
   }),
   component: RootComponent,
 });
@@ -38,7 +42,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         </div>
 
         {children}
-        <TanStackRouterDevtools position="bottom-right" />
+        {/* <TanStackRouterDevtools position="bottom-right" /> */}
         <Scripts />
       </body>
     </html>
