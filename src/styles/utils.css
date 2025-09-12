@@ -12,7 +12,7 @@
     --margin: minmax(0, 1fr);
     --gridSize: 48px;
     --columns: 12;
-    --gaps: 11;
+    --gaps: calc(var(--columns) - 1);
 
     --maxWidth: calc(
       ((var(--columns) + var(--gaps)) * var(--gridSize)) + var(--gridSize) * 4
@@ -29,7 +29,7 @@
       [bleedstart]
       var(--margin)
       [start]
-      repeat(12, var(--unit-size))
+      repeat(var(--columns), var(--unit-size))
       [end]
       var(--margin)
       [bleedend];
