@@ -10,6 +10,10 @@
   composes: h3 from global;
 }
 
+.h4 {
+  composes: h4 from global;
+}
+
 .body {
   composes: paragraph from global;
 }

@@ -124,18 +124,36 @@
   h2 {
     color: inherit;
     font-family: var(--font-judge-extended);
-    line-height: 1;
     margin-block-start: 2rlh;
     margin-block-end: 2rlh;
   }
 
   .h1 {
     font-size: var(--h1);
+    line-height: 1;
     letter-spacing: -0.02em;
   }
   .h2 {
     font-size: var(--h2);
+    line-height: 1;
     letter-spacing: -0.02em;
+  }
+  .h3 {
+    font-family: var(--font-judge);
+    font-size: var(--h3);
+    line-height: 1.2;
+    letter-spacing: 0;
+    margin-block-start: 2rlh;
+    margin-block-end: 1rlh;
+  }
+  .h4 {
+    font-family: var(--font-judge-extended);
+    text-transform: uppercase;
+    font-size: var(--h4);
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    margin-block-start: 2rlh;
+    margin-block-end: 1rlh;
   }
 
   p,
@@ -155,7 +173,6 @@
   }
 
   main {
-    text-align: center;
     margin: 0 auto;
   }
 }

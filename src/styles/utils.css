@@ -14,6 +14,14 @@
     flex-direction: row;
     gap: var(--gap);
     flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: var(--fg-border);
+    margin-block-start: 2rlh;
+    margin-block-end: 2rlh;
   }
 
   .grid-parent {
@@ -44,5 +52,67 @@
     & > * {
       grid-column: start / end;
     }
+  }
+}
+
+@layer spacing {
+  .py-1 {
+    padding-block-start: 1rlh;
+    padding-block-end: 1rlh;
+  }
+  .py-2 {
+    padding-block-start: 2rlh;
+    padding-block-end: 2rlh;
+  }
+  .py-3 {
+    padding-block-start: 3rlh;
+    padding-block-end: 3rlh;
+  }
+  .py-4 {
+    padding-block-start: 4rlh;
+    padding-block-end: 4rlh;
+  }
+
+  .my-1 {
+    margin-block-start: 1rlh;
+    margin-block-end: 1rlh;
+  }
+  .my-2 {
+    margin-block-start: 2rlh;
+    margin-block-end: 2rlh;
+  }
+  .my-3 {
+    margin-block-start: 3rlh;
+    margin-block-end: 3rlh;
+  }
+  .my-4 {
+    margin-block-start: 4rlh;
+    margin-block-end: 4rlh;
+  }
+
+  .mt-1 {
+    margin-block-start: 1rlh;
+  }
+  .mt-2 {
+    margin-block-start: 2rlh;
+  }
+  .mt-3 {
+    margin-block-start: 3rlh;
+  }
+  .mt-4 {
+    margin-block-start: 4rlh;
+  }
+
+  .mb-1 {
+    margin-block-end: 1rlh;
+  }
+  .mb-2 {
+    margin-block-end: 2rlh;
+  }
+  .mb-3 {
+    margin-block-end: 3rlh;
+  }
+  .mb-4 {
+    margin-block-end: 4rlh;
   }
 }
