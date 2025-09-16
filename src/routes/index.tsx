@@ -6,9 +6,34 @@ export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
+const css = {
+  page: /*css*/ `
+    @scope {
+      .subgrid {
+        display: grid;
+        grid-template-columns: subgrid;
+
+        .flex {
+          --gap: 0.5rlh;
+        }
+        .flex:nth-child(1) {
+          grid-column: start / 5;
+        }
+        .flex:nth-child(2) {
+          grid-column: 5 / 9;
+        }
+        .flex:nth-child(3) {
+          grid-column: 9 / end;
+        }
+      }
+    }
+  `,
+};
+
 function RouteComponent() {
   return (
     <main>
+      <style>{css.page}</style>
       <Hero theme="dark" />
       {/* <Hero
         theme="light"
@@ -33,36 +58,29 @@ function RouteComponent() {
           </Text.Body>
         </div>
         <Divider />
-        <div
-          className="flex"
-          style={{ gridColumn: "start / 6", "--gap": "0.5rlh" }}
-        >
-          <Text.H4>Performance</Text.H4>
-          <Text.Body>
-            Start tasks sub 35ms P95. Smart assignment rules handle rate limits,
-            fairness, and priorities without complex configuration.
-          </Text.Body>
-        </div>
-        <div
-          className="flex"
-          style={{ gridColumn: "6 / 10", "--gap": "0.5rlh" }}
-        >
-          <Text.H4>Performance</Text.H4>
-          <Text.Body>
-            Every task invocation is durably logged to PostgreSQL. When jobs
-            fail, resume exactly where you left off — no lost work, no duplicate
-            LLM calls, no engineer headaches.
-          </Text.Body>
-        </div>
-        <div
-          className="flex"
-          style={{ gridColumn: "10 / end", "--gap": "0.5rlh" }}
-        >
-          <Text.H4>Performance</Text.H4>
-          <Text.Body>
-            Hatchet SDKs are language native so developers can write business
-            logic as versionable, reusable, testable atomic functions.
-          </Text.Body>
+        <div className="subgrid">
+          <div className="flex">
+            <Text.H4>Performance</Text.H4>
+            <Text.Body>
+              Start tasks sub 35ms P95. Smart assignment rules handle rate
+              limits, fairness, and priorities without complex configuration.
+            </Text.Body>
+          </div>
+          <div className="flex">
+            <Text.H4>Performance</Text.H4>
+            <Text.Body>
+              Every task invocation is durably logged to PostgreSQL. When jobs
+              fail, resume exactly where you left off — no lost work, no
+              duplicate LLM calls, no engineer headaches.
+            </Text.Body>
+          </div>
+          <div className="flex">
+            <Text.H4>Performance</Text.H4>
+            <Text.Body>
+              Hatchet SDKs are language native so developers can write business
+              logic as versionable, reusable, testable atomic functions.
+            </Text.Body>
+          </div>
         </div>
         <Divider />
         <SVGLinearWave />

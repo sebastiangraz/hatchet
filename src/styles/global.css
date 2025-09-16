@@ -73,6 +73,7 @@
 }
 
 @layer theme {
+  /* Look into https://developer.chrome.com/docs/css-ui/at-scope */
   [data-theme="light"] {
     --bg: hsl(var(--cyan));
     --fg: hsl(var(--navy));
