@@ -3,49 +3,20 @@ import Hero from "~/components/Hero/Hero";
 import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import styles from "./index.module.css";
+import UI from "~/assets/ui.svg";
+
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
-const css = {
-  page: /*css*/ `
-    @scope {
-      .subgrid {
-        display: grid;
-        grid-template-columns: subgrid;
-
-        .flex {
-          --gap: 0.5rlh;
-          @media (--1) {
-            color: red;
-          }
-
-        }
-        .flex:nth-child(1) {
-          grid-column: start / 5;
-        }
-        .flex:nth-child(2) {
-          grid-column: 5 / 9;
-        }
-        .flex:nth-child(3) {
-          grid-column: 9 / end;
-        }
-      }
-    }
-  `,
-};
-
 function RouteComponent() {
   return (
     <main>
-      <style>{css.page}</style>
       <Hero theme="dark" />
-      <img src="~/assets/ui.svg" alt="UI" />
-      {/* <Hero
-        theme="light"
-        title="Light mode title"
-        description="Your stack for running background jobs"
-      /> */}
+      <Section theme="dark">
+        <img src={UI} alt="UI" className={styles.ui} />
+      </Section>
+
       <Section theme="light" className="py-4">
         <div className="flex" style={{ gridColumn: "start / 7" }}>
           <Text.H1>Core Principles</Text.H1>
@@ -73,7 +44,7 @@ function RouteComponent() {
             </Text.Body>
           </div>
           <div className="flex">
-            <Text.H4>Performance</Text.H4>
+            <Text.H4>Durability</Text.H4>
             <Text.Body>
               Every task invocation is durably logged to PostgreSQL. When jobs
               fail, resume exactly where you left off — no lost work, no
@@ -81,7 +52,7 @@ function RouteComponent() {
             </Text.Body>
           </div>
           <div className="flex">
-            <Text.H4>Performance</Text.H4>
+            <Text.H4>Code-First</Text.H4>
             <Text.Body>
               Hatchet SDKs are language native so developers can write business
               logic as versionable, reusable, testable atomic functions.

@@ -157,6 +157,12 @@
     margin-block-end: 1rlh;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+  }
+
   p,
   a {
     line-height: 2rlh;
