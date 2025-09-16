@@ -7,10 +7,40 @@ export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
+const css = {
+  page: /*css*/ `
+    @scope {
+      .subgrid {
+        display: grid;
+        grid-template-columns: subgrid;
+
+        .flex {
+          --gap: 0.5rlh;
+          @media (--1) {
+            color: red;
+          }
+
+        }
+        .flex:nth-child(1) {
+          grid-column: start / 5;
+        }
+        .flex:nth-child(2) {
+          grid-column: 5 / 9;
+        }
+        .flex:nth-child(3) {
+          grid-column: 9 / end;
+        }
+      }
+    }
+  `,
+};
+
 function RouteComponent() {
   return (
     <main>
+      <style>{css.page}</style>
       <Hero theme="dark" />
+      <img src="~/assets/ui.svg" alt="UI" />
       {/* <Hero
         theme="light"
         title="Light mode title"

@@ -45,3 +45,4 @@ export const getCurrentBreakpoint = (): string => {
  * Type-safe media query keys
  */
 export type MediaQueryKey = keyof typeof mediaQueries;
+

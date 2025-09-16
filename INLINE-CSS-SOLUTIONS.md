@@ -196,3 +196,4 @@ All solutions are demonstrated in the following files:
 - `src/routes/index-with-plugin.tsx` - Vite plugin approach
 
 Choose the approach that best fits your project's architecture and requirements!
+
