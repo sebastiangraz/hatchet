@@ -2,38 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import Hero from "~/components/Hero/Hero";
 import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
+import styles from "./index.module.css";
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
-const css = {
-  page: /*css*/ `
-    @scope {
-      .subgrid {
-        display: grid;
-        grid-template-columns: subgrid;
-
-        .flex {
-          --gap: 0.5rlh;
-        }
-        .flex:nth-child(1) {
-          grid-column: start / 5;
-        }
-        .flex:nth-child(2) {
-          grid-column: 5 / 9;
-        }
-        .flex:nth-child(3) {
-          grid-column: 9 / end;
-        }
-      }
-    }
-  `,
-};
-
 function RouteComponent() {
   return (
     <main>
-      <style>{css.page}</style>
       <Hero theme="dark" />
       {/* <Hero
         theme="light"
@@ -58,7 +34,7 @@ function RouteComponent() {
           </Text.Body>
         </div>
         <Divider />
-        <div className="subgrid">
+        <div className={styles.subgrid}>
           <div className="flex">
             <Text.H4>Performance</Text.H4>
             <Text.Body>
