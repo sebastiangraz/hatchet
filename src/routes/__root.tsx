@@ -11,6 +11,7 @@ import {
 import CSSGlobal from "~/styles/global.css?url";
 import CSSUtils from "~/styles/utils.css?url";
 import { Nav } from "~/components/Nav/Nav";
+import Favicon from "~/assets/favicon.svg";
 
 export const Route = createRootRoute({
   // head: () => ({
@@ -33,6 +34,7 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: CSSGlobal },
       { rel: "stylesheet", href: CSSUtils },
+      { rel: "icon", href: Favicon },
     ],
   }),
   component: RootComponent,
