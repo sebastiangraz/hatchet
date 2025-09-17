@@ -20,6 +20,16 @@ export const Route = createRootRoute({
   //   ],
   // }),
   head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+      { title: "Hatchet" },
+      {
+        name: "description",
+        content:
+          "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting. Instead of managing your own task queue or pub/sub system, you can use Hatchet to distribute your functions between a set of workers with minimal configuration or infrastructure.",
+      },
+    ],
     links: [
       { rel: "stylesheet", href: CSSGlobal },
       { rel: "stylesheet", href: CSSUtils },
