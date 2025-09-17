@@ -3,6 +3,7 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import styles from "./customers.module.css";
+import { getPrevPathFromExtension } from "~/utils";
 
 export const Route = createFileRoute("/customers/")({
   component: RouteComponent,
@@ -75,37 +76,3 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
     </div>
   );
 };
-
-export function getPrevPathFromExtension(path: string, extension = ".mdx") {
-  const regex = new RegExp(`/[^/]+${extension}$`);
-  const match = path.match(regex);
-  return match
-    ? path.slice(
-        path.lastIndexOf("/", path.length - match[0].length - 1) + 1,
-        path.length - match[0].length
-      )
-    : "";
-}
-
-// const CaseStudyCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
-//   return (
-//     <div>
-//       <Text.Small brackets className={styles.company}>
-//         {caseStudy.company}
-//       </Text.Small>
-//       <Text.Small brackets className={styles.industry}>
-//         {caseStudy.industry}
-//       </Text.Small>
-//       <Text.H4>{caseStudy.title}</Text.H4>
-//       <Text.Body>{caseStudy.description}</Text.Body>
-//       <Button
-//         to={`/customers/${caseStudy.id}`}
-//         type="primary"
-//         className={styles["read-more-btn"]}
-//         theme="dark"
-//       >
-//         Read Case Study
-//       </Button>
-//     </div>
-//   );
-// };

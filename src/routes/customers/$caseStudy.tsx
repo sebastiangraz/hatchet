@@ -52,9 +52,13 @@ function RouteComponent() {
           <Text.Small brackets className="industry">
             {industry}
           </Text.Small>
-          <Text.H1 balance>{title}</Text.H1>
-          <Text.Body balance>{description}</Text.Body>
         </div>
+        <Text.H1 balance>{title}</Text.H1>
+        <Text.Body balance>{description}</Text.Body>
+        <div
+          className="divider"
+          style={{ gridColumn: "bleedstart / bleedend" }}
+        />
       </Section>
 
       <Section theme="dark">

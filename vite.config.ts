@@ -7,7 +7,7 @@ import viteReact from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-
+import remarkgfm from "remark-gfm";
 export default defineConfig({
   server: {
     port: 3000,
@@ -17,7 +17,8 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     mdx({
-      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkgfm],
+      providerImportSource: "@mdx-js/react",
     }),
     tanstackStart({
       customViteReactPlugin: true,
