@@ -5,6 +5,8 @@ import postcssGlobalData from "@csstools/postcss-global-data";
 import postcssPresetEnv from "postcss-preset-env";
 import viteReact from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 export default defineConfig({
   server: {
@@ -14,7 +16,9 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    mdx(),
+    mdx({
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+    }),
     tanstackStart({
       customViteReactPlugin: true,
     }),

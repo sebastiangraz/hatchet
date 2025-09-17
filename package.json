@@ -17,6 +17,8 @@
     "@types/mdx": "^2.0.13",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx-frontmatter": "^5.2.0",
     "zod": "^4.1.8"
   },
   "devDependencies": {

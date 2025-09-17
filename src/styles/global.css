@@ -25,6 +25,29 @@
   src: url("./fonts/F37Judge-Regular.woff2");
 }
 
+@font-face {
+  font-family: "dm-mono";
+  font-weight: 400;
+  src: url("./fonts/dm-mono-regular.woff2");
+}
+@font-face {
+  font-family: "dm-mono";
+  font-weight: 400;
+  font-style: italic;
+  src: url("./fonts/dm-mono-regular-italic.woff2");
+}
+@font-face {
+  font-family: "dm-mono";
+  font-weight: 500;
+  src: url("./fonts/dm-mono-medium.woff2");
+}
+@font-face {
+  font-family: "dm-mono";
+  font-weight: 500;
+  font-style: italic;
+  src: url("./fonts/dm-mono-medium-italic.woff2");
+}
+
 @custom-media --1 (min-width: 38em);
 @custom-media --2 (min-width: 68em);
 @custom-media --3 (min-width: 90em);
@@ -69,7 +92,7 @@
   --font-martina: "martina", serif;
   --font-judge-extended: "judge-extended", sans-serif;
   --font-judge: "judge", sans-serif;
-  --font-mono: "mono", monospace;
+  --font-mono: "dm-mono", monospace;
 }
 
 @layer theme {
@@ -160,7 +183,7 @@
     font-weight: 500;
     font-size: var(--small);
     line-height: 1.2;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
   }
 
   img {
