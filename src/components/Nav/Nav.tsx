@@ -12,6 +12,7 @@ export const Nav = () => {
         <menu className={styles.menu}>
           <Link to="/">Index</Link>
           <Link to="/about">About</Link>
+          <Link to="/customers">Customers</Link>
         </menu>
       </div>
     </nav>

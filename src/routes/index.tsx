@@ -34,7 +34,10 @@ function RouteComponent() {
             consolidate background task infrastructure and simplify operations.
           </Text.Body>
         </div>
-        <Divider />
+        <div
+          className="divider"
+          style={{ gridColumn: "bleedstart / bleedend" }}
+        />
         <div className={styles.subgrid}>
           <div className="flex">
             <Text.H4>Performance</Text.H4>
@@ -59,18 +62,15 @@ function RouteComponent() {
             </Text.Body>
           </div>
         </div>
-        <Divider />
+        <div
+          className="divider"
+          style={{ gridColumn: "bleedstart / bleedend" }}
+        />
         <SVGLinearWave />
       </Section>
     </main>
   );
 }
-
-const Divider = () => {
-  return (
-    <div className="divider" style={{ gridColumn: "bleedstart / bleedend" }} />
-  );
-};
 
 const SVGLinearWave = () => {
   return (

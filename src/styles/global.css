@@ -122,19 +122,21 @@
   }
 
   h1,
-  h2 {
+  h2,
+  h3,
+  h4 {
     color: inherit;
-    font-family: var(--font-judge-extended);
-    margin-block-start: 2rlh;
-    margin-block-end: 2rlh;
+    margin: 0;
   }
 
   .h1 {
+    font-family: var(--font-judge-extended);
     font-size: var(--h1);
     line-height: 1;
     letter-spacing: -0.02em;
   }
   .h2 {
+    font-family: var(--font-judge-extended);
     font-size: var(--h2);
     line-height: 1;
     letter-spacing: -0.02em;
@@ -144,17 +146,21 @@
     font-size: var(--h3);
     line-height: 1.2;
     letter-spacing: 0;
-    margin-block-start: 2rlh;
-    margin-block-end: 1rlh;
   }
   .h4 {
     font-family: var(--font-judge-extended);
     text-transform: uppercase;
     font-size: var(--h4);
     line-height: 1.2;
-    letter-spacing: 0.16em;
-    margin-block-start: 2rlh;
-    margin-block-end: 1rlh;
+    letter-spacing: 0.11em;
+  }
+  .small {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: var(--small);
+    line-height: 1.2;
+    letter-spacing: 0.12em;
   }
 
   img {
@@ -170,7 +176,6 @@
   }
 
   a {
-    margin-right: 1rem;
     color: inherit;
     text-decoration-color: var(--fg-tertiary);
     &:hover {

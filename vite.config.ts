@@ -4,6 +4,7 @@ import tsConfigPaths from "vite-tsconfig-paths";
 import postcssGlobalData from "@csstools/postcss-global-data";
 import postcssPresetEnv from "postcss-preset-env";
 import viteReact from "@vitejs/plugin-react";
+import mdx from "@mdx-js/rollup";
 
 export default defineConfig({
   server: {
@@ -13,6 +14,7 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
+    mdx(),
     tanstackStart({
       customViteReactPlugin: true,
     }),

@@ -7,6 +7,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   as?: React.ElementType;
   variant?: keyof typeof styles;
   balance?: boolean;
+  brackets?: boolean;
   secondary?: boolean;
 }
 
@@ -18,6 +19,7 @@ const TextBase = React.forwardRef<HTMLElement, TextProps>(
       as: Component = "span",
       variant,
       balance,
+      brackets,
       secondary,
       ...props
     },
@@ -28,6 +30,7 @@ const TextBase = React.forwardRef<HTMLElement, TextProps>(
       className || "",
       balance ? styles.balance : "",
       secondary ? styles.secondary : "",
+      brackets ? styles.brackets : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -64,7 +67,6 @@ Text.H6 = createStyledText("h6", "h6");
 Text.Body = createStyledText("body", "p");
 Text.Small = createStyledText("small", "span");
 Text.Caps = createStyledText("caps", "span");
-Text.SmallCaps = createStyledText("smallCaps", "span");
 
 export { Text };
 
@@ -78,4 +80,3 @@ Text.H6.displayName = "Text.H6";
 Text.Body.displayName = "Text.Body";
 Text.Small.displayName = "Text.Small";
 Text.Caps.displayName = "Text.Caps";
-Text.SmallCaps.displayName = "Text.SmallCaps";

@@ -26,6 +26,10 @@
   composes: caps from global;
 }
 
+.brackets {
+  composes: brackets from global;
+}
+
 .balance {
   text-wrap: balance;
 }
