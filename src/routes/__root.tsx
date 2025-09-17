@@ -14,12 +14,6 @@ import { Nav } from "~/components/Nav/Nav";
 import Favicon from "~/assets/favicon.svg";
 
 export const Route = createRootRoute({
-  // head: () => ({
-  //   links: [
-  //     { rel: "stylesheet", href: CSSGlobal },
-  //     { rel: "stylesheet", href: CSSUtils },
-  //   ],
-  // }),
   head: () => ({
     meta: [
       { charSet: "utf-8" },

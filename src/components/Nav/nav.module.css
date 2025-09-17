@@ -1,5 +1,6 @@
 .nav {
   composes: grid-parent from global;
+  view-transition-name: main-navigation;
 }
 .wrapper {
   display: flex;
@@ -14,4 +15,5 @@
 }
 .logo {
   display: flex;
+  view-transition-name: site-logo;
 }

@@ -10,6 +10,7 @@ export function createRouter() {
     defaultErrorComponent: (err) => <p>{err.error.stack}</p>,
     defaultNotFoundComponent: () => <p>not found</p>,
     scrollRestoration: true,
+    defaultViewTransition: true,
   });
 
   return router;
