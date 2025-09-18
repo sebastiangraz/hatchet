@@ -4,7 +4,9 @@ import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import { caseStudies } from "../customers";
 import { Markdown } from "~/components/Markdown/Markdown";
-import styles from "~/components/Markdown/markdown.module.css";
+import markdownStyles from "~/components/Markdown/markdown.module.css";
+import styles from "./customers.module.css";
+
 const PostErrorComponent = () => {
   return <p>Post not found</p>;
 };
@@ -46,23 +48,25 @@ function RouteComponent() {
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
         />
-        <div className="flex">
-          <Text.Small brackets className="company">
-            {company}
-          </Text.Small>
+        <div className={styles.caseStudyHeader}>
           <Text.Small brackets className="industry">
             {industry}
           </Text.Small>
+          <Text.H1 balance>{title}</Text.H1>
+          <Text.Body balance>{description}</Text.Body>{" "}
         </div>
-        <Text.H1 balance>{title}</Text.H1>
-        <Text.Body balance>{description}</Text.Body>
         <div
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
         />
+        <div className={styles.caseStudyHeader}>
+          <Text.Small brackets className="company">
+            {company}
+          </Text.Small>
+        </div>
       </Section>
 
-      <Section className={styles.prose}>
+      <Section className={markdownStyles.prose}>
         {Content ? (
           <Markdown>
             <Content />

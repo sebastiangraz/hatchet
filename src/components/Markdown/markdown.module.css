@@ -100,29 +100,6 @@
     overflow-x: auto;
   }
 
-  > aside {
-    display: grid;
-    grid-column: start / end;
-    height: auto;
-    grid-row: span 1;
-    gap: 0.5em 0;
-    color: var(--fg);
-    font-size: var(--body-small);
-    & * {
-      color: inherit;
-      font-size: inherit;
-    }
-    @media (--sm) {
-      grid-column: 8 / end;
-    }
-    @media (--md) {
-      grid-column: 20 / end;
-    }
-    @media (--lg) {
-      height: 1ch;
-    }
-  }
-
   :global .footnotes {
     grid-column: start / end;
     padding-top: 0.5em;

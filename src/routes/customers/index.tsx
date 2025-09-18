@@ -47,7 +47,7 @@ function RouteComponent() {
       </Section>
 
       <Section theme="light" className="py-4">
-        <div className={styles["case-studies-grid"]}>
+        <div className={styles.caseStudiesGrid}>
           {caseStudies.map((caseStudy) => (
             <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
           ))}

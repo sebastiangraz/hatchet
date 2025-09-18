@@ -1,4 +1,4 @@
-.case-studies-grid {
+.caseStudiesGrid {
   display: grid;
   grid-template-columns: subgrid;
   gap: 2rem;
@@ -7,5 +7,16 @@
     flex-direction: column;
     gap: 0.5rlh;
     grid-column: span 6;
+  }
+}
+.caseStudyHeader {
+  grid-column: start / end;
+  display: grid;
+  gap: 1rlh;
+  @media (--1) {
+    grid-column: 3 / span 10;
+  }
+  @media (--2) {
+    grid-column: 4 / span 8;
   }
 }

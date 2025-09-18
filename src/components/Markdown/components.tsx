@@ -21,11 +21,6 @@ export const components = {
       {props.children}
     </Text.Body>
   ),
-  aside: (props: any) => (
-    <p className={`aside ${style.aside}`} {...props}>
-      {props.children}
-    </p>
-  ),
   blockquote: (props: any) => (
     <div className={`blockquote ${style.blockquote}`}>
       {/* <Icon
@@ -62,15 +57,15 @@ export const components = {
   img: (props: any) => {
     return <img className={`${style.image}`} {...props}></img>;
   },
-  Button: Button,
-  Section: (props: any) => (
-    <Section {...props} className={`${styles.prose} py-4`} />
-  ),
   ul: (props: any) => <ul {...props}></ul>,
   ol: (props: any) => <ol {...props}></ol>,
   li: (props: any) => (
     <li {...props}>
       <Text.Body secondary>{props.children}</Text.Body>
     </li>
+  ),
+  Button: Button,
+  Section: (props: any) => (
+    <Section {...props} className={`${styles.prose} py-4`} />
   ),
 };
