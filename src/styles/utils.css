@@ -1,10 +1,11 @@
 @layer utils {
   .checker {
+    /* font-size: clamp(0rem, 0rem + 1.2346vw, 1rem); */
     background-image:
       linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
       linear-gradient(var(--fg-border) 1px, transparent 1px);
-    background-size: 1.75rlh 1.75rlh;
-    background-repeat: round;
+    background-size: 2rlh 2rlh;
+    /* background-repeat: round; */
     background-position: 0px 0px;
   }
 

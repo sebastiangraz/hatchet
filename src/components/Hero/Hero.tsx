@@ -22,6 +22,7 @@ export const Hero = (props: HeroProps) => {
   return (
     <Section data-theme={themeValue} className={styles.hero}>
       <Text.H1 balance>{title}</Text.H1>
+
       <Text.Body balance> {description} </Text.Body>
       <div className="flex">
         <Button href="/pricing">Start for free</Button>
