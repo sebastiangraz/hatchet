@@ -1,6 +1,6 @@
 .button {
-  background-color: var(--bg);
-  color: var(--fg);
+  background-color: var(--fg);
+  color: var(--bg);
   grid-auto-rows: 1.25em;
   text-transform: uppercase;
   display: inline-grid;
@@ -21,17 +21,17 @@
   white-space: nowrap;
   &:hover {
     text-decoration: none;
-    background-color: var(--bg-dark);
-    color: var(--fg-dark);
+    background-color: var(--fg-dark);
+    color: var(--bg-dark);
   }
 }
-.small {
+/* .small {
   padding: 0 1rlh;
-}
-.default {
+} */
+/* .default {
   font-size: var(--small);
-}
-.primary {
-  /* background-color: var(--bg);
-  color: var(--fg); */
+} */
+.secondary {
+  background-color: var(--bg);
+  color: var(--fg);
 }

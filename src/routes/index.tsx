@@ -4,6 +4,7 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import styles from "./index.module.css";
 import UI from "~/assets/ui.svg";
+import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -11,9 +12,9 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
   return (
-    <main>
-      <Hero theme="dark" />
-      <Section theme="dark">
+    <>
+      <Hero />
+      <Section>
         <img src={UI} alt="UI" className={styles.ui} />
       </Section>
 
@@ -33,6 +34,7 @@ function RouteComponent() {
             performance profiles for use cases across your stack so you can
             consolidate background task infrastructure and simplify operations.
           </Text.Body>
+          <Button href="/pricing">Start for free</Button>
         </div>
         <div
           className="divider"
@@ -68,7 +70,7 @@ function RouteComponent() {
         />
         <SVGLinearWave />
       </Section>
-    </main>
+    </>
   );
 }
 

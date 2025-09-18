@@ -33,6 +33,15 @@
   }
 }
 
+/* @scope (.prose) {
+  :scope {
+    background-color: green;
+  }
+  .prose {
+    background-color: red;
+  }
+} */
+
 .prose {
   display: grid;
   row-gap: 2rem;

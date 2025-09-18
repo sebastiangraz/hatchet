@@ -10,9 +10,9 @@ export const Nav = () => {
           <Logo />
         </Link>
         <menu className={styles.menu}>
-          <Link to="/">Index</Link>
-          <Link to="/about">About</Link>
+          <Link to="/">Home</Link>
           <Link to="/customers">Customers</Link>
+          <Link to="/pricing">Pricing</Link>
         </menu>
       </div>
     </nav>

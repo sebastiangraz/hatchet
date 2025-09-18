@@ -34,8 +34,8 @@ export const caseStudies = globObjects.map(([url, module]): CaseStudy => {
 
 function RouteComponent() {
   return (
-    <main>
-      <Section theme="dark" className="py-4">
+    <>
+      <Section className="py-4">
         <div className="flex" style={{ gridColumn: "start / end" }}>
           <Text.H1>Customers</Text.H1>
           <Text.Body balance>
@@ -53,7 +53,7 @@ function RouteComponent() {
           ))}
         </div>
       </Section>
-    </main>
+    </>
   );
 }
 
@@ -70,9 +70,7 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
       </Text.Small>
       <Text.H3 balance>{frontmatter.title}</Text.H3>
       <Text.Body>{frontmatter.description}</Text.Body>
-      <Button to={`/customers/${slug}`} type="primary" theme="dark">
-        Read
-      </Button>
+      <Button to={`/customers/${slug}`}>Read</Button>
     </div>
   );
 };

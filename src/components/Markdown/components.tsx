@@ -4,6 +4,7 @@ import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import { Section } from "~/components/Section/Section";
 import { isArrayofObjects } from "~/utils";
+import styles from "./markdown.module.css";
 
 export const components = {
   h1: (props: any) => (
@@ -62,5 +63,5 @@ export const components = {
     return <img className={`${style.image}`} {...props}></img>;
   },
   Button: Button,
-  Section: Section,
+  Section: (props: any) => <Section {...props} className={styles.prose} />,
 };

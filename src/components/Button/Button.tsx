@@ -3,7 +3,7 @@ import { theme } from "~/types";
 import { Link } from "@tanstack/react-router";
 import styles from "./button.module.css";
 interface ButtonProps {
-  type?: "primary" | "secondary";
+  type?: "default" | "secondary";
   size?: "default" | "small";
   onClick?: () => void;
   children: React.ReactNode;
@@ -11,27 +11,26 @@ interface ButtonProps {
   href?: string;
   target?: string;
   to?: string;
-  theme?: theme;
 }
 
 export const Button = (props: ButtonProps) => {
   const {
-    type = "primary",
+    type = "default",
     size = "default",
     onClick,
     children,
     href,
     target,
     to,
-    theme = "light",
     ...rest
   } = props;
   const ref = useRef<HTMLDivElement>(null);
   const destination = href ? href : to;
-  const typeValue = type === "primary" ? styles.primary : styles.secondary;
+  const typeValue = type === "default" ? "" : styles.secondary;
   const sizeValue = size === "small" ? styles.small : "";
   const className = rest.className ? rest.className : "";
-  const buttonStyle = `${styles.button} ${typeValue} ${sizeValue} ${className} `;
+  const buttonStyle =
+    `${styles.button} ${typeValue} ${sizeValue} ${className}`.trim();
   return (
     <div ref={ref}>
       <Link
@@ -41,7 +40,6 @@ export const Button = (props: ButtonProps) => {
         href={href}
         target={target}
         to={destination}
-        data-theme={theme}
       >
         {children}
       </Link>

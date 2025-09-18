@@ -10,10 +10,12 @@ interface SectionProps {
 
 export const Section = (props: SectionProps) => {
   const { children, className, theme, ...rest } = props;
+  const themeValue = theme ? theme : "";
+
   return (
     <section
       className={`${styles.section} ${className}`}
-      data-theme={theme}
+      data-theme={themeValue}
       {...rest}
     >
       {children}

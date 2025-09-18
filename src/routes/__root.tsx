@@ -8,11 +8,17 @@ import {
   Outlet,
   Scripts,
   createRootRoute,
+  useChildMatches,
 } from "@tanstack/react-router";
 import CSSGlobal from "~/styles/global.css?url";
 import CSSUtils from "~/styles/utils.css?url";
 import { Nav } from "~/components/Nav/Nav";
 import Favicon from "~/assets/favicon.svg";
+import { theme } from "~/types";
+
+interface RootContext {
+  theme?: theme;
+}
 
 export const Route = createRootRoute({
   head: () => ({
@@ -32,6 +38,9 @@ export const Route = createRootRoute({
       { rel: "icon", href: Favicon },
     ],
   }),
+  context: (): RootContext => ({
+    theme: "dark", // default theme
+  }),
   component: RootComponent,
 });
 
@@ -44,18 +53,21 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  console.log(children);
+  const childMatches = useChildMatches();
+
+  // Get the leaf-most (current) route's context
+  const currentContext = childMatches[childMatches.length - 1]
+    ?.context as RootContext;
+  const theme = currentContext?.theme || "dark";
+  console.log("Theme:", theme);
   return (
     <html>
       <head>
         <HeadContent />
       </head>
-      <body>
-        {/* TODO: add dynamic theme to the Layout tag */}
-        <Layout>
-          <Nav />
-          {children}
-        </Layout>
+      <body data-theme={theme}>
+        <Nav />
+        <Layout>{children}</Layout>
         {/* <TanStackRouterDevtools position="bottom-right" /> */}
         <Scripts />
       </body>

@@ -4,7 +4,7 @@ import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import { caseStudies } from "../customers";
 import { Markdown } from "~/components/Markdown/Markdown";
-
+import styles from "~/components/Markdown/markdown.module.css";
 const PostErrorComponent = () => {
   return <p>Post not found</p>;
 };
@@ -36,11 +36,12 @@ function RouteComponent() {
   const { company, industry, title, description } = frontmatter;
 
   return (
-    <main>
-      <Section theme="dark" className="py-4">
+    <>
+      <Section className="py-4">
         <Button to="/customers" type="secondary">
           ← Back to Case Studies
         </Button>
+
         <div
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
@@ -61,7 +62,7 @@ function RouteComponent() {
         />
       </Section>
 
-      <Section theme="dark">
+      <Section className={styles.prose}>
         {Content ? (
           <Markdown>
             <Content />
@@ -70,6 +71,6 @@ function RouteComponent() {
           <Text.Body>Case study content not found.</Text.Body>
         )}
       </Section>
-    </main>
+    </>
   );
 }
