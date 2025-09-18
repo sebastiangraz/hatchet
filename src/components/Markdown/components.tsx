@@ -63,5 +63,14 @@ export const components = {
     return <img className={`${style.image}`} {...props}></img>;
   },
   Button: Button,
-  Section: (props: any) => <Section {...props} className={styles.prose} />,
+  Section: (props: any) => (
+    <Section {...props} className={`${styles.prose} py-4`} />
+  ),
+  ul: (props: any) => <ul {...props}></ul>,
+  ol: (props: any) => <ol {...props}></ol>,
+  li: (props: any) => (
+    <li {...props}>
+      <Text.Body secondary>{props.children}</Text.Body>
+    </li>
+  ),
 };

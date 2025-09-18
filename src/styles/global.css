@@ -66,7 +66,7 @@
   --fg-dark: hsl(var(--cyan-dark));
   --accent: hsl(var(--blue));
 
-  --fg-secondary: hsl(var(--cyan) / var(--opacity-6));
+  --fg-secondary: hsl(var(--cyan) / var(--opacity-7));
   --fg-tertiary: hsl(var(--cyan) / var(--opacity-5));
   --fg-border: hsl(var(--cyan) / var(--opacity-2));
 
@@ -102,7 +102,7 @@
     --fg: hsl(var(--navy));
     --bg-dark: hsl(var(--cyan-dark));
     --fg-dark: hsl(var(--navy-dark));
-    --fg-secondary: hsl(var(--navy) / var(--opacity-6));
+    --fg-secondary: hsl(var(--navy) / var(--opacity-7));
     --fg-tertiary: hsl(var(--navy) / var(--opacity-5));
     --fg-border: hsl(var(--navy) / var(--opacity-2));
   }
@@ -111,7 +111,7 @@
     --fg: hsl(var(--cyan));
     --bg-dark: hsl(var(--navy-dark));
     --fg-dark: hsl(var(--cyan-dark));
-    --fg-secondary: hsl(var(--cyan) / var(--opacity-6));
+    --fg-secondary: hsl(var(--cyan) / var(--opacity-7));
     --fg-tertiary: hsl(var(--cyan) / var(--opacity-5));
     --fg-border: hsl(var(--cyan) / var(--opacity-2));
   }
@@ -204,6 +204,11 @@
     line-height: 1.2;
     letter-spacing: 0.11em;
   }
+  .paragraph {
+    font-family: var(--font-martina);
+    font-size: var(--body);
+    line-height: 2rlh;
+  }
   .small {
     font-family: var(--font-mono);
     text-transform: uppercase;
@@ -280,10 +285,12 @@
 
   li {
     margin-left: 1rlh;
-    margin-bottom: 1rlh;
+    margin-bottom: 0.25rlh;
+    padding-left: 0.5rlh;
     color: var(--fg);
-    &:has(ul) > * {
-      margin-bottom: 1rlh;
+
+    &::marker {
+      content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuNzUgMTIuMDAwNUg1LjI1VjkuMDAwNDlINi43NVYxMi4wMDA1Wk0xMC43NzM0IDIuMjg3Nkw3LjgxMDU1IDUuMjUwNDlIMTJWNi43NTA0OUg3LjgxMDU1TDEwLjc3MjUgOS43MTI0TDkuNzExOTEgMTAuNzcyOUw2IDcuMDYxMDRMMi4yODgwOSAxMC43NzI5TDEuMjI3NTQgOS43MTI0TDQuMTg5NDUgNi43NTA0OUgwVjUuMjUwNDlINC4xODk0NUwxLjIyNjU2IDIuMjg3NkwyLjI4NzExIDEuMjI3MDVMNiA0LjkzOTk0TDkuNzEyODkgMS4yMjcwNUwxMC43NzM0IDIuMjg3NlpNNi43NSAzLjAwMDQ5SDUuMjVWMC4wMDA0ODgyODFINi43NVYzLjAwMDQ5WiIgZmlsbD0iIzQxOEZFQSIvPgo8L3N2Zz4K");
     }
   }
 
