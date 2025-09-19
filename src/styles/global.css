@@ -88,6 +88,7 @@
   --h3: clamp(2rem, 1.7159rem + 1.1364vw, 2.5rem);
   --body: clamp(1rem, 0.929rem + 0.2841vw, 1.125rem);
   --small: clamp(0.6875rem, 0.581rem + 0.4261vw, 0.875rem);
+  --scalefactor: clamp(0.75rem, 0.6384rem + 0.4464vw, 1rem);
 
   --font-martina: "martina", serif;
   --font-judge-extended: "judge-extended", sans-serif;
@@ -118,7 +119,7 @@
 }
 
 :root {
-  line-height: clamp(0.75rem, 0.75rem + 0.3086vw, 1rem);
+  line-height: var(--scalefactor);
   interpolate-size: allow-keywords;
   /* font-size: var(--small); */
 }
