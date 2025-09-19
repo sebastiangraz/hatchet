@@ -1,7 +1,31 @@
 .nav {
   composes: grid-parent from global;
+  min-height: 4rlh;
   view-transition-name: main-navigation;
 }
+
+.navItem {
+  text-decoration: none;
+  color: inherit;
+  composes: small from global;
+  composes: caps from global;
+  font-family: var(--font-judge-extended);
+  user-select: none;
+  transition: color 0.2s ease;
+  &:hover {
+    text-decoration: none;
+    color: var(--fg-secondary);
+  }
+  &:global(.active) {
+    pointer-events: none;
+    color: color-mix(
+      in srgb,
+      var(--fg-border) calc(100% * var(--opacity-6)),
+      var(--fg)
+    );
+  }
+}
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;

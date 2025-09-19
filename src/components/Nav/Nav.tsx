@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "~/components/Logo/Logo";
+import { Text } from "~/components/Text/Text";
 import styles from "./nav.module.css";
 
 export const Nav = () => {
@@ -10,11 +11,25 @@ export const Nav = () => {
           <Logo />
         </Link>
         <menu className={styles.menu}>
-          <Link to="/">Home</Link>
-          <Link to="/customers">Customers</Link>
-          <Link to="/pricing">Pricing</Link>
+          <NavItem to="/">Home</NavItem>
+          <NavItem to="/customers">Customers</NavItem>
+          <NavItem to="/pricing">Pricing</NavItem>
         </menu>
       </div>
     </nav>
+  );
+};
+
+const NavItem = ({
+  children,
+  to,
+}: {
+  children: React.ReactNode;
+  to: string;
+}) => {
+  return (
+    <Link to={to} className={styles.navItem}>
+      {children}
+    </Link>
   );
 };
