@@ -119,6 +119,7 @@
 
 :root {
   line-height: clamp(0.75rem, 0.75rem + 0.3086vw, 1rem);
+  interpolate-size: allow-keywords;
   /* font-size: var(--small); */
 }
 

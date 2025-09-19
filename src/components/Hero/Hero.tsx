@@ -26,7 +26,7 @@ export const Hero = (props: HeroProps) => {
       <Text.Body balance> {description} </Text.Body>
       <div className="flex">
         <Button href="/pricing">Start for free</Button>
-        <Button type="secondary">Documentation</Button>
+        <Button type="secondary">Docs</Button>
       </div>
     </Section>
   );

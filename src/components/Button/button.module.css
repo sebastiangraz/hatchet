@@ -10,7 +10,8 @@
   place-self: start;
   transition: background 0.2s ease;
   min-height: 2rlh;
-  padding: 0 1.5rlh;
+  min-width: calc-size(calc-size(min-content, size), round(size, 2rlh) + 2rlh);
+  padding: 0 1rlh;
   margin: 0;
   font-family: var(--font-judge-extended);
   font-size: var(--small);

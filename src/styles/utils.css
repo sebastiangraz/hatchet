@@ -6,7 +6,7 @@
       linear-gradient(var(--fg-border) 1px, transparent 1px);
     background-size: 2rlh 2rlh;
     /* background-repeat: round; */
-    background-position: 0px 0px;
+    background-position: center 0px;
   }
 
   .flex {
