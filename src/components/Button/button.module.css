@@ -30,4 +30,9 @@
 .secondary {
   background-color: var(--bg);
   color: var(--fg);
+  &:hover {
+    text-decoration: none;
+    background-color: var(--bg-dark);
+    color: var(--fg-dark);
+  }
 }
