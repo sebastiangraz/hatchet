@@ -13,7 +13,15 @@ const formatProps = (props: any, ignoreProps: string[]): React.ReactNode => {
   const filteredProps = Object.entries(props)
     .filter(([key]) => !ignoreProps.includes(key)) // Filter out ignored props
     .map(([key, value]: [string, any]) => {
-      return <span key={key}>{value.toString()}</span>;
+      return (
+        <span key={key}>
+          <Text.Small children={`${key}="`} />
+          <span className={style.highlight}>
+            <Text.Small children={value.toString()} />
+          </span>
+          "
+        </span>
+      );
     });
 
   return (

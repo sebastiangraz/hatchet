@@ -40,12 +40,13 @@
   font-family: var(--font-mono);
   box-shadow: 1px -1px 0px 0px var(--fg-border);
   padding: 0.5em 0.75em;
-  /* border-radius: var(--radius); */
   place-self: start end;
   position: relative;
   inset: 1px 0px 0px -1px;
   max-width: calc(100% - 1em);
-  /* width: 100%; */
   overflow: clip;
   white-space: nowrap;
+  & .highlight {
+    color: var(--fg);
+  }
 }
