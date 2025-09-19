@@ -29,16 +29,18 @@ export const Button = (props: ButtonProps) => {
   const buttonStyle = `${styles.button} ${typeValue} ${className}`.trim();
   return (
     <div ref={ref}>
-      <Link
-        {...rest}
-        className={buttonStyle}
-        onClick={onClick}
-        href={href}
-        target={target}
-        to={destination}
-      >
-        {children}
-      </Link>
+      <div className={styles.buttonWrapper}>
+        <Link
+          {...rest}
+          className={buttonStyle}
+          onClick={onClick}
+          href={href}
+          target={target}
+          to={destination}
+        >
+          {children}
+        </Link>
+      </div>
     </div>
   );
 };

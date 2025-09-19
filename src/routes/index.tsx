@@ -35,6 +35,7 @@ function RouteComponent() {
             consolidate background task infrastructure and simplify operations.
           </Text.Body>
           <Button href="/pricing">Start for free</Button>
+          <Button type="secondary">Docs</Button>
         </div>
         <div
           className="divider"

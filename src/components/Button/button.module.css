@@ -2,37 +2,98 @@
   composes: small from global;
   composes: mono from global;
   composes: caps from global;
-  font-family: var(--font-judge-extended);
-  text-decoration: none;
-  background-color: var(--fg);
-  color: var(--bg);
-  grid-auto-rows: 1.25em;
-  display: inline-grid;
-  align-items: center;
+  position: relative;
+
+  grid-template-areas: "before content";
+  grid-template-columns: auto 1fr;
+  display: grid;
+  gap: 1rlh;
+
+  justify-items: stretch;
+  justify-content: space-between;
   align-content: center;
-  justify-content: center;
+  align-items: center;
   place-self: start;
-  transition: background 0.2s ease;
+
+  padding: 0 1rlh 0 0;
+  margin: 0;
   min-height: 2rlh;
   min-width: calc-size(calc-size(min-content, size), round(size, 2rlh) + 2rlh);
-  padding: 0 1rlh;
-  margin: 0;
-  border-radius: 0.5rem;
-  border: 1px solid var(--fg-border);
-  white-space: nowrap;
-  &:hover {
-    text-decoration: none;
-    background-color: var(--fg-dark);
-    color: var(--bg-dark);
-  }
-}
 
-.secondary {
-  background-color: var(--bg);
+  font-family: var(--font-judge-extended);
+  text-align: center;
+  text-decoration: none;
   color: var(--fg);
+  white-space: nowrap;
+
+  background-color: var(--fg-border);
+  border-radius: 0.25rem;
+  /* box-shadow: 0 0 0 1px var(--fg-border) inset; */
+  
+  overflow: clip;
+
+  transition: background 0.2s ease;
+
+  &:before {
+    --d: 0.75rlh;
+    padding: var(--d);
+    --i: ,move to calc(-1*var(--d)) calc(-1*var(--d)),
+          hline to calc(100% + var(--d)),
+          vline to calc(100% + var(--d)),
+          hline to calc(-1*var(--d));
+
+    content: "";
+    clip-path: shape(evenodd from 100% 92.72%,
+    hline to 79.4%,
+    vline to 35.17%,
+    line to 14.57% 100%,
+    line to 0% 85.43%,
+    line to 64.83% 20.6%,
+    hline to 7.28%,
+    vline to 0%,
+    hline to 100%,
+    vline to 92.72% var(--i,)) content-box;
+    position: relative;
+    grid-area: before;
+    top: 0;
+    left: 0;
+    /* width: 2rlh;*/
+    /* width: calc-size(min-content, size);  */
+    /* height: 0.5rlh; */
+    width: 0.5rlh;
+    background-color: var(--fg);
+    aspect-ratio: 1;
+    display: grid;
+    transition: background 0.2s ease;
+  }
   &:hover {
     text-decoration: none;
     background-color: var(--bg-dark);
     color: var(--fg-dark);
+    &:before {
+      background-color: var(--fg-dark);
+    }
   }
+}
+
+/* shape(from 100% 92.72%,hline to 79.4%,vline to 35.17%,line to 14.57% 100%,line to 0% 85.43%,line to 64.83% 20.6%,hline to 7.28%,vline to 0%,hline to 100%,vline to 92.72%,close var(--i,)) content-box */
+
+.secondary {
+  background-color: var(--bg-dark);
+  color: var(--fg);
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0 0.5rlh 0 0.5rlh;
+  justify-items: center;
+  &:before {
+    content: none;
+  }
+  /* &:hover {
+    text-decoration: none;
+    background-color: var(--fg-border);
+    color: var(--fg);
+    &:before {
+      background-color: var(--bg-dark);
+    }
+  } */
 }
