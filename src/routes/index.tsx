@@ -42,14 +42,14 @@ function RouteComponent() {
         />
         <div className={styles.subgrid}>
           <div className="flex">
-            <Text.H4>Performance</Text.H4>
+            <Text.H5>Performance</Text.H5>
             <Text.Body>
               Start tasks sub 35ms P95. Smart assignment rules handle rate
               limits, fairness, and priorities without complex configuration.
             </Text.Body>
           </div>
           <div className="flex">
-            <Text.H4>Durability</Text.H4>
+            <Text.H5>Durability</Text.H5>
             <Text.Body>
               Every task invocation is durably logged to PostgreSQL. When jobs
               fail, resume exactly where you left off — no lost work, no
@@ -57,7 +57,7 @@ function RouteComponent() {
             </Text.Body>
           </div>
           <div className="flex">
-            <Text.H4>Code-First</Text.H4>
+            <Text.H5>Code-First</Text.H5>
             <Text.Body>
               Hatchet SDKs are language native so developers can write business
               logic as versionable, reusable, testable atomic functions.

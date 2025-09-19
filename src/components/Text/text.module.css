@@ -14,12 +14,29 @@
   composes: h4 from global;
 }
 
+.h5 {
+  composes: h5 from global;
+  composes: caps from global;
+}
+
 .body {
   composes: paragraph from global;
 }
 
+.italic {
+  composes: italic from global;
+}
+
 .small {
   composes: small from global;
+}
+
+.micro {
+  composes: micro from global;
+}
+
+.mono {
+  composes: mono from global;
 }
 
 .caps {

@@ -83,12 +83,20 @@
   --opacity: 1;
 
   /* TYPOGRAPHY | https://clamp.font-size.app/ min:400 max:1104 */
+
+  --scalefactor: clamp(
+    0.75rem,
+    0.6384rem + 0.4464vw,
+    1rem
+  ); /* --scalefactor 75-100% | min:400 max: 1296 */
+
   --h1: clamp(3rem, 1.2955rem + 6.8182vw, 6rem);
   --h2: clamp(2.5rem, 1.3636rem + 4.5455vw, 4.5rem);
   --h3: clamp(2rem, 1.7159rem + 1.1364vw, 2.5rem);
+  --h4: clamp(1.25rem, 0.9659rem + 1.1364vw, 1.75rem);
   --body: clamp(1rem, 0.929rem + 0.2841vw, 1.125rem);
   --small: clamp(0.6875rem, 0.581rem + 0.4261vw, 0.875rem);
-  --scalefactor: clamp(0.75rem, 0.6384rem + 0.4464vw, 1rem);
+  --micro: clamp(0.5625rem, 0.456rem + 0.4261vw, 0.75rem);
 
   --font-martina: "martina", serif;
   --font-judge-extended: "judge-extended", sans-serif;
@@ -201,23 +209,39 @@
   }
   .h4 {
     font-family: var(--font-judge-extended);
-    text-transform: uppercase;
     font-size: var(--h4);
     line-height: 1.2;
-    letter-spacing: 0.11em;
+  }
+  .h5 {
+    font-family: var(--font-judge-extended);
+    font-size: var(--body);
+    line-height: 1.2;
   }
   .paragraph {
     font-family: var(--font-martina);
     font-size: var(--body);
     line-height: 2rlh;
   }
+  .italic {
+    font-style: italic;
+  }
   .small {
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    font-weight: 500;
     font-size: var(--small);
-    line-height: 1.2;
-    letter-spacing: 0.08em;
+    line-height: 1.5rlh;
+  }
+  .micro {
+    font-size: var(--micro);
+    line-height: 1.25rlh;
+    letter-spacing: 0.04rem;
+  }
+  .caps {
+    text-transform: uppercase;
+    text-box: cap alphabetic;
+    letter-spacing: 0.07rem;
+  }
+  .mono {
+    font-family: var(--font-mono);
+    font-weight: 500;
   }
 
   img {

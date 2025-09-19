@@ -9,6 +9,9 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   balance?: boolean;
   brackets?: boolean;
   secondary?: boolean;
+  mono?: boolean;
+  caps?: boolean;
+  italic?: boolean;
 }
 
 const TextBase = React.forwardRef<HTMLElement, TextProps>(
@@ -21,6 +24,9 @@ const TextBase = React.forwardRef<HTMLElement, TextProps>(
       balance,
       brackets,
       secondary,
+      mono,
+      caps,
+      italic,
       ...props
     },
     ref
@@ -31,6 +37,9 @@ const TextBase = React.forwardRef<HTMLElement, TextProps>(
       balance ? styles.balance : "",
       secondary ? styles.secondary : "",
       brackets ? styles.brackets : "",
+      mono ? styles.mono : "",
+      caps ? styles.caps : "",
+      italic ? styles.italic : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -63,10 +72,9 @@ Text.H2 = createStyledText("h2", "h2");
 Text.H3 = createStyledText("h3", "h3");
 Text.H4 = createStyledText("h4", "h4");
 Text.H5 = createStyledText("h5", "h5");
-Text.H6 = createStyledText("h6", "h6");
 Text.Body = createStyledText("body", "p");
 Text.Small = createStyledText("small", "span");
-Text.Caps = createStyledText("caps", "span");
+Text.Micro = createStyledText("micro", "span");
 
 export { Text };
 
@@ -76,7 +84,6 @@ Text.H2.displayName = "Text.H2";
 Text.H3.displayName = "Text.H3";
 Text.H4.displayName = "Text.H4";
 Text.H5.displayName = "Text.H5";
-Text.H6.displayName = "Text.H6";
 Text.Body.displayName = "Text.Body";
 Text.Small.displayName = "Text.Small";
-Text.Caps.displayName = "Text.Caps";
+Text.Micro.displayName = "Text.Micro";

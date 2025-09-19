@@ -428,14 +428,13 @@ figure[data-rehype-pretty-code-figure] {
 
 .blockquote {
   display: grid;
-  font-style: italic;
   grid-column: bleedstart / bleedend;
   grid-template-columns: subgrid;
-  row-gap: 0.5em;
+  row-gap: 1rlh;
+  padding-block: 2rlh;
   box-shadow:
     0 1px 0 var(--fg-border),
     0 1px 0 var(--fg-border) inset;
-  padding: 0.25em 0.5em 0.5em 0.5em;
   & > * {
     grid-column: start / end;
     @media (--1) {

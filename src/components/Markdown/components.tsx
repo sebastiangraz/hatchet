@@ -23,13 +23,9 @@ export const components = {
   ),
   blockquote: (props: any) => (
     <div className={`blockquote ${style.blockquote}`}>
-      {/* <Icon
-        name="quote"
-        small
-        secondary
-        style={{ transform: "translate(-0.5px, -0.75px)" }}
-      /> */}
-      <Text.Body {...props}>{props.children}</Text.Body>
+      <Text.Body italic {...props}>
+        {props.children}
+      </Text.Body>
     </div>
   ),
   table: (props: any) => {

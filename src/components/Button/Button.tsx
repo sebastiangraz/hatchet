@@ -4,7 +4,6 @@ import { Link } from "@tanstack/react-router";
 import styles from "./button.module.css";
 interface ButtonProps {
   type?: "default" | "secondary";
-  size?: "default" | "small";
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
@@ -16,7 +15,6 @@ interface ButtonProps {
 export const Button = (props: ButtonProps) => {
   const {
     type = "default",
-    size = "default",
     onClick,
     children,
     href,
@@ -27,10 +25,8 @@ export const Button = (props: ButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const destination = href ? href : to;
   const typeValue = type === "default" ? "" : styles.secondary;
-  const sizeValue = size === "small" ? styles.small : "";
   const className = rest.className ? rest.className : "";
-  const buttonStyle =
-    `${styles.button} ${typeValue} ${sizeValue} ${className}`.trim();
+  const buttonStyle = `${styles.button} ${typeValue} ${className}`.trim();
   return (
     <div ref={ref}>
       <Link

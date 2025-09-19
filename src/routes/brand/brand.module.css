@@ -1,0 +1,51 @@
+.section {
+  & > * {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 2rlh;
+    & > * {
+      grid-column: start / end;
+      @media (--1) {
+        grid-column: span 6;
+      }
+    }
+  }
+}
+
+.prop {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 0px 1px var(--fg-border);
+  border-radius: var(--radius);
+
+  & > *:not(.syntax) {
+    padding: 1em;
+    flex: 1 0 auto;
+  }
+}
+
+.propCenter {
+  place-self: flex-start;
+  display: grid;
+  @media (--sm) {
+    place-self: center;
+  }
+}
+
+.syntax {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5em;
+  font-size: var(--small);
+  font-family: var(--font-mono);
+  box-shadow: 1px -1px 0px 0px var(--fg-border);
+  padding: 0.5em 0.75em;
+  /* border-radius: var(--radius); */
+  place-self: start end;
+  position: relative;
+  inset: 1px 0px 0px -1px;
+  max-width: calc(100% - 1em);
+  /* width: 100%; */
+  overflow: clip;
+  white-space: nowrap;
+}

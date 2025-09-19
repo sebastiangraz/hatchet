@@ -1,8 +1,12 @@
 .button {
+  composes: small from global;
+  composes: mono from global;
+  composes: caps from global;
+  font-family: var(--font-judge-extended);
+  text-decoration: none;
   background-color: var(--fg);
   color: var(--bg);
   grid-auto-rows: 1.25em;
-  text-transform: uppercase;
   display: inline-grid;
   align-items: center;
   align-content: center;
@@ -13,10 +17,6 @@
   min-width: calc-size(calc-size(min-content, size), round(size, 2rlh) + 2rlh);
   padding: 0 1rlh;
   margin: 0;
-  font-family: var(--font-judge-extended);
-  font-size: var(--small);
-  text-decoration: none;
-  letter-spacing: 0.07em;
   border-radius: 0.5rem;
   border: 1px solid var(--fg-border);
   white-space: nowrap;
@@ -26,12 +26,7 @@
     color: var(--bg-dark);
   }
 }
-/* .small {
-  padding: 0 1rlh;
-} */
-/* .default {
-  font-size: var(--small);
-} */
+
 .secondary {
   background-color: var(--bg);
   color: var(--fg);

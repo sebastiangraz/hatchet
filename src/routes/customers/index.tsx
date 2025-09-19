@@ -47,7 +47,7 @@ function RouteComponent() {
       </Section>
 
       <Section theme="light" className="py-4">
-        <div className={styles.caseStudiesGrid}>
+        <div className={styles.caseStudyGrid}>
           {caseStudies.map((caseStudy) => (
             <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
           ))}
@@ -61,15 +61,13 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
   const { slug, frontmatter } = caseStudy;
 
   return (
-    <div>
-      <Text.Small brackets className={styles.company}>
-        {frontmatter.company}
-      </Text.Small>
-      <Text.Small brackets className={styles.industry}>
-        {frontmatter.industry}
-      </Text.Small>
-      <Text.H3 balance>{frontmatter.title}</Text.H3>
+    <div className={styles.caseStudyCard}>
+      <Text.H4 balance>{frontmatter.title}</Text.H4>
       <Text.Body>{frontmatter.description}</Text.Body>
+      <Text.Micro caps mono brackets className={styles.company}>
+        {frontmatter.industry}
+      </Text.Micro>
+
       <Button to={`/customers/${slug}`}>Read</Button>
     </div>
   );
