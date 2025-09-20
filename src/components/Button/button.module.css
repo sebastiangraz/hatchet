@@ -32,7 +32,7 @@
 
   background-color: var(--fg-border);
   border-radius: 0.25rem;
-  background-size: 2rlh, 100%;
+  /* background-size: 2rlh, 100%; */
   background-position: 0 0, calc(2rlh - 1px) 0;
   background-repeat: no-repeat;
   &:before {
@@ -56,6 +56,7 @@
     border-radius: 0.25rem;
   }
   &:hover {
+    box-shadow: 0 0 0 1px var(--fg) inset;
     text-decoration: none;
     background-image: linear-gradient(var(--fg-border), var(--fg-border)), linear-gradient(var(--fg), var(--fg)) ;
     color: var(--bg);
@@ -63,12 +64,20 @@
       border-radius: 0;
     }
   }
+  &.large {
+    background-position: 0 0, calc(4rlh - 1px) 0;
+    &:before {
+      --p: 1.75rlh;
+      --totalSize: 4rlh;
+    }
+  }
 }
 
 
 .secondary {
   background-position: 0 0, 0 0;
-
+  padding: 0 0 0 0;
+  gap: 0;
   &::before {
     /* invert icon back to default */
     background-color:  color-mix(
@@ -79,6 +88,7 @@
     --i: ;
   }
   &:hover {
+    box-shadow: none;
     color: var(--fg);
     background-image: none;
     background-color: color-mix(

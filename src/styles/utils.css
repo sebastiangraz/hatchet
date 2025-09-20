@@ -1,10 +1,12 @@
 @layer utils {
   .checker {
+    --size: 2rlh;
+    --color: var(--fg-border);
     /* font-size: clamp(0rem, 0rem + 1.2346vw, 1rem); */
     background-image:
-      linear-gradient(to right, var(--fg-border) 1px, transparent 1px),
-      linear-gradient(var(--fg-border) 1px, transparent 1px);
-    background-size: 2rlh 2rlh;
+      linear-gradient(to right, var(--color) 1px, transparent 1px),
+      linear-gradient(var(--color) 1px, transparent 1px);
+    background-size: var(--size) var(--size);
     /* background-repeat: round; */
     background-position: center 0px;
   }
@@ -27,7 +29,8 @@
     }
   }
 
-  .divider {
+  .divider,
+  hr {
     height: 1px;
     background-color: var(--fg-border);
     margin-block-start: 2rlh;

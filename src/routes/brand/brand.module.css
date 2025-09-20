@@ -1,5 +1,5 @@
 .section {
-  gap: 2rlh;
+  /* gap: 2rlh; */
   & > * {
     display: grid;
     grid-template-columns: subgrid;
@@ -14,13 +14,24 @@
 }
 
 .prop {
+  --size: 1rlh;
+  --color: color-mix(
+    in srgb,
+    var(--fg-border) calc(100% * var(--opacity-6)),
+    transparent
+  );
+  overflow: hidden;
+  composes: checker from global;
+  min-height: 8rlh;
+  background-position: calc(1rlh - 1px) calc(1rlh - 1px);
+
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 0px 1px var(--fg-border);
+  box-shadow: 0px 0px 0px 1px var(--fg-border) inset;
   border-radius: var(--radius);
   background-color: var(--bg);
   & > *:not(.syntax) {
-    padding: 1em;
+    padding: 1rlh;
     flex: 1 0 auto;
   }
 }
@@ -36,16 +47,14 @@
 .syntax {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 0.5em;
+  align-items: baseline;
+  gap: 0 0.25rlh;
   font-size: var(--small);
   font-family: var(--font-mono);
-  box-shadow: 1px -1px 0px 0px var(--fg-border);
-  padding: 0.5em 0.75em;
+  margin: 1rlh;
   place-self: start end;
   position: relative;
-  inset: 1px 0px 0px -1px;
-  max-width: calc(100% - 1em);
-  overflow: clip;
+
   white-space: nowrap;
   & .highlight {
     color: var(--fg);
