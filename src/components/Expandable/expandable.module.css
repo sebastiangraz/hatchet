@@ -12,6 +12,11 @@
   /* Use interpolate-size for smooth height animations */
   interpolate-size: allow-keywords;
 }
+.toggleButton {
+  margin-block-start: 2rlh;
+  place-self: center;
+  z-index: 1;
+}
 
 .content.collapsed {
   /* Fixed height for teaser state */
@@ -25,7 +30,7 @@
 
 .children {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .mask {
@@ -34,7 +39,7 @@
   left: 0;
   right: 0;
   height: 80px;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
 
   /* Linear gradient mask to create the "tease" effect */
