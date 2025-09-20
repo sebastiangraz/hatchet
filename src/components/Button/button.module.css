@@ -1,3 +1,4 @@
+
 .button {
   composes: small from global;
   composes: mono from global;
@@ -25,75 +26,94 @@
   text-decoration: none;
   color: var(--fg);
   white-space: nowrap;
+  overflow: clip;
+  
+  transition: background 0.2s ease;
 
   background-color: var(--fg-border);
   border-radius: 0.25rem;
-  /* box-shadow: 0 0 0 1px var(--fg-border) inset; */
-  
-  overflow: clip;
-
-  transition: background 0.2s ease;
-
+  background-size: 2rlh, 100%;
+  background-position: 0 0, calc(2rlh - 1px) 0;
+  background-repeat: no-repeat;
   &:before {
-    --d: 0.75rlh;
-    padding: var(--d);
-    --i: ,move to calc(-1*var(--d)) calc(-1*var(--d)),
-          hline to calc(100% + var(--d)),
-          vline to calc(100% + var(--d)),
-          hline to calc(-1*var(--d));
-
+    --p: 0.75rlh;
+    --totalSize: 2rlh;
+    padding: var(--p);
+    --i: ,move to calc(-1*var(--p)) calc(-1*var(--p)),
+          hline to calc(100% + var(--p)),
+          vline to calc(100% + var(--p)),
+          hline to calc(-1*var(--p));
     content: "";
-    clip-path: shape(evenodd from 100% 92.72%,
-    hline to 79.4%,
-    vline to 35.17%,
-    line to 14.57% 100%,
-    line to 0% 85.43%,
-    line to 64.83% 20.6%,
-    hline to 7.28%,
-    vline to 0%,
-    hline to 100%,
-    vline to 92.72% var(--i,)) content-box;
     position: relative;
     grid-area: before;
     top: 0;
     left: 0;
-    /* width: 2rlh;*/
-    /* width: calc-size(min-content, size);  */
-    /* height: 0.5rlh; */
-    width: 0.5rlh;
+    width: calc(var(--totalSize) - (var(--p) * 2));
     background-color: var(--fg);
-    aspect-ratio: 1;
+    aspect-ratio:1;
     display: grid;
-    transition: background 0.2s ease;
+    transition: background-image 0.2s ease;
+    border-radius: 0.25rem;
   }
   &:hover {
     text-decoration: none;
-    background-color: var(--bg-dark);
-    color: var(--fg-dark);
+    background-image: linear-gradient(var(--fg-border), var(--fg-border)), linear-gradient(var(--fg), var(--fg)) ;
+    color: var(--bg);
     &:before {
-      background-color: var(--fg-dark);
+      border-radius: 0;
     }
   }
 }
 
-/* shape(from 100% 92.72%,hline to 79.4%,vline to 35.17%,line to 14.57% 100%,line to 0% 85.43%,line to 64.83% 20.6%,hline to 7.28%,vline to 0%,hline to 100%,vline to 92.72%,close var(--i,)) content-box */
 
 .secondary {
-  background-color: var(--bg-dark);
-  color: var(--fg);
-  grid-template-columns: 1fr;
-  gap: 0;
-  padding: 0 0.5rlh 0 0.5rlh;
-  justify-items: center;
-  &:before {
-    content: none;
+  background-position: 0 0, 0 0;
+
+  &::before {
+    /* invert icon back to default */
+    background-color:  color-mix(
+      in srgb,
+      transparent ,
+      var(--fg) calc(100% * var(--opacity-6))
+    );
+    --i: ;
   }
-  /* &:hover {
-    text-decoration: none;
-    background-color: var(--fg-border);
+  &:hover {
     color: var(--fg);
-    &:before {
-      background-color: var(--bg-dark);
-    }
-  } */
+    background-image: none;
+    background-color: color-mix(
+      in srgb,
+      transparent ,
+      var(--fg) calc(100% * var(--opacity-3))
+    );
+  }
+}
+
+
+.icon-default {
+  &:before {
+    clip-path: shape(evenodd var(--icon-default) var(--i,)) content-box;
+  }
+}
+
+.icon-back {
+
+  &:before {
+    --p: 0.675rlh;
+    clip-path: shape(evenodd var(--icon-back) var(--i,)) content-box;
+  }
+}
+
+.icon-docs {
+  &:before {
+    --p: 0.725rlh;
+    clip-path: shape(evenodd var(--icon-docs) var(--i,)) content-box;
+  }
+}
+
+:root {
+  /* https://css-generators.com/svg-to-css/ */
+  --icon-default: from 100% 99.75%,hline to 74.82%,vline to 42.97%,line to 17.8% 100%,line to 8.9% 91.1%,line to 0% 82.19%,line to 57.02% 25.17%,hline to 0.23%,vline to 0%,hline to 100%,vline to 99.75%;
+  --icon-back: from 68.57% 12.62%,line to 37.4% 41.08%,hline to 100%,vline to 58.92%,hline to 37.4%,line to 68.57% 87.38%,line to 54.75% 100%,line to 0% 50%,line to 54.75% 0%,line to 68.57% 12.62%;
+  --icon-docs: from 100% 100%,hline to 0%,vline to 78.87%,hline to 100%,vline to 100%,close,move to 100% 60.56%,hline to 0%,vline to 39.44%,hline to 100%,vline to 60.56%,close,move to 100% 21.13%,hline to 0%,vline to 0%,hline to 100%,vline to 21.13%;
 }

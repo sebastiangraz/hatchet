@@ -4,6 +4,7 @@ import { Text } from "~/components/Text/Text";
 import { ExposeProps } from "./ExposeProps";
 import styles from "./brand.module.css";
 import { Hero } from "~/components/Hero/Hero";
+import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/brand/")({
   beforeLoad: ({ context }) => ({
@@ -48,6 +49,22 @@ function RouteComponent() {
           <Text.Micro mono caps brackets>
             Micro Mono
           </Text.Micro>
+        </ExposeProps>
+      </Section>
+
+      <Section className={`${styles.section} py-4`}>
+        <ExposeProps ignoreProps={["children"]}>
+          <Button>Button</Button>
+          <Button icon="back">Button</Button>
+          <Button icon="docs">Button</Button>
+
+          <Button type="secondary">Button</Button>
+          <Button type="secondary" icon="back">
+            Button
+          </Button>
+          <Button type="secondary" icon="docs">
+            Button
+          </Button>
         </ExposeProps>
       </Section>
     </>

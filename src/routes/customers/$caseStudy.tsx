@@ -40,8 +40,8 @@ function RouteComponent() {
   return (
     <>
       <Section className="py-4">
-        <Button to="/customers" type="secondary">
-          ← Back to Case Studies
+        <Button to="/customers" icon="back">
+          All Cases
         </Button>
 
         <div
