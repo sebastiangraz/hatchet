@@ -1,0 +1,51 @@
+.promobar {
+  display: flex;
+  background: var(--bg);
+  font-family: var(--font-judge-extended);
+  color: var(--fg);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  place-self: center;
+  padding: 1rlh;
+}
+
+.content {
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0 0.25rlh 0 1rlh;
+  border-radius: 99rlh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rlh;
+  min-height: 2rlh;
+}
+
+.closeButton {
+  border: none;
+  color: color-mix(
+    in srgb,
+    var(--bg) calc(100% * var(--opacity-7)),
+    transparent
+  );
+  font-size: var(--body);
+  cursor: pointer;
+  /* padding: 0.25rem; */
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  background: transparent;
+}
+
+.closeButton:hover {
+  background: color-mix(
+    in srgb,
+    var(--bg) calc(100% * var(--opacity-3)),
+    transparent
+  );
+}

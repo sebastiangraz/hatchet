@@ -2,6 +2,11 @@
   composes: grid-parent from global;
   min-height: 4rlh;
   view-transition-name: main-navigation;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+  border-bottom: 1px solid var(--fg-border);
 }
 
 .navItem {
