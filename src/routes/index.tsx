@@ -4,6 +4,7 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import styles from "./index.module.css";
 import UI from "~/assets/ui.svg";
+import { Expandable } from "~/components/Expandable/Expandable";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -38,30 +39,33 @@ function RouteComponent() {
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
         />
-        <div className={styles.subgrid}>
-          <div className="flex">
-            <Text.H5>Performance</Text.H5>
-            <Text.Body>
-              Start tasks sub 35ms P95. Smart assignment rules handle rate
-              limits, fairness, and priorities without complex configuration.
-            </Text.Body>
+        <Expandable>
+          <div className={styles.subgrid}>
+            <div className="flex">
+              <Text.H5>Performance</Text.H5>
+              <Text.Body>
+                Start tasks sub 35ms P95. Smart assignment rules handle rate
+                limits, fairness, and priorities without complex configuration.
+              </Text.Body>
+            </div>
+            <div className="flex">
+              <Text.H5>Durability</Text.H5>
+              <Text.Body>
+                Every task invocation is durably logged to PostgreSQL. When jobs
+                fail, resume exactly where you left off — no lost work, no
+                duplicate LLM calls, no engineer headaches.
+              </Text.Body>
+            </div>
+            <div className="flex">
+              <Text.H5>Code-First</Text.H5>
+              <Text.Body>
+                Hatchet SDKs are language native so developers can write
+                business logic as versionable, reusable, testable atomic
+                functions.
+              </Text.Body>
+            </div>
           </div>
-          <div className="flex">
-            <Text.H5>Durability</Text.H5>
-            <Text.Body>
-              Every task invocation is durably logged to PostgreSQL. When jobs
-              fail, resume exactly where you left off — no lost work, no
-              duplicate LLM calls, no engineer headaches.
-            </Text.Body>
-          </div>
-          <div className="flex">
-            <Text.H5>Code-First</Text.H5>
-            <Text.Body>
-              Hatchet SDKs are language native so developers can write business
-              logic as versionable, reusable, testable atomic functions.
-            </Text.Body>
-          </div>
-        </div>
+        </Expandable>
         <div
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}

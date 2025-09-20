@@ -1,0 +1,56 @@
+.expandable {
+  position: relative;
+  width: 100%;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.2s ease;
+  transition-behavior: allow-discrete;
+
+  /* Use interpolate-size for smooth height animations */
+  interpolate-size: allow-keywords;
+}
+
+.content.collapsed {
+  /* Fixed height for teaser state */
+  height: 200px;
+}
+
+.content.expanded {
+  /* Use calc-size for dynamic content height */
+  height: calc-size(auto, size);
+}
+
+.children {
+  position: relative;
+  z-index: 1;
+}
+
+.mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 2;
+  pointer-events: none;
+
+  /* Linear gradient mask to create the "tease" effect */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--bg, #ffffff) 80%,
+    var(--bg, #ffffff) 100%
+  );
+
+  /* Alternative mask-image approach for better browser support */
+  mask-image: linear-gradient(to top, black 0%, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to top,
+    black 0%,
+    black 60%,
+    transparent 100%
+  );
+}
