@@ -5,9 +5,24 @@ import postcssGlobalData from "@csstools/postcss-global-data";
 import postcssPresetEnv from "postcss-preset-env";
 import viteReact from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
+import fs from "fs";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkgfm from "remark-gfm";
+import { transformerNotationHighlight } from "@shikijs/transformers";
+import rehypePrettyCode, { Options } from "rehype-pretty-code";
+
+const options = {
+  theme: JSON.parse(
+    fs.readFileSync("./src/styles/hatchetsyntax.json", "utf-8")
+  ),
+  defaultLang: "plaintext",
+  keepBackground: false,
+  showLineNumbers: true,
+  grid: true,
+  transformers: [transformerNotationHighlight()],
+} as Options;
+
 export default defineConfig({
   server: {
     port: 3000,
@@ -18,6 +33,7 @@ export default defineConfig({
     }),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkgfm],
+      rehypePlugins: [[rehypePrettyCode, options]],
       providerImportSource: "@mdx-js/react",
     }),
     tanstackStart({

@@ -29,25 +29,36 @@ export function* FibonacciSequence() {
 }
 ```
 
-```css showLineNumbers /inline-block/ /Other/ /2rem/ /code[data-line-numbers-max-digits='3']/
+```
+export function* FibonacciSequence() {
+  let [a, b] = [0, 1];
+  while (true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+```
+
+```css showLineNumbers /inline-block/ /Other/ /2rem/ /code[data-line-numbers-max-digits="3"]/
 code > [data-line]::before {
   counter-increment: line;
-  content: counter(line); # [!code highlight]
-  /* Other styling */
+  content: counter(line);
+  /* Other styling */ /* [!code highlight:1] */
   display: inline-block;
 }
-
-code[data-line-numbers-max-digits='2'] > [data-line]::before { # [!code highlight]
+/* [!code highlight:1] */
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
   width: 2rem;
 }
 
-code[data-line-numbers-max-digits='3'] > [data-line]::before {
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
 ```
 
 ```js
 const fib = FibonacciSequence();
+// [!code highlight:1]
 fib.next().value; // 0
 fib.next().value; // 1
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34

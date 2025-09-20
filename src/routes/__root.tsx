@@ -59,7 +59,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   const currentContext = childMatches[childMatches.length - 1]
     ?.context as RootContext;
   const theme = currentContext?.theme || "dark";
-  console.log("Theme:", theme);
+
   return (
     <html>
       <head>

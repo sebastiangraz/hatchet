@@ -49,7 +49,7 @@ body[data-sticky="true"] .navBackground {
     color: var(--fg-secondary);
   }
   &:global(.active) {
-    pointer-events: none;
+    cursor: default;
     color: color-mix(
       in srgb,
       var(--fg-border) calc(100% * var(--opacity-6)),
