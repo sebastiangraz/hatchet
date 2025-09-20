@@ -66,6 +66,21 @@ function RouteComponent() {
             Button
           </Button>
         </ExposeProps>
+
+        <ExposeProps ignoreProps={["children"]} theme="dark">
+          <Button>Button</Button>
+          <Button icon="back">Button</Button>
+          <Button icon="docs">Button</Button>
+
+          <Button type="secondary">Button</Button>
+          <Button type="secondary" icon="back">
+            Button
+          </Button>
+          <Button type="secondary" icon="docs">
+            Button
+          </Button>
+        </ExposeProps>
+        <hr />
       </Section>
     </>
   );

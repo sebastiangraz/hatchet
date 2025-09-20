@@ -1,10 +1,12 @@
 import { Text } from "~/components/Text/Text";
 import React, { ReactElement, useRef } from "react";
 import style from "./brand.module.css";
+import { theme } from "~/types";
 
 interface ExposePropsProps {
   ignoreProps?: string[];
   children: ReactElement | ReactElement[];
+  theme?: theme;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -38,6 +40,7 @@ export const ExposeProps = ({
   children,
   className = "",
   ignoreProps = [],
+  theme,
   ...props
 }: ExposePropsProps) => {
   const { style: styleValue } = props;
@@ -45,7 +48,7 @@ export const ExposeProps = ({
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <div className={className} style={styleValue} ref={ref}>
+    <div className={className} style={styleValue} ref={ref} data-theme={theme}>
       {React.Children.map(children, (child: any, index: number) => {
         const isSpan = child.type === "span";
 
