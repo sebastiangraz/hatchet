@@ -70,6 +70,10 @@
   --fg-tertiary: hsl(var(--cyan) / var(--opacity-5));
   --fg-border: hsl(var(--cyan) / var(--opacity-2));
 
+  --bg-secondary: hsl(var(--navy) / var(--opacity-7));
+  --bg-tertiary: hsl(var(--navy) / var(--opacity-5));
+  --bg-border: hsl(var(--navy) / var(--opacity-2));
+
   /* OPACITY */
   --opacity-1: 0.04;
   --opacity-2: 0.08;
@@ -114,6 +118,10 @@
     --fg-secondary: hsl(var(--navy) / var(--opacity-7));
     --fg-tertiary: hsl(var(--navy) / var(--opacity-5));
     --fg-border: hsl(var(--navy) / var(--opacity-2));
+
+    --bg-secondary: hsl(var(--cyan) / var(--opacity-7));
+    --bg-tertiary: hsl(var(--cyan) / var(--opacity-5));
+    --bg-border: hsl(var(--cyan) / var(--opacity-2));
   }
   [data-theme="dark"] {
     --bg: hsl(var(--navy));
@@ -123,6 +131,10 @@
     --fg-secondary: hsl(var(--cyan) / var(--opacity-7));
     --fg-tertiary: hsl(var(--cyan) / var(--opacity-5));
     --fg-border: hsl(var(--cyan) / var(--opacity-2));
+
+    --bg-secondary: hsl(var(--navy) / var(--opacity-7));
+    --bg-tertiary: hsl(var(--navy) / var(--opacity-5));
+    --bg-border: hsl(var(--navy) / var(--opacity-2));
   }
 }
 

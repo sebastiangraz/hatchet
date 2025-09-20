@@ -4,7 +4,6 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import styles from "./index.module.css";
 import UI from "~/assets/ui.svg";
-import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -18,7 +17,7 @@ function RouteComponent() {
         <img src={UI} alt="UI" className={styles.ui} />
       </Section>
 
-      <Section theme="light" className="py-4">
+      <Section theme="light" className="py-6">
         <div className="flex" style={{ gridColumn: "start / 7" }}>
           <Text.H1>Core Principles</Text.H1>
           <SVGCorePrinciples />
@@ -34,8 +33,6 @@ function RouteComponent() {
             performance profiles for use cases across your stack so you can
             consolidate background task infrastructure and simplify operations.
           </Text.Body>
-          <Button href="/pricing">Start for free</Button>
-          <Button type="secondary">Docs</Button>
         </div>
         <div
           className="divider"

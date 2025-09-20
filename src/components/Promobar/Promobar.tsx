@@ -1,6 +1,6 @@
 import styles from "./promobar.module.css";
 import { Text } from "~/components/Text/Text";
-import { Button } from "~/components/Button/Button";
+
 export const Promobar = () => {
   return (
     <div className={styles.promobar}>

@@ -4,9 +4,36 @@
   view-transition-name: main-navigation;
   position: sticky;
   top: 0;
+  z-index: 2;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: border 0.2s ease;
+  &[data-sticky="true"] {
+    border-bottom: 1px solid var(--fg-border);
+  }
+}
+
+.navBackground {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14rlh;
+  background: linear-gradient(
+    180deg,
+    var(--bg) 5%,
+    var(--bg-secondary) 40%,
+    transparent
+  );
   z-index: 1;
-  background: var(--bg);
-  border-bottom: 1px solid var(--fg-border);
+  display: block;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+body[data-sticky="true"] .navBackground {
+  opacity: 1;
 }
 
 .navItem {
