@@ -19,7 +19,7 @@
   padding: 0 1rlh 0 0;
   margin: 0;
   min-height: 2rlh;
-  min-width: calc-size(calc-size(min-content, size), round(size, 2rlh) + 2rlh);
+  min-width: calc-size(calc-size(min-content, size), round(size, 1rlh) + 1rlh);
 
   font-family: var(--font-judge-extended);
   text-align: center;
@@ -76,7 +76,7 @@
 
 .secondary {
   background-position: 0 0, 0 0;
-  padding: 0 0 0 0;
+  /* padding: 0 0 0 0; */
   gap: 0;
   &::before {
     /* invert icon back to default */
