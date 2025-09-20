@@ -1,9 +1,9 @@
 .expandable {
-  position: relative;
-  width: 100%;
 }
 
 .content {
+  /* grid-column: bleedstart / bleedend;
+  width: 100%; */
   position: relative;
   overflow: hidden;
   transition: height 0.2s ease;

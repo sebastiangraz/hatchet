@@ -16,12 +16,12 @@ export const Expandable = (props: ExpandableProps) => {
   };
 
   return (
-    <div className={`${styles.expandable} ${className}`}>
+    <>
       <div
-        className={`${styles.content} ${isExpanded ? styles.expanded : styles.collapsed}`}
+        className={`${styles.content} ${isExpanded ? styles.expanded : styles.collapsed} ${className}`}
         aria-expanded={isExpanded}
       >
-        <div className={styles.children}>{children}</div>
+        {children}
         {!isExpanded && <div className={styles.mask} />}
       </div>
       <Button
@@ -32,6 +32,6 @@ export const Expandable = (props: ExpandableProps) => {
       >
         {isExpanded ? "Show less" : buttonText}
       </Button>
-    </div>
+    </>
   );
 };

@@ -39,7 +39,7 @@ function RouteComponent() {
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
         />
-        <Expandable>
+        <Expandable className={styles.expandable}>
           <div className={styles.subgrid}>
             <div className="flex">
               <Text.H5>Performance</Text.H5>
