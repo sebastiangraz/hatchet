@@ -4,23 +4,24 @@
 
   &[open] .subgrid {
     transition: clip-path 0.2s ease;
+
     --padding: 0px;
-    --full-width: 100vw;
+    --full-width: 100%;
   }
 }
 
 .subgrid {
   --padding: calc(
     (
-        96px * 100vw / 1296px + (100vw - 1104px) / 2 +
-          abs(96px * 100vw / 1296px - (100vw - 1104px) / 2)
+        96px * 100% / 1296px + (100% - 1296px) / 2 +
+          abs(96px * 100% / 1296px - (100% - 1104px) / 2)
       ) /
       2
   );
-  --full-width: calc(100vw - 2 * var(--padding));
+  --full-width: calc(100% - 2 * var(--padding));
   composes: grid-parent from global;
   clip-path: xywh(var(--padding) 0% var(--full-width) 100%);
-
+  transition: background-color 0.2s ease allow-discrete;
   will-change: clip-path;
   background-color: var(--bg-dark);
   :global .flex {
