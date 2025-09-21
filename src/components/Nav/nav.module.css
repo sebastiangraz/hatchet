@@ -1,23 +1,39 @@
 .nav {
-  --dash-color: transparent;
   composes: grid-parent from global;
   min-height: 4rlh;
   view-transition-name: main-navigation;
   position: sticky;
   top: 0;
   z-index: 3;
-  background: repeating-linear-gradient(
+  background-image:
+    repeating-linear-gradient(
       270deg,
-      var(--dash-color),
-      var(--dash-color) 7px,
+      var(--fg-border),
+      var(--fg-border) 7px,
       transparent 7px,
       transparent 12px,
-      var(--dash-color) 12px
-    )
-    no-repeat 0 100% / 100% 1.5px;
+      var(--fg-border) 12px
+    ),
+    repeating-linear-gradient(
+      270deg,
+      var(--fg-border),
+      var(--fg-border) 7px,
+      transparent 7px,
+      transparent 12px,
+      var(--fg-border) 12px
+    );
+  background-size:
+    100% 0px,
+    100% 1.5px;
+  background-position:
+    0 100%,
+    0 0%;
+  background-repeat: no-repeat;
 
   &[data-sticky="true"] {
-    --dash-color: var(--fg-border);
+    background-size:
+      100% 1.5px,
+      100% 0px;
   }
 }
 
