@@ -15,7 +15,9 @@ function RouteComponent() {
   return (
     <>
       <Hero />
-      <Logostrip />
+      <Section>
+        <Logostrip />
+      </Section>
       <Section>
         <img src={UI} alt="UI" className={styles.ui} />
       </Section>
