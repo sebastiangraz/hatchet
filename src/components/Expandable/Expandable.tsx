@@ -17,20 +17,19 @@ export const Expandable = (props: ExpandableProps) => {
 
   return (
     <>
-      <div
-        className={`${styles.content} ${isExpanded ? styles.expanded : styles.collapsed} ${className}`}
-        aria-expanded={isExpanded}
-      >
-        {children}
-      </div>
-      <Button
-        large
-        className={styles.toggleButton}
-        onClick={toggleExpanded}
-        aria-expanded={isExpanded}
-      >
-        {isExpanded ? "Show less" : buttonText}
-      </Button>
+      <details className={`${styles.details} ${className}`}>
+        <Button
+          large
+          as="summary"
+          className={styles.toggleButton}
+          onClick={toggleExpanded}
+          aria-expanded={isExpanded}
+        >
+          {isExpanded ? "Hide" : buttonText}
+        </Button>
+
+        <div className={styles.detailsContentWrapper}>{children}</div>
+      </details>
     </>
   );
 };

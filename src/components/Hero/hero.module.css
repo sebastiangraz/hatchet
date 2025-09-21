@@ -7,10 +7,7 @@
   text-align: center;
   & > h1 {
     grid-column: start / end;
-    min-height: calc-size(
-      calc-size(min-content, size),
-      round(size, 2rlh) + 2rlh
-    );
+    min-height: calc-size(min-content, round(up, size, 2rlh));
   }
   p {
     max-width: 40rem;

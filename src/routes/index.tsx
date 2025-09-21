@@ -29,6 +29,7 @@ function RouteComponent() {
             checkpoint long-running tasks. Airflow's scheduler adds 5-30s
             latency. Temporal is complex to operate and expensive to scale.
           </Text.H3>
+
           <Text.Body>
             Hatchet is built in Go and backed by PostgreSQL which offers dynamic
             performance profiles for use cases across your stack so you can

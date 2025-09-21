@@ -12,6 +12,7 @@ interface ButtonProps {
   href?: string;
   target?: string;
   to?: string;
+  as?: React.ElementType;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -24,28 +25,42 @@ export const Button = (props: ButtonProps) => {
     href,
     target,
     to,
+    as,
     ...rest
   } = props;
+
   const ref = useRef<HTMLDivElement>(null);
+
+  const Tag = as;
   const destination = href ? href : to;
   const typeValue = type === "default" ? "" : styles.secondary;
   const className = rest.className ? rest.className : "";
   const buttonStyle =
-    `${styles.button} ${typeValue} ${className} ${styles[`icon-${icon}`]} ${large ? styles.large : ""}`.trim();
-  return (
+    `${styles.button} ${typeValue} ${styles[`icon-${icon}`]} ${large ? styles.large : ""} ${className}`.trim();
+
+  return Tag ? (
+    <Tag
+      {...rest}
+      className={buttonStyle}
+      onClick={onClick}
+      href={href}
+      target={target}
+      to={destination}
+    >
+      {children}
+    </Tag>
+  ) : (
     <div ref={ref}>
-      <div className={styles.buttonWrapper}>
-        <Link
-          {...rest}
-          className={buttonStyle}
-          onClick={onClick}
-          href={href}
-          target={target}
-          to={destination}
-        >
-          {children}
-        </Link>
-      </div>
+      <Link
+        {...rest}
+        className={buttonStyle}
+        onClick={onClick}
+        href={href}
+        target={target}
+        to={destination}
+      >
+        {children}
+      </Link>
     </div>
   );
 };
