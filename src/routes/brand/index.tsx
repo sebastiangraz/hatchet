@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
-import { ExposeProps } from "./ExposeProps";
+import { ExposeProps } from "./-ExposeProps";
 import styles from "./brand.module.css";
-import { Hero } from "~/components/Hero/Hero";
 import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/brand/")({
