@@ -1,16 +1,20 @@
-.expandable {
-}
-
 .content {
   /* grid-column: bleedstart / bleedend;
   width: 100%; */
   position: relative;
   overflow: hidden;
-  transition: height 0.2s ease;
-  transition-behavior: allow-discrete;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+
+  clip-path: inset(0% 0% 0% 0%);
+  transition:
+    clip-path 0.5s ease,
+    height 0.5s ease;
+  --contentWidth: calc((var(--columns) + var(--gaps)) * var(--unit-size));
+  --leftEdge: max(0%, calc(50% - var(--contentWidth) / 2));
+  --rightEdge: min(100%, calc(50% + var(--contentWidth) / 2));
 
   /* Use interpolate-size for smooth height animations */
-  interpolate-size: allow-keywords;
+  /* interpolate-size: allow-keywords; */
 }
 .toggleButton {
   margin-block-start: 2rlh;
@@ -19,19 +23,27 @@
 }
 
 .content.collapsed {
-  /* Fixed height for teaser state */
-  height: 200px;
+  clip-path: inset(0% calc(100% - var(--rightEdge)) 0% var(--leftEdge));
+
+  height: 4rlh;
 }
 
 .content.expanded {
-  /* Use calc-size for dynamic content height */
-  height: calc-size(auto, size);
+  transition:
+    clip-path 0.5s ease,
+    height 0.5s ease;
+  clip-path: inset(0% 0% 0% 0%);
+  mask-image: linear-gradient(to bottom, black 60%, black 100%);
+  /* transition:
+    clip-path 0.5s ease,
+    height 0.5s ease;
+  transition-behavior: discrete; */
 }
 
-.children {
+/* .children {
   position: relative;
   z-index: 0;
-}
+} */
 
 .mask {
   position: absolute;
@@ -43,19 +55,19 @@
   pointer-events: none;
 
   /* Linear gradient mask to create the "tease" effect */
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     transparent 0%,
     var(--bg, #ffffff) 80%,
     var(--bg, #ffffff) 100%
-  );
+  ); */
 
   /* Alternative mask-image approach for better browser support */
-  mask-image: linear-gradient(to top, black 0%, black 60%, transparent 100%);
+  /* mask-image: linear-gradient(to top, black 0%, black 60%, transparent 100%);
   -webkit-mask-image: linear-gradient(
     to top,
     black 0%,
     black 60%,
     transparent 100%
-  );
+  ); */
 }

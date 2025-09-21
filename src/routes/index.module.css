@@ -33,7 +33,7 @@
   grid-template-columns: subgrid;
   background-color: var(--bg-dark);
   &[aria-expanded="true"] {
-    background-color: var(--bg);
+    background-color: var(--bg-dark);
   }
 }
 

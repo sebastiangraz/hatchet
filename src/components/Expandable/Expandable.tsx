@@ -22,7 +22,6 @@ export const Expandable = (props: ExpandableProps) => {
         aria-expanded={isExpanded}
       >
         {children}
-        {!isExpanded && <div className={styles.mask} />}
       </div>
       <Button
         large
