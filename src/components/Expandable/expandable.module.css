@@ -6,6 +6,7 @@ summary.toggleButton {
   &::marker {
     content: "";
   }
+  z-index: 1;
   cursor: pointer;
   position: absolute;
   bottom: 0;
@@ -37,48 +38,3 @@ summary.toggleButton {
 [open]::details-content {
   height: calc-size(auto, size + 4rlh);
 }
-
-/* -----------------------------OLDER CODE----------------------------- */
-
-/* .content {
-  position: relative;
-  overflow: hidden;
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-
-  clip-path: inset(0% 0% 0% 0%);
-  transition:
-    clip-path 0.5s ease,
-    height 0.5s ease;
-  --contentWidth: calc((var(--columns) + var(--gaps)) * var(--unit-size));
-  --leftEdge: max(0%, calc(50% - var(--contentWidth) / 2));
-  --rightEdge: min(100%, calc(50% + var(--contentWidth) / 2));
-}
-.toggleButton {
-  margin-block-start: 2rlh;
-  place-self: center;
-  z-index: 1;
-}
-
-.content.collapsed {
-  clip-path: inset(0% calc(100% - var(--rightEdge)) 0% var(--leftEdge));
-
-  height: 4rlh;
-}
-
-.content.expanded {
-  transition:
-    clip-path 0.5s ease,
-    height 0.5s ease;
-  clip-path: inset(0% 0% 0% 0%);
-  mask-image: linear-gradient(to bottom, black 60%, black 100%);
-}
-
-.mask {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  z-index: 1;
-  pointer-events: none;
-} */
