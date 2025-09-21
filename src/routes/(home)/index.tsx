@@ -5,6 +5,7 @@ import { Text } from "~/components/Text/Text";
 import styles from "./index.module.css";
 import UI from "~/assets/ui.svg";
 import { Expandable } from "~/components/Expandable/Expandable";
+import { Logostrip } from "~/components/Logostrip/Logostrip";
 
 export const Route = createFileRoute("/(home)/")({
   component: RouteComponent,
@@ -14,10 +15,10 @@ function RouteComponent() {
   return (
     <>
       <Hero />
+      <Logostrip />
       <Section>
         <img src={UI} alt="UI" className={styles.ui} />
       </Section>
-
       <Section theme="light" className="py-6">
         <div className="flex" style={{ gridColumn: "start / 7" }}>
           <Text.H1>Core Principles</Text.H1>
