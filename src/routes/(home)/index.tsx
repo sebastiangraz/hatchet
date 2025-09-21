@@ -9,6 +9,7 @@ import AIAgents from "~/assets/AIAgents.svg";
 import { Expandable } from "~/components/Expandable/Expandable";
 import { Logostrip } from "~/components/Logostrip/Logostrip";
 import { Markdown } from "~/components/Markdown/Markdown";
+import { CodeBlock } from "~/components/CodeBlock/CodeBlock";
 
 export const Route = createFileRoute("/(home)/")({
   component: RouteComponent,
@@ -85,7 +86,45 @@ function RouteComponent() {
           that are difficult to scale and maintain.
         </Text.Body>
         <img src={AIAgents}></img>
-        <Markdown>{/* Put code block here */}</Markdown>
+        <CodeBlock
+          code={`// AI Agent Example with Hatchet
+import { Hatchet } from "@hatchet/typescript-sdk";
+
+const hatchet = new Hatchet({
+  token: process.env.HATCHET_TOKEN
+});
+
+// Define an AI agent workflow
+const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
+  // Step 1: Process user input
+  const userInput = await ctx.step("process-input", async () => {
+    return ctx.workflowInput().message;
+  });
+
+  // Step 2: Call LLM with safety constraints
+  const response = await ctx.step("llm-call", async () => {
+    return await callLLM(userInput, {
+      maxTokens: 1000,
+      temperature: 0.7,
+      timeoutMs: 30000
+    });
+  });
+
+  // Step 3: Validate and format response
+  const validatedResponse = await ctx.step("validate", async () => {
+    return validateAndFormat(response);
+  });
+
+  return validatedResponse;
+});
+
+// Start the agent
+aiAgent.start();`}
+          lang="typescript"
+          showLineNumbers={true}
+          highlightLines={[7, 12, 18, 25]}
+          filename="ai-agent.ts"
+        />
       </Section>
     </>
   );
