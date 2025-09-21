@@ -20,7 +20,7 @@ export const Logostrip = () => {
 
   return (
     <div className={styles.logostrip}>
-      <Text.Small caps balance mono>
+      <Text.Small secondary mono>
         Running Billions of Tasks for Scale-Ups and Enterprises
       </Text.Small>
       <div className={styles.logos}>

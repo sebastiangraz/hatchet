@@ -1,7 +1,7 @@
 import { theme } from "~/types";
 import styles from "./section.module.css";
 interface SectionProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   theme?: theme;
   title?: string;
