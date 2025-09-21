@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
-export const Route = createFileRoute("/pricing")({
+export const Route = createFileRoute("/pricing/")({
   beforeLoad: ({ context }) => ({
     ...context,
     theme: "light" as const,

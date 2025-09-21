@@ -40,7 +40,7 @@
   .grid-parent {
     --margin: minmax(0, 1fr);
     --gridSize: 48px;
-    --unit-size: min(var(--gridSize), calc(var(--gridSize) / 1296px * 100%));
+    --unit-size: min(var(--gridSize), calc(var(--gridSize) / 1296px * 100vw));
     --gap: var(--unit-size);
     --startEndWidth: calc(23 * var(--unit-size));
 

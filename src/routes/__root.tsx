@@ -4,7 +4,6 @@ import { Layout } from "~/components/Layout/Layout";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import {
   HeadContent,
-  Link,
   Outlet,
   Scripts,
   createRootRoute,

@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 import UI from "~/assets/ui.svg";
 import { Expandable } from "~/components/Expandable/Expandable";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/(home)/")({
   component: RouteComponent,
 });
 

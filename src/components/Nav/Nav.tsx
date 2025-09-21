@@ -15,6 +15,7 @@ export const Nav = () => {
   return (
     <>
       <div className={styles.navBackground}></div>
+      <div className={styles.checker}></div>
       <Promobar />
       <nav ref={ref} className={styles.nav} data-sticky={isSticky}>
         <div className={styles.wrapper}>

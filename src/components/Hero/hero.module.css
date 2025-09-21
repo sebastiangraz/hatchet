@@ -1,6 +1,5 @@
 .hero {
   composes: grid-parent from global;
-  composes: checker from global;
   row-gap: 2rlh;
   padding-block-start: 4rlh;
   padding-block-end: 4rlh;
