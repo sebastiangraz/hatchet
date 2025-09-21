@@ -40,17 +40,9 @@
   .grid-parent {
     --margin: minmax(0, 1fr);
     --gridSize: 48px;
-    --columns: 12;
-    --gaps: calc(var(--columns) - 1);
-
-    --maxWidth: calc(
-      ((var(--columns) + var(--gaps)) * var(--gridSize)) + var(--gridSize) * 4
-    );
-    --unit-size: min(
-      var(--gridSize),
-      calc(var(--gridSize) / var(--maxWidth) * 100vw)
-    );
+    --unit-size: min(var(--gridSize), calc(var(--gridSize) / 1296px * 100vw));
     --gap: var(--unit-size);
+    --startEndWidth: calc(23 * var(--unit-size));
 
     display: grid;
     column-gap: var(--gap);
@@ -58,7 +50,7 @@
       [bleedstart]
       var(--margin)
       [start]
-      repeat(var(--columns), var(--unit-size))
+      repeat(12, var(--unit-size))
       [end]
       var(--margin)
       [bleedend];

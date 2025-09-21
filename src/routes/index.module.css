@@ -3,19 +3,26 @@
   grid-column: bleedstart / bleedend;
 
   &[open] .subgrid {
-    clip-path: rect(0% 100% 100% 0% round 1rlh);
+    clip-path: xywh(0% 0% 100% 100%);
   }
 }
 
+/* I need help setting the padding variable, right now its set to an arbitrary 1%. But I want it to be a dynamic value based on the viewport. 
+So the logic is, 
+
+fullViewport = 100vw (lets assume its 1500px)
+viewport = fullViewport - 1296px
+leftPadding = viewport / 2
+rightPadding = viewport  / 2 
+The viewport is fluid from 0px up to a max-width of 1104px. When downsizing, the  */
+
 .subgrid {
-  --total: 1104px;
-  --padding: 1%;
+  --maxWidth: 1296px;
+  --padding: max(calc(96px / 1296px * 100vw), calc((100% - 1104px) / 2));
   composes: grid-parent from global;
-  clip-path: rect(
-    0% calc(100% - var(--padding)) 100% var(--padding) round 1rlh
-  );
-  background-color: var(--bg-dark);
+  clip-path: xywh(var(--padding) 0% var(--startEndWidth) 100%);
   transition: clip-path 0.2s ease;
+  background-color: var(--bg-dark);
   :global .flex {
     --gap: 0.5rlh;
     text-align: center;
