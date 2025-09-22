@@ -1,0 +1,293 @@
+/* Header Section */
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rlh;
+}
+
+.subtitle {
+  color: var(--fg-secondary);
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rlh;
+}
+
+/* Pricing Table Layout */
+.pricingTable {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid var(--fg-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (--1) {
+  .pricingTable {
+    grid-template-columns: 2fr repeat(4, 1fr);
+  }
+}
+
+/* Self-Hosted Table Layout */
+.selfHostedTable {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid var(--fg-border);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (--1) {
+  .selfHostedTable {
+    grid-template-columns: 2fr repeat(2, 1fr);
+  }
+}
+
+/* Table Headers */
+.tableHeader,
+.selfHostedHeader {
+  display: contents;
+}
+
+@media (max-width: 38em) {
+  .tableHeader,
+  .selfHostedHeader {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rlh;
+    padding: 2rlh;
+    background-color: var(--bg-secondary);
+  }
+}
+
+/* Header Cells */
+.headerCell {
+  background-color: var(--bg-secondary);
+  border-bottom: 2px solid var(--fg-border);
+  padding: 2rlh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rlh;
+  position: relative;
+  text-align: center;
+}
+
+.headerCell:not(:first-child) {
+  border-left: 1px solid var(--fg-border);
+}
+
+.popularHeader {
+  background-color: var(--bg-dark);
+  border-color: var(--accent);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  color: var(--bg);
+  padding: 0.5rlh 1rlh;
+  border-radius: 4px;
+  font-size: var(--small);
+  font-weight: 500;
+  font-family: var(--font-judge);
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rlh;
+  justify-content: center;
+}
+
+.price {
+  color: var(--fg);
+}
+
+.period {
+  color: var(--fg-secondary);
+}
+
+.description {
+  color: var(--fg-secondary);
+  font-size: var(--small);
+  line-height: 1.4;
+}
+
+.button {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Table Rows */
+.tableRow {
+  display: contents;
+}
+
+.categoryRow {
+  display: contents;
+}
+
+@media (max-width: 38em) {
+  .tableRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rlh;
+    padding: 1rlh 2rlh;
+    border-bottom: 1px solid var(--fg-border);
+  }
+
+  .categoryRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rlh;
+    padding: 1.5rlh 2rlh;
+    background-color: var(--bg-tertiary);
+    border-bottom: 1px solid var(--fg-border);
+  }
+}
+
+/* Feature Cells */
+.featureCell {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--fg-border);
+  padding: 1rlh 2rlh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rlh;
+  justify-content: center;
+}
+
+.categoryCell {
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--fg-border);
+  padding: 1.5rlh 2rlh;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.emptyCategoryCell {
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--fg-border);
+  border-left: 1px solid var(--fg-border);
+  min-height: 3rlh;
+}
+
+.featureCategory {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.featureSubcategory {
+  color: var(--fg-secondary);
+}
+
+/* Value Cells */
+.valueCell {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--fg-border);
+  border-left: 1px solid var(--fg-border);
+  padding: 1rlh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Highlight Growth column (3rd plan, 4th grid column) */
+.pricingTable .valueCell:nth-child(4) {
+  background-color: var(--bg-dark);
+}
+
+/* Remove bottom border from last row */
+.pricingTable .tableRow:last-child .featureCell,
+.pricingTable .tableRow:last-child .valueCell,
+.pricingTable .categoryRow:last-child .categoryCell,
+.pricingTable .categoryRow:last-child .emptyCategoryCell,
+.selfHostedTable .tableRow:last-child .featureCell,
+.selfHostedTable .tableRow:last-child .valueCell,
+.selfHostedTable .categoryRow:last-child .categoryCell,
+.selfHostedTable .categoryRow:last-child .emptyCategoryCell {
+  border-bottom: none;
+}
+
+/* Mobile Layout */
+@media (max-width: 38em) {
+  .featureCell {
+    background-color: var(--bg-tertiary);
+    border: none;
+    padding: 1rlh 0;
+  }
+
+  .valueCell {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rlh 0;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .valueCell::before {
+    content: attr(data-plan) ": ";
+    font-weight: 500;
+    color: var(--fg);
+    margin-right: 0.5rlh;
+  }
+}
+
+/* Hover Effects */
+.tableRow:hover .featureCell,
+.tableRow:hover .valueCell {
+  background-color: var(--bg-tertiary);
+}
+
+.tableRow:hover .pricingTable .valueCell:nth-child(4) {
+  background-color: var(--bg-secondary);
+}
+
+.categoryRow:hover .categoryCell,
+.categoryRow:hover .emptyCategoryCell {
+  background-color: var(--bg-secondary);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .headerCell {
+  background-color: var(--bg-dark);
+}
+
+[data-theme="dark"] .popularHeader {
+  background-color: var(--bg);
+}
+
+[data-theme="dark"] .featureCell {
+  background-color: var(--bg-dark);
+}
+
+[data-theme="dark"] .categoryCell,
+[data-theme="dark"] .emptyCategoryCell {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .valueCell {
+  background-color: var(--bg);
+}
+
+[data-theme="dark"] .pricingTable .valueCell:nth-child(4) {
+  background-color: var(--bg-secondary);
+}
