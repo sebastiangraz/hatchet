@@ -45,22 +45,19 @@ function RouteComponent() {
             consolidate background task infrastructure and simplify operations.
           </Text.Body>
         </div>
-        <div
-          className="divider"
-          style={{ gridColumn: "bleedstart / bleedend" }}
-        />
+        <hr className={styles.divider} />
 
         <div className={styles.subgrid}>
           <div className="flex">
             <Text.H5>Performance</Text.H5>
-            <Text.Body>
+            <Text.Body balance>
               Start tasks sub 35ms P95. Smart assignment rules handle rate
               limits, fairness, and priorities without complex configuration.
             </Text.Body>
           </div>
           <div className="flex">
             <Text.H5>Durability</Text.H5>
-            <Text.Body>
+            <Text.Body balance>
               Every task invocation is durably logged to PostgreSQL. When jobs
               fail, resume exactly where you left off — no lost work, no
               duplicate LLM calls, no engineer headaches.
@@ -68,7 +65,7 @@ function RouteComponent() {
           </div>
           <div className="flex">
             <Text.H5>Code-First</Text.H5>
-            <Text.Body>
+            <Text.Body balance>
               Hatchet SDKs are language native so developers can write business
               logic as versionable, reusable, testable atomic functions.
             </Text.Body>

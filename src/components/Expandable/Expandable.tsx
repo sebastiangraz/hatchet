@@ -20,6 +20,8 @@ export const Expandable = (props: ExpandableProps) => {
       <details className={`${styles.details} ${className}`}>
         <Button
           large
+          type={isExpanded ? "secondary" : "default"}
+          icon={isExpanded ? "back" : "docs"}
           as="summary"
           className={styles.toggleButton}
           onClick={toggleExpanded}

@@ -49,7 +49,7 @@
 }
 
 @custom-media --1 (min-width: 38em);
-@custom-media --2 (min-width: 68em);
+@custom-media --2 (min-width: 64em);
 @custom-media --3 (min-width: 90em);
 
 :root {
