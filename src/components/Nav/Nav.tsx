@@ -23,7 +23,6 @@ export const Nav = () => {
             <Logo />
           </Link>
           <menu className={styles.menu}>
-            <NavItem to="/">Home</NavItem>
             <NavItem to="/customers">Customers</NavItem>
             <NavItem to="/pricing">Pricing</NavItem>
           </menu>
