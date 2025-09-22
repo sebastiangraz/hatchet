@@ -50,7 +50,7 @@ export const Button = (props: ButtonProps) => {
       {children}
     </Tag>
   ) : (
-    <div ref={ref} style={{ display: "contents" }}>
+    <div ref={ref}>
       <Link
         {...rest}
         className={buttonStyle}
