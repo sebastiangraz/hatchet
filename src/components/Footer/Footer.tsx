@@ -60,11 +60,11 @@ export const Footer = (props: FooterProps) => {
                 Security
               </a>{" "}
             </Text.Micro>
-            <Text.Micro secondary mono caps>
+            {/* <Text.Micro secondary mono caps>
               <a href="https://hatchet.run/policies/terms" target="_blank">
                 Terms of Service
               </a>
-            </Text.Micro>
+            </Text.Micro> */}
           </div>
         </div>
         <div className={styles.links}>
