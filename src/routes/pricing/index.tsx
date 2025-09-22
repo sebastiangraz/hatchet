@@ -62,22 +62,12 @@ const featureRows = [
   {
     type: "feature",
     subcategory: "Task Runs",
-    values: [
-      "10/s Task Runs",
-      "100/s Task Runs",
-      "500/s Task Runs",
-      "500-10k/s Task Runs",
-    ],
+    values: ["10/s", "100/s", "500/s", "500-10k/s"],
   },
   {
     type: "feature",
     subcategory: "Concurrent Runs",
-    values: [
-      "2k Concurrent Runs",
-      "10k Concurrent Runs",
-      "100k Concurrent Runs",
-      "100k-1M Concurrent Runs",
-    ],
+    values: ["2k", "10k", "100k", "100k-1M"],
   },
 
   // Managed Compute Section
@@ -88,57 +78,32 @@ const featureRows = [
   {
     type: "feature",
     subcategory: "Shared CPU",
-    values: [
-      "$0.01/CPU/hour Shared CPU",
-      "$0.01/CPU/hour Shared CPU",
-      "$0.01/CPU/hour Shared CPU",
-      "Custom Shared CPU",
-    ],
+    values: ["$0.01/CPU/hour", "$0.01/CPU/hour", "$0.01/CPU/hour", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Performance CPU",
-    values: [
-      "-",
-      "$0.02/CPU/hour",
-      "$0.02/CPU/hour Performance CPU",
-      "Custom Performance CPU",
-    ],
+    values: ["-", "$0.02/CPU/hour", "$0.02/CPU/hour", "Custom"],
   },
   {
     type: "feature",
     subcategory: "RAM",
-    values: [
-      "$0.01/GB/hour RAM",
-      "$0.01/GB/hour RAM",
-      "$0.01/GB/hour RAM",
-      "Custom RAM",
-    ],
+    values: ["$0.01/GB/hour", "$0.01/GB/hour", "$0.01/GB/hour", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Instance Types",
-    values: [
-      "1xCPU/1xGB Instance Types",
-      "up to 2xCPU/4GB Instance Types",
-      "up to 8xCPU/16GB Instance Types",
-      "Custom Instance Types",
-    ],
+    values: ["1xCPU/1xGB", "up to 2xCPU/4GB", "up to 8xCPU/16GB", "Custom"],
   },
   {
     type: "feature",
     subcategory: "GPU",
-    values: ["-", "-", "Available (Beta) GPU", "Custom GPU"],
+    values: ["-", "-", "Available (Beta)", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Auto Scale",
-    values: [
-      "0-2 instances Auto Scale",
-      "0-5 instances Auto Scale",
-      "0-200 instances Auto Scale",
-      "Custom Auto Scale",
-    ],
+    values: ["0-2 instances", "0-5 instances", "0-200 instances", "Custom"],
   },
 
   // Included Usage Section
@@ -149,42 +114,22 @@ const featureRows = [
   {
     type: "feature",
     subcategory: "Task Runs",
-    values: [
-      "2k/day Task Runs",
-      "20k/day Task Runs",
-      "100k/day Task Runs",
-      "Custom Task Runs",
-    ],
+    values: ["2k/day", "20k/day", "100k/day", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Active Storage",
-    values: [
-      "1 GB Active Storage",
-      "10 GB Active Storage",
-      "100 GB Active Storage",
-      "Custom Active Storage",
-    ],
+    values: ["1 GB", "10 GB", "100 GB", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Network Bandwidth",
-    values: [
-      "10 GB Network Bandwidth",
-      "100 GB Network Bandwidth",
-      "1 TB Network Bandwidth",
-      "Custom Network Bandwidth",
-    ],
+    values: ["10 GB", "100 GB", "1 TB", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Compute Credits",
-    values: [
-      "$5/mo Compute Credits",
-      "$25/mo Compute Credits",
-      "$100/mo Compute Credits",
-      "Custom Compute Credits",
-    ],
+    values: ["$5/mo", "$25/mo", "$100/mo", "Custom"],
   },
 
   // Additional Usage Section
@@ -195,17 +140,17 @@ const featureRows = [
   {
     type: "feature",
     subcategory: "Task Runs",
-    values: ["N/A", "N/A", "$10/million Task Runs", "Custom Task Runs"],
+    values: ["N/A", "N/A", "$10/million", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Active Storage",
-    values: ["N/A", "N/A", "N/A", "Custom Active Storage"],
+    values: ["N/A", "N/A", "N/A", "Custom"],
   },
   {
     type: "feature",
     subcategory: "Network Bandwidth",
-    values: ["N/A", "N/A", "N/A", "Custom Network Bandwidth"],
+    values: ["N/A", "N/A", "N/A", "Custom"],
   },
 
   // General Section
@@ -334,19 +279,15 @@ function RouteComponent() {
     <>
       <Section className="py-6">
         <div className={styles.header}>
-          <Text.H1 balance>Transparent, Flexible Pricing</Text.H1>
-          <Text.Body className={styles.subtitle}>
+          <Text.H1 balance>Pricing</Text.H1>
+          <Text.Body balance className={styles.subtitle}>
             Hatchet offers both Fully Managed Hatchet Cloud packages and
             Self-Hosted Plans.
           </Text.Body>
         </div>
       </Section>
 
-      <Section theme="light" className="py-6">
-        <Text.H2 className={styles.sectionTitle}>
-          Managed Cloud Packages
-        </Text.H2>
-
+      <Section theme="light">
         <div className={styles.pricingTable}>
           {/* Header Row */}
           <div className={styles.tableHeader}>
@@ -356,10 +297,7 @@ function RouteComponent() {
                 key={index}
                 className={`${styles.headerCell} ${plan.popular ? styles.popularHeader : ""}`}
               >
-                {plan.popular && (
-                  <div className={styles.popularBadge}>Most Popular</div>
-                )}
-                <Text.H3>{plan.name}</Text.H3>
+                <Text.H5>{plan.name}</Text.H5>
                 <div className={styles.priceContainer}>
                   <Text.H3 className={styles.price}>{plan.price}</Text.H3>
                   {plan.period && (
@@ -368,16 +306,15 @@ function RouteComponent() {
                     </Text.Body>
                   )}
                 </div>
-                <Text.Body className={styles.description}>
+                <Text.Small secondary balance className={styles.description}>
                   {plan.description}
-                </Text.Body>
+                </Text.Small>
                 <Button
                   href={plan.buttonHref}
                   target="_blank"
                   className={styles.button}
-                  type={plan.popular ? "default" : "secondary"}
                 >
-                  {plan.buttonText} →
+                  {plan.buttonText}
                 </Button>
               </div>
             ))}
@@ -404,7 +341,7 @@ function RouteComponent() {
               return (
                 <div key={rowIndex} className={styles.tableRow}>
                   <div className={styles.featureCell}>
-                    <Text.Small className={styles.featureSubcategory}>
+                    <Text.Small mono className={styles.featureSubcategory}>
                       {row.subcategory}
                     </Text.Small>
                   </div>
@@ -414,7 +351,9 @@ function RouteComponent() {
                       className={styles.valueCell}
                       data-plan={cloudPlans[valueIndex].name}
                     >
-                      <Text.Small>{value}</Text.Small>
+                      <Text.Small mono secondary>
+                        {value}
+                      </Text.Small>
                     </div>
                   ))}
                 </div>
@@ -426,7 +365,7 @@ function RouteComponent() {
         </div>
       </Section>
 
-      <Section theme="dark" className="py-6">
+      {/* <Section theme="dark" className="py-6">
         <Text.H2 className={styles.sectionTitle}>Self-Hosted Packages</Text.H2>
         <Text.Body className={styles.subtitle}>
           Hatchet is MIT licensed and free to self-host. We offer additional
@@ -434,7 +373,7 @@ function RouteComponent() {
         </Text.Body>
 
         <div className={styles.selfHostedTable}>
-          {/* Header Row */}
+      
           <div className={styles.selfHostedHeader}>
             <div className={styles.headerCell}></div>
             {selfHostedPlans.map((plan, index) => (
@@ -457,13 +396,13 @@ function RouteComponent() {
                   className={styles.button}
                   type="secondary"
                 >
-                  {plan.buttonText} →
+                  {plan.buttonText}
                 </Button>
               </div>
             ))}
           </div>
 
-          {/* Feature Rows */}
+  
           {selfHostedFeatureRows.map((row, rowIndex) => {
             if (row.type === "category") {
               return (
@@ -504,7 +443,7 @@ function RouteComponent() {
             return null;
           })}
         </div>
-      </Section>
+      </Section> */}
     </>
   );
 }

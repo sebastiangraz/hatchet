@@ -1,11 +1,9 @@
 /* Header Section */
 .header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rlh;
+  max-width: 32rlh;
 }
 
 .subtitle {
@@ -20,96 +18,54 @@
 /* Pricing Table Layout */
 .pricingTable {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-column: bleedstart / bleedend;
+  padding: 4rlh;
+  grid-template-columns: auto repeat(4, 1fr);
   gap: 0;
-  border: 1px solid var(--fg-border);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-@media (--1) {
-  .pricingTable {
-    grid-template-columns: 2fr repeat(4, 1fr);
-  }
 }
 
 /* Self-Hosted Table Layout */
 .selfHostedTable {
   display: grid;
   grid-template-columns: 1fr;
+  grid-column: bleedstart / bleedend;
   gap: 0;
-  border: 1px solid var(--fg-border);
-  border-radius: 8px;
   overflow: hidden;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-@media (--1) {
-  .selfHostedTable {
-    grid-template-columns: 2fr repeat(2, 1fr);
-  }
+  padding: 0 4rlh;
+  /* margin: 0 auto; */
 }
 
 /* Table Headers */
 .tableHeader,
 .selfHostedHeader {
-  display: contents;
-}
-
-@media (max-width: 38em) {
-  .tableHeader,
-  .selfHostedHeader {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rlh;
-    padding: 2rlh;
-    background-color: var(--bg-secondary);
-  }
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
 }
 
 /* Header Cells */
 .headerCell {
   background-color: var(--bg-secondary);
-  border-bottom: 2px solid var(--fg-border);
-  padding: 2rlh;
+  border-bottom: 1.5px solid var(--fg-border);
+  padding: 1rlh;
   display: flex;
   flex-direction: column;
   gap: 1rlh;
   position: relative;
-  text-align: center;
 }
 
 .headerCell:not(:first-child) {
-  border-left: 1px solid var(--fg-border);
+  border-left: 1.5px solid var(--fg-border);
 }
 
 .popularHeader {
   background-color: var(--bg-dark);
-  border-color: var(--accent);
-}
-
-.popularBadge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--accent);
-  color: var(--bg);
-  padding: 0.5rlh 1rlh;
-  border-radius: 4px;
-  font-size: var(--small);
-  font-weight: 500;
-  font-family: var(--font-judge);
-  text-transform: uppercase;
-  letter-spacing: 0.04rem;
 }
 
 .priceContainer {
   display: flex;
   align-items: baseline;
-  gap: 0.5rlh;
-  justify-content: center;
+  gap: 0.25rlh;
 }
 
 .price {
@@ -120,33 +76,24 @@
   color: var(--fg-secondary);
 }
 
-.description {
-  color: var(--fg-secondary);
-  font-size: var(--small);
-  line-height: 1.4;
-}
-
-.button {
-  margin-top: auto;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
 /* Table Rows */
 .tableRow {
-  display: contents;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
 }
 
 .categoryRow {
-  display: contents;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
 }
 
-@media (max-width: 38em) {
+/* @media (max-width: 38em) {
   .tableRow {
     display: grid;
     grid-template-columns: 1fr;
+    grid-column: 1 / -1;
     gap: 0.5rlh;
     padding: 1rlh 2rlh;
     border-bottom: 1px solid var(--fg-border);
@@ -155,18 +102,19 @@
   .categoryRow {
     display: grid;
     grid-template-columns: 1fr;
+    grid-column: 1 / -1;
     gap: 0.5rlh;
     padding: 1.5rlh 2rlh;
     background-color: var(--bg-tertiary);
     border-bottom: 1px solid var(--fg-border);
   }
-}
+} */
 
 /* Feature Cells */
 .featureCell {
   background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--fg-border);
-  padding: 1rlh 2rlh;
+  border-bottom: 1.5px solid var(--fg-border);
+  padding: 1rlh 1rlh 1rlh 0;
   display: flex;
   flex-direction: column;
   gap: 0.25rlh;
@@ -175,43 +123,29 @@
 
 .categoryCell {
   background-color: var(--bg-tertiary);
-  border-bottom: 1px solid var(--fg-border);
-  padding: 1.5rlh 2rlh;
+  padding: 2rlh 1rlh 1rlh 0;
   display: flex;
   align-items: center;
   font-weight: 500;
 }
 
-.emptyCategoryCell {
-  background-color: var(--bg-tertiary);
-  border-bottom: 1px solid var(--fg-border);
-  border-left: 1px solid var(--fg-border);
-  min-height: 3rlh;
-}
-
 .featureCategory {
-  color: var(--fg);
-  font-weight: 500;
-}
-
-.featureSubcategory {
-  color: var(--fg-secondary);
+  white-space: nowrap;
 }
 
 /* Value Cells */
 .valueCell {
   background-color: var(--bg);
-  border-bottom: 1px solid var(--fg-border);
-  border-left: 1px solid var(--fg-border);
+  border-bottom: 1.5px solid var(--fg-border);
   padding: 1rlh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: baseline;
+  justify-content: start;
 }
 
 /* Highlight Growth column (3rd plan, 4th grid column) */
-.pricingTable .valueCell:nth-child(4) {
+.pricingTable .valueCell:nth-child(4),
+.pricingTable .emptyCategoryCell:nth-child(4) {
   background-color: var(--bg-dark);
 }
 
@@ -228,7 +162,7 @@
 }
 
 /* Mobile Layout */
-@media (max-width: 38em) {
+/* @media (max-width: 38em) {
   .featureCell {
     background-color: var(--bg-tertiary);
     border: none;
@@ -249,45 +183,19 @@
     color: var(--fg);
     margin-right: 0.5rlh;
   }
-}
+} */
 
 /* Hover Effects */
-.tableRow:hover .featureCell,
+/* .tableRow:hover .featureCell,
 .tableRow:hover .valueCell {
   background-color: var(--bg-tertiary);
-}
+} */
 
-.tableRow:hover .pricingTable .valueCell:nth-child(4) {
+/* .pricingTable .tableRow:hover .valueCell:nth-child(4) {
   background-color: var(--bg-secondary);
 }
 
 .categoryRow:hover .categoryCell,
 .categoryRow:hover .emptyCategoryCell {
   background-color: var(--bg-secondary);
-}
-
-/* Dark theme adjustments */
-[data-theme="dark"] .headerCell {
-  background-color: var(--bg-dark);
-}
-
-[data-theme="dark"] .popularHeader {
-  background-color: var(--bg);
-}
-
-[data-theme="dark"] .featureCell {
-  background-color: var(--bg-dark);
-}
-
-[data-theme="dark"] .categoryCell,
-[data-theme="dark"] .emptyCategoryCell {
-  background-color: var(--bg-secondary);
-}
-
-[data-theme="dark"] .valueCell {
-  background-color: var(--bg);
-}
-
-[data-theme="dark"] .pricingTable .valueCell:nth-child(4) {
-  background-color: var(--bg-secondary);
-}
+} */
