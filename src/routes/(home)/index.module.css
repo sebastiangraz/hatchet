@@ -1,32 +1,47 @@
 /* CSS Module with @scope and custom media queries */
 .expandable {
   grid-column: bleedstart / bleedend;
-
-  &[open] .expandableClip {
-    transition: clip-path 0.2s ease;
-
-    --padding: 0px;
-    --full-width: 100%;
+  background-color: var(--bg-dark);
+  &[open] .codeBlock {
+    transform: translateY(0);
   }
 }
 
-.expandableClip {
-  --padding: calc(
-    (
-        96px * 100% / 1296px + (100% - 1296px) / 2 +
-          abs(96px * 100% / 1296px - (100% - 1104px) / 2)
-      ) /
-      2
-  );
-  --full-width: calc(100% - 2 * var(--padding));
-  composes: grid-parent from global;
-  clip-path: xywh(var(--padding) 0% var(--full-width) 100%);
-  transition: background-color 0.2s ease allow-discrete;
-  will-change: clip-path;
+.expandableSection {
+  background-color: transparent;
+}
+
+.expandableLeft {
+  grid-column: start / end;
+  padding-block: 4rlh;
+  gap: 2rlh;
+  display: grid;
+  grid-auto-flow: row;
+  @media (--2) {
+    grid-column: start / 8;
+  }
+}
+
+.codeBlock {
+  order: -1;
+  grid-column: start / end;
+  height: 100%;
+
+  place-self: stretch;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+
+  transition: transform 0.2s ease;
+  @media (--2) {
+    border-left: 1px solid var(--fg-border);
+    transform: translateY(-12.5%);
+    order: 1;
+    grid-column: 8 / bleedend;
+  }
 }
 
 .subgrid {
-  /* background-color: var(--bg-dark); */
   composes: grid-parent from global;
   grid-template-columns: subgrid;
   :global .flex {

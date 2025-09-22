@@ -32,12 +32,12 @@ export const Button = (props: ButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const Tag = as;
-  const destination = href ? href : to;
+
   const typeValue = type === "default" ? "" : styles.secondary;
   const className = rest.className ? rest.className : "";
   const buttonStyle =
     `${styles.button} ${typeValue} ${styles[`icon-${icon}`]} ${large ? styles.large : ""} ${className}`.trim();
-
+  const destination = href ? href : to;
   return Tag ? (
     <Tag
       {...rest}
@@ -50,7 +50,7 @@ export const Button = (props: ButtonProps) => {
       {children}
     </Tag>
   ) : (
-    <div ref={ref}>
+    <div ref={ref} style={{ display: "contents" }}>
       <Link
         {...rest}
         className={buttonStyle}

@@ -1,0 +1,22 @@
+.quote {
+  background-color: var(--bg);
+  padding: 2rlh;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rlh;
+}
+.quoteContent {
+  text-box: cap alphabetic;
+}
+.quoteMeta {
+  display: flex;
+  gap: 1rlh;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  div {
+    display: flex;
+    gap: 0.5rlh;
+    justify-content: start;
+  }
+}

@@ -15,7 +15,11 @@ summary.toggleButton {
 }
 
 .detailsContentWrapper {
-  mask-image: linear-gradient(to bottom, #000 50%, #0000 80%);
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(50% - 0rlh),
+    rgba(0, 0, 0, 0) calc(50% + 11rlh)
+  );
   mask-position: 0% 100%;
   mask-size: 100% 200%;
   mask-repeat: no-repeat;
@@ -24,7 +28,6 @@ summary.toggleButton {
     mask-size 0.2s ease;
   [open] & {
     mask-position: 0% 0%;
-    /* opacity: 0; */
   }
 }
 
@@ -36,5 +39,5 @@ summary.toggleButton {
 }
 
 [open]::details-content {
-  height: calc-size(auto, size + 4rlh);
+  height: calc-size(auto, size + 2rlh);
 }

@@ -8,8 +8,8 @@ import corePrinciples from "~/assets/corePrinciples.svg";
 import AIAgents from "~/assets/AIAgents.svg";
 import { Expandable } from "~/components/Expandable/Expandable";
 import { Logostrip } from "~/components/Logostrip/Logostrip";
-import { Markdown } from "~/components/Markdown/Markdown";
 import { CodeBlock } from "~/components/CodeBlock/CodeBlock";
+import { Quote } from "~/components/Quote/Quote";
 
 export const Route = createFileRoute("/(home)/")({
   component: RouteComponent,
@@ -86,16 +86,47 @@ function RouteComponent() {
           that are difficult to scale and maintain.
         </Text.Body>
         <img src={AIAgents}></img>
-        <CodeBlock
-          code={`// AI Agent Example with Hatchet
-import { Hatchet } from "@hatchet/typescript-sdk";
-
-const hatchet = new Hatchet({
-  token: process.env.HATCHET_TOKEN
-});
-
-// Define an AI agent workflow
-const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
+        <FeatureExpandable>
+          <div className={styles.expandableLeft}>
+            <Text.H5>Reliability With Hatchet</Text.H5>
+            <Text.Body>
+              Define agents as simple distributed functions with built-in
+              orchestration primitives. Set guardrails, manage state, handle
+              failures gracefully. Your agents stay focused on logic, not
+              infrastructure.
+            </Text.Body>
+            <ul>
+              <li>
+                <Text.Body secondary>
+                  Built-in orchestration primitives
+                </Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary>Guardrails</Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary>State management</Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary>Failure handling</Text.Body>
+              </li>
+            </ul>
+            <Quote
+              person="John Doe"
+              name="CEO"
+              title="Company"
+              link="/customers/distill"
+            >
+              <Text.Body italic>
+                Integrating Hatchet led to a more efficient, reliable, and
+                scalable system, enhancing Distill's ability to deliver detailed
+                and accurate profiles to users.
+              </Text.Body>
+            </Quote>
+          </div>
+          <CodeBlock
+            className={styles.codeBlock}
+            code={`const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
   // Step 1: Process user input
   const userInput = await ctx.step("process-input", async () => {
     return ctx.workflowInput().message;
@@ -120,12 +151,24 @@ const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
 
 // Start the agent
 aiAgent.start();`}
-          lang="typescript"
-          showLineNumbers={true}
-          highlightLines={[7, 12, 18, 25]}
-          filename="ai-agent.ts"
-        />
+            lang="typescript"
+            showLineNumbers={true}
+            highlightLines={[7, 12, 18, 25]}
+            filename="ai-agent.ts"
+          />
+        </FeatureExpandable>
       </Section>
     </>
+  );
+}
+
+function FeatureExpandable({ children }: { children: React.ReactNode }) {
+  return (
+    <Expandable className={styles.expandable}>
+      <Section className={styles.expandableSection}>
+        {/* <div className={styles.expandableClip}></div> */}
+        {children}
+      </Section>
+    </Expandable>
   );
 }

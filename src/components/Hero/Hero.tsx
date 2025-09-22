@@ -25,8 +25,13 @@ export const Hero = (props: HeroProps) => {
 
       <Text.Body balance> {description} </Text.Body>
       <div className="flex">
-        <Button href="/pricing">Start for free</Button>
-        <Button icon="docs" type="secondary">
+        <Button to="/pricing">Start for free</Button>
+        <Button
+          href="https://docs.hatchet.run/home"
+          target="_blank"
+          icon="docs"
+          type="secondary"
+        >
           Docs
         </Button>
       </div>

@@ -16,8 +16,6 @@ const logos = globLogos.map(([url, module]) => {
 });
 
 export const Logostrip = () => {
-  console.log(logos);
-
   return (
     <div className={styles.logostrip}>
       <Text.Small secondary mono>
