@@ -1,4 +1,5 @@
-export const Logo = () => {
+export const Logo = (props: { className?: string }) => {
+  const { className } = props;
   return (
     <svg
       width="137"
@@ -6,6 +7,7 @@ export const Logo = () => {
       viewBox="0 0 137 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M17.5 10L22 0L30.6059 8.60589C31.7939 9.79394 32.388 10.388 32.6105 11.0729C32.8063 11.6755 32.8063 12.3245 32.6105 12.9271C32.388 13.612 31.7939 14.2061 30.6059 15.3941L22 24H15L26.7517 11.3444C27.146 10.9197 27.3432 10.7074 27.3527 10.5263C27.361 10.3691 27.2947 10.2171 27.1739 10.1162C27.0347 10 26.7449 10 26.1654 10H17.5Z"

@@ -12,6 +12,7 @@ import {
 import CSSGlobal from "~/styles/global.css?url";
 import CSSUtils from "~/styles/utils.css?url";
 import { Nav } from "~/components/Nav/Nav";
+import { Footer } from "~/components/Footer/Footer";
 import Favicon from "~/assets/favicon.svg";
 import { theme } from "~/types";
 
@@ -67,6 +68,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body data-theme={theme}>
         <Nav />
         <Layout>{children}</Layout>
+        <Footer />
         {/* <TanStackRouterDevtools position="bottom-right" /> */}
         <Scripts />
       </body>
