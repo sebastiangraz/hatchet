@@ -89,7 +89,7 @@ const featureRows = [
     type: "feature",
     subcategory: "Shared CPU",
     values: [
-      "Shared CPU",
+      "$0.01/CPU/hour Shared CPU",
       "$0.01/CPU/hour Shared CPU",
       "$0.01/CPU/hour Shared CPU",
       "Custom Shared CPU",
@@ -100,7 +100,7 @@ const featureRows = [
     subcategory: "Performance CPU",
     values: [
       "-",
-      "-",
+      "$0.02/CPU/hour",
       "$0.02/CPU/hour Performance CPU",
       "Custom Performance CPU",
     ],
@@ -108,7 +108,12 @@ const featureRows = [
   {
     type: "feature",
     subcategory: "RAM",
-    values: ["-", "-", "$0.01/GB/hour RAM", "Custom RAM"],
+    values: [
+      "$0.01/GB/hour RAM",
+      "$0.01/GB/hour RAM",
+      "$0.01/GB/hour RAM",
+      "Custom RAM",
+    ],
   },
   {
     type: "feature",
@@ -356,7 +361,7 @@ function RouteComponent() {
                 )}
                 <Text.H3>{plan.name}</Text.H3>
                 <div className={styles.priceContainer}>
-                  <Text.H2 className={styles.price}>{plan.price}</Text.H2>
+                  <Text.H3 className={styles.price}>{plan.price}</Text.H3>
                   {plan.period && (
                     <Text.Body className={styles.period}>
                       {plan.period}
