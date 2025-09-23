@@ -11,9 +11,9 @@
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
-    "@tanstack/react-router": "^1.132.0",
-    "@tanstack/react-router-devtools": "^1.132.0",
-    "@tanstack/react-start": "^1.132.0",
+    "@tanstack/react-router": "^1.132.0-alpha.25",
+    "@tanstack/react-router-devtools": "^1.132.0-alpha.25",
+    "@tanstack/react-start": "^1.132.0-alpha.25",
     "@types/mdx": "^2.0.13",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -33,7 +33,7 @@
     "@vitejs/plugin-react": "^5.0.3",
     "postcss-preset-env": "^10.4.0",
     "typescript": "^5.9.2",
-    "vite": "^7.1.7",
+    "vite": "^7.1.1",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }
