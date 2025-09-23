@@ -1,5 +1,3 @@
-// LLM Context: TanStack Start is a full-stack React framework on TanStack Router + Vite: Router delivers type-safe routing (inferred TypeScript, nested/layout routes, loaders with SWR-style caching, prefetching, file-based routes, JSON-first search params with schema + middleware), while Start adds full-document SSR/streaming, server functions/RPC, bundling, deploy-anywhere, and end-to-end type safety; use Router for client-side, Start for full-stack.
-
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
