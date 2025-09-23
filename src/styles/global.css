@@ -59,12 +59,16 @@
   --navy-dark: 227 88% 6%;
   --cyan-dark: 212 60% 78%;
   --blue: 212 100% 60%;
+  --magenta: 285 69% 56%;
+  --yellow: 69 77% 47%;
 
   --bg: hsl(var(--navy));
   --fg: hsl(var(--cyan));
   --bg-dark: hsl(var(--navy-dark));
   --fg-dark: hsl(var(--cyan-dark));
   --accent: hsl(var(--blue));
+  --accent-1: hsl(var(--magenta));
+  --accent-2: hsl(var(--yellow));
 
   --fg-secondary: hsl(var(--cyan) / var(--opacity-7));
   --fg-tertiary: hsl(var(--cyan) / var(--opacity-5));

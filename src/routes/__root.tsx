@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 import * as React from "react";
-import { Layout } from "~/components/Layout/Layout";
+import { RootLayout } from "~/components/RootLayout/RootLayout";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import {
   HeadContent,
@@ -67,7 +67,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body data-theme={theme}>
         <Nav />
-        <Layout>{children}</Layout>
+        <RootLayout>{children}</RootLayout>
         <Footer />
         {/* <TanStackRouterDevtools position="bottom-right" /> */}
         <Scripts />

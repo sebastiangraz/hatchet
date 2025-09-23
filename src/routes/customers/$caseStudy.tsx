@@ -66,7 +66,7 @@ function RouteComponent() {
         </div>
       </Section>
 
-      <Section className={markdownStyles.prose}>
+      <Section className={`${markdownStyles.prose} pb-6`}>
         {Content ? (
           <Markdown>
             <Content />

@@ -38,5 +38,3 @@ export const Hero = (props: HeroProps) => {
     </Section>
   );
 };
-
-export default Hero;

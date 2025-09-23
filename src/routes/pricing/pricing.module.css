@@ -19,7 +19,7 @@
 .pricingTable {
   display: grid;
   grid-column: bleedstart / bleedend;
-  padding: 4rlh;
+  padding: 0 4rlh;
   grid-template-columns: auto repeat(4, 1fr);
   gap: 0;
 }

@@ -287,7 +287,7 @@ function RouteComponent() {
         </div>
       </Section>
 
-      <Section theme="light">
+      <Section theme="light" className="pb-6">
         <div className={styles.pricingTable}>
           {/* Header Row */}
           <div className={styles.tableHeader}>

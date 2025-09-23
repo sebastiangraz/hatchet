@@ -7,7 +7,7 @@
     "foreground": "#ffffff",
     "widget.shadow": "#2a2139",
     "selection.background": "#ffffff20",
-    "errorForeground": "#A33A05",
+    "errorForeground": "#3291FF",
     "textLink.activeForeground": "#B540DC",
     "textLink.foreground": "#f97e72",
     "button.background": "#614D85",
@@ -15,8 +15,8 @@
     "dropdown.listBackground": "#2a2139",
     "input.background": "#2a2139",
     "inputOption.activeBorder": "#B540DC99",
-    "inputValidation.errorBackground": "#A33A0580",
-    "inputValidation.errorBorder": "#A33A0500",
+    "inputValidation.errorBackground": "#3291FF80",
+    "inputValidation.errorBorder": "#3291FF00",
     "scrollbar.shadow": "#2a2139",
     "scrollbarSlider.activeBackground": "#9d8bca20",
     "scrollbarSlider.background": "#9d8bca30",
@@ -35,7 +35,7 @@
     "list.inactiveSelectionBackground": "#ffffff20",
     "list.inactiveSelectionForeground": "#ffffff",
     "list.inactiveFocusBackground": "#2a213999",
-    "list.errorForeground": "#A33A05E6",
+    "list.errorForeground": "#3291FFE6",
     "list.warningForeground": "#90C78Ebb",
     "activityBar.background": "#171520",
     "activityBar.dropBackground": "#34294f66",
@@ -79,16 +79,16 @@
     "editorOverviewRuler.findMatchForeground": "#D1861699",
     "editorOverviewRuler.modifiedForeground": "#b893ce99",
     "editorOverviewRuler.addedForeground": "#09f7a099",
-    "editorOverviewRuler.deletedForeground": "#A33A0599",
-    "editorOverviewRuler.errorForeground": "#A33A05dd",
+    "editorOverviewRuler.deletedForeground": "#3291FF99",
+    "editorOverviewRuler.errorForeground": "#3291FFdd",
     "editorOverviewRuler.warningForeground": "#90C78Ecc",
-    "editorError.foreground": "#A33A05",
+    "editorError.foreground": "#3291FF",
     "editorWarning.foreground": "#90C78Ecc",
     "editorGutter.modifiedBackground": "#b893ce8f",
     "editorGutter.addedBackground": "#206d4bd6",
     "editorGutter.deletedBackground": "#fa2e46a4",
     "diffEditor.insertedTextBackground": "#0beb9935",
-    "diffEditor.removedTextBackground": "#A33A0535",
+    "diffEditor.removedTextBackground": "#3291FF35",
     "editorWidget.background": "#171520DC",
     "editorWidget.border": "#ffffff22",
     "editorWidget.resizeBorder": "#ffffff44",
@@ -120,12 +120,12 @@
     "terminal.ansiBrightCyan": "#03edf9",
     "terminal.ansiBrightGreen": "#90C78E",
     "terminal.ansiBrightMagenta": "#B540DC",
-    "terminal.ansiBrightRed": "#A33A05",
+    "terminal.ansiBrightRed": "#3291FF",
     "terminal.ansiBrightYellow": "#BAD61C",
     "terminal.ansiCyan": "#03edf9",
     "terminal.ansiGreen": "#90C78E",
     "terminal.ansiMagenta": "#B540DC",
-    "terminal.ansiRed": "#A33A05",
+    "terminal.ansiRed": "#3291FF",
     "terminal.ansiYellow": "#f3e70f",
     "terminal.selectionBackground": "#ffffff20",
     "terminalCursor.background": "#ffffff",
@@ -133,13 +133,13 @@
     "debugToolBar.background": "#463465",
     "walkThrough.embeddedEditorBackground": "#232530",
     "gitDecoration.modifiedResourceForeground": "#b893ceee",
-    "gitDecoration.deletedResourceForeground": "#A33A05",
+    "gitDecoration.deletedResourceForeground": "#3291FF",
     "gitDecoration.addedResourceForeground": "#90C78Ecc",
     "gitDecoration.untrackedResourceForeground": "#90C78E",
     "gitDecoration.ignoredResourceForeground": "#ffffff59",
     "minimapGutter.addedBackground": "#09f7a099",
     "minimapGutter.modifiedBackground": "#b893ce",
-    "minimapGutter.deletedBackground": "#A33A05",
+    "minimapGutter.deletedBackground": "#3291FF",
     "breadcrumbPicker.background": "#232530"
   },
   "tokenColors": [
@@ -185,7 +185,7 @@
       "name": "Language variable",
       "scope": "variable.language",
       "settings": {
-        "foreground": "#A33A05",
+        "foreground": "#3291FF",
         "fontStyle": "bold"
       }
     },
@@ -242,7 +242,7 @@
       "name": "Entity",
       "scope": "entity.name",
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -278,7 +278,7 @@
       "name": "Class",
       "scope": ["entity.name.type", "meta.attribute.class.html"],
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -352,7 +352,7 @@
       "name": "Support",
       "scope": "support",
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -459,7 +459,7 @@
       "name": "CSS support functions (rgb)",
       "scope": "support.function.misc.css",
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -523,7 +523,7 @@
       "name": "C# storage type",
       "scope": "storage.type.cs",
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -565,7 +565,7 @@
       "name": "C storage modifier",
       "scope": "storage.modifier.c",
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -597,7 +597,7 @@
       "name": "C++ constant modifier",
       "scope": "storage.modifier.specifier.const.cpp",
       "settings": {
-        "foreground": "#A33A05"
+        "foreground": "#3291FF"
       }
     },
     {
@@ -672,7 +672,7 @@
       "name": "Clojure Metadata",
       "scope": ["meta.metadata.simple.clojure", "meta.metadata.map.clojure"],
       "settings": {
-        "foreground": "#A33A05",
+        "foreground": "#3291FF",
         "fontStyle": "italic"
       }
     },
