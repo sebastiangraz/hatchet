@@ -12,7 +12,6 @@ export function getRouter() {
     scrollRestoration: true,
     defaultViewTransition: true,
   });
-
   return router;
 }
 
