@@ -36,9 +36,7 @@ export default defineConfig({
       rehypePlugins: [[rehypePrettyCode, options]],
       providerImportSource: "@mdx-js/react",
     }),
-    tanstackStart({
-      customViteReactPlugin: true,
-    }),
+    tanstackStart(),
     viteReact(),
   ],
   css: {
