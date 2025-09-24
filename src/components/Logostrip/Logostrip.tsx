@@ -6,6 +6,9 @@ const globLogos = Object.entries(
   })
 );
 
+const buffArray = ["distill", "motion"];
+const nerfArray = [""];
+
 const logos = globLogos.map(([url, module]) => {
   const fileName = url.split("/").pop()?.replace(".svg", "") || "";
   return {
@@ -16,14 +19,30 @@ const logos = globLogos.map(([url, module]) => {
 });
 
 export const Logostrip = () => {
+  // check if logos include specific logos from array and add class of buff
+
+  const logosWithClass = logos.map((logo) => ({
+    ...logo,
+    className: buffArray.includes(logo.name.toLowerCase())
+      ? styles.buff
+      : nerfArray.includes(logo.name.toLowerCase())
+        ? styles.nerf
+        : "",
+  }));
+
   return (
     <div className={styles.logostrip}>
       <Text.Small secondary mono>
         Running Billions of Tasks for Scale-Ups and Enterprises
       </Text.Small>
       <div className={styles.logos}>
-        {[...logos, ...logos].map((logo) => (
-          <img key={logo.name} src={logo.src} alt={`${logo.alt} logo`} />
+        {[...logosWithClass].map((logo) => (
+          <img
+            key={logo.name}
+            src={logo.src}
+            alt={`${logo.alt} logo`}
+            className={logo.className}
+          />
         ))}
       </div>
     </div>

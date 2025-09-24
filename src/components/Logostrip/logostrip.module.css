@@ -3,6 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: baseline;
   gap: 3rlh;
 
   img {
@@ -20,6 +21,12 @@
     &:global(.active) {
       filter: grayscale(0%);
       opacity: 1;
+    }
+    &.buff {
+      height: 1.5rlh;
+    }
+    &.nerf {
+      height: 1.125rlh;
     }
   }
 }

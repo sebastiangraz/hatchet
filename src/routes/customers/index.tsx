@@ -4,6 +4,7 @@ import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import styles from "./customers.module.css";
 import { getPrevPathFromExtension } from "~/utils";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/customers/")({
   component: RouteComponent,
@@ -33,6 +34,10 @@ export const caseStudies = globObjects.map(([url, module]): CaseStudy => {
 });
 
 function RouteComponent() {
+  const publishedCaseStudies = caseStudies.filter(
+    (caseStudy) => caseStudy.frontmatter.publish !== false
+  );
+
   return (
     <>
       <Section className="py-4">
@@ -48,7 +53,7 @@ function RouteComponent() {
 
       <Section theme="light" className="py-4">
         <div className={styles.caseStudyGrid}>
-          {caseStudies.map((caseStudy) => (
+          {publishedCaseStudies.map((caseStudy) => (
             <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
           ))}
         </div>
@@ -62,7 +67,9 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
 
   return (
     <div className={styles.caseStudyCard}>
-      <Text.H4 balance>{frontmatter.title}</Text.H4>
+      <Link to={`/customers/$caseStudy`} params={{ caseStudy: slug }}>
+        <Text.H2 balance>{frontmatter.title}</Text.H2>
+      </Link>
       <Text.Body>{frontmatter.description}</Text.Body>
       <Text.Micro caps mono brackets className={styles.company}>
         {frontmatter.industry}

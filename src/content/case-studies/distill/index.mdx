@@ -1,0 +1,45 @@
+---
+slug: distill
+title: Distill
+description: Al-driven data processing and research pipelines
+company: Distill
+industry: AI & Data Research
+logotype: distill
+website: https://distill.fyi/
+---
+
+# How Distill Leverages Hatchet to Streamline Data Processing and Enhance AI Capabilities
+
+Distill is an AI startup specializing in comprehensive research on individuals and companies to empower sales, recruiting, and more.
+
+### Pain Before
+
+Distill was managing its own multi-stage pipeline system for processing data, scraping, and AI, which required significant effort to build internal tools for inspecting, debugging, and replaying pipeline steps. This approach was cumbersome and resource-intensive.
+
+Additionally, managing a background job processing system posed challenges with timeouts, retries, error handling, backpressure, and fairness---even when utilizing tools like RabbitMQ or BullMQ.
+
+## Solution
+
+Distill adopted Hatchet to simplify and enhance workflow management:
+
+- **Hatchet's Dashboard Tools**: Provides the ability to instantly identify issues by viewing failures, logs, and outputs for every workflow step, eliminating the need to maintain custom inspection tools.
+- Complex Dag Visualization: Provides a clear visual representation of the workflow, making it easier to understand and debug.
+- Background Job Management: Simplifies the management and retrying of background jobs with easy concurrency primitives and robust alerting mechanisms, removing the burden of maintaining complex infrastructure.
+
+## Outcome
+
+With Hatchet, Distill achieved significant improvements:
+
+- Enabled rapid debugging of output issues, saving hundreds of engineering hours previously spent on maintaining internal tools.
+- Streamlined background job processing, allowing the team to focus on core activities instead of managing infrastructure.
+
+Overall, integrating Hatchet led to a more efficient, reliable, and scalable system, enhancing Distill's ability to deliver detailed and accurate profiles to users.
+
+## What Distill Loves ❤️
+
+- Hatchet operates seamlessly both locally for engineers and in production, facilitating smooth local iterations and effective production issue debugging.
+- Hatchet is "just code," avoiding vendor lock-in and supporting multiple programming languages, providing flexibility and control.
+- Adding new steps to workflows is effortless, even as pipeline complexity increases.
+- Advanced features like webhooks, serverless functions, and scheduled workflows enable the incorporation of increasingly complex logic into Hatchet.
+- The ability to view logs and outputs at each workflow stage is impressive and serves as an excellent demonstration tool for engineering candidates.
+- Structuring profile generation as a sequence of stages with clear outputs has made the overall process more debuggable, testable, and reliable, contributing to a better-designed system.
