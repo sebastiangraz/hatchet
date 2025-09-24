@@ -11,7 +11,7 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkgfm from "remark-gfm";
 import { transformerNotationHighlight } from "@shikijs/transformers";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
-import netlify from "@netlify/vite-plugin-tanstack-start";
+
 import { nitro } from "nitro/vite";
 const options = {
   theme: JSON.parse(
@@ -40,7 +40,6 @@ export default defineConfig({
     tanstackStart(),
     nitro(),
     react(),
-    netlify(),
   ],
   css: {
     postcss: {
