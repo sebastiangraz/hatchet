@@ -32,7 +32,7 @@
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",
-    "nitro-nightly": "^3.0.0-20250923-234633-0ecc849b",
+    "nitro": "npm:nitro-nightly@latest",
     "postcss-preset-env": "^10.4.0",
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
