@@ -15,6 +15,7 @@ import { Logostrip } from "~/components/Logostrip/Logostrip";
 import { CodeBlock } from "~/components/CodeBlock/CodeBlock";
 import { Quote } from "~/components/Quote/Quote";
 import { Layout } from "~/components/Layout/Layout";
+import { VectorField } from "~/components/VectorField/VectorField";
 
 export const Route = createFileRoute("/(home)/")({
   component: RouteComponent,
@@ -366,6 +367,16 @@ aiAgent.start();`}
             filename="ai-agent.ts"
           />
         </FeatureExpandable>
+      </Section>
+      <Section>
+        <VectorField
+          variant="pcb"
+          width={480}
+          height={480}
+          rows={41}
+          columns={41}
+          // padding={1.5}
+        />
       </Section>
     </>
   );
