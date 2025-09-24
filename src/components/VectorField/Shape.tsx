@@ -1,7 +1,16 @@
 import React from "react";
 
 export const Shape = React.memo(
-  ({ x, y, type, size = 8, opacity, isStatic, color }: ShapeProps) => {
+  ({
+    x,
+    y,
+    type,
+    size = 8,
+    opacity,
+    isStatic,
+    color,
+    rotation = 0,
+  }: ShapeProps) => {
     if (!type) return null;
     // don’t add strokeOpacity if isStatic is
     const isStaticProps = isStatic ? { strokeOpacity: opacity } : {};
@@ -13,10 +22,13 @@ export const Shape = React.memo(
       style: { color },
       ...isStaticProps,
     };
+    const cx = x + size / 2;
+    const cy = y + size / 2;
     switch (type) {
       case "line":
         return (
           <line
+            transform={`rotate(${rotation} ${cx} ${cy})`}
             x1={x}
             y1={y + size / 2}
             x2={x + size}
@@ -50,4 +62,5 @@ export interface ShapeProps {
   opacity: number;
   isStatic?: boolean;
   color: string;
+  rotation?: number;
 }

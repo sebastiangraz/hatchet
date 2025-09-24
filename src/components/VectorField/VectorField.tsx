@@ -77,6 +77,35 @@ const getOpacity = (
   return opacityType;
 };
 
+// Map noise/position to a rotation angle in degrees.
+// For pcb variant, quantize to techy-looking angles.
+const getRotation = (
+  combinedNoise: number,
+  variant: string,
+  col: number,
+  row: number
+) => {
+  switch (variant) {
+    case "pcb": {
+      const angles = [0, 45, 90, 135, 180];
+      const idx = Math.abs((col + row) % angles.length);
+      return angles[idx];
+    }
+    case "swirl":
+    case "dithered-gradient":
+    case "radial":
+    case "bayesian":
+    case "checker": {
+      // Use thresholds similar to opacity to keep a coherent aesthetic
+      if (combinedNoise <= 0.33) return 0;
+      if (combinedNoise <= 0.66) return 90;
+      return 180;
+    }
+    default:
+      return 0;
+  }
+};
+
 function combinedType(value: number, offset = 0) {
   const offsetValue = value + offset;
   let shapeType: ShapeProps["type"];
@@ -183,6 +212,7 @@ function shapes(
     const noise = (Math.sin(dx * Math.PI) + Math.cos(ry * Math.PI)) / 2;
     const radialNoise = (Math.sin(dx * Math.PI) + Math.cos(ry * Math.PI)) / 4;
     const opacity = getOpacity(baseNoise + noise, variant, col, row);
+    const rotation = getRotation(baseNoise + noise, variant, col, row);
     const shapeType = getShapeType(
       col,
       row,
@@ -211,6 +241,7 @@ function shapes(
           y={y}
           type={shapeType}
           size={shapeSize}
+          rotation={rotation}
           isStatic={isStatic}
           opacity={opacity}
           color={color}
