@@ -39,5 +39,11 @@ summary.toggleButton {
 }
 
 [open]::details-content {
-  height: calc-size(auto, size + 2rlh);
+  height: auto;
+}
+
+@supports (height: calc-size(auto, size + 2rlh)) {
+  [open]::details-content {
+    height: calc-size(auto, size + 2rlh);
+  }
 }
