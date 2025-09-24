@@ -52,6 +52,11 @@
     "B1"
     "B2";
   justify-items: center;
+
+  ul,
+  ol {
+    justify-items: center;
+  }
   .layoutChild {
     --span: 12;
     text-align: center;
@@ -126,4 +131,12 @@
   &.gap-4 {
     --gap: 4rlh;
   }
+}
+
+.gap.y {
+  flex-direction: column;
+}
+
+.gap.x {
+  flex-direction: row;
 }

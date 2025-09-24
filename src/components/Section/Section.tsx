@@ -6,6 +6,7 @@ interface SectionProps {
   theme?: theme;
   title?: string;
   description?: string;
+  style?: React.CSSProperties;
 }
 
 export const Section = (props: SectionProps) => {

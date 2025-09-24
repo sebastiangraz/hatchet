@@ -24,11 +24,12 @@ export const LayoutChild = ({
   return <div className={layoutClass}>{children}</div>;
 };
 
-export const Gap = ({ children, className, gap }: GapProps) => {
+export const Gap = ({ children, className, gap, dir }: GapProps) => {
   const classNameValue = className ? className : "";
   const gapValue = gap ? gap : 0;
+  const dirValue = dir ? dir : "";
   const gapClass =
-    `${styles.gap} ${styles[`gap-${gapValue}`]} ${classNameValue}`.trim();
+    `${styles.gap} ${styles[`gap-${gapValue}`]} ${classNameValue} ${styles[dirValue]}`.trim();
   return <div className={gapClass}>{children}</div>;
 };
 
@@ -50,6 +51,7 @@ interface GapProps {
   children: React.ReactNode;
   className?: string;
   gap?: GapType;
+  dir?: "x" | "y";
 }
 
 type GapType = 1 | 2 | 3 | 4;

@@ -35,7 +35,7 @@
   /* background-size: 2rlh, 100%; */
   background-position: 0 0, calc(2rlh - 1px) 0;
   background-repeat: no-repeat;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   &:before {
     --p: 0.75rlh;
     --totalSize: 2rlh;

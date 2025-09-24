@@ -6,6 +6,8 @@ import corePrinciples from "~/assets/corePrinciples.svg";
 import ingestion from "~/assets/ingestion.svg";
 import parallelization from "~/assets/parallelization.svg";
 import AIAgents from "~/assets/AIAgents.svg";
+import illustration0 from "~/assets/illustration-0.svg";
+import badges from "~/assets/badges.svg";
 
 import { Hero } from "~/components/Hero/Hero";
 import { Section } from "~/components/Section/Section";
@@ -15,6 +17,7 @@ import { Logostrip } from "~/components/Logostrip/Logostrip";
 import { CodeBlock } from "~/components/CodeBlock/CodeBlock";
 import { Quote } from "~/components/Quote/Quote";
 import { Layout } from "~/components/Layout/Layout";
+import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/(home)/")({
   component: RouteComponent,
@@ -367,7 +370,58 @@ aiAgent.start();`}
           />
         </FeatureExpandable>
       </Section>
-      <Section></Section>
+      <Section
+        theme="light"
+        className="py-6 pb-8"
+        style={{ position: "relative" }}
+      >
+        <img src={illustration0} className={styles.illustration0}></img>
+        <Layout>
+          <Layout.Child>
+            <Layout.Gap>
+              <Text.H3 balance>
+                AI that scales.{" "}
+                <Text secondary>
+                  Consolidate your legacy orchestration into one Reliable,
+                  Scalable, & Secure solution.
+                </Text>
+              </Text.H3>
+            </Layout.Gap>
+          </Layout.Child>
+          <Layout.Child>
+            <ul className="neutral">
+              <li>
+                <Text.Body secondary balance>
+                  Route and prioritize customer queries intelligently
+                </Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary balance>
+                  Enable agents to use deterministic tooling already in your
+                  codebase
+                </Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary balance>
+                  Run long running autonomous research with safety and security
+                  constraints
+                </Text.Body>
+              </li>
+            </ul>
+          </Layout.Child>
+          <Layout.Child>
+            <Layout.Gap gap={2} dir="x">
+              <Button>Start for free</Button>
+              <Button type="secondary">Schedule Enterprise Demo</Button>{" "}
+            </Layout.Gap>
+          </Layout.Child>{" "}
+          <Layout.Child>
+            <Layout.Child>
+              <img src={badges}></img>
+            </Layout.Child>
+          </Layout.Child>
+        </Layout>
+      </Section>
     </>
   );
 }
