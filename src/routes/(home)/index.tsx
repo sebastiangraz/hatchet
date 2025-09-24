@@ -370,11 +370,11 @@ aiAgent.start();`}
       </Section>
       <Section>
         <VectorField
-          isStatic={true}
+          // isStatic={true}
           variant="pcb"
           width={480}
-          height={480}
-          rows={41}
+          height={240}
+          rows={20}
           columns={41}
           padding={2}
         />

@@ -8,12 +8,14 @@ export const Shape = React.memo(
     size = 8,
     opacity,
     isStatic,
+    variant,
     color,
     rotation = 0,
   }: ShapeProps) => {
     if (!type) return null;
     // don’t add strokeOpacity if isStatic is
     const isStaticProps = isStatic ? { strokeOpacity: opacity } : {};
+    const opacityVariant = variant === "pcb" ? opacity : 1;
     const commonProps = {
       stroke: "currentColor",
       vectorEffect: "non-scaling-stroke",
@@ -24,6 +26,7 @@ export const Shape = React.memo(
     };
     const cx = x + size / 2;
     const cy = y + size / 2;
+
     switch (type) {
       case "line":
         return (
@@ -37,7 +40,17 @@ export const Shape = React.memo(
           />
         );
       case "rect":
-        return <rect x={x} y={y} width={size} height={size} {...commonProps} />;
+        return (
+          <rect
+            x={x + size / 4}
+            y={y + size / 4}
+            width={size / 2}
+            height={size / 2}
+            {...commonProps}
+            fillOpacity={opacityVariant}
+            stroke="none"
+          />
+        );
       case "ellipse":
         return (
           <ellipse
@@ -61,6 +74,7 @@ export interface ShapeProps {
   type: "rect" | "ellipse" | "line" | null;
   opacity: number;
   isStatic?: boolean;
+  variant?: string;
   color: string;
   rotation?: number;
 }

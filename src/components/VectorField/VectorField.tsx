@@ -240,6 +240,7 @@ function shapes(
           x={x}
           y={y}
           type={shapeType}
+          variant={variant}
           size={shapeSize}
           rotation={rotation}
           isStatic={isStatic}
@@ -354,7 +355,7 @@ const tornado = (col: number, row: number, rows: number, columns: number) => {
 
 function pcbPattern(col: number, row: number) {
   // Variability in the grid spacing
-  let gridSizes = [2, 5, 9, 27, 1, 1, 1];
+  let gridSizes = [3, 7, 9, 27, 1, 1, 1];
   const gridSize =
     gridSizes[Math.floor(Math.random() * gridSizes.length * 0.2)];
 
