@@ -14,9 +14,20 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  div {
+  /* div {
     display: flex;
     gap: 0.5rlh;
     justify-content: start;
+  } */
+}
+.quoteAuthor {
+  display: flex;
+  gap: 0.5rlh;
+  justify-content: start;
+  align-items: center;
+  img {
+    aspect-ratio: 1;
+    width: 2rlh;
+    border-radius: 99rlh;
   }
 }

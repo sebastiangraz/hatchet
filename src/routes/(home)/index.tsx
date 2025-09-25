@@ -148,7 +148,15 @@ function RouteComponent() {
                 </Text.Body>
               </li>
             </ul>
-            <Quote
+            <Quote author="soohoon" link="/customers/distill">
+              <Text.Body italic>
+                Integrating Hatchet led to a more efficient, reliable, and
+                scalable system, enhancing Distill's ability to deliver detailed
+                and accurate profiles to users.
+              </Text.Body>
+            </Quote>
+
+            {/* <Quote
               person="John Doe"
               name="CEO"
               title="Company"
@@ -159,7 +167,7 @@ function RouteComponent() {
                 scalable system, enhancing Distill's ability to deliver detailed
                 and accurate profiles to users.
               </Text.Body>
-            </Quote>
+            </Quote> */}
           </div>
           <CodeBlock
             className={styles.codeBlock}
@@ -246,12 +254,7 @@ aiAgent.start();`}
                 </Text.Body>
               </li>
             </ul>
-            <Quote
-              person="John Doe"
-              name="CEO"
-              title="Company"
-              link="/customers/distill"
-            >
+            <Quote author="shaun" link="/customers/distill">
               <Text.Body italic>
                 Integrating Hatchet led to a more efficient, reliable, and
                 scalable system, enhancing Distill's ability to deliver detailed
@@ -330,12 +333,7 @@ aiAgent.start();`}
                 </Text.Body>
               </li>
             </ul>
-            <Quote
-              person="John Doe"
-              name="CEO"
-              title="Company"
-              link="/customers/distill"
-            >
+            <Quote author="soohoon" link="/customers/distill">
               <Text.Body italic>
                 Integrating Hatchet led to a more efficient, reliable, and
                 scalable system, enhancing Distill's ability to deliver detailed
