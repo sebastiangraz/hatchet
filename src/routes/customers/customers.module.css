@@ -25,7 +25,11 @@
   flex-wrap: wrap;
   gap: 1rlh;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  & > *:last-child {
+    align-self: flex-end;
+    min-height: calc-size(min-content, round(up, size, 1rlh));
+  }
 }
 
 .caseStudyHeader {

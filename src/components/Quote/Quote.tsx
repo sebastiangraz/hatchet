@@ -51,6 +51,12 @@ export const Authors = [
     title: "CTO",
     company: "Aevy",
   },
+  {
+    name: "Tim Su",
+    slug: "tim",
+    title: "Founder & CTO",
+    company: "Distill",
+  },
 ] as const;
 
 type Author = (typeof Authors)[number];

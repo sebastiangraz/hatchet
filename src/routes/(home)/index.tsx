@@ -42,8 +42,8 @@ function RouteComponent() {
           </Layout.Child>{" "}
           <Layout.Child>
             <Text.H3>
-              Traditional infrastructure breaks with AI workloads. Celery can't
-              checkpoint long-running tasks. Airflow's scheduler adds 5-30s
+              Traditional infrastructure breaks with AI workloads. Celery can’t
+              checkpoint long-running tasks. Airflow’s scheduler adds 5-30s
               latency. Temporal is complex to operate and expensive to scale.
             </Text.H3>
           </Layout.Child>
@@ -217,7 +217,7 @@ aiAgent.start();`}
           <Layout.Child span="twothirds">
             <Text.Body balance>
               Modern data pipelines pull from hundreds of sources with different
-              APIs, rate limits, and failure modes. Traditional ETL tools can't
+              APIs, rate limits, and failure modes. Traditional ETL tools can’t
               handle the unpredictability of external services and LLM
               processing while simultaneously being suitable for real-time
               requests.
@@ -256,9 +256,9 @@ aiAgent.start();`}
             </ul>
             <Quote author="soohoon" link="/customers/greptile">
               <Text.Body italic>
-                Implementing Hatchet has revolutionized our task management
-                system, enabling us to handle a growing number of background
-                tasks efficiently.
+                With Hatchet, we’ve scaled our indexing workflows effortlessly,
+                reducing failed runs by 50% and doubling our user base in just
+                two weeks!
               </Text.Body>
             </Quote>
           </div>
