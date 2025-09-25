@@ -12,7 +12,7 @@ import remarkgfm from "remark-gfm";
 import { transformerNotationHighlight } from "@shikijs/transformers";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 
-import { nitro } from "nitro/vite";
+import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 const options = {
   theme: JSON.parse(
     fs.readFileSync("./src/styles/hatchetsyntax.json", "utf-8")
@@ -38,7 +38,7 @@ export default defineConfig({
       providerImportSource: "@mdx-js/react",
     }),
     tanstackStart(),
-    nitro(),
+    nitroV2Plugin(),
     react(),
   ],
   css: {

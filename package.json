@@ -27,11 +27,11 @@
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.1.0",
     "@shikijs/transformers": "^3.13.0",
+    "@tanstack/nitro-v2-vite-plugin": "^1.132.0",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",
-    "nitro": "npm:nitro-nightly@^3.0.0-20250925-102916-440c34dc",
     "postcss-preset-env": "^10.4.0",
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
