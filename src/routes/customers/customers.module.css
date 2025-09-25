@@ -19,6 +19,15 @@
   }
 }
 
+.caseStudyTop {
+  grid-column: start / end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rlh;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .caseStudyHeader {
   display: grid;
   gap: 1rlh;

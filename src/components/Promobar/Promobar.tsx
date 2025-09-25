@@ -37,7 +37,7 @@ const SVGRocket = () => {
         x2="4.94975"
         y2="10.8537"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <line
         id="fire"
@@ -46,7 +46,7 @@ const SVGRocket = () => {
         x2="7.07107"
         y2="12.9751"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <line
         x1="7.07111"
@@ -54,12 +54,12 @@ const SVGRocket = () => {
         x2="9.19243"
         y2="15.0964"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <path
         d="M15.9168 8.65356L10.6287 12.6435L7.40255 9.41729L11.3918 4.12849L15.5695 4.47652L15.9168 8.65356Z"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
     </svg>
   );

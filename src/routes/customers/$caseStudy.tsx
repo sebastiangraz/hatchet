@@ -6,6 +6,7 @@ import { caseStudies } from "../customers";
 import { Markdown } from "~/components/Markdown/Markdown";
 import markdownStyles from "~/components/Markdown/markdown.module.css";
 import styles from "./customers.module.css";
+import { Quote, Authors } from "~/components/Quote/Quote";
 
 // Eagerly import all SVGs in assets/logos to map names -> src URLs
 const globLogos = Object.entries(
@@ -21,10 +22,6 @@ const logoSrcByName: Record<string, string> = Object.fromEntries(
   })
 );
 
-const PostErrorComponent = () => {
-  return <p>Post not found</p>;
-};
-
 export const Route = createFileRoute("/customers/$caseStudy")({
   component: RouteComponent,
 
@@ -38,9 +35,7 @@ export const Route = createFileRoute("/customers/$caseStudy")({
     };
   },
   errorComponent: PostErrorComponent as any,
-  notFoundComponent: () => {
-    return <p>Post not found</p>;
-  },
+  notFoundComponent: PostNotFoundComponent as any,
 });
 
 function RouteComponent() {
@@ -59,13 +54,25 @@ function RouteComponent() {
       website?: string;
     };
   const sanitizedWebsite = website?.replace(/^https?:\/\/(www\.)?|\/+$/g, "");
+  const authorCompany = Authors.find((a) => a.company === company);
+  if (!authorCompany)
+    console.warn("Author company not found, check Authors object");
   return (
     <>
       <Section className="py-4">
-        <Button to="/customers" icon="back">
-          All Cases
-        </Button>
-
+        <div className={styles.caseStudyTop}>
+          <Button to="/customers" icon="back">
+            All Cases
+          </Button>
+          {authorCompany && (
+            <Quote.Author
+              name={authorCompany?.name || ""}
+              slug={authorCompany?.slug || ""}
+              title={authorCompany?.title || ""}
+              company={authorCompany?.company || ""}
+            />
+          )}
+        </div>
         <div
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
@@ -129,5 +136,27 @@ function RouteComponent() {
         )}
       </Section>
     </>
+  );
+}
+
+function PostErrorComponent({ error }: { error: Error }) {
+  return (
+    <Section className="py-4">
+      <Text.H3>Post Error</Text.H3>
+      <Text.Micro secondary mono>
+        {error.message}
+      </Text.Micro>
+    </Section>
+  );
+}
+
+function PostNotFoundComponent({ error }: { error: Error }) {
+  return (
+    <Section className="py-4">
+      <Text.H3>Post not found</Text.H3>
+      <Text.Micro secondary mono>
+        {error.message}
+      </Text.Micro>
+    </Section>
   );
 }

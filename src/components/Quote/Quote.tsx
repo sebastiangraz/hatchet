@@ -26,7 +26,7 @@ const authorImages: Record<string, string> = Object.entries(
   {} as Record<string, string>
 );
 
-const Authors = [
+export const Authors = [
   {
     name: "Shaun Berryman",
     slug: "shaun",
@@ -54,7 +54,7 @@ const Authors = [
 ] as const;
 
 type Author = (typeof Authors)[number];
-type AuthorSlug = Author["slug"];
+export type AuthorSlug = Author["slug"];
 
 interface QuoteProps {
   children: React.ReactNode;
@@ -63,7 +63,7 @@ interface QuoteProps {
 }
 
 export const Quote = ({ children, link, author }: QuoteProps) => {
-  const authorValue = Authors.find((a) => a.slug === author)!; // Since author is typed, this will always exist
+  const authorValue = Authors.find((a) => a.slug === author)!;
   return (
     <div className={styles.quote}>
       <div className={styles.quoteContent}>{children}</div>
