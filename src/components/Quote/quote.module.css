@@ -25,9 +25,32 @@
   gap: 0.5rlh;
   justify-content: start;
   align-items: center;
+}
+
+.quoteAuthorMeta {
+  display: grid;
+  column-gap: 1rlh;
+  align-items: center;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "image name"
+    "image title";
   img {
     aspect-ratio: 1;
-    width: 2rlh;
+
+    height: 2.5rlh;
     border-radius: 99rlh;
+    grid-area: image;
+    grid-row: 1 / span 2;
+  }
+  span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 1ch;
+  }
+  & > span:last-child {
+    grid-area: title;
   }
 }

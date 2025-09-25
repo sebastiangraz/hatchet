@@ -21,6 +21,11 @@ export const components = {
       {props.children}
     </Text.Body>
   ),
+  a: (props: any) => (
+    <Text.Body primary {...props} as="a">
+      {props.children}
+    </Text.Body>
+  ),
   strong: (props: any) => (
     <Text.Body primary {...props} as="strong">
       {props.children}

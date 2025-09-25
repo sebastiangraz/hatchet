@@ -6,11 +6,12 @@ const globLogos = Object.entries(
   })
 );
 
-const buffArray = ["distill", "motion"];
+const buffArray = ["distill", "motion", "aevy"];
 const nerfArray = [""];
 
 const logos = globLogos.map(([url, module]) => {
   const fileName = url.split("/").pop()?.replace(".svg", "") || "";
+
   return {
     src: module.default,
     alt: fileName,

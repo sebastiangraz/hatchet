@@ -1,0 +1,42 @@
+---
+slug: aevy
+title: Aevy
+description: Critical infrastructure document processing at scale
+company: Aevy
+industry: AI & Data Research
+logotype: aevy
+website: https://distill.fyi/
+---
+
+## How Aevy Leverages Hatchet to Orchestrate AI Workflows for Critical Infrastructure
+
+[Aevy](https://aevy.io/) specializes in processing documents with AI for solar farms and wind farms, extracting key information that operating companies need to ensure their assets are properly maintained.
+
+## Problem
+
+Aevy processes massive volumes of documents for critical infrastructure assets like solar and wind farms. For large assets, document processing can involve up to 50,000 documents per project, with their previous setup taking almost a week to complete processing.
+
+Initially, Aevy built their own in-house task runner, but quickly realized that task running is a significant responsibility with many potential failure points. Key challenges included:
+
+- Concurrency Optimization: Running tasks concurrently while managing timeouts and rate limiting on the AI processing side
+- Scale Limitations: Large assets taking nearly a week to process when parallel processing could reduce this to under an hour
+- Workflow Visibility: Need for domain experts to review and validate AI extraction results without manually querying databases
+- Infrastructure Requirements: Need for self-hosting capabilities due to the critical nature of infrastructure data
+
+## Solution
+
+Aevy chose Hatchet to orchestrate their AI document processing workflows and provide crucial visibility for their domain experts.
+
+- Parallel Processing at Scale: Hatchet enables Aevy to process up to 50,000 documents in under an hour through optimized parallel execution, compared to nearly a week with their previous setup.
+- Workflow Orchestration: Hatchet handles the complex task running responsibilities, allowing Aevy to focus on their core 5% value-add rather than building workflow infrastructure.
+- DAG Visualization: Hatchet's ability to show the DAG (Directed Acyclic Graph) provides critical visibility into individual document processing workflows.
+- Domain Expert Integration: The Hatchet UI allows domain experts to drill into individual documents, review extraction results, and identify areas for accuracy improvements without database queries.
+- Self-Hosting Capabilities: Aevy successfully self-hosts Hatchet to meet their critical infrastructure security requirements, with setup being as simple as running a local development environment.
+
+## Results
+
+With Hatchet, Aevy has transformed their document processing capabilities for critical infrastructure projects. The dramatic reduction in processing time from nearly a week to under an hour for large-scale document sets represents a game-changing improvement in operational efficiency.
+
+The workflow visibility provided by Hatchet's UI has been transformational for their domain experts, who can now easily review AI extraction results and optimize accuracy without manual database work. As Yamir noted, "That UI in itself was more than worth the switching costs of going over to Hatchet."
+
+Most importantly, Hatchet allows Aevy to focus on their core competency - domain-specific AI extraction for renewable energy infrastructure - rather than building and maintaining workflow orchestration systems. This enables them to deliver higher value to operating companies maintaining critical solar and wind farm assets.

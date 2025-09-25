@@ -148,11 +148,11 @@ function RouteComponent() {
                 </Text.Body>
               </li>
             </ul>
-            <Quote author="soohoon" link="/customers/distill">
+            <Quote author="shaun" link="/customers/moonhub">
               <Text.Body italic>
-                Integrating Hatchet led to a more efficient, reliable, and
-                scalable system, enhancing Distill's ability to deliver detailed
-                and accurate profiles to users.
+                Implementing Hatchet has revolutionized our task management
+                system, enabling us to handle a growing number of background
+                tasks efficiently.
               </Text.Body>
             </Quote>
 
@@ -254,11 +254,11 @@ aiAgent.start();`}
                 </Text.Body>
               </li>
             </ul>
-            <Quote author="shaun" link="/customers/distill">
+            <Quote author="soohoon" link="/customers/greptile">
               <Text.Body italic>
-                Integrating Hatchet led to a more efficient, reliable, and
-                scalable system, enhancing Distill's ability to deliver detailed
-                and accurate profiles to users.
+                Implementing Hatchet has revolutionized our task management
+                system, enabling us to handle a growing number of background
+                tasks efficiently.
               </Text.Body>
             </Quote>
           </div>
@@ -333,11 +333,11 @@ aiAgent.start();`}
                 </Text.Body>
               </li>
             </ul>
-            <Quote author="soohoon" link="/customers/distill">
+            <Quote author="ymir" link="/customers/aevy">
               <Text.Body italic>
-                Integrating Hatchet led to a more efficient, reliable, and
-                scalable system, enhancing Distill's ability to deliver detailed
-                and accurate profiles to users.
+                Hatchet enables Aevy to process up to 50,000 documents in under
+                an hour through optimized parallel execution, compared to nearly
+                a week with our previous setup.
               </Text.Body>
             </Quote>
           </div>

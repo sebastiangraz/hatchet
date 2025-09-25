@@ -45,6 +45,12 @@ const Authors = [
     title: "Staff Engineer",
     company: "Otto",
   },
+  {
+    name: "Ymir Egilson",
+    slug: "ymir",
+    title: "CTO",
+    company: "Aevy",
+  },
 ] as const;
 
 type Author = (typeof Authors)[number];
@@ -88,19 +94,20 @@ export const QuoteAuthor = ({
   const image = authorImages[slug];
   return (
     <div className={styles.quoteAuthor}>
-      {image && <img src={image} alt={name} />}
-      <div>
-        <span>
-          <Text.Micro mono caps>
-            {name}
-          </Text.Micro>{" "}
-          <Text.Micro mono caps>
-            {title}
-          </Text.Micro>
-        </span>{" "}
+      <div className={styles.quoteAuthorMeta}>
+        {" "}
+        {image && <img src={image} alt={name} />}
         <Text.Micro mono caps>
-          · {company}
+          {name}
         </Text.Micro>
+        <span>
+          <Text.Micro secondary mono caps>
+            {title}{" "}
+          </Text.Micro>
+          <Text.Micro secondary mono caps>
+            {` · ${company}`}
+          </Text.Micro>
+        </span>
       </div>
     </div>
   );

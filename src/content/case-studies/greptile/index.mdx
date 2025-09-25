@@ -1,0 +1,36 @@
+---
+slug: greptile
+title: Greptile
+description: Large-scale codebase indexing and comprehension
+company: Greptile
+industry: Dev Tools
+logotype: greptile
+website: https://www.greptile.com/
+---
+
+## How Greptile Leverages Hatchet to Efficiently Index Large, Complex Codebases
+
+[Greptile](https://greptile.com/) is a San Francisco-based company providing advanced, LLM-based code-search capabilities to leading engineering teams.
+
+## Problem
+
+Greptile tackles the challenge of providing full codebase comprehension, using LLMs to accurately answer difficult questions by understanding the context of large, complex, and even multi-repo codebases. Simple Retrieval Augmented Generation (RAG) alone is insufficient, as codebases are interconnected graphs rather than standalone documents.
+
+To address this, Greptile parses the AST of the codebase, recursively generates docstrings for each node in the tree, and then embeds the docstrings. This allows for semantic similarity search, keyword search, and "agentic search" where an agent reviews the relevance of results and traces references to find important connections.
+
+However, this codebase processing workflow is complex and resource-intensive. As Greptile scaled, they encountered issues with memory management, workflow durability, fair ingestion for concurrent users, and workflow visibility.
+
+## Solution
+
+Greptile chose Hatchet to scale their indexing workflows and improve visibility.
+
+- Workflow Durability: Greptile broke up their workflow into 4 key steps which could be resumed automatically or manually on failure. This is crucial as processing is often stuck at 99% completion due to the large number of leaf nodes in the AST dependency chain.
+- Memory Management: Hatchet allows for a maximum number of runs per worker to prevent resource exhaustion.
+- Fair Ingestion for Concurrent Users: Greptile uses the [`Group Round Robin`](https://docs.hatchet.run/home/features/concurrency/round-robin) strategy to fairly distribute work across available workers, improving the user experience.
+- Workflow Visibility: The Greptile team heavily uses the Hatchet Dashboard to monitor workflow runs and quickly triage any issues. This is critical for handling temporary failures, like database outages, and recovering failed repos.
+
+## Results
+
+With Hatchet, Greptile has been able to process massive codebases like the Linux kernel, Python, and VS Code. Failed workflow runs have been reduced by 50% and the team was able to double their number of users in just 2 weeks!
+
+Greptile continues to push the boundaries of what's possible with code comprehension. They are looking to integrate commit messages, pull requests, and documentation to provide even more context. An enterprise self-hosted version is also under active development.
