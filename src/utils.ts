@@ -36,7 +36,7 @@ export function useStickyObserver(
       observer.observe(ref.current as HTMLDivElement);
       return () => observer.disconnect();
     })();
-  }, [ref, options]); // Using refs here assumes refs is memoized or stable
+  }, [ref, options]);
 
   return isSticky;
 }

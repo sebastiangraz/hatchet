@@ -1,5 +1,4 @@
 import style from "./markdown.module.css";
-// import { isArrayofObjects } from "~/helpers/utils";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import { Section } from "~/components/Section/Section";

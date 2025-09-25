@@ -32,7 +32,7 @@ export const Route = createRootRoute({
         content:
           "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting. Instead of managing your own task queue or pub/sub system, you can use Hatchet to distribute your functions between a set of workers with minimal configuration or infrastructure.",
       },
-      // Open Graph tags
+
       { property: "og:title", content: "Hatchet" },
       {
         property: "og:description",
@@ -44,7 +44,7 @@ export const Route = createRootRoute({
       { property: "og:image:height", content: "630" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://hatchet.run" },
-      // Twitter Card tags
+
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Hatchet" },
       {
@@ -61,7 +61,7 @@ export const Route = createRootRoute({
     ],
   }),
   context: (): RootContext => ({
-    theme: "dark", // default theme
+    theme: "dark",
   }),
   component: RootComponent,
 });
@@ -77,7 +77,6 @@ function RootComponent() {
 function RootDocument({ children }: { children: React.ReactNode }) {
   const childMatches = useChildMatches();
 
-  // Get the leaf-most (current) route's context
   const currentContext = childMatches[childMatches.length - 1]
     ?.context as RootContext;
   const theme = currentContext?.theme || "dark";

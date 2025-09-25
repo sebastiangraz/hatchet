@@ -25,9 +25,7 @@ export const Route = createFileRoute("/(home)/")({
   }),
   component: RouteComponent,
 });
-{
-  /* <Expandable className={styles.expandable}></Expandable>; */
-}
+
 function RouteComponent() {
   return (
     <>
@@ -158,19 +156,6 @@ function RouteComponent() {
                 tasks efficiently.
               </Text.Body>
             </Quote>
-
-            {/* <Quote
-              person="John Doe"
-              name="CEO"
-              title="Company"
-              link="/customers/distill"
-            >
-              <Text.Body italic>
-                Integrating Hatchet led to a more efficient, reliable, and
-                scalable system, enhancing Distill's ability to deliver detailed
-                and accurate profiles to users.
-              </Text.Body>
-            </Quote> */}
           </div>
           <CodeBlock
             className={styles.codeBlock}

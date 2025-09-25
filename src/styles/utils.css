@@ -2,12 +2,10 @@
   .checker {
     --size: 2rlh;
     --color: var(--fg-border);
-    /* font-size: clamp(0rem, 0rem + 1.2346vw, 1rem); */
     background-image:
       linear-gradient(to right, var(--color) 1.5px, transparent 1.5px),
       linear-gradient(var(--color) 1.5px, transparent 1.5px);
     background-size: var(--size) var(--size);
-    /* background-repeat: round; */
     background-position: center 0px;
   }
 

@@ -20,8 +20,6 @@ const logos = globLogos.map(([url, module]) => {
 });
 
 export const Logostrip = () => {
-  // check if logos include specific logos from array and add class of buff
-
   const logosWithClass = logos.map((logo) => ({
     ...logo,
     className: buffArray.includes(logo.name.toLowerCase())

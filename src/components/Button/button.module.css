@@ -32,7 +32,6 @@
 
   background-color: var(--fg-border);
   border-radius: 0.25rem;
-  /* background-size: 2rlh, 100%; */
   background-position: 0 0, calc(2rlh - 1px) 0;
   background-repeat: no-repeat;
   backdrop-filter: blur(8px);
@@ -77,10 +76,8 @@
 
 .secondary {
   background-position: 0 0, 0 0;
-  /* padding: 0 0 0 0; */
   gap: 0;
   &::before {
-    /* invert icon back to default */
     background-color:  color-mix(
       in srgb,
       transparent ,

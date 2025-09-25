@@ -2,18 +2,15 @@ import { Button } from "../Button/Button";
 import { Text } from "../Text/Text";
 import styles from "./quote.module.css";
 
-// Dynamically import all people images using Vite's glob import
 const imageModules = import.meta.glob<{ default: string }>(
   "../../assets/people/*.jpg",
   { eager: true }
 );
 
-// Create a mapping from slug to image URL
 const authorImages: Record<string, string> = Object.entries(
   imageModules
 ).reduce(
   (acc, [path, module]) => {
-    // Extract filename without extension from path like "../../assets/people/shaun.jpg"
     const filename = path
       .split("/")
       .pop()

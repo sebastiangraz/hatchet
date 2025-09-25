@@ -13,7 +13,7 @@ interface ExposePropsProps {
 
 const formatProps = (props: any, ignoreProps: string[]): React.ReactNode => {
   const filteredProps = Object.entries(props)
-    .filter(([key]) => !ignoreProps.includes(key)) // Filter out ignored props
+    .filter(([key]) => !ignoreProps.includes(key))
     .map(([key, value]: [string, any]) => {
       return (
         <span key={key}>

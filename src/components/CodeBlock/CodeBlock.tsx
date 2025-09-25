@@ -6,7 +6,6 @@ import {
 } from "shiki";
 import styles from "./codeblock.module.css";
 
-// Import your custom theme
 import hatchetTheme from "../../styles/hatchetsyntax.json";
 
 interface CodeBlockProps {
@@ -45,7 +44,6 @@ export const CodeBlock = ({
               name: "highlight-lines",
               line(node: any, line: number) {
                 if (highlightLines.includes(line)) {
-                  // Add class to the node properties
                   if (!node.properties) {
                     node.properties = {};
                   }
@@ -98,7 +96,6 @@ export const CodeBlock = ({
   );
 };
 
-// Export a simple inline code component as well
 interface InlineCodeProps {
   children: string;
   lang?: BundledLanguage;

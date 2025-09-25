@@ -8,7 +8,6 @@ import markdownStyles from "~/components/Markdown/markdown.module.css";
 import styles from "./customers.module.css";
 import { Quote, Authors } from "~/components/Quote/Quote";
 
-// Eagerly import all SVGs in assets/logos to map names -> src URLs
 const globLogos = Object.entries(
   import.meta.glob<{ default: string }>(["/src/assets/logos/*.svg"], {
     eager: true,
@@ -59,7 +58,7 @@ function RouteComponent() {
       industry?: string;
       title?: string;
       description?: string;
-      logotype?: string; // filename without extension from /src/assets/logos
+      logotype?: string;
       website?: string;
     };
   const sanitizedWebsite = website?.replace(/^https?:\/\/(www\.)?|\/+$/g, "");
