@@ -11,8 +11,8 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkgfm from "remark-gfm";
 import { transformerNotationHighlight } from "@shikijs/transformers";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
-
 import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
+
 const options = {
   theme: JSON.parse(
     fs.readFileSync("./src/styles/hatchetsyntax.json", "utf-8")

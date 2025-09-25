@@ -90,17 +90,16 @@ export const QuoteAuthor = ({
     <div className={styles.quoteAuthor}>
       {image && <img src={image} alt={name} />}
       <div>
+        <span>
+          <Text.Micro mono caps>
+            {name}
+          </Text.Micro>{" "}
+          <Text.Micro mono caps>
+            {title}
+          </Text.Micro>
+        </span>{" "}
         <Text.Micro mono caps>
-          {name}
-        </Text.Micro>{" "}
-        <Text.Micro mono caps>
-          {title}
-        </Text.Micro>{" "}
-        <Text.Micro mono caps>
-          ·
-        </Text.Micro>{" "}
-        <Text.Micro mono caps>
-          {company}
+          · {company}
         </Text.Micro>
       </div>
     </div>
