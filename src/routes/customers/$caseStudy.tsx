@@ -24,8 +24,14 @@ const logoSrcByName: Record<string, string> = Object.fromEntries(
 
 export const Route = createFileRoute("/customers/$caseStudy")({
   component: RouteComponent,
-
-  loader: async ({ params }) => {
+  head: ({ loaderData }) => {
+    const companyName =
+      (loaderData as any)?.frontmatter?.company || "Customer Case Study";
+    return {
+      meta: [{ title: `Hatchet · ${companyName}` }],
+    };
+  },
+  loader: (async ({ params }: { params: any }) => {
     const post = caseStudies.find((p) => p.slug === params.caseStudy);
     if (!post) throw new Error("Post not found");
 
@@ -33,13 +39,16 @@ export const Route = createFileRoute("/customers/$caseStudy")({
       frontmatter: post.frontmatter,
       slug: post.slug,
     };
-  },
+  }) as any,
   errorComponent: PostErrorComponent as any,
   notFoundComponent: PostNotFoundComponent as any,
 });
 
 function RouteComponent() {
-  const { frontmatter, slug } = Route.useLoaderData();
+  const { frontmatter, slug } = Route.useLoaderData() as {
+    frontmatter: any;
+    slug: string;
+  };
 
   const post = caseStudies.find((p) => p.slug === slug);
   const Content = post?.Content;

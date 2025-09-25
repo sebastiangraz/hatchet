@@ -7,6 +7,9 @@ import { getPrevPathFromExtension } from "~/utils";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/customers/")({
+  head: () => ({
+    meta: [{ title: "Hatchet · Customers" }],
+  }),
   component: RouteComponent,
 });
 

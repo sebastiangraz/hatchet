@@ -20,6 +20,9 @@ import { Layout } from "~/components/Layout/Layout";
 import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/(home)/")({
+  head: () => ({
+    meta: [{ title: "Hatchet" }],
+  }),
   component: RouteComponent,
 });
 {

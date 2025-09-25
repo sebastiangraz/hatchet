@@ -16,7 +16,7 @@ export const Nav = () => {
     <>
       <div className={styles.navBackground}></div>
       <div className={styles.checker}></div>
-      <Promobar />
+      <Promobar link="/brand" />
       <nav ref={ref} className={styles.nav} data-sticky={isSticky}>
         <div className={styles.wrapper}>
           <Link to="/" className={styles.logo}>

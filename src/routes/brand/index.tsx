@@ -6,6 +6,9 @@ import styles from "./brand.module.css";
 import { Button } from "~/components/Button/Button";
 
 export const Route = createFileRoute("/brand/")({
+  head: () => ({
+    meta: [{ title: "Hatchet · Brand" }],
+  }),
   beforeLoad: ({ context }) => ({
     ...context,
     theme: "light" as const,

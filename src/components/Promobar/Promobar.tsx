@@ -1,24 +1,28 @@
 import styles from "./promobar.module.css";
 import { Text } from "~/components/Text/Text";
+import { Link } from "@tanstack/react-router";
 
-export const Promobar = () => {
+export const Promobar = ({ link }: { link: string }) => {
   return (
-    <div className={styles.promobar}>
-      <div className={styles.content}>
-        <SVGRocket />
-        <Text.Small>New feature launching soon - Stay tuned!</Text.Small>
-        {/* <Button icon="back" type="secondary">
+    <Link to={link}>
+      <div className={styles.promobar}>
+        <div className={styles.content}>
+          <SVGRocket />
+          <Text.Small>New feature launching soon - Stay tuned!</Text.Small>
+          {/* <Button icon="back" type="secondary">
           Close
         </Button> */}
-        <button
-          className={styles.closeButton}
-          type="button"
-          aria-label="Close promotion"
-        >
-          ×
-        </button>
+
+          <button
+            className={styles.closeButton}
+            type="button"
+            aria-label="Close promotion"
+          >
+            ×
+          </button>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
