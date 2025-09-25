@@ -1,10 +1,13 @@
 import styles from "./promobar.module.css";
 import { Text } from "~/components/Text/Text";
 import { Link } from "@tanstack/react-router";
+import settings from "~/settings";
 
-export const Promobar = ({ link }: { link: string }) => {
+export const Promobar = ({ link }: { link?: string }) => {
+  if (!settings.promobarEnabled) return null;
+
   return (
-    <Link to={link}>
+    <Link to={link || settings.promobarLink}>
       <div className={styles.promobar}>
         <div className={styles.content}>
           <SVGRocket />
