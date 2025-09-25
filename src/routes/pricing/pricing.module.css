@@ -1,4 +1,3 @@
-/* Header Section */
 .header {
   display: flex;
   flex-direction: column;
@@ -15,7 +14,6 @@
   margin-bottom: 3rlh;
 }
 
-/* Pricing Table Layout */
 .pricingTable {
   display: grid;
   grid-column: bleedstart / bleedend;
@@ -24,18 +22,9 @@
   gap: 0;
 }
 
-/* Self-Hosted Table Layout */
 .selfHostedTable {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column: bleedstart / bleedend;
-  gap: 0;
-  overflow: hidden;
-  padding: 0 4rlh;
-  /* margin: 0 auto; */
 }
 
-/* Table Headers */
 .tableHeader,
 .selfHostedHeader {
   display: grid;
@@ -43,7 +32,6 @@
   grid-column: 1 / -1;
 }
 
-/* Header Cells */
 .headerCell {
   background-color: var(--bg-secondary);
   border-bottom: 1.5px solid var(--fg-border);
@@ -59,7 +47,11 @@
 }
 
 .popularHeader {
-  background-color: var(--bg-dark);
+  background-color: color-mix(
+    in srgb,
+    var(--bg-dark) calc(100% * var(--opacity-5)),
+    transparent
+  );
 }
 
 .priceContainer {
@@ -89,28 +81,6 @@
   grid-column: 1 / -1;
 }
 
-/* @media (max-width: 38em) {
-  .tableRow {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column: 1 / -1;
-    gap: 0.5rlh;
-    padding: 1rlh 2rlh;
-    border-bottom: 1px solid var(--fg-border);
-  }
-
-  .categoryRow {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column: 1 / -1;
-    gap: 0.5rlh;
-    padding: 1.5rlh 2rlh;
-    background-color: var(--bg-tertiary);
-    border-bottom: 1px solid var(--fg-border);
-  }
-} */
-
-/* Feature Cells */
 .featureCell {
   background-color: var(--bg-secondary);
   border-bottom: 1.5px solid var(--fg-border);
@@ -133,7 +103,6 @@
   white-space: nowrap;
 }
 
-/* Value Cells */
 .valueCell {
   background-color: var(--bg);
   border-bottom: 1.5px solid var(--fg-border);
@@ -143,13 +112,15 @@
   justify-content: start;
 }
 
-/* Highlight Growth column (3rd plan, 4th grid column) */
 .pricingTable .valueCell:nth-child(4),
 .pricingTable .emptyCategoryCell:nth-child(4) {
-  background-color: var(--bg-dark);
+  background-color: color-mix(
+    in srgb,
+    var(--bg-dark) calc(100% * var(--opacity-5)),
+    transparent
+  );
 }
 
-/* Remove bottom border from last row */
 .pricingTable .tableRow:last-child .featureCell,
 .pricingTable .tableRow:last-child .valueCell,
 .pricingTable .categoryRow:last-child .categoryCell,
@@ -160,42 +131,3 @@
 .selfHostedTable .categoryRow:last-child .emptyCategoryCell {
   border-bottom: none;
 }
-
-/* Mobile Layout */
-/* @media (max-width: 38em) {
-  .featureCell {
-    background-color: var(--bg-tertiary);
-    border: none;
-    padding: 1rlh 0;
-  }
-
-  .valueCell {
-    background-color: transparent;
-    border: none;
-    padding: 0.5rlh 0;
-    text-align: left;
-    justify-content: flex-start;
-  }
-
-  .valueCell::before {
-    content: attr(data-plan) ": ";
-    font-weight: 500;
-    color: var(--fg);
-    margin-right: 0.5rlh;
-  }
-} */
-
-/* Hover Effects */
-/* .tableRow:hover .featureCell,
-.tableRow:hover .valueCell {
-  background-color: var(--bg-tertiary);
-} */
-
-/* .pricingTable .tableRow:hover .valueCell:nth-child(4) {
-  background-color: var(--bg-secondary);
-}
-
-.categoryRow:hover .categoryCell,
-.categoryRow:hover .emptyCategoryCell {
-  background-color: var(--bg-secondary);
-} */

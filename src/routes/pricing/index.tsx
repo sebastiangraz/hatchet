@@ -297,13 +297,15 @@ function RouteComponent() {
                 key={index}
                 className={`${styles.headerCell} ${plan.popular ? styles.popularHeader : ""}`}
               >
-                <Text.H5>{plan.name}</Text.H5>
+                <Text.Small mono caps>
+                  {plan.name}
+                </Text.Small>
                 <div className={styles.priceContainer}>
                   <Text.H3 className={styles.price}>{plan.price}</Text.H3>
                   {plan.period && (
-                    <Text.Body className={styles.period}>
+                    <Text.Micro mono caps className={styles.period}>
                       {plan.period}
-                    </Text.Body>
+                    </Text.Micro>
                   )}
                 </div>
                 <Text.Small secondary balance className={styles.description}>
