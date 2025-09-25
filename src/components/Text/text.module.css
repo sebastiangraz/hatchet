@@ -54,3 +54,7 @@
 .secondary {
   color: var(--fg-secondary);
 }
+
+.primary {
+  color: var(--fg);
+}

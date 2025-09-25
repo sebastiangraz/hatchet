@@ -9,6 +9,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   balance?: boolean;
   brackets?: boolean;
   secondary?: boolean;
+  primary?: boolean;
   mono?: boolean;
   caps?: boolean;
   italic?: boolean;
@@ -24,6 +25,7 @@ const TextBase = React.forwardRef<HTMLElement, TextProps>(
       balance,
       brackets,
       secondary,
+      primary,
       mono,
       caps,
       italic,
@@ -36,6 +38,7 @@ const TextBase = React.forwardRef<HTMLElement, TextProps>(
       className || "",
       balance ? styles.balance : "",
       secondary ? styles.secondary : "",
+      primary ? styles.primary : "",
       brackets ? styles.brackets : "",
       mono ? styles.mono : "",
       caps ? styles.caps : "",

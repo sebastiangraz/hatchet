@@ -80,6 +80,10 @@ function RouteComponent() {
         />
         <div className={styles.caseStudyMeta}>
           <div>
+            {" "}
+            <Text.Micro caps mono balance>
+              {company}
+            </Text.Micro>
             {logotype && logoSrcByName[logotype] ? (
               <img
                 className={styles.logotype}
@@ -87,29 +91,28 @@ function RouteComponent() {
                 alt={`${company || logotype} logo`}
               />
             ) : null}
-            <Text.Micro secondary caps mono balance>
-              {company}
-            </Text.Micro>
           </div>
           <div>
+            {" "}
+            <Text.Micro caps mono balance>
+              Industry
+            </Text.Micro>
             <Text.Small brackets mono caps className="industry">
               {industry}
             </Text.Small>
-            <Text.Micro secondary caps mono balance>
-              Industry
-            </Text.Micro>
           </div>
           <div>
             {website && (
               <>
+                {" "}
+                <Text.Micro caps mono balance>
+                  Website
+                </Text.Micro>
                 <a href={website} target="_blank" rel="noopener noreferrer">
                   <Text.Small brackets mono caps className="website">
                     {sanitizedWebsite}
                   </Text.Small>
                 </a>{" "}
-                <Text.Micro secondary caps mono balance>
-                  Website
-                </Text.Micro>
               </>
             )}{" "}
           </div>

@@ -21,6 +21,11 @@ export const components = {
       {props.children}
     </Text.Body>
   ),
+  strong: (props: any) => (
+    <Text.Body primary {...props} as="strong">
+      {props.children}
+    </Text.Body>
+  ),
   blockquote: (props: any) => (
     <div className={`blockquote ${style.blockquote}`}>
       <Text.Body italic {...props}>

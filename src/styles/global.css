@@ -297,14 +297,14 @@
     letter-spacing: 0.08em;
   }
 
-  p,
-  a {
+  p {
     line-height: 2rlh;
     margin: 0;
   }
 
   a {
     color: inherit;
+    line-height: inherit;
     text-decoration-color: var(--fg-tertiary);
     &:hover {
       text-decoration: underline;
