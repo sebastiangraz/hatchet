@@ -14,6 +14,7 @@ import CSSUtils from "~/styles/utils.css?url";
 import { Nav } from "~/components/Nav/Nav";
 import { Footer } from "~/components/Footer/Footer";
 import Favicon from "~/assets/favicon.svg";
+import OGImage from "~/assets/og.png";
 import { theme } from "~/types";
 
 interface RootContext {
@@ -31,6 +32,27 @@ export const Route = createRootRoute({
         content:
           "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting. Instead of managing your own task queue or pub/sub system, you can use Hatchet to distribute your functions between a set of workers with minimal configuration or infrastructure.",
       },
+      // Open Graph tags
+      { property: "og:title", content: "Hatchet" },
+      {
+        property: "og:description",
+        content:
+          "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting.",
+      },
+      { property: "og:image", content: OGImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://hatchet.run" },
+      // Twitter Card tags
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Hatchet" },
+      {
+        name: "twitter:description",
+        content:
+          "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting.",
+      },
+      { name: "twitter:image", content: OGImage },
     ],
     links: [
       { rel: "stylesheet", href: CSSGlobal },
