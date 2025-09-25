@@ -15,20 +15,20 @@
 }
 
 .pricingTable {
-  display: grid;
   grid-column: bleedstart / bleedend;
   padding: 0 4rlh;
   grid-template-columns: auto repeat(4, 1fr);
   gap: 0;
   composes: scrollbar from global;
   overflow-x: auto;
+  display: none;
   @media (--3) {
     padding: 0 4rlh 0 0;
     grid-column: start / bleedend;
   }
-}
-
-.selfHostedTable {
+  @media (--2) {
+    display: grid;
+  }
 }
 
 .tableHeader,
@@ -108,10 +108,6 @@
 
 .featureCategory {
   white-space: nowrap;
-  font-size: var(--small);
-  @media (--2) {
-    font-size: inherit;
-  }
 }
 
 .valueCell {
@@ -141,4 +137,126 @@
 .selfHostedTable .categoryRow:last-child .categoryCell,
 .selfHostedTable .categoryRow:last-child .emptyCategoryCell {
   border-bottom: none;
+}
+
+/* Mobile Pricing Table */
+.mobilePricingTable {
+  grid-column: start / end;
+  display: grid;
+  row-gap: 3rlh;
+  grid-template-columns: repeat(1, 1fr);
+  @media (--1) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (--2) {
+    display: none;
+  }
+}
+
+.mobileCard {
+  background-color: var(--bg);
+  grid-template-rows: 1fr auto;
+  display: grid;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--fg-border) inset;
+  @media (--1) {
+    box-shadow: 0 0 0 0px var(--fg-border) inset;
+    &:first-child {
+      box-shadow: -1px 0 0 0 var(--fg-border) inset;
+    }
+    &:nth-last-of-type(2) {
+      box-shadow: -1px 0 0 0 var(--fg-border) inset;
+    }
+  }
+}
+
+.popularCard {
+  /* border-color: var(--fg); */
+  /* box-shadow: 0 0 0 1px var(--fg); */
+  background-color: color-mix(
+    in srgb,
+    var(--fg) calc(100% * var(--opacity-1)),
+    transparent
+  );
+}
+
+.mobileCardHeader {
+  padding: 2rlh;
+  grid-template-rows: auto minmax(5rlh, auto) 1fr auto;
+  border-bottom: 1.5px solid var(--fg-border);
+  display: grid;
+  gap: 1rlh;
+  text-align: center;
+}
+
+.mobilePlanName {
+  color: var(--fg-secondary);
+}
+
+.mobilePriceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rlh;
+  justify-content: center;
+}
+
+.mobilePrice {
+  color: var(--fg);
+}
+
+.mobilePeriod {
+  color: var(--fg-secondary);
+}
+
+.mobileDescription {
+  color: var(--fg-secondary);
+  line-height: 1.4;
+}
+
+.mobileButton {
+  margin-top: 0.5rlh;
+  width: 100%;
+}
+
+.mobileCardFeatures {
+  padding: 2rlh;
+}
+
+.mobileCategoryHeader {
+  margin-top: 2rlh;
+  margin-bottom: 1rlh;
+  padding: 0.5rlh 0;
+  border-bottom: 1px solid var(--fg-border);
+}
+
+.mobileCategoryHeader:first-child {
+  margin-top: 0;
+}
+
+.mobileCategoryTitle {
+  color: var(--fg);
+  font-weight: 600;
+  font-size: var(--small);
+}
+
+.mobileFeatureRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rlh 0;
+  border-bottom: 1px solid var(--fg-border-subtle);
+}
+
+.mobileFeatureRow:last-child {
+  border-bottom: none;
+}
+
+.mobileFeatureLabel {
+  color: var(--fg);
+  flex: 1;
+}
+
+.mobileFeatureValue {
+  color: var(--fg-secondary);
+  text-align: right;
 }

@@ -13,14 +13,15 @@ export const Route = createFileRoute("/pricing/")({
 });
 
 // Pricing data organized for table layout
-const cloudPlans = [
+const plans = [
   {
     name: "Free",
     price: "$0",
     period: "/mo",
     description: "For testing and small-scale experimentation",
     buttonText: "Get Started",
-    buttonHref: "https://hatchet.run",
+    buttonHref:
+      "https://cloud.onhatchet.run/auth/register?ref=01985b6e-d55b-772d-bc5a-3831ce1fd2c7?plan=free",
     popular: false,
   },
   {
@@ -29,7 +30,8 @@ const cloudPlans = [
     period: "/mo",
     description: "For smaller systems starting to face scaling challenges",
     buttonText: "Get Started",
-    buttonHref: "https://hatchet.run",
+    buttonHref:
+      "https://cloud.onhatchet.run/auth/register?ref=01985b6e-d55b-772d-bc5a-3831ce1fd2c7?plan=starter",
     popular: false,
   },
   {
@@ -39,16 +41,17 @@ const cloudPlans = [
     description:
       "For larger services experiencing especially tricky scaling problems.",
     buttonText: "Get Started",
-    buttonHref: "https://hatchet.run",
+    buttonHref:
+      "https://cloud.onhatchet.run/auth/register?ref=01985b6e-d55b-772d-bc5a-3831ce1fd2c7?plan=growth",
     popular: true,
   },
   {
     name: "Enterprise",
-    price: "Contact",
+    price: "Custom",
     period: "",
     description: "For especially complex systems with unique requirements.",
-    buttonText: "Talk to us",
-    buttonHref: "https://hatchet.run",
+    buttonText: "Contact",
+    buttonHref: "mailto:contact@hatchet.run",
     popular: false,
   },
 ];
@@ -277,7 +280,7 @@ const selfHostedFeatureRows = [
 function RouteComponent() {
   return (
     <>
-      <Section className="py-6">
+      <Section className="py-4">
         <div className={styles.header}>
           <Text.H1 balance>Pricing</Text.H1>
           <Text.Body balance className={styles.subtitle}>
@@ -292,7 +295,7 @@ function RouteComponent() {
           {/* Header Row */}
           <div className={styles.tableHeader}>
             <div className={styles.headerCell}></div>
-            {cloudPlans.map((plan, index) => (
+            {plans.map((plan, index) => (
               <div
                 key={index}
                 className={`${styles.headerCell} ${plan.popular ? styles.popularHeader : ""}`}
@@ -311,11 +314,7 @@ function RouteComponent() {
                 <Text.Small secondary balance className={styles.description}>
                   {plan.description}
                 </Text.Small>
-                <Button
-                  href={plan.buttonHref}
-                  target="_blank"
-                  className={styles.button}
-                >
+                <Button href={plan.buttonHref} target="_blank">
                   {plan.buttonText}
                 </Button>
               </div>
@@ -332,7 +331,7 @@ function RouteComponent() {
                       {row.category}
                     </Text.H5>
                   </div>
-                  {cloudPlans.map((_, index) => (
+                  {plans.map((_, index) => (
                     <div key={index} className={styles.emptyCategoryCell}></div>
                   ))}
                 </div>
@@ -351,7 +350,7 @@ function RouteComponent() {
                     <div
                       key={valueIndex}
                       className={styles.valueCell}
-                      data-plan={cloudPlans[valueIndex].name}
+                      data-plan={plans[valueIndex].name}
                     >
                       <Text.Small mono secondary>
                         {value}
@@ -364,6 +363,86 @@ function RouteComponent() {
 
             return null;
           })}
+        </div>
+
+        {/* Mobile Pricing Table */}
+        <div className={styles.mobilePricingTable}>
+          {plans.map((plan, planIndex) => (
+            <div
+              key={planIndex}
+              className={`${styles.mobileCard} ${plan.popular ? styles.popularCard : ""}`}
+            >
+              {/* Plan Header */}
+              <div className={styles.mobileCardHeader}>
+                <Text.Small mono caps className={styles.mobilePlanName}>
+                  {plan.name}
+                </Text.Small>
+                <div className={styles.mobilePriceContainer}>
+                  <Text.H3 className={styles.mobilePrice}>{plan.price}</Text.H3>
+                  {plan.period && (
+                    <Text.Micro mono caps className={styles.mobilePeriod}>
+                      {plan.period}
+                    </Text.Micro>
+                  )}
+                </div>
+                <Text.Small
+                  secondary
+                  balance
+                  className={styles.mobileDescription}
+                >
+                  {plan.description}
+                </Text.Small>
+                <Button
+                  href={plan.buttonHref}
+                  target="_blank"
+                  className={styles.mobileButton}
+                >
+                  {plan.buttonText}
+                </Button>
+              </div>
+
+              {/* Plan Features */}
+              <div className={styles.mobileCardFeatures}>
+                {featureRows.map((row, rowIndex) => {
+                  if (row.type === "category") {
+                    return (
+                      <div
+                        key={rowIndex}
+                        className={styles.mobileCategoryHeader}
+                      >
+                        <Text.H5 className={styles.mobileCategoryTitle}>
+                          {row.category}
+                        </Text.H5>
+                      </div>
+                    );
+                  }
+
+                  if (
+                    row.type === "feature" &&
+                    row.values &&
+                    row.values[planIndex]
+                  ) {
+                    return (
+                      <div key={rowIndex} className={styles.mobileFeatureRow}>
+                        <Text.Small mono className={styles.mobileFeatureLabel}>
+                          {row.subcategory}
+                        </Text.Small>
+                        <Text.Small
+                          mono
+                          secondary
+                          className={styles.mobileFeatureValue}
+                        >
+                          {row.values[planIndex]}
+                        </Text.Small>
+                      </div>
+                    );
+                  }
+
+                  return null;
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 
