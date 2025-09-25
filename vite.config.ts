@@ -11,7 +11,7 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkgfm from "remark-gfm";
 import { transformerNotationHighlight } from "@shikijs/transformers";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
-import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
+import { nitro } from "nitro/vite";
 
 const options = {
   theme: JSON.parse(
@@ -38,7 +38,7 @@ export default defineConfig({
       providerImportSource: "@mdx-js/react",
     }),
     tanstackStart(),
-    nitroV2Plugin(),
+    nitro(),
     react(),
   ],
   css: {

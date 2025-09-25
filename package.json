@@ -27,7 +27,7 @@
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.1.0",
     "@shikijs/transformers": "^3.13.0",
-    "@tanstack/nitro-v2-vite-plugin": "^1.132.0",
+    "nitro": "npm:nitro-nightly@latest",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
