@@ -27,7 +27,7 @@ export const Authors = [
   {
     name: "Shaun Berryman",
     slug: "shaun",
-    title: "Staff Software Engineer",
+    title: "Staff SWE",
     company: "Moonhub",
   },
   {

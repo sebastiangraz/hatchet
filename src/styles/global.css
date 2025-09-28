@@ -262,12 +262,12 @@
   .micro {
     font-size: var(--micro);
     line-height: 1.25rlh;
-    letter-spacing: 0.04rem;
+    letter-spacing: 0.04em;
   }
   .caps {
     text-transform: uppercase;
     text-box: cap alphabetic;
-    letter-spacing: 0.07rem;
+    letter-spacing: 0.07em;
   }
   .mono {
     font-family: var(--font-mono);

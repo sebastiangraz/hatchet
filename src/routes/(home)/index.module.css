@@ -8,6 +8,11 @@
   }
 }
 
+.quote {
+  font-family: var(--font-judge-extended);
+  line-height: 1.5rlh;
+  letter-spacing: 0.03em;
+}
 .expandableSection {
   background-color: transparent;
 }

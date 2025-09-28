@@ -150,7 +150,7 @@ function RouteComponent() {
               </li>
             </ul>
             <Quote author="shaun" link="/customers/moonhub">
-              <Text.Body italic>
+              <Text.Body className={styles.quote}>
                 Implementing Hatchet has revolutionized our task management
                 system, enabling us to handle a growing number of background
                 tasks efficiently.
@@ -243,7 +243,7 @@ aiAgent.start();`}
               </li>
             </ul>
             <Quote author="soohoon" link="/customers/greptile">
-              <Text.Body italic>
+              <Text.Body className={styles.quote}>
                 With Hatchet, we’ve scaled our indexing workflows effortlessly,
                 reducing failed runs by 50% and doubling our user base in just
                 two weeks!
@@ -293,7 +293,7 @@ aiAgent.start();`}
         </Layout>
         <FeatureExpandable>
           <div className={styles.expandableLeft}>
-            <Text.H5>Scalability with Hatchet</Text.H5>
+            <Text.H5 secondary>Scalability with Hatchet</Text.H5>
             <Text.Body>
               Fan out to thousands of workers with a single function call.
               Built-in fairness algorithms and resource management ensure
@@ -322,7 +322,7 @@ aiAgent.start();`}
               </li>
             </ul>
             <Quote author="ymir" link="/customers/aevy">
-              <Text.Body italic>
+              <Text.Body className={styles.quote}>
                 Hatchet enables Aevy to process up to 50,000 documents in under
                 an hour through optimized parallel execution, compared to nearly
                 a week with our previous setup.
