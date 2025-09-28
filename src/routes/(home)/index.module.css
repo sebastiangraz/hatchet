@@ -28,6 +28,11 @@
   }
 }
 
+.badges {
+  width: 12rlh;
+  height: auto;
+}
+
 .codeBlock {
   order: -1;
   grid-column: start / end;

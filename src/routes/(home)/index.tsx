@@ -100,7 +100,7 @@ function RouteComponent() {
         <Layout layout="y">
           <Layout.Child>
             <Text.Micro brackets mono caps style={{ color: "var(--accent-1)" }}>
-              Feature
+              Use Case
             </Text.Micro>
           </Layout.Child>
           <Layout.Child>
@@ -175,7 +175,7 @@ function RouteComponent() {
 
       <Section theme="dark" className={`${styles.feature} py-6`}>
         <Text.Micro brackets mono caps style={{ color: "var(--accent)" }}>
-          Feature
+          Use Case
         </Text.Micro>
         <Layout>
           <Layout.Child>
@@ -274,7 +274,7 @@ aiAgent.start();`}
         <Layout layout="y">
           <Layout.Child>
             <Text.Micro brackets mono caps style={{ color: "var(--accent-2)" }}>
-              Feature
+              Use Case
             </Text.Micro>
           </Layout.Child>
           <Layout.Child span="half">
@@ -404,7 +404,7 @@ aiAgent.start();`}
           </Layout.Child>{" "}
           <Layout.Child>
             <Layout.Child>
-              <img src={badges}></img>
+              <img src={badges} className={styles.badges}></img>
             </Layout.Child>
           </Layout.Child>
         </Layout>
