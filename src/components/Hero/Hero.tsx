@@ -25,7 +25,12 @@ export const Hero = (props: HeroProps) => {
 
       <Text.Body balance> {description} </Text.Body>
       <div className="flex">
-        <Button to="/pricing">Start for free</Button>
+        <Button
+          href="https://cloud.onhatchet.run/auth/register?ref=01985b6e-d55b-772d-bc5a-3831ce1fd2c7"
+          target="_blank"
+        >
+          Start for free
+        </Button>
         <Button
           href="https://docs.hatchet.run/home"
           target="_blank"

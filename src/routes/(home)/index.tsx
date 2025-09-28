@@ -398,8 +398,19 @@ aiAgent.start();`}
           </Layout.Child>
           <Layout.Child>
             <Layout.Gap gap={2} dir="x">
-              <Button>Start for free</Button>
-              <Button type="secondary">Schedule Enterprise Demo</Button>{" "}
+              <Button
+                href="https://cloud.onhatchet.run/auth/register?ref=01985b6e-d55b-772d-bc5a-3831ce1fd2c7"
+                target="_blank"
+              >
+                Start for free
+              </Button>
+              <Button
+                type="secondary"
+                to="mailto:contact@hatchet.run"
+                target="_blank"
+              >
+                Schedule Enterprise Demo
+              </Button>{" "}
             </Layout.Gap>
           </Layout.Child>{" "}
           <Layout.Child>
