@@ -21,7 +21,7 @@ export const Expandable = (props: ExpandableProps) => {
         <Button
           large
           type={isExpanded ? "secondary" : "default"}
-          icon={isExpanded ? "back" : "docs"}
+          icon={isExpanded ? "default" : "down"}
           as="summary"
           className={styles.toggleButton}
           onClick={toggleExpanded}

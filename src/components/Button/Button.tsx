@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import styles from "./button.module.css";
 interface ButtonProps {
   type?: "default" | "secondary";
-  icon?: "default" | "back" | "docs";
+  icon?: "default" | "back" | "docs" | "down";
   large?: boolean;
   onClick?: () => void;
   children: React.ReactNode;

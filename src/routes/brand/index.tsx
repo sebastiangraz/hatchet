@@ -85,7 +85,7 @@ function RouteComponent() {
         <hr />
         <ExposeProps ignoreProps={["children"]}>
           <Button large>Button</Button>
-          <Button large type="secondary">
+          <Button large type="secondary" icon="down">
             Button
           </Button>
         </ExposeProps>
