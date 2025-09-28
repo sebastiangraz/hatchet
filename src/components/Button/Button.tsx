@@ -29,8 +29,6 @@ export const Button = (props: ButtonProps) => {
     ...rest
   } = props;
 
-  const ref = useRef<HTMLDivElement>(null);
-
   const Tag = as;
 
   const typeValue = type === "default" ? "" : styles.secondary;
@@ -50,17 +48,15 @@ export const Button = (props: ButtonProps) => {
       {children}
     </Tag>
   ) : (
-    <div ref={ref}>
-      <Link
-        {...rest}
-        className={buttonStyle}
-        onClick={onClick}
-        href={href}
-        target={target}
-        to={destination}
-      >
-        {children}
-      </Link>
-    </div>
+    <Link
+      {...rest}
+      className={buttonStyle}
+      onClick={onClick}
+      href={href}
+      target={target}
+      to={destination}
+    >
+      {children}
+    </Link>
   );
 };
