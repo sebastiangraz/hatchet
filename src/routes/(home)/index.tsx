@@ -95,6 +95,84 @@ function RouteComponent() {
           </Layout.Child>
         </Layout>
       </Section>
+
+      <Section theme="dark" className={`${styles.feature} py-6`}>
+        <Layout layout="y">
+          <Layout.Child>
+            <Text.Micro brackets mono caps style={{ color: "var(--accent-1)" }}>
+              Feature
+            </Text.Micro>
+          </Layout.Child>
+          <Layout.Child>
+            <Text.H1 balance>Ingestion & Indexing Pipelines.</Text.H1>
+          </Layout.Child>
+          <Layout.Child span="twothirds">
+            <Text.Body balance>
+              Modern data pipelines pull from hundreds of sources with different
+              APIs, rate limits, and failure modes. Traditional ETL tools can’t
+              handle the unpredictability of external services and LLM
+              processing while simultaneously being suitable for real-time
+              requests.
+            </Text.Body>
+          </Layout.Child>
+          <Layout.Child>
+            <img src={ingestion}></img>
+          </Layout.Child>
+        </Layout>
+        <FeatureExpandable>
+          <div className={styles.expandableLeft}>
+            <Text.H5 secondary>Flexibility with Hatchet</Text.H5>
+            <Text.Body>
+              Build resilient pipelines that handle real-world complexity.
+              Automatic retries, intelligent rate limiting, and checkpoint
+              recovery mean your data stays fresh without constant firefighting.
+            </Text.Body>
+            <ul>
+              <li>
+                <Text.Body secondary>
+                  Sync from 100+ data sources without building custom retry
+                  logic
+                </Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary>
+                  Transform documents for RAG with guaranteed processing
+                </Text.Body>
+              </li>
+              <li>
+                <Text.Body secondary>
+                  Update vector databases in real-time with exactly-once
+                  semantics
+                </Text.Body>
+              </li>
+            </ul>
+            <Quote author="soohoon" link="/customers/greptile">
+              <Text.Body className={styles.quote}>
+                With Hatchet, we’ve scaled our indexing workflows effortlessly,
+                reducing failed runs by 50% and doubling our user base in just
+                two weeks!
+              </Text.Body>
+            </Quote>
+          </div>
+          <CodeBlock
+            className={styles.codeBlock}
+            code={`failureWorkflow.onFailure({
+  name: 'on-failure',
+  fn: async (input, ctx) => {
+    console.log('onFailure for run:', ctx.workflowRunId());
+    return {
+      'on-failure': 'success',
+    };
+  },
+});`}
+            lang="typescript"
+            showLineNumbers={true}
+            highlightLines={[7, 12, 18, 25]}
+            filename="ai-agent.ts"
+          />
+        </FeatureExpandable>
+      </Section>
+
       <Section theme="dark" className={`${styles.feature} py-6`}>
         <Text.Micro brackets mono caps style={{ color: "var(--accent)" }}>
           Feature
@@ -184,83 +262,6 @@ function RouteComponent() {
 
 // Start the agent
 aiAgent.start();`}
-            lang="typescript"
-            showLineNumbers={true}
-            highlightLines={[7, 12, 18, 25]}
-            filename="ai-agent.ts"
-          />
-        </FeatureExpandable>
-      </Section>
-
-      <Section theme="dark" className={`${styles.feature} py-6`}>
-        <Layout layout="y">
-          <Layout.Child>
-            <Text.Micro brackets mono caps style={{ color: "var(--accent-1)" }}>
-              Feature
-            </Text.Micro>
-          </Layout.Child>
-          <Layout.Child>
-            <Text.H1 balance>Ingestion & Indexing Pipelines.</Text.H1>
-          </Layout.Child>
-          <Layout.Child span="twothirds">
-            <Text.Body balance>
-              Modern data pipelines pull from hundreds of sources with different
-              APIs, rate limits, and failure modes. Traditional ETL tools can’t
-              handle the unpredictability of external services and LLM
-              processing while simultaneously being suitable for real-time
-              requests.
-            </Text.Body>
-          </Layout.Child>
-          <Layout.Child>
-            <img src={ingestion}></img>
-          </Layout.Child>
-        </Layout>
-        <FeatureExpandable>
-          <div className={styles.expandableLeft}>
-            <Text.H5 secondary>Flexibility with Hatchet</Text.H5>
-            <Text.Body>
-              Build resilient pipelines that handle real-world complexity.
-              Automatic retries, intelligent rate limiting, and checkpoint
-              recovery mean your data stays fresh without constant firefighting.
-            </Text.Body>
-            <ul>
-              <li>
-                <Text.Body secondary>
-                  Sync from 100+ data sources without building custom retry
-                  logic
-                </Text.Body>
-              </li>
-              <li>
-                <Text.Body secondary>
-                  Transform documents for RAG with guaranteed processing
-                </Text.Body>
-              </li>
-              <li>
-                <Text.Body secondary>
-                  Update vector databases in real-time with exactly-once
-                  semantics
-                </Text.Body>
-              </li>
-            </ul>
-            <Quote author="soohoon" link="/customers/greptile">
-              <Text.Body className={styles.quote}>
-                With Hatchet, we’ve scaled our indexing workflows effortlessly,
-                reducing failed runs by 50% and doubling our user base in just
-                two weeks!
-              </Text.Body>
-            </Quote>
-          </div>
-          <CodeBlock
-            className={styles.codeBlock}
-            code={`failureWorkflow.onFailure({
-  name: 'on-failure',
-  fn: async (input, ctx) => {
-    console.log('onFailure for run:', ctx.workflowRunId());
-    return {
-      'on-failure': 'success',
-    };
-  },
-});`}
             lang="typescript"
             showLineNumbers={true}
             highlightLines={[7, 12, 18, 25]}
