@@ -12,10 +12,6 @@ export const Promobar = ({ link }: { link?: string }) => {
         <div className={styles.content}>
           <SVGRocket />
           <Text.Small>New feature launching soon - Stay tuned!</Text.Small>
-          {/* <Button icon="back" type="secondary">
-          Close
-        </Button> */}
-
           <button
             className={styles.closeButton}
             type="button"

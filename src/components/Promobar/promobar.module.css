@@ -30,7 +30,6 @@
   );
   font-size: var(--body);
   cursor: pointer;
-  /* padding: 0.25rem; */
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
