@@ -29,8 +29,8 @@
 
   .divider,
   hr {
-    height: 1px;
-    background-color: var(--fg-border);
+    height: 1.5px;
+    box-shadow: 0 1.5px 0 0 var(--fg-border) inset;
     margin-block-start: 2rlh;
     margin-block-end: 2rlh;
   }

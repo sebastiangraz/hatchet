@@ -224,6 +224,7 @@
     font-size: var(--h1);
     line-height: 1;
     letter-spacing: -0.02em;
+    min-height: calc-size(min-content, round(up, size, 2rlh));
   }
   .h2 {
     font-family: var(--font-judge-extended);

@@ -112,7 +112,7 @@ function RouteComponent() {
             <Text.Micro caps mono balance>
               Industry
             </Text.Micro>
-            <Text.Small brackets mono caps className="industry">
+            <Text.Small mono caps className="industry">
               {industry}
             </Text.Small>
           </div>
@@ -124,7 +124,7 @@ function RouteComponent() {
                   Website
                 </Text.Micro>
                 <a href={website} target="_blank" rel="noopener noreferrer">
-                  <Text.Small brackets mono caps className="website">
+                  <Text.Small mono caps className="website">
                     {sanitizedWebsite}
                   </Text.Small>
                 </a>{" "}

@@ -125,7 +125,7 @@ body[data-sticky="true"] .navBackground {
 .checker {
   composes: checker from global;
   composes: grid-parent from global;
-  --size: calc(var(--unit-size) / 3);
+  --size: 1rlh;
   --color: color-mix(
     in srgb,
     var(--fg) calc(100% * var(--opacity-1)),
