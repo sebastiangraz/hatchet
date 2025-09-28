@@ -6,18 +6,30 @@ const globLogos = Object.entries(
   })
 );
 
+const logoArray = [
+  "distill",
+  "ellipsis",
+  "greptile",
+  "mit",
+  "moonhub",
+  "motion",
+  "sweetspot",
+];
+
 const buffArray = ["distill", "motion", "aevy"];
 const nerfArray = [""];
 
-const logos = globLogos.map(([url, module]) => {
-  const fileName = url.split("/").pop()?.replace(".svg", "") || "";
+const logos = globLogos
+  .map(([url, module]) => {
+    const fileName = url.split("/").pop()?.replace(".svg", "") || "";
 
-  return {
-    src: module.default,
-    alt: fileName,
-    name: fileName,
-  };
-});
+    return {
+      src: module.default,
+      alt: fileName,
+      name: fileName,
+    };
+  })
+  .filter((logo) => logoArray.includes(logo.name));
 
 export const Logostrip = () => {
   const logosWithClass = logos.map((logo) => ({

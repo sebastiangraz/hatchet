@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   gap: 3rlh;
 
   img {
@@ -23,7 +23,7 @@
       opacity: 1;
     }
     &.buff {
-      height: 1.5rlh;
+      height: 1.65rlh;
     }
     &.nerf {
       height: 1.125rlh;
