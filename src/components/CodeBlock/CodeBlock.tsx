@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react";
-import {
-  createHighlighter,
-  type Highlighter,
-  type BundledLanguage,
-} from "shiki";
+import { useState, useEffect } from "react";
+import { type BundledLanguage } from "shiki";
 import styles from "./codeblock.module.css";
-
-import hatchetTheme from "../../styles/hatchetsyntax.json";
+import { highlighterService } from "../../utils/highlighter";
 
 interface CodeBlockProps {
   code: string;
@@ -17,6 +12,86 @@ interface CodeBlockProps {
   className?: string;
 }
 
+// Custom hook for code highlighting
+const useCodeHighlighting = (
+  code: string,
+  lang: BundledLanguage,
+  options?: { highlightLines?: number[] }
+) => {
+  const [highlightedCode, setHighlightedCode] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const highlightCode = async () => {
+      try {
+        const html = await highlighterService.highlightCode(
+          code,
+          lang,
+          options
+        );
+
+        if (!cancelled) {
+          setHighlightedCode(html);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          console.error("Failed to highlight code:", error);
+          setHighlightedCode(`<pre><code>${code}</code></pre>`);
+          setIsLoading(false);
+        }
+      }
+    };
+
+    setIsLoading(true);
+    highlightCode();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [code, lang, JSON.stringify(options?.highlightLines)]);
+
+  return { highlightedCode, isLoading };
+};
+
+// Custom hook for inline code highlighting
+const useInlineCodeHighlighting = (code: string, lang: BundledLanguage) => {
+  const [highlightedCode, setHighlightedCode] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const highlightCode = async () => {
+      try {
+        const html = await highlighterService.highlightInlineCode(code, lang);
+
+        if (!cancelled) {
+          setHighlightedCode(html);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          console.error("Failed to highlight inline code:", error);
+          setHighlightedCode(`<code>${code}</code>`);
+          setIsLoading(false);
+        }
+      }
+    };
+
+    setIsLoading(true);
+    highlightCode();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [code, lang]);
+
+  return { highlightedCode, isLoading };
+};
+
 export const CodeBlock = ({
   code,
   lang = "typescript",
@@ -25,57 +100,9 @@ export const CodeBlock = ({
   filename,
   className,
 }: CodeBlockProps) => {
-  const [highlightedCode, setHighlightedCode] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const highlightCode = async () => {
-      try {
-        const highlighter = await createHighlighter({
-          themes: [hatchetTheme as any],
-          langs: [lang],
-        });
-
-        const html = highlighter.codeToHtml(code, {
-          lang,
-          theme: hatchetTheme.name,
-          transformers: [
-            {
-              name: "highlight-lines",
-              line(node: any, line: number) {
-                if (highlightLines.includes(line)) {
-                  if (!node.properties) {
-                    node.properties = {};
-                  }
-                  if (!node.properties.className) {
-                    node.properties.className = [];
-                  }
-                  if (Array.isArray(node.properties.className)) {
-                    node.properties.className.push("highlighted-line");
-                  } else {
-                    node.properties.className = [
-                      node.properties.className,
-                      "highlighted-line",
-                    ];
-                  }
-                }
-                return node;
-              },
-            },
-          ],
-        });
-
-        setHighlightedCode(html);
-      } catch (error) {
-        console.error("Failed to highlight code:", error);
-        setHighlightedCode(`<pre><code>${code}</code></pre>`);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    highlightCode();
-  }, [code, lang, highlightLines]);
+  const { highlightedCode, isLoading } = useCodeHighlighting(code, lang, {
+    highlightLines,
+  });
 
   if (isLoading) {
     return (
@@ -105,30 +132,14 @@ export const InlineCode = ({
   children,
   lang = "typescript",
 }: InlineCodeProps) => {
-  const [highlightedCode, setHighlightedCode] = useState<string>("");
+  const { highlightedCode, isLoading } = useInlineCodeHighlighting(
+    children,
+    lang
+  );
 
-  useEffect(() => {
-    const highlightCode = async () => {
-      try {
-        const highlighter = await createHighlighter({
-          themes: [hatchetTheme as any],
-          langs: [lang],
-        });
-
-        const html = highlighter.codeToHtml(children, {
-          lang,
-          theme: hatchetTheme.name,
-        });
-
-        setHighlightedCode(html);
-      } catch (error) {
-        console.error("Failed to highlight inline code:", error);
-        setHighlightedCode(`<code>${children}</code>`);
-      }
-    };
-
-    highlightCode();
-  }, [children, lang]);
+  if (isLoading) {
+    return <code className={styles.inlineCode}>{children}</code>;
+  }
 
   return (
     <span
