@@ -9,12 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsIndexRouteImport } from './routes/terms/index'
 import { Route as PricingIndexRouteImport } from './routes/pricing/index'
 import { Route as CustomersIndexRouteImport } from './routes/customers/index'
 import { Route as BrandIndexRouteImport } from './routes/brand/index'
+import { Route as AnnouncementIndexRouteImport } from './routes/announcement/index'
 import { Route as homeIndexRouteImport } from './routes/(home)/index'
 import { Route as CustomersCaseStudyRouteImport } from './routes/customers/$caseStudy'
 
+const TermsIndexRoute = TermsIndexRouteImport.update({
+  id: '/terms/',
+  path: '/terms/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingIndexRoute = PricingIndexRouteImport.update({
   id: '/pricing/',
   path: '/pricing/',
@@ -28,6 +35,11 @@ const CustomersIndexRoute = CustomersIndexRouteImport.update({
 const BrandIndexRoute = BrandIndexRouteImport.update({
   id: '/brand/',
   path: '/brand/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnnouncementIndexRoute = AnnouncementIndexRouteImport.update({
+  id: '/announcement/',
+  path: '/announcement/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const homeIndexRoute = homeIndexRouteImport.update({
@@ -44,54 +56,80 @@ const CustomersCaseStudyRoute = CustomersCaseStudyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/customers/$caseStudy': typeof CustomersCaseStudyRoute
   '/': typeof homeIndexRoute
+  '/announcement': typeof AnnouncementIndexRoute
   '/brand': typeof BrandIndexRoute
   '/customers': typeof CustomersIndexRoute
   '/pricing': typeof PricingIndexRoute
+  '/terms': typeof TermsIndexRoute
 }
 export interface FileRoutesByTo {
   '/customers/$caseStudy': typeof CustomersCaseStudyRoute
   '/': typeof homeIndexRoute
+  '/announcement': typeof AnnouncementIndexRoute
   '/brand': typeof BrandIndexRoute
   '/customers': typeof CustomersIndexRoute
   '/pricing': typeof PricingIndexRoute
+  '/terms': typeof TermsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/customers/$caseStudy': typeof CustomersCaseStudyRoute
   '/(home)/': typeof homeIndexRoute
+  '/announcement/': typeof AnnouncementIndexRoute
   '/brand/': typeof BrandIndexRoute
   '/customers/': typeof CustomersIndexRoute
   '/pricing/': typeof PricingIndexRoute
+  '/terms/': typeof TermsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/customers/$caseStudy'
     | '/'
+    | '/announcement'
     | '/brand'
     | '/customers'
     | '/pricing'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/customers/$caseStudy' | '/' | '/brand' | '/customers' | '/pricing'
+  to:
+    | '/customers/$caseStudy'
+    | '/'
+    | '/announcement'
+    | '/brand'
+    | '/customers'
+    | '/pricing'
+    | '/terms'
   id:
     | '__root__'
     | '/customers/$caseStudy'
     | '/(home)/'
+    | '/announcement/'
     | '/brand/'
     | '/customers/'
     | '/pricing/'
+    | '/terms/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   CustomersCaseStudyRoute: typeof CustomersCaseStudyRoute
   homeIndexRoute: typeof homeIndexRoute
+  AnnouncementIndexRoute: typeof AnnouncementIndexRoute
   BrandIndexRoute: typeof BrandIndexRoute
   CustomersIndexRoute: typeof CustomersIndexRoute
   PricingIndexRoute: typeof PricingIndexRoute
+  TermsIndexRoute: typeof TermsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms/': {
+      id: '/terms/'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pricing/': {
       id: '/pricing/'
       path: '/pricing'
@@ -111,6 +149,13 @@ declare module '@tanstack/react-router' {
       path: '/brand'
       fullPath: '/brand'
       preLoaderRoute: typeof BrandIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/announcement/': {
+      id: '/announcement/'
+      path: '/announcement'
+      fullPath: '/announcement'
+      preLoaderRoute: typeof AnnouncementIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(home)/': {
@@ -133,9 +178,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   CustomersCaseStudyRoute: CustomersCaseStudyRoute,
   homeIndexRoute: homeIndexRoute,
+  AnnouncementIndexRoute: AnnouncementIndexRoute,
   BrandIndexRoute: BrandIndexRoute,
   CustomersIndexRoute: CustomersIndexRoute,
   PricingIndexRoute: PricingIndexRoute,
+  TermsIndexRoute: TermsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
