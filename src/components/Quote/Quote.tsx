@@ -1,6 +1,7 @@
 import { Button } from "../Button/Button";
 import { Text } from "../Text/Text";
 import styles from "./quote.module.css";
+import { Authors } from "~/settings";
 
 const imageModules = import.meta.glob<{ default: string }>(
   "../../assets/people/*.jpg",
@@ -22,39 +23,6 @@ const authorImages: Record<string, string> = Object.entries(
   },
   {} as Record<string, string>
 );
-
-export const Authors = [
-  {
-    name: "Shaun Berryman",
-    slug: "shaun",
-    title: "Staff SWE",
-    company: "Moonhub",
-  },
-  {
-    name: "Soohoon Choi",
-    slug: "soohoon",
-    title: "Co-founder",
-    company: "Greptile",
-  },
-  {
-    name: "Meji Abidoye",
-    slug: "meji",
-    title: "Staff Engineer",
-    company: "Otto",
-  },
-  {
-    name: "Ymir Egilson",
-    slug: "ymir",
-    title: "CTO",
-    company: "Aevy",
-  },
-  {
-    name: "Tim Su",
-    slug: "tim",
-    title: "Founder & CTO",
-    company: "Distill",
-  },
-] as const;
 
 type Author = (typeof Authors)[number];
 export type AuthorSlug = Author["slug"];
