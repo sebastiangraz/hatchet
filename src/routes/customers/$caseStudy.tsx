@@ -22,6 +22,31 @@ const logoSrcByName: Record<string, string> = Object.fromEntries(
   })
 );
 
+// Import all images from case study directories
+const globCaseStudyImages = Object.entries(
+  import.meta.glob<{ default: string }>(
+    ["/src/content/case-studies/**/*.{png,jpg,jpeg,svg,gif}"],
+    {
+      eager: true,
+    }
+  )
+);
+
+const imagesByPath: Record<string, string> = Object.fromEntries(
+  globCaseStudyImages.map(([url, module]) => {
+    // Extract case study name and image filename
+    const parts = url.split("/");
+    const caseStudyIndex = parts.findIndex((part) => part === "case-studies");
+    const caseStudy = parts[caseStudyIndex + 1];
+    const fileName = parts.pop() || "";
+
+    // Create keys for both full path and just filename for easier access
+    const fullKey = `${caseStudy}/${fileName}`;
+
+    return [fullKey, module.default as string];
+  })
+);
+
 export const Route = createFileRoute("/customers/$caseStudy")({
   component: RouteComponent,
   head: ({ loaderData }) => {
@@ -137,7 +162,7 @@ function RouteComponent() {
 
       <Section className={`${markdownStyles.prose} pb-6`}>
         {Content ? (
-          <Markdown>
+          <Markdown imageResolver={imagesByPath} caseStudySlug={slug}>
             <Content />
           </Markdown>
         ) : (

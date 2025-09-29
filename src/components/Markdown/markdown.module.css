@@ -2,7 +2,7 @@
 .prose picture {
   grid-column: start / end;
   z-index: 0;
-  justify-content: start;
+  justify-content: center;
   display: grid;
   margin: 2em 0;
   @media (--sm) {
@@ -58,6 +58,10 @@
   pre {
     overflow: auto;
     overflow-y: hidden;
+  }
+
+  sup a {
+    font-size: inherit;
   }
 
   :global .footnotes {

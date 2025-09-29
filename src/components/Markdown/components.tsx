@@ -63,7 +63,26 @@ export const components = {
     return <code className={`${style.code}`} {...props}></code>;
   },
   img: (props: any) => {
-    return <img className={`${style.image}`} {...props}></img>;
+    const { src, imageResolver, caseStudySlug, ...otherProps } = props;
+
+    // If imageResolver and caseStudySlug are provided, try to resolve relative paths
+    let resolvedSrc = src;
+
+    if (imageResolver && caseStudySlug && src) {
+      // Handle relative paths like "./og.png" or "og.png"
+      if (src.startsWith("./") || !src.includes("/")) {
+        const filename = src.replace("./", "");
+        const imageKey = `${caseStudySlug}/${filename}`;
+
+        if (imageResolver[imageKey]) {
+          resolvedSrc = imageResolver[imageKey];
+        }
+      }
+    }
+
+    return (
+      <img className={`${style.image}`} src={resolvedSrc} {...otherProps}></img>
+    );
   },
   ul: (props: any) => <ul {...props}></ul>,
   ol: (props: any) => <ol {...props}></ol>,
