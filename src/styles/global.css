@@ -166,6 +166,7 @@
     font-family: var(--font-martina);
     background-color: var(--bg);
     color: var(--fg);
+    -webkit-text-size-adjust: 100%;
   }
 
   :is(
