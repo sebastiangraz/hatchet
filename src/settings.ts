@@ -1,5 +1,5 @@
 const settings = {
-  promobarLink: "/brand",
+  promobarLink: "/announcement",
   promobarEnabled: true,
 };
 
