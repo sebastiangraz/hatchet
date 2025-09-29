@@ -11,7 +11,7 @@ export const Route = createFileRoute("/terms/")({
 function RouteComponent() {
   return (
     <Section className={`${markdownStyles.prose} pb-6`}>
-      <Markdown>
+      <Markdown contentSlug="terms">
         <Content />
       </Markdown>
     </Section>

@@ -4,6 +4,7 @@ import { Button } from "~/components/Button/Button";
 import { Section } from "~/components/Section/Section";
 import { isArrayofObjects } from "~/utils";
 import styles from "./markdown.module.css";
+import { resolveImageSrc } from "~/utils/imageResolver";
 
 export const components = {
   h1: (props: any) => (
@@ -63,22 +64,10 @@ export const components = {
     return <code className={`${style.code}`} {...props}></code>;
   },
   img: (props: any) => {
-    const { src, imageResolver, caseStudySlug, ...otherProps } = props;
+    const { src, contentSlug, ...otherProps } = props;
 
-    // If imageResolver and caseStudySlug are provided, try to resolve relative paths
-    let resolvedSrc = src;
-
-    if (imageResolver && caseStudySlug && src) {
-      // Handle relative paths like "./og.png" or "og.png"
-      if (src.startsWith("./") || !src.includes("/")) {
-        const filename = src.replace("./", "");
-        const imageKey = `${caseStudySlug}/${filename}`;
-
-        if (imageResolver[imageKey]) {
-          resolvedSrc = imageResolver[imageKey];
-        }
-      }
-    }
+    // Resolve the image source using the shared resolver
+    const resolvedSrc = resolveImageSrc(src, contentSlug);
 
     return (
       <img className={`${style.image}`} src={resolvedSrc} {...otherProps}></img>

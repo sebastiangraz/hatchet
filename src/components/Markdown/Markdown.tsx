@@ -3,19 +3,13 @@ import { components } from "./components";
 
 type MarkdownProps = {
   children: React.ReactNode;
-  imageResolver?: Record<string, string>;
-  caseStudySlug?: string;
+  contentSlug?: string;
 };
 
-export const Markdown = ({
-  children,
-  imageResolver,
-  caseStudySlug,
-}: MarkdownProps) => {
+export const Markdown = ({ children, contentSlug }: MarkdownProps) => {
   const enhancedComponents = {
     ...components,
-    img: (props: any) =>
-      components.img({ ...props, imageResolver, caseStudySlug }),
+    img: (props: any) => components.img({ ...props, contentSlug }),
   };
 
   return <MDXProvider components={enhancedComponents}>{children}</MDXProvider>;

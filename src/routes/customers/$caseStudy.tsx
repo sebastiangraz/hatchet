@@ -9,6 +9,8 @@ import styles from "./customers.module.css";
 import { Quote } from "~/components/Quote/Quote";
 import { Authors } from "~/settings";
 
+import { imagesByPath } from "~/utils/imageResolver";
+
 const globLogos = Object.entries(
   import.meta.glob<{ default: string }>(["/src/assets/logos/*.svg"], {
     eager: true,
@@ -19,31 +21,6 @@ const logoSrcByName: Record<string, string> = Object.fromEntries(
   globLogos.map(([url, module]) => {
     const fileName = url.split("/").pop()?.replace(".svg", "") || "";
     return [fileName, module.default as string];
-  })
-);
-
-// Import all images from case study directories
-const globCaseStudyImages = Object.entries(
-  import.meta.glob<{ default: string }>(
-    ["/src/content/case-studies/**/*.{png,jpg,jpeg,svg,gif}"],
-    {
-      eager: true,
-    }
-  )
-);
-
-const imagesByPath: Record<string, string> = Object.fromEntries(
-  globCaseStudyImages.map(([url, module]) => {
-    // Extract case study name and image filename
-    const parts = url.split("/");
-    const caseStudyIndex = parts.findIndex((part) => part === "case-studies");
-    const caseStudy = parts[caseStudyIndex + 1];
-    const fileName = parts.pop() || "";
-
-    // Create keys for both full path and just filename for easier access
-    const fullKey = `${caseStudy}/${fileName}`;
-
-    return [fullKey, module.default as string];
   })
 );
 
@@ -162,7 +139,7 @@ function RouteComponent() {
 
       <Section className={`${markdownStyles.prose} pb-6`}>
         {Content ? (
-          <Markdown imageResolver={imagesByPath} caseStudySlug={slug}>
+          <Markdown contentSlug={slug}>
             <Content />
           </Markdown>
         ) : (
