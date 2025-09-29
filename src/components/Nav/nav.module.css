@@ -191,7 +191,8 @@ body[data-sticky="true"] .navBackground {
   & > .checkerLeft {
     content: "";
     grid-column: start / span 1;
-    position: absolute;
+    grid-row: 1;
+    position: relative;
     top: 0;
     left: -100%;
     width: 100%;
@@ -209,7 +210,8 @@ body[data-sticky="true"] .navBackground {
   & > .checkerRight {
     content: "";
     grid-column: 13 / span 1;
-    position: absolute;
+    grid-row: 1;
+    position: relative;
     top: 0;
     right: calc(-100% - 1.5px);
     width: 100%;
