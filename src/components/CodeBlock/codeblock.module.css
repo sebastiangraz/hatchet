@@ -41,13 +41,15 @@
   color: var(--fg-dark);
   font-family: inherit;
   font-size: inherit;
+  line-height: 1.2;
+  display: grid;
 }
 
 .lineNumbers :global(pre) {
   counter-reset: line;
 }
 
-.lineNumbers :global(pre .line):before {
+.lineNumbers :global(.line):before {
   counter-increment: line;
   content: counter(line);
   position: sticky;
@@ -64,8 +66,8 @@
 
 .content :global(.highlighted-line) {
   background: color-mix(in srgb, var(--fg) 6%, var(--bg-dark));
-  margin: 0 -2rlh;
-  padding: 0 2rlh;
+  border-radius: 1rlh;
+  mask-image: radial-gradient(circle, white 100%, black 100%);
 }
 
 .content :global(.highlighted-line):before {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { type BundledLanguage } from "shiki";
 import styles from "./codeblock.module.css";
-import { highlighterService } from "../../utils/highlighter";
+import { highlighterService } from "~/utils/highlighter";
 
 interface CodeBlockProps {
   code: string;

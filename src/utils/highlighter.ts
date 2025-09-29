@@ -67,38 +67,38 @@ class HighlighterService {
         await highlighter.loadLanguage(lang);
       }
 
-      const transformers = options?.highlightLines
-        ? [
-            {
-              name: "highlight-lines",
-              line(node: any, line: number) {
-                if (options.highlightLines!.includes(line)) {
-                  if (!node.properties) {
-                    node.properties = {};
-                  }
-                  if (!node.properties.className) {
-                    node.properties.className = [];
-                  }
-                  if (Array.isArray(node.properties.className)) {
-                    node.properties.className.push("highlighted-line");
-                  } else {
-                    node.properties.className = [
-                      node.properties.className,
-                      "highlighted-line",
-                    ];
-                  }
-                }
-                return node;
-              },
-            },
-          ]
-        : [];
-
-      return highlighter.codeToHtml(code, {
+      let result = highlighter.codeToHtml(code, {
         lang,
         theme: hatchetTheme.name,
-        transformers,
       });
+
+      // Post-process the HTML to add highlighted-line class to specified lines
+      if (options?.highlightLines && options.highlightLines.length > 0) {
+        const lines = result.split("\n");
+        const processedLines = lines.map((line, index) => {
+          const lineNumber = index + 1;
+          if (options.highlightLines!.includes(lineNumber)) {
+            // Look for <span class="line"> and add highlighted-line class
+            if (line.includes('class="line"')) {
+              return line.replace(
+                'class="line"',
+                'class="line highlighted-line"'
+              );
+            }
+            // If no line class found, wrap the line content
+            else if (line.trim()) {
+              return line.replace(
+                /^(\s*)(.+)$/,
+                '$1<span class="highlighted-line">$2</span>'
+              );
+            }
+          }
+          return line;
+        });
+        result = processedLines.join("\n");
+      }
+
+      return result;
     } catch (error) {
       console.error("Failed to highlight code:", error);
       return `<pre><code>${code}</code></pre>`;

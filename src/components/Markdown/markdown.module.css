@@ -254,6 +254,10 @@ figure[data-rehype-pretty-code-figure] {
   z-index: 0;
   margin: 0;
   padding: 0;
+
+  /* chromium hack for border radius clipping*/
+  mask-image: radial-gradient(circle, white 100%, black 100%);
+
   @media (--md) {
     grid-column: 8 / end;
   }
@@ -278,7 +282,7 @@ figure[data-rehype-pretty-code-figure] {
       display: inline-block;
       width: 1ch;
       padding: 0 2ch 0 1ch;
-      margin-left: -2.5ch;
+      margin-left: -2ch;
       text-align: right;
       color: var(--fg-border);
       z-index: 1;
@@ -295,7 +299,7 @@ figure[data-rehype-pretty-code-figure] {
 
   .code {
     color: var(--fg-dark);
-    padding: 2rlh;
+    padding: 2ch;
     mark {
       all: unset;
     }
