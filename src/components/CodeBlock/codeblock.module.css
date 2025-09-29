@@ -66,12 +66,45 @@
 
 .content :global(.highlighted-line) {
   background: color-mix(in srgb, var(--fg) 6%, var(--bg-dark));
-  border-radius: 1rlh;
   mask-image: radial-gradient(circle, white 100%, black 100%);
 }
 
 .content :global(.highlighted-line):before {
   background: color-mix(in srgb, var(--fg) 6%, var(--bg-dark));
+}
+
+/* Single highlighted line (isolated) */
+.content
+  :global(
+    .highlighted-line:not(.highlighted-line + .highlighted-line):not(
+        :has(+ .highlighted-line)
+      )
+  ) {
+  border-radius: 0.5rlh;
+}
+
+/* First line in a group (top) */
+.content
+  :global(
+    .highlighted-line:not(.highlighted-line + .highlighted-line):has(
+        + .highlighted-line
+      )
+  ) {
+  border-radius: 0.5rlh 0.5rlh 0 0;
+}
+
+/* Last line in a group (bottom) */
+.content
+  :global(
+    .highlighted-line + .highlighted-line:not(:has(+ .highlighted-line))
+  ) {
+  border-radius: 0 0 0.5rlh 0.5rlh;
+}
+
+/* Middle lines in a group */
+.content
+  :global(.highlighted-line + .highlighted-line:has(+ .highlighted-line)) {
+  border-radius: 0;
 }
 
 .loading {

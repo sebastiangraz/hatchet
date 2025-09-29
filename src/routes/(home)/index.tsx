@@ -264,7 +264,7 @@ function RouteComponent() {
 aiAgent.start();`}
             lang="typescript"
             showLineNumbers={true}
-            highlightLines={[10, 11, 12]}
+            highlightLines={[10, 11, 12, 14, 17, 18]}
             filename="ai-agent.ts"
           />
         </FeatureExpandable>
