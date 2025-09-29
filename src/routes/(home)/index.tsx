@@ -167,7 +167,7 @@ function RouteComponent() {
 });`}
             lang="typescript"
             showLineNumbers={true}
-            highlightLines={[3]}
+            highlightLines={[6]}
             filename="ai-agent.ts"
           />
         </FeatureExpandable>
@@ -264,6 +264,7 @@ function RouteComponent() {
 aiAgent.start();`}
             lang="typescript"
             showLineNumbers={true}
+            highlightLines={[10, 11, 12]}
             filename="ai-agent.ts"
           />
         </FeatureExpandable>
