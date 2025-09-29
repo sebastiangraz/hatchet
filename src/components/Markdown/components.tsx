@@ -31,11 +31,14 @@ export const components = {
     </Text.Body>
   ),
   blockquote: (props: any) => (
-    <div className={`blockquote ${style.blockquote}`}>
-      <Text.Body italic {...props}>
-        {props.children}
-      </Text.Body>
-    </div>
+    <Text.Body
+      as="blockquote"
+      italic
+      className={`blockquote ${style.blockquote}`}
+      {...props}
+    >
+      {props.children}
+    </Text.Body>
   ),
   table: (props: any) => {
     let firstChildProps;
@@ -65,9 +68,9 @@ export const components = {
   ul: (props: any) => <ul {...props}></ul>,
   ol: (props: any) => <ol {...props}></ol>,
   li: (props: any) => (
-    <li {...props}>
-      <Text.Body secondary>{props.children}</Text.Body>
-    </li>
+    <Text.Body as="li" secondary {...props}>
+      {props.children}
+    </Text.Body>
   ),
   Button: Button,
   Section: (props: any) => (

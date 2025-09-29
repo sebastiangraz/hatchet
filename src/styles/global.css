@@ -281,6 +281,10 @@
     display: flex;
   }
 
+  blockquote {
+    margin: 0;
+  }
+
   hr {
     align-self: center;
     background: var(--fg-border);
