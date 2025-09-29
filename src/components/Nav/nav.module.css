@@ -158,6 +158,10 @@ body[data-sticky="true"] .navBackground {
 .logo {
   display: flex;
   view-transition-name: site-logo;
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .checker {
