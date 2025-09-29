@@ -16,7 +16,10 @@ export const Nav = () => {
   return (
     <>
       <div className={styles.navBackground}></div>
-      <div className={styles.checker}></div>
+      <div className={styles.checker}>
+        <div className={styles.checkerRight}></div>
+        <div className={styles.checkerLeft}></div>
+      </div>
       <Promobar />
       <nav ref={ref} className={styles.nav} data-sticky={isSticky}>
         <div className={styles.wrapper}>
