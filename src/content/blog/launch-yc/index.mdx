@@ -1,0 +1,46 @@
+---
+title: Hatchet - Background task orchestration and visibility platform
+slug: launch-yc
+description: We help engineers run fast and reliable background tasks
+date: 2025-09-30
+publish: true
+---
+
+##### tl;dr - At a certain scale, all applications need a task queue - think Celery for Python, BullMQ for Node.js, and Sidekiq for Rails. Hatchet is an open-source, managed task queue focused on scale, reliability, and improved developer experience.
+
+<iframe
+  style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
+  src="https://www.youtube.com/embed/3myPYVyaqwM"
+  title="Walkthrough of Hatchet"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+# The problem
+
+Building a reliable application is difficult — network connections can fail or be interrupted, the application could run out of memory, or a bad commit on production can take down your entire service. To reduce the pressure on APIs, task queues are typically used to offload different parts of the application logic to other services in the system.
+
+However, these queues introduce more points of failure — they require new infrastructure, a new set of integrations to monitor and debug your tasks, and are difficult to use in development. As applications begin to scale, application developers are forced to implement solutions to avoid queue overflow and overcrowding and to think about how to optimize their queues.
+
+With LLM APIs — which are high latency and highly variable in response quality — these problems are even worse. It’s now typical to ingest, sync, vectorize, and index the entirety of multiple data sources on account creation, and as LLM systems get more agentic, developers need to chain together unreliable LLM calls to fulfill requests. These requests are often slow and without the right architecture delivering a responsive and reliable user experience is challenging.
+
+> Implementing Hatchet has revolutionized our task management system, enabling us to handle a growing number of background tasks efficiently.
+>
+> {/* prettier-ignore */}
+> <QuoteAuthor name="Shaun Berryman" slug="shaun" title="Founder" company="Moonhub" />
+
+# The solution
+
+Hatchet is an end-to-end platform for task orchestration. It includes a web UI for monitoring tasks, an API for interacting with tasks and workflows, and SDKs for Python, Typescript, and Golang.
+
+Hatchet has all the features you’d expect — like retries, timeouts, and cron schedules — along with features that developers are usually asked to build, like handling different fairness and concurrency patterns, durable execution, and result streaming.
+
+# The team
+
+We’re both ex-CTOs and founders of multiple YC-funded companies — Alexander was co-founder and CTO at Porter (S20) while Gabe was co-founder and CTO at Clearmix (also S20). Before that, Alexander got his Master’s in Physics from UPenn while Gabe got his Master’s in AI from Cornell.
+
+Alexander started working on this after years of wrangling task queues and distributed systems at both Porter and Oneleet, where he experienced the issues of building complex task orchestration and workflows. Gabe came at this from another perspective, having spent the last few years working with ML and more recently LLM stacks, where he saw the architectural problems that many of these applications have.
+
+We immediately bonded over our excitement about what infrastructure will look like as AI becomes core to nearly every business.

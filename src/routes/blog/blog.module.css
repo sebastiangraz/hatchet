@@ -1,0 +1,19 @@
+.blogGrid {
+  display: grid;
+  grid-template-columns: subgrid;
+  & > * {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rlh;
+    grid-column: span 6;
+  }
+}
+
+.blogCard {
+  border: 1px solid var(--fg-border);
+  padding-block: 4rlh;
+  display: grid;
+  grid-template-columns: subgrid;
+  justify-items: start;
+  align-items: end;
+}

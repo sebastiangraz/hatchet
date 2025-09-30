@@ -5,6 +5,13 @@ import { Button } from "~/components/Button/Button";
 import styles from "./customers.module.css";
 import { getPrevPathFromExtension } from "~/utils";
 import { Link } from "@tanstack/react-router";
+import { Layout } from "~/components/Layout/Layout";
+
+type Customer = {
+  slug: string;
+  frontmatter: any;
+  Content: React.ComponentType;
+};
 
 export const Route = createFileRoute("/customers/")({
   head: () => ({
@@ -22,12 +29,6 @@ const globObjects = Object.entries(
   )
 );
 
-type Customer = {
-  slug: string;
-  frontmatter: any;
-  Content: React.ComponentType;
-};
-
 export const customers = globObjects.map(([url, module]): Customer => {
   return {
     slug: getPrevPathFromExtension(url),
@@ -44,14 +45,18 @@ function RouteComponent() {
   return (
     <>
       <Section className="py-4">
-        <div className="flex" style={{ gridColumn: "start / end" }}>
-          <Text.H1>Customers</Text.H1>
-          <Text.Body balance>
-            See how leading companies are using Hatchet to build more resilient,
-            scalable applications without the complexity of managing their own
-            infrastructure.
-          </Text.Body>
-        </div>
+        <Layout gap={1}>
+          <Layout.Child span="half">
+            <Text.H1>Customers</Text.H1>
+          </Layout.Child>
+          <Layout.Child span="half">
+            <Text.Body balance>
+              See how leading companies are using Hatchet to build more
+              resilient, scalable applications without the complexity of
+              managing their own infrastructure.
+            </Text.Body>
+          </Layout.Child>
+        </Layout>
       </Section>
 
       <Section theme="light" className="py-4">
