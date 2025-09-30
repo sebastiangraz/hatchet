@@ -1,0 +1,38 @@
+.codetab {
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--fg-border);
+}
+
+.tab {
+  appearance: none;
+  border: none;
+  outline: none;
+  color: color-mix(
+    in srgb,
+    var(--fg) calc(100% * var(--opacity-4)),
+    transparent
+  );
+  padding: 1rlh 1rlh;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-judge-extended);
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: var(--bg-secondary);
+}
+
+.tab.active {
+  color: var(--fg);
+}
+
+.codeBlockContainer {
+  width: 100%;
+  display: grid;
+}

@@ -15,6 +15,7 @@ import { Text } from "~/components/Text/Text";
 import { Expandable } from "~/components/Expandable/Expandable";
 import { Logostrip } from "~/components/Logostrip/Logostrip";
 import { CodeBlock } from "~/components/CodeBlock/CodeBlock";
+import { Codetab } from "~/components/Codetab/Codetab";
 import { Quote } from "~/components/Quote/Quote";
 import { Layout } from "~/components/Layout/Layout";
 import { Button } from "~/components/Button/Button";
@@ -154,9 +155,12 @@ function RouteComponent() {
               </Text.Body>
             </Quote>
           </div>
-          <CodeBlock
+          <Codetab
             className={styles.codeBlock}
-            code={`failureWorkflow.onFailure({
+            languages={{
+              typescript: (
+                <CodeBlock
+                  code={`failureWorkflow.onFailure({
   name: 'on-failure',
   fn: async (input, ctx) => {
     console.log('onFailure for run:', ctx.workflowRunId());
@@ -165,10 +169,40 @@ function RouteComponent() {
     };
   },
 });`}
-            lang="typescript"
-            showLineNumbers={true}
-            highlightLines={[6]}
-            filename="ai-agent.ts"
+                  lang="typescript"
+                  showLineNumbers={true}
+                  highlightLines={[6]}
+                  filename="ai-agent.ts"
+                />
+              ),
+              python: (
+                <CodeBlock
+                  code={`@failure_workflow.on_failure()
+async def on_failure(context: Context):
+    print(f'onFailure for run: {context.workflow_run_id()}')
+    return {
+        'on-failure': 'success'
+    }`}
+                  lang="python"
+                  showLineNumbers={true}
+                  highlightLines={[5]}
+                  filename="ai_agent.py"
+                />
+              ),
+              go: (
+                <CodeBlock
+                  code={`func onFailure(ctx context.Context) error {
+    workflowRunID := ctx.WorkflowRunID()
+    fmt.Printf("onFailure for run: %s\\n", workflowRunID)
+    return nil
+}`}
+                  lang="go"
+                  showLineNumbers={true}
+                  highlightLines={[3]}
+                  filename="ai_agent.go"
+                />
+              ),
+            }}
           />
         </FeatureExpandable>
       </Section>
@@ -235,9 +269,12 @@ function RouteComponent() {
               </Text.Body>
             </Quote>
           </div>
-          <CodeBlock
+          <Codetab
             className={styles.codeBlock}
-            code={`const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
+            languages={{
+              typescript: (
+                <CodeBlock
+                  code={`const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
   // Step 1: Process user input
   const userInput = await ctx.step("process-input", async () => {
     return ctx.workflowInput().message;
@@ -262,10 +299,73 @@ function RouteComponent() {
 
 // Start the agent
 aiAgent.start();`}
-            lang="typescript"
-            showLineNumbers={true}
-            highlightLines={[10, 11, 12]}
-            filename="ai-agent.ts"
+                  lang="typescript"
+                  showLineNumbers={true}
+                  highlightLines={[10, 11, 12]}
+                  filename="ai-agent.ts"
+                />
+              ),
+              python: (
+                <CodeBlock
+                  code={`@hatchet.workflow(name="ai-agent")
+class AIAgentWorkflow:
+    @hatchet.step()
+    async def process_input(self, context: Context):
+        return context.workflow_input()["message"]
+    
+    @hatchet.step()
+    async def llm_call(self, context: Context):
+        user_input = context.step_output("process_input")
+        return await call_llm(user_input, 
+            max_tokens=1000,
+            temperature=0.7,
+            timeout_ms=30000
+        )
+    
+    @hatchet.step()
+    async def validate(self, context: Context):
+        response = context.step_output("llm_call")
+        return validate_and_format(response)
+
+# Start the agent
+ai_agent.start()`}
+                  lang="python"
+                  showLineNumbers={true}
+                  highlightLines={[10, 11, 12, 13]}
+                  filename="ai_agent.py"
+                />
+              ),
+              go: (
+                <CodeBlock
+                  code={`func aiAgent(ctx context.Context, input map[string]interface{}) error {
+    // Step 1: Process user input
+    userInput := input["message"].(string)
+
+    // Step 2: Call LLM with safety constraints
+    response, err := callLLM(ctx, userInput, LLMConfig{
+        MaxTokens:  1000,
+        Temperature: 0.7,
+        TimeoutMs:  30000,
+    })
+    if err != nil {
+        return err
+    }
+
+    // Step 3: Validate and format response
+    validatedResponse, err := validateAndFormat(response)
+    if err != nil {
+        return err
+    }
+
+    return nil
+}`}
+                  lang="go"
+                  showLineNumbers={true}
+                  highlightLines={[6, 7, 8, 9]}
+                  filename="ai_agent.go"
+                />
+              ),
+            }}
           />
         </FeatureExpandable>
       </Section>
@@ -330,9 +430,12 @@ aiAgent.start();`}
               </Text.Body>
             </Quote>
           </div>
-          <CodeBlock
+          <Codetab
             className={styles.codeBlock}
-            code={`export const parent = hatchet.task({
+            languages={{
+              typescript: (
+                <CodeBlock
+                  code={`export const parent = hatchet.task({
   name: 'parent',
   fn: async (input: ParentInput, ctx) => {
     const n = input.N;
@@ -350,10 +453,64 @@ aiAgent.start();`}
     };
   },
 });`}
-            lang="typescript"
-            showLineNumbers={true}
-            highlightLines={[7, 8, 9]}
-            filename="ai-agent.ts"
+                  lang="typescript"
+                  showLineNumbers={true}
+                  highlightLines={[7, 8, 9]}
+                  filename="ai-agent.ts"
+                />
+              ),
+              python: (
+                <CodeBlock
+                  code={`@hatchet.task(name="parent")
+async def parent(input: ParentInput, ctx: Context):
+    n = input.N
+    promises = []
+    
+    for i in range(n):
+        promises.append(child.run({"N": i}))
+    
+    child_res = await asyncio.gather(*promises)
+    total = sum(res["Value"] for res in child_res)
+    
+    return {
+        "Result": total
+    }`}
+                  lang="python"
+                  showLineNumbers={true}
+                  highlightLines={[6, 7]}
+                  filename="ai_agent.py"
+                />
+              ),
+              go: (
+                <CodeBlock
+                  code={`func parent(ctx context.Context, input ParentInput) (*ParentOutput, error) {
+    n := input.N
+    var wg sync.WaitGroup
+    results := make([]ChildResult, n)
+    
+    for i := 0; i < n; i++ {
+        wg.Add(1)
+        go func(idx int) {
+            defer wg.Done()
+            results[idx], _ = child.Run(ctx, ChildInput{N: idx})
+        }(i)
+    }
+    
+    wg.Wait()
+    sum := 0
+    for _, res := range results {
+        sum += res.Value
+    }
+    
+    return &ParentOutput{Result: sum}, nil
+}`}
+                  lang="go"
+                  showLineNumbers={true}
+                  highlightLines={[6, 7, 8, 9, 10, 11]}
+                  filename="ai_agent.go"
+                />
+              ),
+            }}
           />
         </FeatureExpandable>
       </Section>

@@ -16,6 +16,7 @@ import { Footer } from "~/components/Footer/Footer";
 import Favicon from "~/assets/favicon.svg";
 import OGImage from "~/assets/og.png";
 import { theme } from "~/types";
+import { CodetabProvider } from "~/components/Codetab/CodetabContext";
 
 interface RootContext {
   theme?: theme;
@@ -87,11 +88,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body data-theme={theme}>
-        <Nav />
-        <RootLayout>{children}</RootLayout>
-        <Footer />
-        {/* <TanStackRouterDevtools position="bottom-right" /> */}
-        <Scripts />
+        <CodetabProvider>
+          <Nav />
+          <RootLayout>{children}</RootLayout>
+          <Footer />
+          {/* <TanStackRouterDevtools position="bottom-right" /> */}
+          <Scripts />
+        </CodetabProvider>
       </body>
     </html>
   );
