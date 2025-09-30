@@ -137,11 +137,18 @@ body[data-sticky="true"] .navBackground {
   align-items: center;
   grid-column: start / end;
 }
-.menu {
+
+/* Desktop Menu */
+.menuDesktop {
   padding: 0;
   margin: 0;
-  display: flex;
+  display: none;
   align-items: center;
+
+  @media (--1) {
+    display: flex;
+  }
+
   & > * + * {
     margin-inline-start: 2rlh;
   }
@@ -161,6 +168,56 @@ body[data-sticky="true"] .navBackground {
         padding 0.4s ease;
     }
   }
+}
+
+/* Burger Button */
+.burgerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1rlh;
+  height: 1rlh;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+
+  @media (--1) {
+    display: none;
+  }
+}
+
+.burgerLine {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--fg);
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 2rlh;
+  grid-column: start / end;
+  padding: 2rlh 0;
+  /* border-top: 1px solid var(--fg-border); */
+
+  @media (--1) {
+    display: none;
+  }
+}
+
+.mobileNavItem {
+  composes: navItem;
+  font-size: var(--h5);
+  line-height: 1.2;
+}
+
+a.mobileButton {
+  width: 100%;
+  font-size: var(--h5);
 }
 
 .logo {
