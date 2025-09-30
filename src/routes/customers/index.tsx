@@ -15,20 +15,20 @@ export const Route = createFileRoute("/customers/")({
 
 const globObjects = Object.entries(
   import.meta.glob<string | string[] | any>(
-    ["/src/content/case-studies/*/*.mdx"],
+    ["/src/content/customers/*/*.mdx"],
     {
       eager: true,
     }
   )
 );
 
-type CaseStudy = {
+type Customer = {
   slug: string;
   frontmatter: any;
   Content: React.ComponentType;
 };
 
-export const caseStudies = globObjects.map(([url, module]): CaseStudy => {
+export const customers = globObjects.map(([url, module]): Customer => {
   return {
     slug: getPrevPathFromExtension(url),
     frontmatter: module.frontmatter,
@@ -37,8 +37,8 @@ export const caseStudies = globObjects.map(([url, module]): CaseStudy => {
 });
 
 function RouteComponent() {
-  const publishedCaseStudies = caseStudies.filter(
-    (caseStudy) => caseStudy.frontmatter.publish !== false
+  const publishedCustomers = customers.filter(
+    (customer) => customer.frontmatter.publish !== false
   );
 
   return (
@@ -55,9 +55,9 @@ function RouteComponent() {
       </Section>
 
       <Section theme="light" className="py-4">
-        <div className={styles.caseStudyGrid}>
-          {publishedCaseStudies.map((caseStudy) => (
-            <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
+        <div className={styles.customerGrid}>
+          {publishedCustomers.map((e) => (
+            <CustomerCard key={e.slug} customer={e} />
           ))}
         </div>
       </Section>
@@ -65,12 +65,12 @@ function RouteComponent() {
   );
 }
 
-const CaseStudyCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
-  const { slug, frontmatter } = caseStudy;
+const CustomerCard = ({ customer }: { customer: Customer }) => {
+  const { slug, frontmatter } = customer;
 
   return (
-    <div className={styles.caseStudyCard}>
-      <Link to={`/customers/$caseStudy`} params={{ caseStudy: slug }}>
+    <div className={styles.customerCard}>
+      <Link to={`/customers/$customer`} params={{ customer: slug }}>
         <Text.H2 balance>{frontmatter.title}</Text.H2>
       </Link>
       <Text.Body>{frontmatter.description}</Text.Body>
