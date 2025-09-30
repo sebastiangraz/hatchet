@@ -2,10 +2,22 @@
   width: 100%;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--fg-border);
+}
+
+.filename {
+  flex: 1;
+  padding: 0 1rlh;
+}
+
 .tabs {
   display: flex;
   gap: 0;
-  border-bottom: 1px solid var(--fg-border);
 }
 
 .tab {
@@ -21,7 +33,11 @@
   background: transparent;
   cursor: pointer;
   font-family: var(--font-judge-extended);
+  font-size: var(--micro);
   transition: all 0.2s ease;
+  @media (--1) {
+    font-size: var(--small);
+  }
 }
 
 .tab:hover {

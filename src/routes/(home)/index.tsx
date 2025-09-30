@@ -157,6 +157,7 @@ function RouteComponent() {
           </div>
           <Codetab
             className={styles.codeBlock}
+            filename="failure-handler"
             languages={{
               typescript: (
                 <CodeBlock
@@ -172,7 +173,6 @@ function RouteComponent() {
                   lang="typescript"
                   showLineNumbers={true}
                   highlightLines={[6]}
-                  filename="ai-agent.ts"
                 />
               ),
               python: (
@@ -186,7 +186,6 @@ async def on_failure(context: Context):
                   lang="python"
                   showLineNumbers={true}
                   highlightLines={[5]}
-                  filename="ai_agent.py"
                 />
               ),
               go: (
@@ -199,7 +198,6 @@ async def on_failure(context: Context):
                   lang="go"
                   showLineNumbers={true}
                   highlightLines={[3]}
-                  filename="ai_agent.go"
                 />
               ),
             }}
@@ -271,6 +269,7 @@ async def on_failure(context: Context):
           </div>
           <Codetab
             className={styles.codeBlock}
+            filename="ai-agent"
             languages={{
               typescript: (
                 <CodeBlock
@@ -302,7 +301,6 @@ aiAgent.start();`}
                   lang="typescript"
                   showLineNumbers={true}
                   highlightLines={[10, 11, 12]}
-                  filename="ai-agent.ts"
                 />
               ),
               python: (
@@ -332,7 +330,6 @@ ai_agent.start()`}
                   lang="python"
                   showLineNumbers={true}
                   highlightLines={[10, 11, 12, 13]}
-                  filename="ai_agent.py"
                 />
               ),
               go: (
@@ -362,7 +359,6 @@ ai_agent.start()`}
                   lang="go"
                   showLineNumbers={true}
                   highlightLines={[6, 7, 8, 9]}
-                  filename="ai_agent.go"
                 />
               ),
             }}
@@ -432,6 +428,7 @@ ai_agent.start()`}
           </div>
           <Codetab
             className={styles.codeBlock}
+            filename="parallel-execution"
             languages={{
               typescript: (
                 <CodeBlock
@@ -456,7 +453,6 @@ ai_agent.start()`}
                   lang="typescript"
                   showLineNumbers={true}
                   highlightLines={[7, 8, 9]}
-                  filename="ai-agent.ts"
                 />
               ),
               python: (
@@ -478,7 +474,6 @@ async def parent(input: ParentInput, ctx: Context):
                   lang="python"
                   showLineNumbers={true}
                   highlightLines={[6, 7]}
-                  filename="ai_agent.py"
                 />
               ),
               go: (
@@ -507,7 +502,6 @@ async def parent(input: ParentInput, ctx: Context):
                   lang="go"
                   showLineNumbers={true}
                   highlightLines={[6, 7, 8, 9, 10, 11]}
-                  filename="ai_agent.go"
                 />
               ),
             }}
