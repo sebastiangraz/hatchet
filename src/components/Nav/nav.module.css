@@ -30,6 +30,9 @@
     0 100%,
     0 0%;
   background-repeat: no-repeat;
+  transition:
+    background-color 0.2s ease,
+    padding 0.2s ease;
 
   &[data-sticky="true"] {
     background-size:
@@ -43,6 +46,18 @@
         margin-inline-start: 2rlh;
         opacity: 1;
       }
+    }
+  }
+  @media (--1-max) {
+    &[data-mobile-open="true"] {
+      background-color: color-mix(
+        in srgb,
+        var(--bg-dark) calc(100% * var(--opacity-7)),
+        transparent
+      );
+      padding: 2rlh 0;
+      backdrop-filter: blur(32px);
+      z-index: 2;
     }
   }
 }
@@ -200,8 +215,8 @@ body[data-sticky="true"] .navBackground {
   display: flex;
   flex-direction: column;
   gap: 2rlh;
-  grid-column: start / end;
-  padding: 2rlh 0;
+  grid-column: bleedstart / bleedend;
+  padding-top: 2rlh;
   /* border-top: 1px solid var(--fg-border); */
 
   @media (--1) {
@@ -213,10 +228,20 @@ body[data-sticky="true"] .navBackground {
   composes: navItem;
   font-size: var(--h5);
   line-height: 1.2;
+  padding: 0 2rlh;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: var(--fg-border);
+  border: 0;
+  margin: 0;
 }
 
 a.mobileButton {
-  width: 100%;
+  width: calc(100% - 4rlh);
+  place-self: center;
   font-size: var(--h5);
 }
 

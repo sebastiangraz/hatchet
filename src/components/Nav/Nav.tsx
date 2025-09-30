@@ -46,7 +46,12 @@ export const Nav = () => {
         <div className={styles.checkerLeft}></div>
       </div>
       <Promobar />
-      <nav ref={ref} className={styles.nav} data-sticky={isSticky}>
+      <nav
+        ref={ref}
+        className={styles.nav}
+        data-sticky={isSticky}
+        data-mobile-open={mobileMenuOpen}
+      >
         <div className={styles.wrapper}>
           <Link to="/" className={styles.logo}>
             <Logo />
@@ -89,16 +94,19 @@ export const Nav = () => {
           <div className={styles.mobileMenu}>
             {navItems.map((item) =>
               item.isButton ? (
-                <Button
-                  large
-                  key={item.title}
-                  href={item.link}
-                  target={item.target}
-                  className={styles.mobileButton}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.title}
-                </Button>
+                <>
+                  <hr />
+                  <Button
+                    large
+                    key={item.title}
+                    href={item.link}
+                    target={item.target}
+                    className={styles.mobileButton}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.title}
+                  </Button>
+                </>
               ) : (
                 <Link
                   key={item.title}
