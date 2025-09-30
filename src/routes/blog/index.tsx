@@ -4,6 +4,7 @@ import { Text } from "~/components/Text/Text";
 import { Layout } from "~/components/Layout/Layout";
 import styles from "./blog.module.css";
 import { getPrevPathFromExtension } from "~/utils";
+import { BlogAsset } from "./-BlogAsset";
 
 type Blog = {
   slug: string;
@@ -74,10 +75,11 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
   return (
     <div className={styles.blogCard}>
       <Link to={`/blog/$entry`} params={{ entry: slug }}>
-        <div className={styles.blogAsset}> </div>{" "}
+        <div className={styles.blogAsset}>
+          <BlogAsset seed={`5${Date.now()}`} />
+        </div>
       </Link>
       <div className={styles.blogMeta}>
-        {" "}
         <Text.Micro secondary caps mono brackets className={styles.blogDate}>
           {frontmatter.date}
         </Text.Micro>

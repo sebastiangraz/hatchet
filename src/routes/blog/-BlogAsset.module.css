@@ -1,0 +1,16 @@
+.blogAsset {
+  /* Base styles are in the component */
+}
+
+/* Accent color variants */
+.blogAsset.accentRed {
+  --accent: #ef4444;
+}
+
+.blogAsset.accentBlue {
+  --accent: #3b82f6;
+}
+
+.blogAsset.accentGreen {
+  --accent: #10b981;
+}
