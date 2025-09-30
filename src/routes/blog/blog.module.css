@@ -1,19 +1,38 @@
 .blogGrid {
   display: grid;
   grid-template-columns: subgrid;
+  row-gap: 6rlh;
   & > * {
     display: flex;
     flex-direction: column;
     row-gap: 1rlh;
-    grid-column: span 6;
+    grid-column: span 12;
+    @media (--1) {
+      grid-column: span 6;
+    }
+    @media (--2) {
+      grid-column: span 4;
+    }
   }
 }
 
 .blogCard {
+  column-gap: 2rlh;
+  display: flex;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.blogAsset {
+  background-color: var(--fg-border);
+  aspect-ratio: 16/9;
   border: 1px solid var(--fg-border);
-  padding-block: 4rlh;
-  display: grid;
-  grid-template-columns: subgrid;
-  justify-items: start;
-  align-items: end;
+}
+
+.blogMeta {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rlh;
 }

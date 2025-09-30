@@ -36,6 +36,12 @@ function RouteComponent() {
   const publishedBlog = blog.filter(
     (blog) => blog.frontmatter.publish !== false
   );
+  publishedBlog.sort((a, b) => {
+    return (
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+    );
+  });
   return (
     <>
       <Section className="py-4">
@@ -66,10 +72,17 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
   const { slug, frontmatter } = blog;
 
   return (
-    <Link to={`/blog/$entry`} params={{ entry: slug }}>
-      {" "}
-      <div className={styles.blogCard}> </div>
-      <Text.Body balance>{frontmatter.title}</Text.Body>
-    </Link>
+    <div className={styles.blogCard}>
+      <Link to={`/blog/$entry`} params={{ entry: slug }}>
+        <div className={styles.blogAsset}> </div>{" "}
+      </Link>
+      <div className={styles.blogMeta}>
+        {" "}
+        <Text.Micro secondary caps mono brackets className={styles.blogDate}>
+          {frontmatter.date}
+        </Text.Micro>
+        <Text.Body balance>{frontmatter.title}</Text.Body>
+      </div>
+    </div>
   );
 };
