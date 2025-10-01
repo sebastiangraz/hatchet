@@ -5,8 +5,6 @@ import styles from "./-BlogAsset.module.css";
 interface BlogAssetProps {
   seed: string;
 }
-
-// Seeded random number generator for deterministic randomness
 class SeededRandom {
   private seed: number;
 
@@ -30,7 +28,6 @@ class SeededRandom {
   }
 }
 
-// Available accent colors
 const accentColors = ["blue", "magenta", "yellow"] as const;
 
 export const BlogAsset = ({ seed }: BlogAssetProps) => {
@@ -38,16 +35,13 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
     const terminatedSeed = `${seed}\0`;
     const rng = new SeededRandom(terminatedSeed);
 
-    // Randomly select tile count between 5-8
-    const count = rng.nextInt(2, 9); // 9 is exclusive, so this gives 5-8
+    const count = rng.nextInt(2, 9);
 
-    // Randomly select accent color
     const colorIndex = rng.nextInt(0, accentColors.length);
     const accent = accentColors[colorIndex];
 
     const selected = [];
 
-    // Select random tiles based on the seeded count
     for (let i = 0; i < count; i++) {
       const index = rng.nextInt(0, tiles.length);
       selected.push(tiles[index]);
@@ -60,13 +54,10 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
     };
   }, [seed]);
 
-  // Dynamic viewBox width based on tile count
   const viewBoxWidth = tileCount * 48;
 
-  // Capitalize accent color for CSS class name
   const accentClassName = `accent${accentColor?.charAt(0)?.toUpperCase()}${accentColor?.slice(1)}`;
 
-  // Animation variants
   const containerVariants = {
     hidden: {},
     visible: {

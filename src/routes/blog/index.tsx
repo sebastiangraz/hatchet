@@ -58,7 +58,7 @@ function RouteComponent() {
         </Layout>
       </Section>
 
-      <Section className="py-4">
+      <Section className="pb-4">
         <div className={styles.blogGrid}>
           {publishedBlog.map((e) => (
             <BlogCard key={e.slug} blog={e} />
