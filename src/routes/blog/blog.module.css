@@ -26,6 +26,7 @@
 }
 
 .blogAsset {
+  border-radius: 0.4rlh;
   display: flex;
   flex-direction: column;
   justify-content: center;

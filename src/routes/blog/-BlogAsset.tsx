@@ -92,6 +92,25 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
     },
   } as const;
 
+  const clipVariants = {
+    hidden: {
+      scale: 0.95,
+      clipPath: "inset(50% 100% 50% 0% round 100%)",
+    },
+    visible: {
+      scale: 1,
+      clipPath: [
+        "inset(50% 100% 50% 0% round 100%)",
+        "inset(0% 0% 0% 0% round 0%)",
+      ],
+      transition: {
+        duration: 2,
+        ease: [0.5, 0.7, 0.1, 0.9] as [number, number, number, number],
+        times: [0, 1],
+      },
+    },
+  };
+
   return (
     <motion.svg
       data-seed={seed}
@@ -115,8 +134,9 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
           key={index}
           transform={`translate(${index * 48}, 0)`}
           variants={tileVariants}
+          style={{ clipPath: "inherit" } as any}
         >
-          {tile}
+          <motion.g variants={clipVariants}>{tile}</motion.g>
         </motion.g>
       ))}
     </motion.svg>
