@@ -19,6 +19,7 @@ import { Codetab } from "~/components/Codetab/Codetab";
 import { Quote } from "~/components/Quote/Quote";
 import { Layout } from "~/components/Layout/Layout";
 import { Button } from "~/components/Button/Button";
+import { Accordion } from "~/components/Accordion/Accordion";
 
 export const Route = createFileRoute("/(home)/")({
   head: () => ({
@@ -571,6 +572,35 @@ async def parent(input: ParentInput, ctx: Context):
           </Layout.Child>
         </Layout>
       </Section>
+      <Section className="py-6" theme="light">
+        {/* Accordion here */}
+        <Accordion direction="x" exclusive={true} className={styles.accordion}>
+          <Accordion.Item open>
+            <Layout.Gap gap={3}>
+              <Text.Body>Step 1</Text.Body>
+              <Card></Card>
+            </Layout.Gap>
+          </Accordion.Item>
+          <Accordion.Item>
+            <Layout.Gap gap={3}>
+              <Text.Body>Step 2</Text.Body>
+              <Card></Card>
+            </Layout.Gap>
+          </Accordion.Item>
+          <Accordion.Item>
+            <Layout.Gap gap={3}>
+              <Text.Body>Step 3</Text.Body>
+              <Card></Card>
+            </Layout.Gap>
+          </Accordion.Item>
+          <Accordion.Item>
+            <Layout.Gap gap={3}>
+              <Text.Body>Step 4</Text.Body>
+              <Card></Card>
+            </Layout.Gap>
+          </Accordion.Item>
+        </Accordion>
+      </Section>
     </>
   );
 }
@@ -578,10 +608,16 @@ async def parent(input: ParentInput, ctx: Context):
 function FeatureExpandable({ children }: { children: React.ReactNode }) {
   return (
     <Expandable className={styles.expandable}>
-      <Section className={styles.expandableSection}>
-        {/* <div className={styles.expandableClip}></div> */}
-        {children}
-      </Section>
+      <Section className={styles.expandableSection}>{children}</Section>
     </Expandable>
+  );
+}
+
+function Card({ children }: { children?: React.ReactNode }) {
+  return (
+    <div className={styles.card}>
+      {children}
+      {/* <img src={UI}></img> */}
+    </div>
   );
 }

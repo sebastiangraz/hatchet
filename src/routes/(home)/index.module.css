@@ -8,6 +8,22 @@
   }
 }
 
+/* .accordion {
+  grid-column: bleedstart / bleedend;
+  padding-inline: 4rlh;
+} */
+
+.card {
+  background-color: var(--fg-dark);
+  padding: 10%;
+  height: 32rlh;
+  aspect-ratio: 1 / 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .quote {
   font-family: var(--font-judge-extended);
   line-height: 1.5rlh;
