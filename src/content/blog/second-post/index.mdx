@@ -3,9 +3,13 @@ title: Second Post
 description: This is the second post.
 date: 2025-09-31
 publish: true
-seed: 1
+seed: 53
 ---
 
-# Second Post
+# The problem
 
-This is the second post.
+Building a reliable application is difficult — network connections can fail or be interrupted, the application could run out of memory, or a bad commit on production can take down your entire service. To reduce the pressure on APIs, task queues are typically used to offload different parts of the application logic to other services in the system.
+
+However, these queues introduce more points of failure — they require new infrastructure, a new set of integrations to monitor and debug your tasks, and are difficult to use in development. As applications begin to scale, application developers are forced to implement solutions to avoid queue overflow and overcrowding and to think about how to optimize their queues.
+
+With LLM APIs — which are high latency and highly variable in response quality — these problems are even worse. It’s now typical to ingest, sync, vectorize, and index the entirety of multiple data sources on account creation, and as LLM systems get more agentic, developers need to chain together unreliable LLM calls to fulfill requests. These requests are often slow and without the right architecture delivering a responsive and reliable user experience is challenging.

@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--fg-border);
+  background-color: var(--bg-dark);
   aspect-ratio: 16/9;
   border: 1px solid var(--fg-border);
 }

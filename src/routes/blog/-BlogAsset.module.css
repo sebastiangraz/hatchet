@@ -1,16 +1,11 @@
-.blogAsset {
-  /* Base styles are in the component */
-}
-
-/* Accent color variants */
-.blogAsset.accentRed {
-  --accent: #ef4444;
-}
-
 .blogAsset.accentBlue {
-  --accent: #3b82f6;
+  --accent: hsl(var(--blue));
 }
 
-.blogAsset.accentGreen {
-  --accent: #10b981;
+.blogAsset.accentMagenta {
+  --accent: hsl(var(--magenta));
+}
+
+.blogAsset.accentYellow {
+  --accent: hsl(var(--yellow));
 }

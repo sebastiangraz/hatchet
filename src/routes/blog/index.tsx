@@ -58,7 +58,7 @@ function RouteComponent() {
         </Layout>
       </Section>
 
-      <Section theme="light" className="py-4">
+      <Section className="py-4">
         <div className={styles.blogGrid}>
           {publishedBlog.map((e) => (
             <BlogCard key={e.slug} blog={e} />
@@ -76,7 +76,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
     <div className={styles.blogCard}>
       <Link to={`/blog/$entry`} params={{ entry: slug }}>
         <div className={styles.blogAsset}>
-          <BlogAsset seed={`5${Date.now()}`} />
+          <BlogAsset seed={`${frontmatter.seed}`} />
         </div>
       </Link>
       <div className={styles.blogMeta}>

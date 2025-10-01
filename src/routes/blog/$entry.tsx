@@ -5,6 +5,8 @@ import { Markdown } from "~/components/Markdown/Markdown";
 import markdownStyles from "~/components/Markdown/markdown.module.css";
 import { Text } from "~/components/Text/Text";
 import { Layout } from "~/components/Layout/Layout";
+import { BlogAsset } from "./-BlogAsset";
+import styles from "./blog.module.css";
 
 export const Route = createFileRoute("/blog/$entry")({
   component: RouteComponent,
@@ -45,6 +47,11 @@ function RouteComponent() {
           </Layout.Child>
           <Layout.Child span="twothirds">
             <Text.Body balance>{frontmatter.description}</Text.Body>
+          </Layout.Child>
+          <Layout.Child span="twothirds">
+            <div className={styles.blogAsset}>
+              <BlogAsset seed={`${frontmatter.seed}`} />
+            </div>
           </Layout.Child>
         </Layout>
       </Section>
