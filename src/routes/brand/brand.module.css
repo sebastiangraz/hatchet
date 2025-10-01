@@ -1,5 +1,4 @@
 .section {
-  /* gap: 2rlh; */
   & > * {
     display: grid;
     grid-template-columns: subgrid;
@@ -8,6 +7,23 @@
       grid-column: start / end;
       @media (--1) {
         grid-column: span 6;
+      }
+    }
+  }
+}
+
+.sectionThird {
+  & > * {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 2rlh;
+    & > * {
+      grid-column: start / end;
+      @media (--1) {
+        grid-column: span 6;
+      }
+      @media (--2) {
+        grid-column: span 4;
       }
     }
   }

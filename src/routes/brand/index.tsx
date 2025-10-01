@@ -4,6 +4,7 @@ import { Text } from "~/components/Text/Text";
 import { ExposeProps } from "./-ExposeProps";
 import styles from "./brand.module.css";
 import { Button } from "~/components/Button/Button";
+import { BlogAsset } from "../blog/-BlogAsset";
 
 export const Route = createFileRoute("/brand/")({
   head: () => ({
@@ -88,6 +89,19 @@ function RouteComponent() {
           <Button large type="secondary" icon="down">
             Button
           </Button>
+        </ExposeProps>
+      </Section>
+      <Section className={`${styles.sectionThird} py-4`} theme="dark">
+        <ExposeProps>
+          <BlogAsset seed="14" />
+          <BlogAsset seed="15" />
+          <BlogAsset seed="16" />
+          <BlogAsset seed="17" />
+          <BlogAsset seed="18" />
+          <BlogAsset seed="19" />
+          <BlogAsset seed="20" />
+          <BlogAsset seed="2" />
+          <BlogAsset seed="22" />
         </ExposeProps>
       </Section>
     </>

@@ -35,6 +35,10 @@
   border: 1px solid var(--fg-border);
 }
 
+.blogAssetContainer {
+  width: 100%;
+}
+
 .blogMeta {
   display: flex;
   flex-direction: column;

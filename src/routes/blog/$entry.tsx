@@ -41,14 +41,14 @@ function RouteComponent() {
   return (
     <>
       <Section className="py-4">
-        <Layout layout="y" gap={1}>
+        <Layout layout="y">
           <Layout.Child span="twothirds">
             <Text.H2>{frontmatter.title}</Text.H2>
           </Layout.Child>
           <Layout.Child span="twothirds">
             <Text.Body balance>{frontmatter.description}</Text.Body>
           </Layout.Child>
-          <Layout.Child span="twothirds">
+          <Layout.Child span="twothirds" className={styles.blogAssetContainer}>
             <div className={styles.blogAsset}>
               <BlogAsset seed={`${frontmatter.seed}`} />
             </div>
