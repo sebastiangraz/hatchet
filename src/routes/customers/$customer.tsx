@@ -1,15 +1,13 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
-import { caseStudies } from "../customers";
+import { customers } from ".";
 import { Markdown } from "~/components/Markdown/Markdown";
 import markdownStyles from "~/components/Markdown/markdown.module.css";
 import styles from "./customers.module.css";
 import { Quote } from "~/components/Quote/Quote";
 import { Authors } from "~/settings";
-
-import { imagesByPath } from "~/utils/imageResolver";
 
 const globLogos = Object.entries(
   import.meta.glob<{ default: string }>(["/src/assets/logos/*.svg"], {
@@ -24,7 +22,7 @@ const logoSrcByName: Record<string, string> = Object.fromEntries(
   })
 );
 
-export const Route = createFileRoute("/customers/$caseStudy")({
+export const Route = createFileRoute("/customers/$customer")({
   component: RouteComponent,
   head: ({ loaderData }) => {
     const companyName =
@@ -34,7 +32,7 @@ export const Route = createFileRoute("/customers/$caseStudy")({
     };
   },
   loader: (async ({ params }: { params: any }) => {
-    const post = caseStudies.find((p) => p.slug === params.caseStudy);
+    const post = customers.find((p) => p.slug === params.customer);
     if (!post) throw new Error("Post not found");
 
     return {
@@ -52,7 +50,7 @@ function RouteComponent() {
     slug: string;
   };
 
-  const post = caseStudies.find((p) => p.slug === slug);
+  const post = customers.find((p) => p.slug === slug);
   const Content = post?.Content;
 
   const { company, industry, title, description, logotype, website } =
@@ -71,7 +69,7 @@ function RouteComponent() {
   return (
     <>
       <Section className="py-4">
-        <div className={styles.caseStudyTop}>
+        <div className={styles.customerTop}>
           <Button to="/customers" icon="back">
             All Cases
           </Button>
@@ -88,7 +86,7 @@ function RouteComponent() {
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
         />
-        <div className={styles.caseStudyHeader}>
+        <div className={styles.customerHeader}>
           <Text.H1 balance>{title}</Text.H1>
           <Text.H5 balance>{description}</Text.H5>{" "}
         </div>
@@ -96,7 +94,7 @@ function RouteComponent() {
           className="divider"
           style={{ gridColumn: "bleedstart / bleedend" }}
         />
-        <div className={styles.caseStudyMeta}>
+        <div className={styles.customerMeta}>
           <div>
             {" "}
             <Text.Micro caps mono balance>
@@ -143,7 +141,7 @@ function RouteComponent() {
             <Content />
           </Markdown>
         ) : (
-          <Text.Body>Case study content not found.</Text.Body>
+          <Text.Body>Customer content not found.</Text.Body>
         )}
       </Section>
     </>

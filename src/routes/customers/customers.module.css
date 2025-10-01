@@ -1,10 +1,10 @@
-.caseStudyGrid {
+.customerGrid {
   display: grid;
   grid-template-columns: subgrid;
   & > * {
     display: flex;
     flex-direction: column;
-    gap: 1rlh;
+    row-gap: 1rlh;
     grid-column: span 12;
   }
 }
@@ -19,7 +19,7 @@
   }
 }
 
-.caseStudyTop {
+.customerTop {
   grid-column: start / end;
   display: flex;
   flex-wrap: wrap;
@@ -32,13 +32,13 @@
   }
 }
 
-.caseStudyHeader {
+.customerHeader {
   display: grid;
   gap: 1rlh;
   composes: narrow;
 }
 
-.caseStudyMeta {
+.customerMeta {
   composes: narrow;
   grid-column-end: bleedend;
 
@@ -60,7 +60,7 @@
   width: auto;
 }
 
-.caseStudyCard {
+.customerCard {
   border-top: 1px solid var(--fg-border);
   padding-block: 4rlh;
   display: grid;

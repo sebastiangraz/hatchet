@@ -1,0 +1,11 @@
+.blogAsset.accentBlue {
+  --accent: hsl(var(--blue));
+}
+
+.blogAsset.accentMagenta {
+  --accent: hsl(var(--magenta));
+}
+
+.blogAsset.accentYellow {
+  --accent: hsl(var(--yellow));
+}

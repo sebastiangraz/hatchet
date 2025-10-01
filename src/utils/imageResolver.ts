@@ -2,7 +2,7 @@
 const globContentImages = Object.entries(
   import.meta.glob<{ default: string }>(
     [
-      "/src/content/case-studies/**/*.{png,jpg,jpeg,svg,gif}",
+      "/src/content/customers/**/*.{png,jpg,jpeg,svg,gif}",
       "/src/content/pages/**/*.{png,jpg,jpeg,svg,gif}",
     ],
     {
@@ -16,7 +16,7 @@ export const imagesByPath: Record<string, string> = Object.fromEntries(
     // Extract content type, content name, and image filename
     const parts = url.split("/");
     const contentIndex = parts.findIndex((part) => part === "content");
-    const contentType = parts[contentIndex + 1]; // "case-studies" or "pages"
+    const contentType = parts[contentIndex + 1]; // "customers" or "pages"
     const contentName = parts[contentIndex + 2]; // e.g., "dev-tester" or "announcement"
     const fileName = parts.pop() || "";
 

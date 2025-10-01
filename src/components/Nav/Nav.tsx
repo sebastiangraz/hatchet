@@ -19,6 +19,10 @@ const navItems: NavItem[] = [
     link: "/customers",
   },
   {
+    title: "Blog",
+    link: "/blog",
+  },
+  {
     title: "Pricing",
     link: "/pricing",
   },

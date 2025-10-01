@@ -13,9 +13,11 @@ import { Route as TermsIndexRouteImport } from './routes/terms/index'
 import { Route as PricingIndexRouteImport } from './routes/pricing/index'
 import { Route as CustomersIndexRouteImport } from './routes/customers/index'
 import { Route as BrandIndexRouteImport } from './routes/brand/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as AnnouncementIndexRouteImport } from './routes/announcement/index'
 import { Route as homeIndexRouteImport } from './routes/(home)/index'
-import { Route as CustomersCaseStudyRouteImport } from './routes/customers/$caseStudy'
+import { Route as CustomersCustomerRouteImport } from './routes/customers/$customer'
+import { Route as BlogEntryRouteImport } from './routes/blog/$entry'
 
 const TermsIndexRoute = TermsIndexRouteImport.update({
   id: '/terms/',
@@ -37,6 +39,11 @@ const BrandIndexRoute = BrandIndexRouteImport.update({
   path: '/brand/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnnouncementIndexRoute = AnnouncementIndexRouteImport.update({
   id: '/announcement/',
   path: '/announcement/',
@@ -47,25 +54,34 @@ const homeIndexRoute = homeIndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CustomersCaseStudyRoute = CustomersCaseStudyRouteImport.update({
-  id: '/customers/$caseStudy',
-  path: '/customers/$caseStudy',
+const CustomersCustomerRoute = CustomersCustomerRouteImport.update({
+  id: '/customers/$customer',
+  path: '/customers/$customer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogEntryRoute = BlogEntryRouteImport.update({
+  id: '/blog/$entry',
+  path: '/blog/$entry',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/customers/$caseStudy': typeof CustomersCaseStudyRoute
+  '/blog/$entry': typeof BlogEntryRoute
+  '/customers/$customer': typeof CustomersCustomerRoute
   '/': typeof homeIndexRoute
   '/announcement': typeof AnnouncementIndexRoute
+  '/blog': typeof BlogIndexRoute
   '/brand': typeof BrandIndexRoute
   '/customers': typeof CustomersIndexRoute
   '/pricing': typeof PricingIndexRoute
   '/terms': typeof TermsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/customers/$caseStudy': typeof CustomersCaseStudyRoute
+  '/blog/$entry': typeof BlogEntryRoute
+  '/customers/$customer': typeof CustomersCustomerRoute
   '/': typeof homeIndexRoute
   '/announcement': typeof AnnouncementIndexRoute
+  '/blog': typeof BlogIndexRoute
   '/brand': typeof BrandIndexRoute
   '/customers': typeof CustomersIndexRoute
   '/pricing': typeof PricingIndexRoute
@@ -73,9 +89,11 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/customers/$caseStudy': typeof CustomersCaseStudyRoute
+  '/blog/$entry': typeof BlogEntryRoute
+  '/customers/$customer': typeof CustomersCustomerRoute
   '/(home)/': typeof homeIndexRoute
   '/announcement/': typeof AnnouncementIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/brand/': typeof BrandIndexRoute
   '/customers/': typeof CustomersIndexRoute
   '/pricing/': typeof PricingIndexRoute
@@ -84,27 +102,33 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/customers/$caseStudy'
+    | '/blog/$entry'
+    | '/customers/$customer'
     | '/'
     | '/announcement'
+    | '/blog'
     | '/brand'
     | '/customers'
     | '/pricing'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/customers/$caseStudy'
+    | '/blog/$entry'
+    | '/customers/$customer'
     | '/'
     | '/announcement'
+    | '/blog'
     | '/brand'
     | '/customers'
     | '/pricing'
     | '/terms'
   id:
     | '__root__'
-    | '/customers/$caseStudy'
+    | '/blog/$entry'
+    | '/customers/$customer'
     | '/(home)/'
     | '/announcement/'
+    | '/blog/'
     | '/brand/'
     | '/customers/'
     | '/pricing/'
@@ -112,9 +136,11 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  CustomersCaseStudyRoute: typeof CustomersCaseStudyRoute
+  BlogEntryRoute: typeof BlogEntryRoute
+  CustomersCustomerRoute: typeof CustomersCustomerRoute
   homeIndexRoute: typeof homeIndexRoute
   AnnouncementIndexRoute: typeof AnnouncementIndexRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   BrandIndexRoute: typeof BrandIndexRoute
   CustomersIndexRoute: typeof CustomersIndexRoute
   PricingIndexRoute: typeof PricingIndexRoute
@@ -151,6 +177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrandIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/announcement/': {
       id: '/announcement/'
       path: '/announcement'
@@ -165,20 +198,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof homeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/customers/$caseStudy': {
-      id: '/customers/$caseStudy'
-      path: '/customers/$caseStudy'
-      fullPath: '/customers/$caseStudy'
-      preLoaderRoute: typeof CustomersCaseStudyRouteImport
+    '/customers/$customer': {
+      id: '/customers/$customer'
+      path: '/customers/$customer'
+      fullPath: '/customers/$customer'
+      preLoaderRoute: typeof CustomersCustomerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$entry': {
+      id: '/blog/$entry'
+      path: '/blog/$entry'
+      fullPath: '/blog/$entry'
+      preLoaderRoute: typeof BlogEntryRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  CustomersCaseStudyRoute: CustomersCaseStudyRoute,
+  BlogEntryRoute: BlogEntryRoute,
+  CustomersCustomerRoute: CustomersCustomerRoute,
   homeIndexRoute: homeIndexRoute,
   AnnouncementIndexRoute: AnnouncementIndexRoute,
+  BlogIndexRoute: BlogIndexRoute,
   BrandIndexRoute: BrandIndexRoute,
   CustomersIndexRoute: CustomersIndexRoute,
   PricingIndexRoute: PricingIndexRoute,

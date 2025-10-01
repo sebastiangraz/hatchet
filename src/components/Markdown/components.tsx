@@ -5,7 +5,8 @@ import { Section } from "~/components/Section/Section";
 import { isArrayofObjects } from "~/utils";
 import styles from "./markdown.module.css";
 import { resolveImageSrc } from "~/utils/imageResolver";
-
+import { QuoteAuthor } from "../Quote/Quote";
+import { Quote } from "../Quote/Quote";
 export const components = {
   h1: (props: any) => (
     <Text.H2 balance {...props}>
@@ -84,4 +85,6 @@ export const components = {
   Section: (props: any) => (
     <Section {...props} className={`${styles.prose} py-4`} />
   ),
+  QuoteAuthor: QuoteAuthor,
+  Quote: Quote,
 };
