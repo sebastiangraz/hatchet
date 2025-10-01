@@ -71,7 +71,7 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.04,
+        staggerChildren: 0.16,
         delayChildren: 0.1,
       },
     },
@@ -85,7 +85,7 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
       opacity: 1,
       transition: {
         opacity: {
-          duration: 2,
+          duration: 2.5,
           ease: [0.5, 1, 0.3, 0.7] as const,
         },
       },
@@ -94,7 +94,7 @@ export const BlogAsset = ({ seed }: BlogAssetProps) => {
 
   const clipVariants = {
     hidden: {
-      scale: 0.95,
+      scale: 0.9,
       clipPath: "inset(50% 100% 50% 0% round 100%)",
     },
     visible: {
