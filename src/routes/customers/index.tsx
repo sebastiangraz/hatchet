@@ -3,7 +3,7 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import styles from "./customers.module.css";
-import { getPrevPathFromExtension } from "~/utils";
+import { getPrevPathFromExtension } from "~/utils/utils";
 import { Link } from "@tanstack/react-router";
 import { Layout } from "~/components/Layout/Layout";
 

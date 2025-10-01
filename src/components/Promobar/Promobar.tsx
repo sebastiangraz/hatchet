@@ -1,7 +1,7 @@
 import styles from "./promobar.module.css";
 import { Text } from "~/components/Text/Text";
 import { Link } from "@tanstack/react-router";
-import settings from "~/settings";
+import settings from "~/utils/settings";
 
 export const Promobar = ({ link }: { link?: string }) => {
   if (!settings.promobarEnabled) return null;

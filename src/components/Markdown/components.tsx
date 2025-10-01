@@ -2,7 +2,7 @@ import style from "./markdown.module.css";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import { Section } from "~/components/Section/Section";
-import { isArrayofObjects } from "~/utils";
+import { isArrayofObjects } from "~/utils/utils";
 import styles from "./markdown.module.css";
 import { resolveImageSrc } from "~/utils/imageResolver";
 import { QuoteAuthor } from "../Quote/Quote";

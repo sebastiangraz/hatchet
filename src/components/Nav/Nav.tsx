@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { Logo } from "~/components/Logo/Logo";
 import { Promobar } from "~/components/Promobar/Promobar";
-import { useStickyObserver } from "~/utils";
+import { useStickyObserver } from "~/utils/utils";
 import styles from "./nav.module.css";
 import { Button } from "../Button/Button";
 

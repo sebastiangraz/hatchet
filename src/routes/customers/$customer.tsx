@@ -7,7 +7,7 @@ import { Markdown } from "~/components/Markdown/Markdown";
 import markdownStyles from "~/components/Markdown/markdown.module.css";
 import styles from "./customers.module.css";
 import { Quote } from "~/components/Quote/Quote";
-import { Authors } from "~/settings";
+import { Authors } from "~/utils/settings";
 
 const globLogos = Object.entries(
   import.meta.glob<{ default: string }>(["/src/assets/logos/*.svg"], {

@@ -1,7 +1,7 @@
 import { Button } from "../Button/Button";
 import { Text } from "../Text/Text";
 import styles from "./quote.module.css";
-import { Authors } from "~/settings";
+import { Authors } from "~/utils/settings";
 
 const imageModules = import.meta.glob<{ default: string }>(
   "../../assets/people/*.jpg",

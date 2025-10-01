@@ -3,7 +3,7 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import { Layout } from "~/components/Layout/Layout";
 import styles from "./blog.module.css";
-import { getPrevPathFromExtension } from "~/utils";
+import { getPrevPathFromExtension } from "~/utils/utils";
 import { BlogAsset } from "./-BlogAsset";
 
 type Blog = {
