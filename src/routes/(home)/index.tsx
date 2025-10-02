@@ -43,7 +43,7 @@ function RouteComponent() {
       <Section>
         <img src={UI} alt="UI" className={styles.ui} />
       </Section>
-      <Section theme="light" className="py-6">
+      <Section theme="light" className="py-6 pb-8">
         <Layout layout="grid" gap={3}>
           <Layout.Child>
             <Text.H1>Core Principles</Text.H1>
