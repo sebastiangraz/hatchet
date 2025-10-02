@@ -628,7 +628,7 @@ async def parent(input: ParentInput, ctx: Context):
               </Text.Body>
               <Card>
                 <div className={styles.cardContent}>
-                  <img src={step1}></img>
+                  <img src={step3}></img>
                   <Text.Body secondary balance>
                     <Text primary>Build workflows</Text> by writing simple
                     functions. Your tasks automatically retry on failure and
@@ -647,7 +647,7 @@ async def parent(input: ParentInput, ctx: Context):
               </Text.Body>
               <Card>
                 <div className={styles.cardContent}>
-                  <img src={step1}></img>
+                  <img src={step4}></img>
                   <Text.Body secondary balance>
                     <Text primary>Build workflows</Text> by writing simple
                     functions. Your tasks automatically retry on failure and

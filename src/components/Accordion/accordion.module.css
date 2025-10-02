@@ -11,9 +11,14 @@
 
 .details {
   overflow: hidden;
-  transition: flex 0.5s ease;
+  transition:
+    flex 0.5s ease,
+    opacity 0.5s ease;
   position: relative;
   flex: 1 0 5rlh;
+  &:hover {
+    opacity: 0.8;
+  }
   @media (--2) {
     flex: 1 0 10rlh;
   }
@@ -71,6 +76,7 @@
 }
 
 .details[open] {
+  pointer-events: none;
   flex: 1 0 0%;
   .gradient {
     opacity: 0;
@@ -102,17 +108,12 @@
   display: none;
 }
 
-.summary:hover {
-  opacity: 0.8;
-}
-
 /* .summary::after {
   content: "→";
 } */
 
 .content {
   display: grid;
-
   padding-left: 1rlh;
   padding-right: 1rlh;
   @media (--2) {

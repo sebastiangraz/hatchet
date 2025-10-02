@@ -31,7 +31,7 @@
   justify-content: end;
   align-items: start;
   row-gap: 2rlh;
-  height: 36rlh;
+  height: 32rlh;
   pointer-events: none;
   overflow: hidden;
   @media (--1) {
@@ -41,20 +41,21 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 1.5rlh;
+    /* padding: 1.5rlh; */
     min-width: clamp(28rlh, 100%, 36rlh);
     object-fit: scale-down;
-    object-position: 0 0;
-    @media (--1) {
+    object-position: center 0;
+    /* @media (--1) {
       padding: 3rlh;
-    }
+    } */
   }
   p {
     width: clamp(16rlh, 100%, 28rlh);
     color: var(--bg-secondary);
     transition: opacity 0.5s ease 0.5s;
     opacity: 0;
-    @media (--1) {
+    @media (--2) {
+      transition: opacity 0.2s ease 0.2s;
       width: 20rlh;
     }
   }
