@@ -8,20 +8,61 @@
   }
 }
 
-/* .accordion {
-  grid-column: bleedstart / bleedend;
-  padding-inline: 4rlh;
-} */
+.accordion {
+  grid-column: start / end;
+  & > [open] .cardContent p {
+    opacity: 1;
+  }
+}
 
 .card {
+  transition: background-color 0.2s ease;
   background-color: var(--fg-dark);
-  padding: 10%;
-  height: 32rlh;
-  aspect-ratio: 1 / 1.2;
+}
+
+.step {
+  white-space: nowrap;
+}
+.cardContent {
+  /* aspect-ratio: 1 / 1.2; */
+  padding: 3rlh;
   display: flex;
+  position: relative;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: start;
+  row-gap: 2rlh;
+  /* width: calc-size(fit-content, size); */
+  height: 36rlh;
+  /* width: 34rlh; */
+  pointer-events: none;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 3rlh;
+    min-width: clamp(28rlh, 100%, 36rlh);
+    /* height: 100%; */
+
+    object-fit: scale-down;
+    object-position: 0 0;
+
+    /* max-width: unset; */
+    /* min-width: calc-size(min-content, size + 4rlh); */
+  }
+  p {
+    width: clamp(16rlh, 100%, 28rlh);
+    color: var(--bg-secondary);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    @media (--2) {
+      width: 32rlh;
+    }
+  }
+  span {
+    color: var(--bg);
+  }
 }
 
 .quote {

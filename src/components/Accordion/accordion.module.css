@@ -1,7 +1,11 @@
 .accordion {
   display: flex;
+  /* gap: 3rlh; */
   &:has([open]) > * {
-    flex: 0 0 10rlh;
+    flex: 0 0 5rlh;
+    @media (--2) {
+      flex: 0 0 10rlh;
+    }
   }
 }
 
@@ -9,7 +13,11 @@
   overflow: hidden;
   transition: flex 0.5s ease;
   position: relative;
-  flex: 1 0 10rlh;
+  flex: 1 0 5rlh;
+  @media (--2) {
+    flex: 1 0 10rlh;
+  }
+
   background: repeating-linear-gradient(
       0deg,
       var(--fg-border),
@@ -23,22 +31,29 @@
     background: none;
     .content {
       padding-left: 0;
-      padding-right: 3rlh;
+      padding-right: 1rlh;
+      @media (--2) {
+        padding-right: 3rlh;
+      }
     }
   }
   &:last-of-type {
     .content {
-      padding-left: 3rlh;
+      padding-left: 1rlh;
       padding-right: 0;
+      @media (--2) {
+        padding-left: 3rlh;
+      }
     }
   }
 }
 .gradient {
   content: "";
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0;
-  width: 7rlh;
+  width: 4rlh;
   height: 100%;
   pointer-events: none;
   transition: opacity 1s ease;
@@ -49,10 +64,14 @@
   [data-theme="light"] & {
     --cubicColor: var(--cyan);
   }
+
+  @media (--2) {
+    width: 6rlh;
+  }
 }
 
 .details[open] {
-  flex: content;
+  flex: 1 0 0%;
   .gradient {
     opacity: 0;
   }
@@ -89,26 +108,25 @@
 
 /* .summary::after {
   content: "→";
-  float: right;
 } */
 
 .content {
   display: grid;
 
-  padding-left: 3rlh;
-  padding-right: 3rlh;
+  padding-left: 1rlh;
+  padding-right: 1rlh;
+  @media (--2) {
+    padding-left: 3rlh;
+    padding-right: 3rlh;
+  }
 }
 
 @supports (height: calc-size(auto, size)) {
   .details::details-content {
     content-visibility: visible;
-    /* transition: padding-inline 0.5s ease;
-    padding-inline: 1rlh; */
     overflow: clip;
     height: calc-size(auto, size);
   }
   /* .details[open]::details-content {
-    padding-inline: 3rlh;
-    transition: padding-inline 0.5s ease;
   } */
 }

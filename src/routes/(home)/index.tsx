@@ -8,6 +8,10 @@ import parallelization from "~/assets/parallelization.svg";
 import AIAgents from "~/assets/AIAgents.svg";
 import illustration0 from "~/assets/illustration-0.svg";
 import badges from "~/assets/badges.svg";
+import step1 from "~/assets/step1.svg";
+import step2 from "~/assets/step2.svg";
+import step3 from "~/assets/step3.svg";
+import step4 from "~/assets/step4.svg";
 
 import { Hero } from "~/components/Hero/Hero";
 import { Section } from "~/components/Section/Section";
@@ -577,43 +581,80 @@ async def parent(input: ParentInput, ctx: Context):
         <Accordion direction="x" exclusive={true} className={styles.accordion}>
           <Accordion.Item open>
             <Layout.Gap gap={3}>
-              <Text.Body>
+              <Text.Body className={styles.step}>
                 Step 1
                 <br />
                 <Text secondary>Write tasks as code</Text>
               </Text.Body>
 
-              <Card></Card>
+              <Card>
+                <div className={styles.cardContent}>
+                  {" "}
+                  <img src={step1}></img>
+                  <Text.Body secondary balance>
+                    <Text primary>Build workflows</Text> by writing simple
+                    functions. Your tasks automatically retry on failure and
+                    handle complex dependencies between steps.
+                  </Text.Body>
+                </div>
+              </Card>
             </Layout.Gap>
           </Accordion.Item>
           <Accordion.Item>
             <Layout.Gap gap={3}>
-              <Text.Body>
+              <Text.Body className={styles.step}>
                 Step 2
                 <br />
                 <Text secondary>Invoke Tasks</Text>
               </Text.Body>
-              <Card></Card>
+              <Card>
+                <div className={styles.cardContent}>
+                  <img src={step2}></img>
+                  <Text.Body secondary balance>
+                    <Text primary>Start workflows</Text> from your API, schedule
+                    them to run at specific times, or trigger them when events
+                    happen. Tasks run immediately or queue up for later.
+                  </Text.Body>
+                </div>
+              </Card>
             </Layout.Gap>
           </Accordion.Item>
           <Accordion.Item>
             <Layout.Gap gap={3}>
-              <Text.Body>
+              <Text.Body className={styles.step}>
                 Step 3
                 <br />
                 <Text secondary>Run Workers in your Cloud</Text>
               </Text.Body>
-              <Card></Card>
+              <Card>
+                <div className={styles.cardContent}>
+                  <img src={step1}></img>
+                  <Text.Body secondary balance>
+                    <Text primary>Build workflows</Text> by writing simple
+                    functions. Your tasks automatically retry on failure and
+                    handle complex dependencies between steps.
+                  </Text.Body>
+                </div>
+              </Card>
             </Layout.Gap>
           </Accordion.Item>
           <Accordion.Item>
             <Layout.Gap gap={3}>
-              <Text.Body>
+              <Text.Body className={styles.step}>
                 Step 4
                 <br />
                 <Text secondary>Monitor and Replay</Text>
               </Text.Body>
-              <Card></Card>
+              <Card>
+                <div className={styles.cardContent}>
+                  <img src={step1}></img>
+                  <Text.Body secondary balance>
+                    <Text primary>Build workflows</Text> by writing simple
+                    functions. Your tasks automatically retry on failure and
+                    handle complex dependencies between steps.
+                  </Text.Body>
+                </div>
+              </Card>
             </Layout.Gap>
           </Accordion.Item>
         </Accordion>
@@ -631,10 +672,5 @@ function FeatureExpandable({ children }: { children: React.ReactNode }) {
 }
 
 function Card({ children }: { children?: React.ReactNode }) {
-  return (
-    <div className={styles.card}>
-      {children}
-      {/* <img src={UI}></img> */}
-    </div>
-  );
+  return <div className={styles.card}>{children}</div>;
 }
