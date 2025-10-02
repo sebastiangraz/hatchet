@@ -101,6 +101,7 @@ function RouteComponent() {
             </Layout.Gap>
           </Layout.Child>
         </Layout>
+        <img src={illustration0} className={styles.illustration0}></img>
       </Section>
 
       <Section theme="dark" className={`${styles.feature} py-6`}>
@@ -574,7 +575,7 @@ async def parent(input: ParentInput, ctx: Context):
       </Section>
 
       <Section className="py-6" theme="light">
-        <Layout layout="y">
+        <Layout layout="y" gap={3}>
           <Layout.Child>
             <img src={howItWorks}></img>
           </Layout.Child>
