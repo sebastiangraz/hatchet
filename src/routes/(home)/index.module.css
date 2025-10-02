@@ -10,6 +10,7 @@
 
 .accordion {
   grid-column: start / end;
+  margin-top: 4rlh;
   & > [open] .cardContent p {
     opacity: 1;
   }
@@ -82,8 +83,7 @@
 }
 
 .badges {
-  width: 12rlh;
-  height: auto;
+  height: 4rlh;
 }
 
 .codeBlock {
@@ -151,6 +151,23 @@
   row-gap: 2rlh;
   @media (--2) {
     row-gap: 4rlh;
+  }
+}
+
+.ctaSection {
+  --sizeX: 2rlh;
+  --sizeY: 2rlh;
+  --color: color-mix(
+    in srgb,
+    var(--fg) calc(100% * var(--opacity-1)),
+    transparent
+  );
+  composes: checker from global;
+  background-position: center 0;
+  position: relative;
+  box-shadow: 0 0 0 1px var(--fg-border) inset;
+  :global ul li {
+    margin-bottom: 1rlh;
   }
 }
 .featureTitle {

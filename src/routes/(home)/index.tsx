@@ -12,6 +12,7 @@ import step1 from "~/assets/step1.svg";
 import step2 from "~/assets/step2.svg";
 import step3 from "~/assets/step3.svg";
 import step4 from "~/assets/step4.svg";
+import howItWorks from "~/assets/how.svg";
 
 import { Hero } from "~/components/Hero/Hero";
 import { Section } from "~/components/Section/Section";
@@ -513,12 +514,7 @@ async def parent(input: ParentInput, ctx: Context):
           />
         </FeatureExpandable>
       </Section>
-      <Section
-        theme="light"
-        className="py-6 pb-8"
-        style={{ position: "relative" }}
-      >
-        <img src={illustration0} className={styles.illustration0}></img>
+      <Section theme="light" className={`${styles.ctaSection} py-6 pb-8`}>
         <Layout>
           <Layout.Child>
             <Layout.Gap>
@@ -576,7 +572,26 @@ async def parent(input: ParentInput, ctx: Context):
           </Layout.Child>
         </Layout>
       </Section>
+
       <Section className="py-6" theme="light">
+        <Layout layout="y">
+          <Layout.Child>
+            <img src={howItWorks}></img>
+          </Layout.Child>
+          <Layout.Child>
+            <Text.H1>How it works</Text.H1>
+          </Layout.Child>
+          <Layout.Child span="twothirds">
+            <Text.Body secondary balance>
+              There are two components to running Hatchet – the{" "}
+              <Text italic>orchestration engine</Text> and your{" "}
+              <Text italic>workers</Text> with self-host or fully managed
+              options for both. Since Hatchet is Open Source, you can run
+              multiple deployment strategies (i.e. on prem) without any
+              application changes.
+            </Text.Body>
+          </Layout.Child>
+        </Layout>
         {/* Accordion here */}
         <Accordion direction="x" exclusive={true} className={styles.accordion}>
           <Accordion.Item open>
@@ -630,9 +645,9 @@ async def parent(input: ParentInput, ctx: Context):
                 <div className={styles.cardContent}>
                   <img src={step3}></img>
                   <Text.Body secondary balance>
-                    <Text primary>Build workflows</Text> by writing simple
-                    functions. Your tasks automatically retry on failure and
-                    handle complex dependencies between steps.
+                    <Text primary>Deploy workers</Text> on Kubernetes, Porter,
+                    Ryvn, or any container platform. They automatically connect
+                    to Hatchet and can scale up or down based on workload..
                   </Text.Body>
                 </div>
               </Card>
@@ -649,9 +664,10 @@ async def parent(input: ParentInput, ctx: Context):
                 <div className={styles.cardContent}>
                   <img src={step4}></img>
                   <Text.Body secondary balance>
-                    <Text primary>Build workflows</Text> by writing simple
-                    functions. Your tasks automatically retry on failure and
-                    handle complex dependencies between steps.
+                    <Text primary>See all your worksflows</Text> in the
+                    dashboard, get alerts when tasks fail, and export metrics to
+                    your monitoring tools. Full visibility (and control) without
+                    extra setup.
                   </Text.Body>
                 </div>
               </Card>

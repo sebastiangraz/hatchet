@@ -214,7 +214,8 @@ a.mobileButton {
 .checker {
   composes: checker from global;
   composes: grid-parent from global;
-  --size: 1rlh;
+  --sizeX: 1rlh;
+  --sizeY: 1rlh;
   --color: color-mix(
     in srgb,
     var(--fg) calc(100% * var(--opacity-1)),

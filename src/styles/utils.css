@@ -1,11 +1,12 @@
 @layer utils {
   .checker {
-    --size: 2rlh;
+    --sizeX: 2rlh;
+    --sizeY: 2rlh;
     --color: var(--fg-border);
     background-image:
       linear-gradient(to right, var(--color) 1.5px, transparent 1.5px),
       linear-gradient(var(--color) 1.5px, transparent 1.5px);
-    background-size: var(--size) var(--size);
+    background-size: var(--sizeX) var(--sizeY);
     background-position: center 0px;
   }
 
