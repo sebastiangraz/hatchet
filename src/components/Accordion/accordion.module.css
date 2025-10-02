@@ -23,11 +23,12 @@
     opacity 0.5s ease;
   position: relative;
   flex: 1 0 15rlh;
-  /* &:hover {
-    opacity: 0.8;
-  } */
+
   @media (--1) {
     flex: 1 0 5rlh;
+    &:hover {
+      opacity: 0.8;
+    }
   }
   @media (--2) {
     flex: 1 0 10rlh;
