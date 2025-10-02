@@ -56,6 +56,35 @@
       grid-column: start / end;
     }
   }
+  .cubicGradient {
+    --direction: bottom;
+    --cubicColor: var(--navy);
+    [data-theme="light"] & {
+      --cubicColor: var(--cyan);
+    }
+    [data-theme="dark"] & {
+      --cubicColor: var(--navy);
+    }
+    background: linear-gradient(
+      to var(--direction),
+      hsl(var(--cubicColor) / 1) 0%,
+      hsla(var(--cubicColor) / 0.987) 5.6%,
+      hsla(var(--cubicColor) / 0.951) 10.5%,
+      hsla(var(--cubicColor) / 0.896) 14.8%,
+      hsla(var(--cubicColor) / 0.825) 18.9%,
+      hsla(var(--cubicColor) / 0.741) 22.8%,
+      hsla(var(--cubicColor) / 0.648) 26.8%,
+      hsla(var(--cubicColor) / 0.55) 31.2%,
+      hsla(var(--cubicColor) / 0.45) 36%,
+      hsla(var(--cubicColor) / 0.352) 41.5%,
+      hsla(var(--cubicColor) / 0.259) 47.9%,
+      hsla(var(--cubicColor) / 0.175) 55.3%,
+      hsla(var(--cubicColor) / 0.104) 64.1%,
+      hsla(var(--cubicColor) / 0.049) 74.3%,
+      hsla(var(--cubicColor) / 0.013) 86.2%,
+      hsla(var(--cubicColor) / 0) 100%
+    );
+  }
 }
 
 @layer spacing {

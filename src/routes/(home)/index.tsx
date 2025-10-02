@@ -577,25 +577,42 @@ async def parent(input: ParentInput, ctx: Context):
         <Accordion direction="x" exclusive={true} className={styles.accordion}>
           <Accordion.Item open>
             <Layout.Gap gap={3}>
-              <Text.Body>Step 1</Text.Body>
+              <Text.Body>
+                Step 1
+                <br />
+                <Text secondary>Write tasks as code</Text>
+              </Text.Body>
+
               <Card></Card>
             </Layout.Gap>
           </Accordion.Item>
           <Accordion.Item>
             <Layout.Gap gap={3}>
-              <Text.Body>Step 2</Text.Body>
+              <Text.Body>
+                Step 2
+                <br />
+                <Text secondary>Invoke Tasks</Text>
+              </Text.Body>
               <Card></Card>
             </Layout.Gap>
           </Accordion.Item>
           <Accordion.Item>
             <Layout.Gap gap={3}>
-              <Text.Body>Step 3</Text.Body>
+              <Text.Body>
+                Step 3
+                <br />
+                <Text secondary>Run Workers in your Cloud</Text>
+              </Text.Body>
               <Card></Card>
             </Layout.Gap>
           </Accordion.Item>
           <Accordion.Item>
             <Layout.Gap gap={3}>
-              <Text.Body>Step 4</Text.Body>
+              <Text.Body>
+                Step 4
+                <br />
+                <Text secondary>Monitor and Replay</Text>
+              </Text.Body>
               <Card></Card>
             </Layout.Gap>
           </Accordion.Item>

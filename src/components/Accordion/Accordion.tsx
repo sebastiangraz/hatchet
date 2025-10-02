@@ -77,11 +77,12 @@ const AccordionItem = ({
 
   return (
     <details
-      className={`${styles.item} ${className}`}
+      className={`${styles.details} ${className}`}
       data-direction={direction}
       name={exclusive ? accordionId : undefined}
       open={open}
     >
+      <div className={styles.gradient} />
       <summary className={styles.summary}></summary>
       <div className={styles.content}>{children}</div>
     </details>

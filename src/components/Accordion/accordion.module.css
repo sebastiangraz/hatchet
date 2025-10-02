@@ -1,24 +1,64 @@
 .accordion {
   display: flex;
   &:has([open]) > * {
-    flex: 0 0 7rlh;
+    flex: 0 0 10rlh;
   }
 }
 
-.item {
-  border-left: 1px solid var(--fg-border);
+.details {
   overflow: hidden;
-
   transition: flex 0.5s ease;
   position: relative;
-  flex: 1 0 7rlh;
+  flex: 1 0 10rlh;
+  background: repeating-linear-gradient(
+      0deg,
+      var(--fg-border),
+      var(--fg-border) 7px,
+      transparent 7px,
+      transparent 12px,
+      var(--fg-border) 12px
+    )
+    no-repeat 0 100% / 1.5px 100%;
+  &:first-of-type {
+    background: none;
+    .content {
+      padding-left: 0;
+      padding-right: 3rlh;
+    }
+  }
+  &:last-of-type {
+    .content {
+      padding-left: 3rlh;
+      padding-right: 0;
+    }
+  }
+}
+.gradient {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 7rlh;
+  height: 100%;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  opacity: 1;
+  composes: cubicGradient from global;
+  --direction: left;
+  --cubicColor: var(--navy);
+  [data-theme="light"] & {
+    --cubicColor: var(--cyan);
+  }
 }
 
-.item[open] {
+.details[open] {
   flex: content;
+  .gradient {
+    opacity: 0;
+  }
 }
 
-/* .item[open] .summary::after {
+/* .details[open] .summary::after {
   transform: rotate(90deg);
 } */
 
@@ -54,18 +94,21 @@
 
 .content {
   display: grid;
+
+  padding-left: 3rlh;
+  padding-right: 3rlh;
 }
 
 @supports (height: calc-size(auto, size)) {
-  .item::details-content {
+  .details::details-content {
     content-visibility: visible;
-    transition: padding-inline 0.5s ease;
-    padding-inline: 1rlh;
+    /* transition: padding-inline 0.5s ease;
+    padding-inline: 1rlh; */
     overflow: clip;
     height: calc-size(auto, size);
   }
-  .item[open]::details-content {
+  /* .details[open]::details-content {
     padding-inline: 3rlh;
     transition: padding-inline 0.5s ease;
-  }
+  } */
 }
