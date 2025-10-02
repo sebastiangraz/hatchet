@@ -1,8 +1,15 @@
 .accordion {
   display: flex;
-  /* gap: 3rlh; */
+  flex-direction: column;
+  row-gap: 2rlh;
+  @media (--1) {
+    row-gap: 0;
+    flex-direction: row;
+  }
   &:has([open]) > * {
-    flex: 0 0 5rlh;
+    @media (--1) {
+      flex: 0 0 5rlh;
+    }
     @media (--2) {
       flex: 0 0 10rlh;
     }
@@ -15,9 +22,12 @@
     flex 0.5s ease,
     opacity 0.5s ease;
   position: relative;
-  flex: 1 0 5rlh;
-  &:hover {
+  flex: 1 0 15rlh;
+  /* &:hover {
     opacity: 0.8;
+  } */
+  @media (--1) {
+    flex: 1 0 5rlh;
   }
   @media (--2) {
     flex: 1 0 10rlh;
@@ -32,22 +42,24 @@
       var(--fg-border) 12px
     )
     no-repeat 0 100% / 1.5px 100%;
-  &:first-of-type {
-    background: none;
-    .content {
-      padding-left: 0;
-      padding-right: 1rlh;
-      @media (--2) {
-        padding-right: 3rlh;
+  @media (--1) {
+    &:first-of-type {
+      background: none;
+      .content {
+        padding-left: 0;
+        padding-right: 1rlh;
+        @media (--2) {
+          padding-right: 3rlh;
+        }
       }
     }
-  }
-  &:last-of-type {
-    .content {
-      padding-left: 1rlh;
-      padding-right: 0;
-      @media (--2) {
-        padding-left: 3rlh;
+    &:last-of-type {
+      .content {
+        padding-left: 1rlh;
+        padding-right: 0;
+        @media (--2) {
+          padding-left: 3rlh;
+        }
       }
     }
   }
@@ -58,28 +70,35 @@
   z-index: 1;
   top: 0;
   right: 0;
-  width: 4rlh;
+  width: calc(100% - 1.5px);
   height: 100%;
+
   pointer-events: none;
   transition: opacity 1s ease;
   opacity: 1;
   composes: cubicGradient from global;
-  --direction: left;
+  --direction: top;
   --cubicColor: var(--navy);
   [data-theme="light"] & {
     --cubicColor: var(--cyan);
   }
-
+  @media (--1) {
+    width: 4rlh;
+    --direction: left;
+  }
   @media (--2) {
     width: 6rlh;
   }
 }
 
 .details[open] {
-  pointer-events: none;
-  flex: 1 0 0%;
+  flex: 1 0 auto;
   .gradient {
     opacity: 0;
+  }
+  @media (--1) {
+    pointer-events: none;
+    flex: 1 0 0%;
   }
 }
 
