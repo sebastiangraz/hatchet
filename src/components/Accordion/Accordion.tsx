@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef } from "react";
+import React, { createContext, useContext, useId } from "react";
 import styles from "./accordion.module.css";
 
 interface AccordionContextValue {
@@ -29,9 +29,7 @@ const AccordionBase = ({
   exclusive = true,
   className = "",
 }: AccordionProps) => {
-  const accordionId = useRef(
-    `accordion-${Math.random().toString(36).substr(2, 9)}`
-  ).current;
+  const accordionId = useId();
 
   const contextValue: AccordionContextValue = {
     exclusive,
