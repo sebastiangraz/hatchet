@@ -219,7 +219,7 @@
     linear-gradient(to bottom, transparent, white),
     radial-gradient(circle at 50% 50%, white 1.25px, transparent 1.25px) 0% 0% /
       0.5rlh 0.5rlh,
-    url("./src/assets/noise.png") 0% 0% / 300% 300%;
+    url("../../assets/noise.png") 0% 0% / 300% 300%;
 
   mask-composite: intersect;
   animation: noise 120s infinite linear;
