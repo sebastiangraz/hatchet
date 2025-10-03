@@ -43,7 +43,11 @@ function RouteComponent() {
       <Section>
         <img src={UI} alt="UI" className={styles.ui} />
       </Section>
-      <Section theme="light" className="py-6 pb-8">
+      <Section
+        theme="light"
+        className="py-6 pb-8"
+        style={{ position: "relative" }}
+      >
         <Layout layout="grid" gap={3}>
           <Layout.Child>
             <Text.H1>Core Principles</Text.H1>

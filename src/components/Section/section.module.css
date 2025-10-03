@@ -1,4 +1,3 @@
 .section {
   composes: grid-parent from global;
-  position: relative;
 }
