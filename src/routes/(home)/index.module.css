@@ -193,3 +193,42 @@
   mask-image: linear-gradient(to bottom, transparent, #0003);
   pointer-events: none;
 }
+.swirl {
+  --size: min(2.5vmin, 48px);
+  place-self: center;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+
+  i {
+    width: 2px;
+    height: 2px;
+    --x: calc(rem((sibling-index() - 1), 20) - 9.5);
+    --y: calc(9.5 - round(down, (sibling-index() - 1) / 20));
+
+    --n: calc((sibling-index() - 1) / (sibling-count() - 1));
+    --hue: calc(mod(sin(var(--n) * 90deg) * 3600, 1) * 360);
+
+    --distance: calc(sqrt(var(--x) * var(--x) + var(--y) * var(--y)) / sqrt(3));
+    --angle: calc(atan2(var(--x), var(--y)) / -360deg);
+    --delay: calc(var(--distance) * 2s + var(--angle) * 3s - 10s);
+
+    position: absolute;
+    inset: calc(var(--size) * -0.01);
+    background-color: var(--bg);
+    opacity: calc(80% - var(--distance) * 60%);
+    translate: calc(var(--x) * var(--size)) calc(var(--y) * var(--size));
+    animation: sqr 0.7s var(--delay, 15s) infinite ease-in-out alternate;
+  }
+}
+
+@keyframes sqr {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.4;
+  }
+}

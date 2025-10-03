@@ -38,7 +38,7 @@ export default defineConfig({
       providerImportSource: "@mdx-js/react",
     }),
     tanstackStart(),
-    nitro(), // TODO: Uncomment this for deploy
+    // nitro(), // TODO: Uncomment this for deploy
     react(),
   ],
   css: {
