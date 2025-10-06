@@ -247,6 +247,7 @@ a.mobileButton {
   width: 100%;
   place-self: center;
   font-size: var(--h5);
+  backdrop-filter: none;
 }
 
 .logo {
