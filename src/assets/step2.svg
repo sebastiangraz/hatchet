@@ -1,7 +1,6 @@
 <svg width="738" height="351" viewBox="0 0 738 351" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_625_3083)">
 <g clip-path="url(#clip1_625_3083)">
-<rect x="48" y="48" width="738" height="255" rx="4" fill="#0A1029"/>
 <mask id="mask0_625_3083" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="48" y="48" width="738" height="255">
 <rect width="738" height="255" transform="translate(48 48)" fill="url(#paint0_linear_625_3083)"/>
 </mask>
