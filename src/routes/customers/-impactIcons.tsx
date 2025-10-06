@@ -48,16 +48,18 @@ const impactIcons = {
             clipPath="url(#paint0_angular_645_41191_clip_path)"
             data-figma-skip-parse="true"
           >
-            <g transform="matrix(1.31666e-10 -0.006 -0.006 -1.31652e-10 10 10)">
+            <g>
               <animateTransform
                 attributeName="transform"
                 attributeType="XML"
                 type="rotate"
                 from="0 10 10"
                 to="360 10 10"
-                dur="2s"
+                dur="4s"
                 repeatCount="indefinite"
+                id="circ"
               />
+
               <foreignObject x="-1250" y="-1250" width="2500" height="2500">
                 <div
                   // xmlns="http://www.w3.org/1999/xhtml"
@@ -68,7 +70,7 @@ const impactIcons = {
                     width: "100%",
                     opacity: 1,
                   }}
-                ></div>
+                ></div>{" "}
               </foreignObject>
             </g>
           </g>
@@ -80,7 +82,7 @@ const impactIcons = {
             rx="6"
             transform="rotate(-180 16 16)"
             data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.22745098173618317,&#34;g&#34;:0.28235295414924622,&#34;b&#34;:0.39607843756675720,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.22745098173618317,&#34;g&#34;:0.28235295414924622,&#34;b&#34;:0.39607843756675720,&#34;a&#34;:0.0},&#34;position&#34;:1.0}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.22745098173618317,&#34;g&#34;:0.28235295414924622,&#34;b&#34;:0.39607843756675720,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.22745098173618317,&#34;g&#34;:0.28235295414924622,&#34;b&#34;:0.39607843756675720,&#34;a&#34;:0.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:2.6333137270739826e-07,&#34;m01&#34;:-12.0,&#34;m02&#34;:16.0,&#34;m10&#34;:-12.0,&#34;m11&#34;:-2.6330491209591855e-07,&#34;m12&#34;:16.0},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
-          />
+          />{" "}
         </g>
         <defs>
           <clipPath id="paint0_angular_645_41191_clip_path">
@@ -284,31 +286,40 @@ const impactIcons = {
         <defs>
           <linearGradient
             id="paint0_linear_645_41207"
-            x1="11.75"
-            y1="15.9999"
-            x2="11.75"
-            y2="3.9999"
+            x1="2"
+            y1="30"
+            x2="12"
+            y2="3"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#3A4865" stopOpacity="0.5" />
-            <stop offset="1" stopColor="#3A4865" />
+            <stop offset="0" stopColor="#3A4865" stopOpacity="0.5" />
+            <stop offset="0.2" stopColor="#3A4865" stopOpacity="0.5" />
+            <stop offset="0.5" stopColor="#3A4865" stopOpacity="0" />
+            <stop offset="0.7" stopColor="#3A4865" stopOpacity="0.2" />
+            <stop offset="1" stopColor="#3A4865" stopOpacity="0.5" />
+            <animate
+              attributeName="y1"
+              values="30;-4;-8"
+              dur="1.5s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="y2"
+              values="12;-12;-24"
+              dur="1.5s"
+              repeatCount="indefinite"
+            />
           </linearGradient>
           <linearGradient
             id="paint1_linear_645_41207"
-            x1="11.1667"
-            y1="18"
-            x2="11.1667"
-            y2="14"
+            x1="12"
+            y1="16"
+            x2="12"
+            y2="3"
             gradientUnits="userSpaceOnUse"
           >
-            <animate
-              attributeName="y2"
-              values="18;2"
-              dur="2.5s"
-              repeatCount="indefinite"
-            />
-            <stop stopColor="#3A4865" stopOpacity="0.5" />
-            <stop offset="1" stopColor="#3A4865" />
+            <stop stopColor="#3A4865" stopOpacity="0.12" />
+            <stop offset="1" stopColor="#3A4865" stopOpacity="0.40" />
           </linearGradient>
         </defs>
       </svg>
