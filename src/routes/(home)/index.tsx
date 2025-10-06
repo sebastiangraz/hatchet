@@ -1,3 +1,5 @@
+import React from "react";
+
 import { createFileRoute } from "@tanstack/react-router";
 import styles from "./index.module.css";
 
@@ -391,7 +393,7 @@ ai_agent.start()`}
             <Text.Body balance>
               Processing thousands of documents, enriching large datasets,
               running agent-swarms, or scheduling GPU workloads requires complex
-              coordination. Most solutions either can't scale or become
+              coordination. Most solutions either can&apos;t scale or become
               impossibly complex to manage.
             </Text.Body>
           </Layout.Child>

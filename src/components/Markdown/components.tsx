@@ -8,31 +8,39 @@ import { resolveImageSrc } from "~/utils/imageResolver";
 import { QuoteAuthor } from "../Quote/Quote";
 import { Quote } from "../Quote/Quote";
 export const components = {
-  h1: (props: any) => (
+  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <Text.H2 balance {...props}>
       {props.children}
     </Text.H2>
   ),
-  h2: (props: any) => <Text.H3 {...props}>{props.children}</Text.H3>,
-  h3: (props: any) => <Text.H4 {...props}>{props.children}</Text.H4>,
-  h4: (props: any) => <Text.H5 {...props}>{props.children}</Text.H5>,
-  h5: (props: any) => <Text.H5 {...props}>{props.children}</Text.H5>,
-  p: (props: any) => (
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <Text.H3 {...props}>{props.children}</Text.H3>
+  ),
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <Text.H4 {...props}>{props.children}</Text.H4>
+  ),
+  h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <Text.H5 {...props}>{props.children}</Text.H5>
+  ),
+  h5: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <Text.H5 {...props}>{props.children}</Text.H5>
+  ),
+  p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <Text.Body secondary {...props}>
       {props.children}
     </Text.Body>
   ),
-  a: (props: any) => (
+  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <Text.Body primary {...props} as="a">
       {props.children}
     </Text.Body>
   ),
-  strong: (props: any) => (
+  strong: (props: React.HTMLAttributes<HTMLElement>) => (
     <Text.Body primary {...props} as="strong">
       {props.children}
     </Text.Body>
   ),
-  blockquote: (props: any) => (
+  blockquote: (props: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
     <Text.Body
       as="blockquote"
       italic
@@ -61,7 +69,7 @@ export const components = {
       </div>
     );
   },
-  code: (props: any) => {
+  code: (props: React.HTMLAttributes<HTMLElement>) => {
     return <code className={`${style.code}`} {...props}></code>;
   },
   img: (props: any) => {
@@ -74,15 +82,15 @@ export const components = {
       <img className={`${style.image}`} src={resolvedSrc} {...otherProps}></img>
     );
   },
-  ul: (props: any) => <ul {...props}></ul>,
-  ol: (props: any) => <ol {...props}></ol>,
-  li: (props: any) => (
+  ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul {...props}></ul>,
+  ol: (props: React.HTMLAttributes<HTMLOListElement>) => <ol {...props}></ol>,
+  li: (props: React.HTMLAttributes<HTMLLIElement>) => (
     <Text.Body as="li" secondary {...props}>
       {props.children}
     </Text.Body>
   ),
   Button: Button,
-  Section: (props: any) => (
+  Section: (props: React.HTMLAttributes<HTMLDivElement>) => (
     <Section {...props} className={`${styles.prose} py-4`} />
   ),
   QuoteAuthor: QuoteAuthor,

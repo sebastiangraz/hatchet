@@ -9,7 +9,8 @@ type MarkdownProps = {
 export const Markdown = ({ children, contentSlug }: MarkdownProps) => {
   const enhancedComponents = {
     ...components,
-    img: (props: any) => components.img({ ...props, contentSlug }),
+    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
+      components.img({ ...props, contentSlug }),
   };
 
   return <MDXProvider components={enhancedComponents}>{children}</MDXProvider>;

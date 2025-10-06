@@ -2,7 +2,6 @@ import { Section } from "../Section/Section";
 import styles from "./footer.module.css";
 import { Logo } from "../Logo/Logo";
 import { Text } from "../Text/Text";
-import { Button } from "../Button/Button";
 import { Link } from "@tanstack/react-router";
 import stylesNav from "../../components/Nav/nav.module.css";
 interface FooterProps {
@@ -18,17 +17,29 @@ export const Footer = (props: FooterProps) => {
           <Text.H5>Socials</Text.H5>
           <div className={styles.linksContent}>
             <Text.Small secondary mono caps>
-              <a href="https://x.com/hatchet_dev" target="_blank">
+              <a
+                href="https://x.com/hatchet_dev"
+                target="_blank"
+                rel="noreferrer"
+              >
                 X.com
               </a>
             </Text.Small>
             <Text.Small secondary mono caps>
-              <a href="https://github.com/hatchet-dev" target="_blank">
+              <a
+                href="https://github.com/hatchet-dev"
+                target="_blank"
+                rel="noreferrer"
+              >
                 GitHub
               </a>
             </Text.Small>
             <Text.Small secondary mono caps>
-              <a href="https://discord.com/invite/ZMeUafwH89" target="_blank">
+              <a
+                href="https://discord.com/invite/ZMeUafwH89"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Discord
               </a>
             </Text.Small>
@@ -36,12 +47,17 @@ export const Footer = (props: FooterProps) => {
               <a
                 href="https://www.linkedin.com/company/hatchet-run"
                 target="_blank"
+                rel="noreferrer"
               >
                 LinkedIn
               </a>
             </Text.Small>
             <Text.Small secondary mono caps>
-              <a href="mailto:contact@hatchet.run" target="_blank">
+              <a
+                href="mailto:contact@hatchet.run"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Email
               </a>
             </Text.Small>
@@ -56,7 +72,11 @@ export const Footer = (props: FooterProps) => {
 
           <div className={styles.content}>
             <Text.Micro secondary mono caps>
-              <a href="https://trust.hatchet.run/" target="_blank">
+              <a
+                href="https://trust.hatchet.run/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Security
               </a>{" "}
             </Text.Micro>
@@ -66,7 +86,11 @@ export const Footer = (props: FooterProps) => {
           <Text.H5>Links</Text.H5>
           <div className={styles.linksContent}>
             <Text.Small secondary mono caps>
-              <a href="https://docs.hatchet.run/home" target="_blank">
+              <a
+                href="https://docs.hatchet.run/home"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Docs
               </a>
             </Text.Small>
@@ -77,7 +101,11 @@ export const Footer = (props: FooterProps) => {
               <Link to="/customers">Customers</Link>
             </Text.Small>
             <Text.Small secondary mono caps>
-              <a href="https://status.hatchet.run" target="_blank">
+              <a
+                href="https://status.hatchet.run"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Status
               </a>
             </Text.Small>
@@ -86,6 +114,7 @@ export const Footer = (props: FooterProps) => {
               <a
                 href="https://www.ycombinator.com/companies/hatchet-run"
                 target="_blank"
+                rel="noreferrer"
               >
                 Jobs
               </a>

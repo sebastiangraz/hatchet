@@ -1,5 +1,3 @@
-import { useRef } from "react";
-import { theme } from "~/types";
 import { Link } from "@tanstack/react-router";
 import styles from "./button.module.css";
 interface ButtonProps {

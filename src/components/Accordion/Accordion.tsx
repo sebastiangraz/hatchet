@@ -61,7 +61,6 @@ const AccordionItem = ({
 
   className = "",
   open = false,
-  itemIndex = 0,
 }: AccordionItemProps) => {
   const context = useContext(AccordionContext);
 

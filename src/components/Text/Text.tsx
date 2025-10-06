@@ -63,11 +63,13 @@ const createStyledText = (
   variant: keyof typeof styles,
   defaultTag: React.ElementType = "span"
 ) => {
-  return React.forwardRef<HTMLElement, Omit<TextProps, "variant">>(
+  const Component = React.forwardRef<HTMLElement, Omit<TextProps, "variant">>(
     (props, ref) => (
       <TextBase ref={ref} as={defaultTag} variant={variant} {...props} />
     )
   );
+  Component.displayName = `Text.${variant}`;
+  return Component;
 };
 
 Text.H1 = createStyledText("h1", "h1");
@@ -90,3 +92,5 @@ Text.H5.displayName = "Text.H5";
 Text.Body.displayName = "Text.Body";
 Text.Small.displayName = "Text.Small";
 Text.Micro.displayName = "Text.Micro";
+
+TextBase.displayName = "TextBase";
