@@ -132,7 +132,27 @@ const impactIcons = {
             width="6"
             height="11"
             fill="url(#paint0_linear_645_41195)"
-          />
+          >
+            <animate
+              attributeName="opacity"
+              values="0;1;1;0"
+              keyTimes="0;0.5;0.8;1"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="width"
+              values="0;12"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+            {/* <animate
+              attributeName="height"
+              values="0;11"
+              dur="2s"
+              repeatCount="indefinite"
+            /> */}
+          </rect>
         </g>
         <defs>
           <linearGradient
@@ -143,12 +163,6 @@ const impactIcons = {
             y2="14.077"
             gradientUnits="userSpaceOnUse"
           >
-            <animate
-              attributeName="x1"
-              values="3;9"
-              dur="2s"
-              repeatCount="indefinite"
-            />
             <stop stopColor="#3A4865" />
             <stop offset="1" stopColor="#3A4865" stopOpacity="0.5" />
           </linearGradient>
@@ -185,7 +199,35 @@ const impactIcons = {
           />
         </mask>
         <g mask="url(#mask0_645_41201)">
-          <path d="M6 3H14V16H6V3Z" fill="url(#paint0_linear_645_41201)" />
+          <rect
+            x="6"
+            y="3"
+            width="8"
+            height="13"
+            fill="url(#paint0_linear_645_41201)"
+          >
+            <animate
+              attributeName="height"
+              values="13;2.6;2.6;2.6"
+              keyTimes="0;0.5;0.8;1"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="y"
+              values="3;13.4;13.4;13.4"
+              keyTimes="0;0.5;0.8;1"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              values="0;1;1;0"
+              keyTimes="0;0.5;0.8;1"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+          </rect>
         </g>
         <defs>
           <linearGradient
@@ -193,15 +235,9 @@ const impactIcons = {
             x1="10.6667"
             y1="16"
             x2="10.6667"
-            y2="13"
+            y2="3"
             gradientUnits="userSpaceOnUse"
           >
-            <animate
-              attributeName="y2"
-              values="3;13.4"
-              dur="2s"
-              repeatCount="indefinite"
-            />
             <stop stopColor="#3A4865" stopOpacity="0.5" />
             <stop offset="1" stopColor="#3A4865" />
           </linearGradient>
