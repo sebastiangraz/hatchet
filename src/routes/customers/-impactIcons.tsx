@@ -49,12 +49,21 @@ const impactIcons = {
             data-figma-skip-parse="true"
           >
             <g transform="matrix(1.31666e-10 -0.006 -0.006 -1.31652e-10 10 10)">
+              <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                from="0 10 10"
+                to="360 10 10"
+                dur="2s"
+                repeatCount="indefinite"
+              />
               <foreignObject x="-1250" y="-1250" width="2500" height="2500">
                 <div
                   // xmlns="http://www.w3.org/1999/xhtml"
                   style={{
                     background:
-                      "conic-gradient(from 90deg,rgba(58, 72, 101, 1) 0deg,rgba(58, 72, 101, 0) 360deg)",
+                      "conic-gradient(from 135deg,rgba(58, 72, 101, 1) 0deg,rgba(58, 72, 101, 0) 50deg)",
                     height: "100%",
                     width: "100%",
                     opacity: 1,
@@ -134,6 +143,12 @@ const impactIcons = {
             y2="14.077"
             gradientUnits="userSpaceOnUse"
           >
+            <animate
+              attributeName="x1"
+              values="3;9"
+              dur="2s"
+              repeatCount="indefinite"
+            />
             <stop stopColor="#3A4865" />
             <stop offset="1" stopColor="#3A4865" stopOpacity="0.5" />
           </linearGradient>
@@ -170,7 +185,7 @@ const impactIcons = {
           />
         </mask>
         <g mask="url(#mask0_645_41201)">
-          <path d="M6 13H14V16H6V13Z" fill="url(#paint0_linear_645_41201)" />
+          <path d="M6 3H14V16H6V3Z" fill="url(#paint0_linear_645_41201)" />
         </g>
         <defs>
           <linearGradient
@@ -181,6 +196,12 @@ const impactIcons = {
             y2="13"
             gradientUnits="userSpaceOnUse"
           >
+            <animate
+              attributeName="y2"
+              values="3;13.4"
+              dur="2s"
+              repeatCount="indefinite"
+            />
             <stop stopColor="#3A4865" stopOpacity="0.5" />
             <stop offset="1" stopColor="#3A4865" />
           </linearGradient>
@@ -222,7 +243,7 @@ const impactIcons = {
           />
         </mask>
         <g mask="url(#mask0_645_41207)">
-          <path d="M3 14H17V18H3V14Z" fill="url(#paint1_linear_645_41207)" />
+          <path d="M3 2H17V18H3V2Z" fill="url(#paint1_linear_645_41207)" />
         </g>
         <defs>
           <linearGradient
@@ -244,6 +265,12 @@ const impactIcons = {
             y2="14"
             gradientUnits="userSpaceOnUse"
           >
+            <animate
+              attributeName="y2"
+              values="18;2"
+              dur="2.5s"
+              repeatCount="indefinite"
+            />
             <stop stopColor="#3A4865" stopOpacity="0.5" />
             <stop offset="1" stopColor="#3A4865" />
           </linearGradient>

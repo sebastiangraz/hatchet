@@ -96,7 +96,6 @@ const CustomerCard = ({ customer }: { customer: Customer }) => {
       <Text.Body>{frontmatter.description}</Text.Body>{" "}
       <div className={styles.impact}>
         <ImpactIcon icon={frontmatter.impactIcon} />
-        {frontmatter.impactIcon}
         <Text.Micro
           balance
           caps
