@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "@tanstack/react-router";
 import { useRef, useState, useEffect } from "react";
 import { Logo } from "~/components/Logo/Logo";
@@ -109,17 +110,15 @@ export const Nav = () => {
             <span className={styles.burgerLine}></span>
           </button>
         </div>
-
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className={styles.mobileMenu}>
             {navItems.map((item) =>
               item.isButton ? (
-                <>
+                <React.Fragment key={item.title}>
                   <hr />
                   <Button
                     large
-                    key={item.title}
                     href={item.link}
                     target={item.target}
                     className={styles.mobileButton}
@@ -127,7 +126,7 @@ export const Nav = () => {
                   >
                     {item.title}
                   </Button>
-                </>
+                </React.Fragment>
               ) : (
                 <Link
                   key={item.title}
