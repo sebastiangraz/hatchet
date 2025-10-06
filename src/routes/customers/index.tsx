@@ -80,7 +80,7 @@ const CustomerCard = ({ customer }: { customer: Customer }) => {
       </Link>
       <Text.Body>{frontmatter.description}</Text.Body>
       <Text.Micro caps mono brackets className={styles.company}>
-        {frontmatter.industry}
+        {frontmatter.impact}
       </Text.Micro>
 
       <Button to={`/customers/${slug}`}>Read</Button>
