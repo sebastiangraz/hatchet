@@ -57,6 +57,8 @@ const impactIcons = {
                 to="360 10 10"
                 dur="4s"
                 begin="0s"
+                calcMode="spline"
+                keySplines="0.4 0 0.2 1"
                 repeatCount="indefinite"
               />
               <animate
@@ -65,6 +67,8 @@ const impactIcons = {
                 keyTimes="0;0.1;0.75;0.9;1"
                 dur="4s"
                 begin="0s"
+                calcMode="spline"
+                keySplines="0.4 0 0.2 1; 0.4 0 0.6 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
                 repeatCount="indefinite"
               />
               <foreignObject x="-1250" y="-1250" width="2500" height="2500">
@@ -146,21 +150,19 @@ const impactIcons = {
               attributeName="opacity"
               values="0;1;1;0"
               keyTimes="0;0.5;0.8;1"
-              dur="3s"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.6 1"
               repeatCount="indefinite"
             />
             <animate
               attributeName="width"
               values="0;12"
-              dur="3s"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1"
               repeatCount="indefinite"
             />
-            {/* <animate
-              attributeName="height"
-              values="0;11"
-              dur="2s"
-              repeatCount="indefinite"
-            /> */}
           </rect>
         </g>
         <defs>
@@ -219,21 +221,27 @@ const impactIcons = {
               attributeName="height"
               values="13;2.6;2.6;2.6"
               keyTimes="0;0.5;0.8;1"
-              dur="3s"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
               repeatCount="indefinite"
             />
             <animate
               attributeName="y"
               values="3;13.4;13.4;13.4"
               keyTimes="0;0.5;0.8;1"
-              dur="3s"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
               repeatCount="indefinite"
             />
             <animate
               attributeName="opacity"
               values="0;1;1;0"
               keyTimes="0;0.5;0.8;1"
-              dur="3s"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.6 1"
               repeatCount="indefinite"
             />
           </rect>
@@ -296,7 +304,7 @@ const impactIcons = {
             x1="2"
             y1="30"
             x2="12"
-            y2="3"
+            y2="20"
             gradientUnits="userSpaceOnUse"
           >
             <stop offset="0" stopColor="currentColor" stopOpacity="0.5" />
@@ -307,13 +315,17 @@ const impactIcons = {
             <animate
               attributeName="y1"
               values="30;-4;-8"
-              dur="1.5s"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
               repeatCount="indefinite"
             />
             <animate
               attributeName="y2"
-              values="12;-12;-24"
-              dur="1.5s"
+              values="20;-12;-24"
+              dur="4s"
+              calcMode="spline"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
               repeatCount="indefinite"
             />
           </linearGradient>
