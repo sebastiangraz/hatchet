@@ -43,7 +43,12 @@ function RouteComponent() {
         <Logostrip />
       </Section>
       <Section>
-        <img src={UI} alt="UI" className={styles.ui} />
+        <img
+          src={UI}
+          alt="Interface"
+          className={styles.ui}
+          fetchPriority="high"
+        />
       </Section>
       <Section
         theme="light"
@@ -62,7 +67,7 @@ function RouteComponent() {
             </Text.H3>
           </Layout.Child>
           <Layout.Child>
-            <img src={corePrinciples}></img>
+            <img src={corePrinciples} alt="Core Principles"></img>
           </Layout.Child>
           <Layout.Child>
             <Text.Body>
@@ -107,7 +112,11 @@ function RouteComponent() {
             </Layout.Gap>
           </Layout.Child>
         </Layout>
-        <img src={illustration0} className={styles.illustration0}></img>
+        <img
+          src={illustration0}
+          className={styles.illustration0}
+          alt="Illustration"
+        ></img>
       </Section>
 
       <Section theme="dark" className={`${styles.feature} py-6`}>
@@ -130,7 +139,7 @@ function RouteComponent() {
             </Text.Body>
           </Layout.Child>
           <Layout.Child>
-            <img src={ingestion}></img>
+            <img src={ingestion} alt="Ingestion"></img>
           </Layout.Child>
         </Layout>
         <FeatureExpandable>
@@ -235,7 +244,7 @@ async def on_failure(context: Context):
             </Text.Body>
           </Layout.Child>
           <Layout.Child span="full">
-            <img src={AIAgents}></img>
+            <img src={AIAgents} alt="AI Agents"></img>
           </Layout.Child>
         </Layout>
         <FeatureExpandable>
@@ -398,7 +407,7 @@ ai_agent.start()`}
             </Text.Body>
           </Layout.Child>
           <Layout.Child span="full">
-            <img src={parallelization}></img>
+            <img src={parallelization} alt="Parallelization"></img>
           </Layout.Child>
         </Layout>
         <FeatureExpandable>
@@ -574,7 +583,11 @@ async def parent(input: ParentInput, ctx: Context):
           </Layout.Child>{" "}
           <Layout.Child>
             <Layout.Child>
-              <img src={badges} className={styles.badges}></img>
+              <img
+                src={badges}
+                className={styles.badges}
+                alt="Compliance badges"
+              ></img>
             </Layout.Child>
           </Layout.Child>
         </Layout>
@@ -583,7 +596,7 @@ async def parent(input: ParentInput, ctx: Context):
       <Section className="py-6" theme="light">
         <Layout layout="y" gap={3}>
           <Layout.Child>
-            <img src={howItWorks}></img>
+            <img src={howItWorks} alt="How it works"></img>
           </Layout.Child>
           <Layout.Child>
             <Text.H1>How it works</Text.H1>
@@ -612,7 +625,7 @@ async def parent(input: ParentInput, ctx: Context):
               <Card>
                 <div className={styles.cardContent}>
                   {" "}
-                  <img src={step1}></img>
+                  <img src={step1} alt="Step 1"></img>
                   <div className="halftone"></div>
                   <Text.Body secondary balance>
                     <Text primary>Build workflows</Text> by writing simple
@@ -632,7 +645,7 @@ async def parent(input: ParentInput, ctx: Context):
               </Text.Body>
               <Card>
                 <div className={styles.cardContent}>
-                  <img src={step2}></img>
+                  <img src={step2} alt="Step 2"></img>
                   <Text.Body secondary balance>
                     <Text primary>Start workflows</Text> from your API, schedule
                     them to run at specific times, or trigger them when events
@@ -653,7 +666,7 @@ async def parent(input: ParentInput, ctx: Context):
                 <div className={styles.cardContent}>
                   {" "}
                   <div className="halftone"></div>
-                  <img src={step3}></img>{" "}
+                  <img src={step3} alt="Step 3"></img>{" "}
                   <Text.Body secondary balance>
                     <Text primary>Deploy workers</Text> on Kubernetes, Porter,
                     Ryvn, or any container platform. They automatically connect
@@ -672,7 +685,7 @@ async def parent(input: ParentInput, ctx: Context):
               </Text.Body>
               <Card>
                 <div className={styles.cardContent}>
-                  <img src={step4}></img>
+                  <img src={step4} alt="Step 4"></img>
                   <Text.Body secondary balance>
                     <Text primary>See all your worksflows</Text> in the
                     dashboard, get alerts when tasks fail, and export metrics to
