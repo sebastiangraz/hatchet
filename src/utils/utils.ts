@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ReactChild } from "~/types";
 
 export function getPrevPathFromExtension(path: string, extension = ".mdx") {
   const regex = new RegExp(`/[^/]+${extension}$`);
@@ -11,12 +12,9 @@ export function getPrevPathFromExtension(path: string, extension = ".mdx") {
     : "";
 }
 
-export function isArrayofObjects(input: any): input is Array<object> {
-  return (
-    Array.isArray(input) &&
-    input.every((item) => typeof item === "object" && item !== null)
-  );
-}
+export const getFirstChild = (children: unknown): ReactChild | undefined => {
+  return Array.isArray(children) ? children[0] : (children as ReactChild);
+};
 
 export function useStickyObserver(
   ref: React.RefObject<HTMLElement>,

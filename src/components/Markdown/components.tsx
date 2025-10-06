@@ -2,11 +2,12 @@ import style from "./markdown.module.css";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import { Section } from "~/components/Section/Section";
-import { isArrayofObjects } from "~/utils/utils";
 import styles from "./markdown.module.css";
 import { resolveImageSrc } from "~/utils/imageResolver";
 import { QuoteAuthor } from "../Quote/Quote";
 import { Quote } from "../Quote/Quote";
+import { getFirstChild } from "~/utils/utils";
+import { ReactChild } from "~/types";
 export const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <Text.H2 balance {...props}>
@@ -50,19 +51,19 @@ export const components = {
       {props.children}
     </Text.Body>
   ),
-  table: (props: any) => {
-    let firstChildProps;
-    if (isArrayofObjects(props.children)) {
-      firstChildProps = props.children[0];
-    } else {
-      firstChildProps = props.children;
-    }
-    const columns = firstChildProps?.props?.children?.props?.children;
+  table: (props: React.TableHTMLAttributes<HTMLTableElement>) => {
+    const firstChild = getFirstChild(props.children);
+    const tableRow = getFirstChild(firstChild?.props?.children) as ReactChild;
+    const columns = Array.isArray(tableRow?.props?.children)
+      ? tableRow.props.children
+      : [];
     return (
       <div className={`${style.table}`}>
         <table
           {...props}
-          style={{ gridTemplateColumns: `repeat(${columns.length}, 1fr)` }}
+          style={{
+            gridTemplateColumns: `repeat(${columns.length || 1}, 1fr)`,
+          }}
         >
           {props.children}
         </table>
@@ -72,11 +73,13 @@ export const components = {
   code: (props: React.HTMLAttributes<HTMLElement>) => {
     return <code className={`${style.code}`} {...props}></code>;
   },
-  img: (props: any) => {
+  img: (
+    props: React.ImgHTMLAttributes<HTMLImageElement> & { contentSlug?: string }
+  ) => {
     const { src, contentSlug, ...otherProps } = props;
 
     // Resolve the image source using the shared resolver
-    const resolvedSrc = resolveImageSrc(src, contentSlug);
+    const resolvedSrc = resolveImageSrc(src ?? "", contentSlug ?? "");
 
     return (
       <img className={`${style.image}`} src={resolvedSrc} {...otherProps}></img>
