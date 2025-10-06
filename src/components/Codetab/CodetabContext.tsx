@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-export type CodeLanguage = "typescript" | "python" | "go";
+export type CodeLanguage = "python" | "typescript" | "go";
 
 interface CodetabContextType {
   selectedLanguage: CodeLanguage;
@@ -11,7 +11,7 @@ const CodetabContext = createContext<CodetabContextType | undefined>(undefined);
 
 export const CodetabProvider = ({ children }: { children: ReactNode }) => {
   const [selectedLanguage, setSelectedLanguage] =
-    useState<CodeLanguage>("typescript");
+    useState<CodeLanguage>("python");
 
   return (
     <CodetabContext.Provider value={{ selectedLanguage, setSelectedLanguage }}>

@@ -10,8 +10,8 @@ interface CodetabProps {
 }
 
 const languageLabels: Record<CodeLanguage, string> = {
-  typescript: "TypeScript",
   python: "Python",
+  typescript: "TypeScript",
   go: "Go",
 };
 

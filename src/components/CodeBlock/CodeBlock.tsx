@@ -94,7 +94,7 @@ const useInlineCodeHighlighting = (code: string, lang: BundledLanguage) => {
 
 export const CodeBlock = ({
   code,
-  lang = "typescript",
+  lang = "python",
   showLineNumbers = true,
   highlightLines = [],
   filename,
@@ -128,10 +128,7 @@ interface InlineCodeProps {
   lang?: BundledLanguage;
 }
 
-export const InlineCode = ({
-  children,
-  lang = "typescript",
-}: InlineCodeProps) => {
+export const InlineCode = ({ children, lang = "python" }: InlineCodeProps) => {
   const { highlightedCode, isLoading } = useInlineCodeHighlighting(
     children,
     lang

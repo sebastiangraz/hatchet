@@ -181,6 +181,19 @@ function RouteComponent() {
             className={styles.codeBlock}
             filename="failure-handler"
             languages={{
+              python: (
+                <CodeBlock
+                  code={`@failure_workflow.on_failure()
+async def on_failure(context: Context):
+  print(f'onFailure for run: {context.workflow_run_id()}')
+  return {
+      'on-failure': 'success'
+  }`}
+                  lang="python"
+                  showLineNumbers={true}
+                  highlightLines={[5]}
+                />
+              ),
               typescript: (
                 <CodeBlock
                   code={`failureWorkflow.onFailure({
@@ -197,19 +210,7 @@ function RouteComponent() {
                   highlightLines={[6]}
                 />
               ),
-              python: (
-                <CodeBlock
-                  code={`@failure_workflow.on_failure()
-async def on_failure(context: Context):
-    print(f'onFailure for run: {context.workflow_run_id()}')
-    return {
-        'on-failure': 'success'
-    }`}
-                  lang="python"
-                  showLineNumbers={true}
-                  highlightLines={[5]}
-                />
-              ),
+
               go: (
                 <CodeBlock
                   code={`func onFailure(ctx context.Context) error {
@@ -293,6 +294,35 @@ async def on_failure(context: Context):
             className={styles.codeBlock}
             filename="ai-agent"
             languages={{
+              python: (
+                <CodeBlock
+                  code={`@hatchet.workflow(name="ai-agent")
+class AIAgentWorkflow:
+    @hatchet.step()
+    async def process_input(self, context: Context):
+        return context.workflow_input()["message"]
+    
+    @hatchet.step()
+    async def llm_call(self, context: Context):
+        user_input = context.step_output("process_input")
+        return await call_llm(user_input, 
+            max_tokens=1000,
+            temperature=0.7,
+            timeout_ms=30000
+        )
+    
+    @hatchet.step()
+    async def validate(self, context: Context):
+        response = context.step_output("llm_call")
+        return validate_and_format(response)
+
+# Start the agent
+ai_agent.start()`}
+                  lang="python"
+                  showLineNumbers={true}
+                  highlightLines={[10, 11, 12, 13]}
+                />
+              ),
               typescript: (
                 <CodeBlock
                   code={`const aiAgent = hatchet.workflow("ai-agent", async (ctx) => {
@@ -323,35 +353,6 @@ aiAgent.start();`}
                   lang="typescript"
                   showLineNumbers={true}
                   highlightLines={[10, 11, 12]}
-                />
-              ),
-              python: (
-                <CodeBlock
-                  code={`@hatchet.workflow(name="ai-agent")
-class AIAgentWorkflow:
-    @hatchet.step()
-    async def process_input(self, context: Context):
-        return context.workflow_input()["message"]
-    
-    @hatchet.step()
-    async def llm_call(self, context: Context):
-        user_input = context.step_output("process_input")
-        return await call_llm(user_input, 
-            max_tokens=1000,
-            temperature=0.7,
-            timeout_ms=30000
-        )
-    
-    @hatchet.step()
-    async def validate(self, context: Context):
-        response = context.step_output("llm_call")
-        return validate_and_format(response)
-
-# Start the agent
-ai_agent.start()`}
-                  lang="python"
-                  showLineNumbers={true}
-                  highlightLines={[10, 11, 12, 13]}
                 />
               ),
               go: (
@@ -452,6 +453,27 @@ ai_agent.start()`}
             className={styles.codeBlock}
             filename="parallel-execution"
             languages={{
+              python: (
+                <CodeBlock
+                  code={`@hatchet.task(name="parent")
+async def parent(input: ParentInput, ctx: Context):
+    n = input.N
+    promises = []
+    
+    for i in range(n):
+        promises.append(child.run({"N": i}))
+    
+    child_res = await asyncio.gather(*promises)
+    total = sum(res["Value"] for res in child_res)
+    
+    return {
+        "Result": total
+    }`}
+                  lang="python"
+                  showLineNumbers={true}
+                  highlightLines={[6, 7]}
+                />
+              ),
               typescript: (
                 <CodeBlock
                   code={`export const parent = hatchet.task({
@@ -475,27 +497,6 @@ ai_agent.start()`}
                   lang="typescript"
                   showLineNumbers={true}
                   highlightLines={[7, 8, 9]}
-                />
-              ),
-              python: (
-                <CodeBlock
-                  code={`@hatchet.task(name="parent")
-async def parent(input: ParentInput, ctx: Context):
-    n = input.N
-    promises = []
-    
-    for i in range(n):
-        promises.append(child.run({"N": i}))
-    
-    child_res = await asyncio.gather(*promises)
-    total = sum(res["Value"] for res in child_res)
-    
-    return {
-        "Result": total
-    }`}
-                  lang="python"
-                  showLineNumbers={true}
-                  highlightLines={[6, 7]}
                 />
               ),
               go: (
