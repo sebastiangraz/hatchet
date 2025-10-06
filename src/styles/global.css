@@ -20,6 +20,8 @@
   font-weight: normal;
   font-display: swap;
   src: url("./fonts/F37Judge-MediumExtended.woff2");
+  ascent-override: 105%;
+  descent-override: 35%;
 }
 
 @font-face {
@@ -68,7 +70,7 @@
   --navy-dark: 227 88% 6%;
   --cyan-dark: 212 60% 78%;
   --blue: 212 100% 60%;
-  --magenta: 285 69% 56%;
+  --magenta: 287 69% 57%;
   --yellow: 69 77% 47%;
 
   --bg: hsl(var(--navy));

@@ -7,18 +7,18 @@ export const Promobar = ({ link }: { link?: string }) => {
   if (!settings.promobarEnabled) return null;
 
   return (
-    <Link to={link || settings.promobarLink}>
+    <Link to={link || settings.promobarLink} aria-label="Promobar">
       <div className={styles.promobar}>
         <div className={styles.content}>
           <SVGRocket />
           <Text.Small>New feature launching soon - Stay tuned!</Text.Small>
-          <button
+          {/* <button
             className={styles.closeButton}
             type="button"
             aria-label="Close promotion"
           >
             ×
-          </button>
+          </button> */}
         </div>
       </div>
     </Link>

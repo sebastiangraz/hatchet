@@ -12,7 +12,7 @@
 .content {
   background: var(--fg);
   color: var(--bg);
-  padding: 0 0.25rlh 0 1rlh;
+  padding: 0 1rlh;
   border-radius: 99rlh;
   display: flex;
   justify-content: center;

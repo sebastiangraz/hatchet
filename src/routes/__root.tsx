@@ -84,7 +84,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   const theme = currentContext?.theme || "dark";
 
   return (
-    <html>
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

@@ -74,7 +74,7 @@ export const Nav = () => {
         data-mobile-open={mobileMenuOpen}
       >
         <div className={styles.wrapper}>
-          <Link to="/" className={styles.logo}>
+          <Link to="/" className={styles.logo} aria-label="Home">
             <Logo />
           </Link>
 
