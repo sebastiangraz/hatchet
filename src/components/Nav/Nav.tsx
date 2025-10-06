@@ -43,6 +43,13 @@ export const Nav = () => {
     threshold: [1],
   });
 
+  // Set mobile-open attribute on body
+  useEffect(() => {
+    if (document.body) {
+      document.body.dataset.mobileOpen = mobileMenuOpen ? "true" : "false";
+    }
+  }, [mobileMenuOpen]);
+
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -68,12 +75,7 @@ export const Nav = () => {
         <div className={styles.checkerLeft}></div>
       </div>
       <Promobar />
-      <nav
-        ref={ref}
-        className={styles.nav}
-        data-sticky={isSticky}
-        data-mobile-open={mobileMenuOpen}
-      >
+      <nav ref={ref} className={styles.nav} data-sticky={isSticky}>
         <div className={styles.wrapper}>
           <Link to="/" className={styles.logo} aria-label="Home">
             <Logo />

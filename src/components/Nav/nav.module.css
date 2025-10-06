@@ -49,7 +49,7 @@
     }
   }
   @media (--1-max) {
-    &[data-mobile-open="true"] {
+    body[data-mobile-open="true"] & {
       /* background-color: color-mix(
         in srgb,
         var(--bg-dark) calc(100% * var(--opacity-7)),
@@ -75,11 +75,20 @@
   z-index: 2;
   display: block;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    height 0.2s ease;
 }
 
 body[data-sticky="true"] .navBackground {
   opacity: 1;
+}
+
+body[data-mobile-open="true"] .navBackground {
+  @media (--1-max) {
+    opacity: 1;
+    height: 200dvh;
+  }
 }
 
 .navItem {
@@ -187,7 +196,7 @@ body[data-sticky="true"] .navBackground {
 }
 
 @starting-style {
-  [data-mobile-open="true"] .mobileMenu {
+  body[data-mobile-open="true"] .mobileMenu {
     opacity: 0;
   }
 }
