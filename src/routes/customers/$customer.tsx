@@ -8,6 +8,7 @@ import markdownStyles from "~/components/Markdown/markdown.module.css";
 import styles from "./customers.module.css";
 import { Quote } from "~/components/Quote/Quote";
 import { Authors } from "~/utils/settings";
+import { ImpactIcon, ImpactIconProps } from "./-impactIcons";
 
 const globLogos = Object.entries(
   import.meta.glob<{ default: string }>(["/src/assets/logos/*.svg"], {
@@ -53,15 +54,25 @@ function RouteComponent() {
   const post = customers.find((p) => p.slug === slug);
   const Content = post?.Content;
 
-  const { company, industry, title, description, logotype, website } =
-    frontmatter as {
-      company?: string;
-      industry?: string;
-      title?: string;
-      description?: string;
-      logotype?: string;
-      website?: string;
-    };
+  const {
+    company,
+    industry,
+    title,
+    description,
+    logotype,
+    website,
+    impact,
+    impactIcon,
+  } = frontmatter as {
+    company?: string;
+    industry?: string;
+    title?: string;
+    description?: string;
+    logotype?: string;
+    website?: string;
+    impact?: string;
+    impactIcon?: string;
+  };
   const sanitizedWebsite = website?.replace(/^https?:\/\/(www\.)?|\/+$/g, "");
   const authorCompany = Authors.find((a) => a.company === company);
   if (!authorCompany)
@@ -131,6 +142,21 @@ function RouteComponent() {
                 </a>{" "}
               </>
             )}{" "}
+          </div>
+          <div>
+            {impact && (
+              <>
+                <Text.Micro caps mono balance>
+                  Impact
+                </Text.Micro>{" "}
+                <div className={styles.impactMeta}>
+                  <ImpactIcon icon={impactIcon as ImpactIconProps["icon"]} />
+                  <Text.Small mono caps balance>
+                    {impact}
+                  </Text.Small>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Section>

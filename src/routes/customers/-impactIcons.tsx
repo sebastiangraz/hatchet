@@ -76,7 +76,7 @@ const impactIcons = {
                   // xmlns="http://www.w3.org/1999/xhtml"
                   style={{
                     background:
-                      "conic-gradient(from 135deg,rgba(58, 72, 101, 1) 0deg,rgba(58, 72, 101, 0) 50deg)",
+                      "conic-gradient(from 135deg, color-mix(in srgb, currentColor 40%, transparent) 0deg, transparent 50deg)",
                     height: "100%",
                     width: "100%",
                     opacity: 1,
