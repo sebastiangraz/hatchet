@@ -13,6 +13,7 @@ import CSSUtils from "~/styles/utils.css?url";
 import { Nav } from "~/components/Nav/Nav";
 import { Footer } from "~/components/Footer/Footer";
 import Favicon from "~/assets/favicon.svg";
+import FaviconICO from "~/assets/favicon.ico";
 import OGImage from "~/assets/og.png";
 import { theme } from "~/types";
 import { CodetabProvider } from "~/components/Codetab/CodetabContext";
@@ -57,7 +58,8 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: CSSGlobal },
       { rel: "stylesheet", href: CSSUtils },
-      { rel: "icon", href: Favicon },
+      { rel: "icon", href: FaviconICO, sizes: "32x32" },
+      { rel: "icon", href: Favicon, type: "image/svg+xml" },
     ],
   }),
   context: (): RootContext => ({
