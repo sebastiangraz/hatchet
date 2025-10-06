@@ -140,11 +140,24 @@
   }
 }
 
+.icon-up {
+  &:before {
+    --p: 0.675rlh;
+    clip-path: shape(evenodd var(--icon-up) var(--i,)) content-box;
+  }
+  &.large {
+    &:before {
+      --p: 1.675rlh;
+    }
+  }
+}
+
 
 :root {
   /* https://css-generators.com/svg-to-css/ */
   --icon-default: from 89.29% 0%,curve to 100% 10.71% with 95.2% 0%/100% 4.8%,vline to 89.29%,curve to 89.29% 100% with 100% 95.2%/95.2% 100%,curve to 78.57% 89.29% with 83.37% 100%/78.57% 95.2%,vline to 36.58%,line to 18.29% 96.86%,curve to 3.14% 96.86% with 14.11% 101.05%/7.32% 101.05%,curve to 3.14% 81.71% with -1.05% 92.68%/-1.05% 85.89%,line to 63.42% 21.43%,hline to 10.71%,curve to 0% 10.71% with 4.8% 21.43%/0% 16.63%,curve to 10.71% 0% with 0% 4.8%/4.8% 0%,hline to 89.29%;
   --icon-back: from 43.76% 2.58%,curve to 56.24% 2.58% with 47.21% -0.86%/52.79% -0.86%,curve to 56.24% 15.06% with 59.68% 6.03%/59.68% 11.62%,line to 30.12% 41.18%,hline to 91.18%,curve to 100% 50% with 96.05% 41.18%/100% 45.13%,curve to 91.18% 58.82% with 100% 54.87%/96.05% 58.82%,hline to 30.12%,line to 56.24% 84.94%,curve to 56.24% 97.42% with 59.68% 88.38%/59.68% 93.97%,curve to 43.76% 97.42% with 52.79% 100.86%/47.21% 100.86%,line to 2.58% 56.24%,curve to 2.58% 43.76% with -0.86% 52.79%/-0.86% 47.21%,line to 43.76% 2.58%;
   --icon-down: from 50% 0%,curve to 58.82% 8.82% with 54.87% 0%/58.82% 3.95%,vline to 69.88%,line to 84.94% 43.76%,curve to 97.42% 43.76% with 88.38% 40.32%/93.97% 40.32%,curve to 97.42% 56.24% with 100.86% 47.21%/100.86% 52.79%,line to 56.24% 97.42%,curve to 43.76% 97.42% with 52.79% 100.86%/47.21% 100.86%,line to 2.58% 56.24%,curve to 2.58% 43.76% with -0.86% 52.79%/-0.86% 47.21%,curve to 15.06% 43.76% with 6.03% 40.32%/11.62% 40.32%,line to 41.18% 69.88%,vline to 8.82%,curve to 50% 0% with 41.18% 3.95%/45.13% 0%;
+  --icon-up: from 43.76% 2.58%,curve to 56.24% 2.58% with 47.21% -0.86%/52.79% -0.86%,line to 97.42% 43.76%,curve to 97.42% 56.24% with 100.86% 47.21%/100.86% 52.79%,curve to 84.94% 56.24% with 93.97% 59.68%/88.38% 59.68%,line to 58.82% 30.12%,vline to 91.18%,curve to 50% 100% with 58.82% 96.05%/54.87% 100%,curve to 41.18% 91.18% with 45.13% 100%/41.18% 96.05%,vline to 30.12%,line to 15.06% 56.24%,curve to 2.58% 56.24% with 11.62% 59.68%/6.03% 59.68%,curve to 2.58% 43.76% with -0.86% 52.79%/-0.86% 47.21%,line to 43.76% 2.58%;
   --icon-docs: from 91.18% 82.35%,curve to 100% 91.18% with 96.05% 82.35%/100% 86.3%,curve to 91.18% 100% with 100% 96.05%/96.05% 100%,hline to 8.82%,curve to 0% 91.18% with 3.95% 100%/0% 96.05%,curve to 8.82% 82.35% with 0% 86.3%/3.95% 82.35%,hline to 91.18%,close,move to 91.18% 41.18%,curve to 100% 50% with 96.05% 41.18%/100% 45.13%,curve to 91.18% 58.82% with 100% 54.87%/96.05% 58.82%,hline to 8.82%,curve to 0% 50% with 3.95% 58.82%/0% 54.87%,curve to 8.82% 41.18% with 0% 45.13%/3.95% 41.18%,hline to 91.18%,close,move to 61.76% 0%,curve to 70.59% 8.82% with 66.64% 0%/70.59% 3.95%,curve to 61.76% 17.65% with 70.59% 13.7%/66.64% 17.65%,hline to 8.82%,curve to 0% 8.82% with 3.95% 17.65%/0% 13.7%,curve to 8.82% 0% with 0% 3.95%/3.95% 0%,hline to 61.76%;
 }
