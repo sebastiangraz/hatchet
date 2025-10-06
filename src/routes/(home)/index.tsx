@@ -611,7 +611,7 @@ async def parent(input: ParentInput, ctx: Context):
                 <div className={styles.cardContent}>
                   {" "}
                   <img src={step1}></img>
-                  <div className={styles.halftone}></div>
+                  <div className="halftone"></div>
                   <Text.Body secondary balance>
                     <Text primary>Build workflows</Text> by writing simple
                     functions. Your tasks automatically retry on failure and
@@ -650,7 +650,7 @@ async def parent(input: ParentInput, ctx: Context):
               <Card>
                 <div className={styles.cardContent}>
                   {" "}
-                  <div className={styles.halftone}></div>
+                  <div className="halftone"></div>
                   <img src={step3}></img>{" "}
                   <Text.Body secondary balance>
                     <Text primary>Deploy workers</Text> on Kubernetes, Porter,
