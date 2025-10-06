@@ -68,9 +68,17 @@
   justify-items: start;
   align-items: end;
   & > * {
-    grid-column: span 6;
+    grid-column: span 12;
+    @media (--1) {
+      grid-column: span 6;
+    }
   }
   & > a {
     text-decoration: none;
+  }
+  .impact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rlh;
   }
 }

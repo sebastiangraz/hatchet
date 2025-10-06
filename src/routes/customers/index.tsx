@@ -3,9 +3,10 @@ import { Section } from "~/components/Section/Section";
 import { Text } from "~/components/Text/Text";
 import { Button } from "~/components/Button/Button";
 import styles from "./customers.module.css";
-import { getPrevPathFromExtension } from "~/utils/utils";
+import { getPrevPathFromExtension, highlightNumbers } from "~/utils/utils";
 import { Link } from "@tanstack/react-router";
 import { Layout } from "~/components/Layout/Layout";
+import { ImpactIcon } from "./-impactIcons";
 
 type Customer = {
   slug: string;
@@ -73,16 +74,40 @@ function RouteComponent() {
 const CustomerCard = ({ customer }: { customer: Customer }) => {
   const { slug, frontmatter } = customer;
 
+  const renderImpact = () => {
+    const parts = highlightNumbers(frontmatter.impact);
+    return parts.map((part, index) => {
+      if (part.type === "number") {
+        return (
+          <Text key={index} primary mono>
+            {part.value}
+          </Text>
+        );
+      }
+      return part.value;
+    });
+  };
+
   return (
     <div className={styles.customerCard}>
       <Link to={`/customers/$customer`} params={{ customer: slug }}>
         <Text.H2 balance>{frontmatter.title}</Text.H2>
       </Link>
-      <Text.Body>{frontmatter.description}</Text.Body>
-      <Text.Micro caps mono brackets className={styles.company}>
-        {frontmatter.impact}
-      </Text.Micro>
-
+      <Text.Body>{frontmatter.description}</Text.Body>{" "}
+      <div className={styles.impact}>
+        <ImpactIcon icon={frontmatter.impactIcon} />
+        {frontmatter.impactIcon}
+        <Text.Micro
+          balance
+          caps
+          mono
+          brackets
+          secondary
+          className={styles.micro}
+        >
+          {renderImpact()}
+        </Text.Micro>
+      </div>
       <Button to={`/customers/${slug}`}>Read</Button>
     </div>
   );

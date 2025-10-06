@@ -38,3 +38,46 @@ export function useStickyObserver(
 
   return isSticky;
 }
+
+type TextPart = {
+  type: "text" | "number";
+  value: string;
+};
+
+export const highlightNumbers = (text: string): TextPart[] => {
+  // Regex to match numbers with optional prefixes (like $) and suffixes (like %, h, s, M, x, +, etc.)
+  // Matches: 93, 100s, 1h, 50%, 10,000+, $1M, 99.99%, 3x, etc.
+  const numberPattern = /(\$?[\d,]+\.?\d*[%hsMxX+]?|\d+[%hsMxX+])/g;
+
+  const parts: TextPart[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = numberPattern.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      parts.push({
+        type: "text",
+        value: text.substring(lastIndex, match.index),
+      });
+    }
+
+    // Add the number
+    parts.push({
+      type: "number",
+      value: match[0],
+    });
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text after last match
+  if (lastIndex < text.length) {
+    parts.push({
+      type: "text",
+      value: text.substring(lastIndex),
+    });
+  }
+
+  return parts;
+};
