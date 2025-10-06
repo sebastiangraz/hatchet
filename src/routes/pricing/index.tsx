@@ -227,58 +227,58 @@ const featureRows = [
   },
 ];
 
-const selfHostedPlans = [
-  {
-    name: "Essentials",
-    price: "$500",
-    period: "/mo",
-    description: "Self-hosted support for essential needs",
-    buttonText: "Talk to us",
-    buttonHref: "https://hatchet.run",
-  },
-  {
-    name: "Enterprise",
-    price: "Starting at $2000",
-    period: "/mo",
-    description: "Self-hosted enterprise support with advanced guidance",
-    buttonText: "Talk to us",
-    buttonHref: "https://hatchet.run",
-  },
-];
+// const selfHostedPlans = [
+//   {
+//     name: "Essentials",
+//     price: "$500",
+//     period: "/mo",
+//     description: "Self-hosted support for essential needs",
+//     buttonText: "Talk to us",
+//     buttonHref: "https://hatchet.run",
+//   },
+//   {
+//     name: "Enterprise",
+//     price: "Starting at $2000",
+//     period: "/mo",
+//     description: "Self-hosted enterprise support with advanced guidance",
+//     buttonText: "Talk to us",
+//     buttonHref: "https://hatchet.run",
+//   },
+// ];
 
-const selfHostedFeatureRows = [
-  // Support Section
-  {
-    type: "category",
-    category: "Support",
-  },
-  {
-    type: "feature",
-    subcategory: "Response Time SLA",
-    values: ["2 business days", "1 business day"],
-  },
-  {
-    type: "feature",
-    subcategory: "Shared Slack Channel",
-    values: ["Included", "Included"],
-  },
-  {
-    type: "feature",
-    subcategory: "Monthly Office Hours",
-    values: ["-", "Included"],
-  },
+// const selfHostedFeatureRows = [
+//   // Support Section
+//   {
+//     type: "category",
+//     category: "Support",
+//   },
+//   {
+//     type: "feature",
+//     subcategory: "Response Time SLA",
+//     values: ["2 business days", "1 business day"],
+//   },
+//   {
+//     type: "feature",
+//     subcategory: "Shared Slack Channel",
+//     values: ["Included", "Included"],
+//   },
+//   {
+//     type: "feature",
+//     subcategory: "Monthly Office Hours",
+//     values: ["-", "Included"],
+//   },
 
-  // Infrastructure Guidance Section
-  {
-    type: "category",
-    category: "Infrastructure Guidance",
-  },
-  {
-    type: "feature",
-    subcategory: "",
-    values: ["Public docker-compose or Helm charts", "Advanced setups"],
-  },
-];
+//   // Infrastructure Guidance Section
+//   {
+//     type: "category",
+//     category: "Infrastructure Guidance",
+//   },
+//   {
+//     type: "feature",
+//     subcategory: "",
+//     values: ["Public docker-compose or Helm charts", "Advanced setups"],
+//   },
+// ];
 
 function RouteComponent() {
   return (

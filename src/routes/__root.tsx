@@ -1,7 +1,6 @@
 /// <reference types="vite/client" />
 import * as React from "react";
 import { RootLayout } from "~/components/RootLayout/RootLayout";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import {
   HeadContent,
   Outlet,

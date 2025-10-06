@@ -17,11 +17,11 @@ const formatProps = (props: any, ignoreProps: string[]): React.ReactNode => {
     .map(([key, value]: [string, any]) => {
       return (
         <span key={key}>
-          <Text.Small children={`${key}="`} />
+          <Text.Small>{`${key}="`}</Text.Small>
           <span className={style.highlight}>
-            <Text.Small children={value.toString()} />
+            <Text.Small>{value.toString()}</Text.Small>
           </span>
-          "
+          &quot;
         </span>
       );
     });

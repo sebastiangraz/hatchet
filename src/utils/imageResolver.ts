@@ -16,14 +16,11 @@ export const imagesByPath: Record<string, string> = Object.fromEntries(
     // Extract content type, content name, and image filename
     const parts = url.split("/");
     const contentIndex = parts.findIndex((part) => part === "content");
-    const contentType = parts[contentIndex + 1]; // "customers" or "pages"
     const contentName = parts[contentIndex + 2]; // e.g., "dev-tester" or "announcement"
     const fileName = parts.pop() || "";
 
     // Create keys for different access patterns
-    const fullKey = `${contentType}/${contentName}/${fileName}`;
     const shortKey = `${contentName}/${fileName}`;
-
     return [shortKey, module.default as string];
   })
 );
