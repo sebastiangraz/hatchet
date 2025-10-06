@@ -56,10 +56,17 @@ const impactIcons = {
                 from="0 10 10"
                 to="360 10 10"
                 dur="4s"
+                begin="0s"
                 repeatCount="indefinite"
-                id="circ"
               />
-
+              <animate
+                attributeName="opacity"
+                values="0.75;1;0;0;0.75"
+                keyTimes="0;0.1;0.75;0.9;1"
+                dur="4s"
+                begin="0s"
+                repeatCount="indefinite"
+              />
               <foreignObject x="-1250" y="-1250" width="2500" height="2500">
                 <div
                   // xmlns="http://www.w3.org/1999/xhtml"
