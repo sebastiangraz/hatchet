@@ -268,8 +268,7 @@ a.mobileButton {
   }
 }
 
-.checker {
-  composes: checker from global;
+.bg {
   composes: grid-parent from global;
   --sizeX: 1rlh;
   --sizeY: 1rlh;
@@ -278,14 +277,15 @@ a.mobileButton {
     var(--fg) calc(100% * var(--opacity-1)),
     transparent
   );
-  mask-image: linear-gradient(to bottom, #fff, #fff0);
+  overflow: clip;
   position: absolute;
   pointer-events: none;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50vh;
-  & > .checkerLeft {
+  height: clamp(50rlh, 30vh, 50rlh);
+
+  & > .bgLeft {
     content: "";
     grid-column: start / span 1;
     grid-row: 1;
@@ -294,6 +294,7 @@ a.mobileButton {
     left: -100%;
     width: 100%;
     height: 100%;
+    mask-image: linear-gradient(to bottom, #fff, #fff0);
     background: repeating-linear-gradient(
         0deg,
         var(--fg-border),
@@ -304,7 +305,7 @@ a.mobileButton {
       )
       no-repeat 0 100% / 1.5px 100%;
   }
-  & > .checkerRight {
+  & > .bgRight {
     content: "";
     grid-column: 13 / span 1;
     grid-row: 1;
@@ -313,6 +314,7 @@ a.mobileButton {
     right: calc(-100% - 1.5px);
     width: 100%;
     height: 100%;
+    mask-image: linear-gradient(to bottom, #fff, #fff0);
     background: repeating-linear-gradient(
         0deg,
         var(--fg-border),
@@ -322,5 +324,116 @@ a.mobileButton {
         var(--fg-border) 12px
       )
       no-repeat 100% 0% / 1.5px 100%;
+  }
+}
+/* .bgContent {
+  --direction: top;
+  --scale: 2;
+  --speed: 240s;
+  composes: halftone from global;
+  grid-column: bleedstart / bleedend;
+  grid-row: -1;
+  position: relative;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+} */
+
+.bgContent {
+  --direction: top;
+  --color1: color-mix(
+    in srgb,
+    hsl(var(--magenta)) calc(100% * var(--opacity-4)),
+    transparent
+  );
+  --color2: color-mix(
+    in srgb,
+    var(--accent) calc(100% * var(--opacity-7)),
+    transparent
+  );
+  --scale: 4;
+  --speed: 320s;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: clip;
+  height: clamp(50rlh, 30vh, 50rlh);
+  grid-column: bleedstart / bleedend;
+  grid-row: -1;
+  background-color: var(--fg-border);
+  mask:
+    linear-gradient(to var(--direction), transparent 40%, white),
+    url("../../assets/noise.png") 0% 0% / calc(300% * var(--scale))
+      calc(300% * var(--scale)),
+    linear-gradient(to right, white 1.5px, transparent 1.5px) center 0 /1rlh
+      1rlh,
+    linear-gradient(to bottom, white 1.5px, transparent 1.5px) center 0 /1rlh
+      1rlh;
+
+  mask-composite: intersect, intersect, add, subtract;
+
+  animation: noise var(--speed) infinite linear;
+
+  &:before {
+    background: repeating-radial-gradient(
+      circle at center,
+      transparent 0%,
+      var(--color1) 20%,
+      var(--color1) 25%,
+      transparent 32%
+    );
+    animation: pulse 6s infinite linear;
+    animation-delay: 3s;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  &:after {
+    background: repeating-radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      var(--color2) 17%,
+      transparent 21%
+    );
+    animation: pulse 6s infinite linear;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+@property --sNav {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@keyframes pulse {
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(calc(var(--sNav) * 2));
+    opacity: 0;
+  }
+}
+
+@keyframes noise {
+  to {
+    mask-position:
+      0 0,
+      100% 0%,
+      center 0,
+      center 0;
   }
 }

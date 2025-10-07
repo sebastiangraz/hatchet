@@ -54,3 +54,60 @@
   flex-direction: column;
   gap: 2rlh;
 }
+.footerChecker {
+  --direction: top;
+  composes: checker from global;
+  composes: grid-parent from global;
+  --sizeX: 1rlh;
+  --sizeY: 1rlh;
+  --color: color-mix(
+    in srgb,
+    var(--fg) calc(100% * var(--opacity-1)),
+    transparent
+  );
+  mask-image: linear-gradient(to top, #fff, #fff0);
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  & > .checkerLeft {
+    content: "";
+    grid-column: start / span 1;
+    grid-row: 1;
+    position: relative;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--fg-border),
+        var(--fg-border) 7px,
+        transparent 7px,
+        transparent 12px,
+        var(--fg-border) 12px
+      )
+      no-repeat 0 100% / 1.5px 100%;
+  }
+  & > .checkerRight {
+    content: "";
+    grid-column: 13 / span 1;
+    grid-row: 1;
+    position: relative;
+    top: 0;
+    right: calc(-100% - 1.5px);
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--fg-border),
+        var(--fg-border) 7px,
+        transparent 7px,
+        transparent 12px,
+        var(--fg-border) 12px
+      )
+      no-repeat 100% 0% / 1.5px 100%;
+  }
+}

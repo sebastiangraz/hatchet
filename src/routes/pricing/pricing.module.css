@@ -39,7 +39,7 @@
 }
 
 .headerCell {
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   border-bottom: 1.5px solid var(--fg-border);
   grid-template-rows: auto minmax(5rlh, auto) 1fr auto;
   padding: 1rlh;
@@ -88,7 +88,7 @@
 }
 
 .featureCell {
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   border-bottom: 1.5px solid var(--fg-border);
   padding: 1rlh 1rlh 1rlh 0;
   display: flex;
@@ -98,7 +98,7 @@
 }
 
 .categoryCell {
-  background-color: var(--bg-tertiary);
+  background-color: transparent;
   padding: 2rlh 1rlh 1rlh 0;
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@
 }
 
 .valueCell {
-  background-color: var(--bg);
+  background-color: transparent;
   border-bottom: 1.5px solid var(--fg-border);
   padding: 1rlh;
   display: flex;
@@ -152,7 +152,7 @@
 }
 
 .mobileCard {
-  background-color: var(--bg);
+  background-color: transparent;
   grid-template-rows: 1fr auto;
   display: grid;
   overflow: hidden;

@@ -94,6 +94,11 @@
   }
 
   .halftone {
+    --direction: bottom;
+    --color1: var(--fg);
+    --color2: var(--accent);
+    --scale: 1;
+    --speed: 120s;
     position: absolute;
     pointer-events: none;
     top: 0;
@@ -102,20 +107,22 @@
     height: 100%;
     z-index: 0;
     mask:
-      linear-gradient(to bottom, transparent, white),
+      linear-gradient(to var(--direction), transparent, white),
       radial-gradient(circle at 50% 50%, white 1.25px, transparent 1.25px) 0%
         0% / 0.5rlh 0.5rlh,
-      url("../assets/noise.png") 0% 0% / 300% 300%;
+      url("../assets/noise.png") 0% 0% / calc(300% * var(--scale))
+        calc(300% * var(--scale));
 
     mask-composite: intersect;
-    animation: noise 120s infinite linear;
+
+    animation: noise var(--speed) infinite linear;
 
     &:before {
       background: repeating-radial-gradient(
         circle at center,
         transparent 0%,
-        var(--bg) 10%,
-        var(--bg-tertiary) 20%,
+        var(--color1) 10%,
+        transparent 20%,
         transparent 24%
       );
       animation: pulse 6s infinite linear;
@@ -132,7 +139,7 @@
       background: repeating-radial-gradient(
         circle at center,
         transparent 0%,
-        var(--accent) 20%,
+        var(--color2) 20%,
         transparent 24%
       );
       animation: pulse 6s infinite linear;

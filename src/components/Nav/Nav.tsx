@@ -70,9 +70,10 @@ export const Nav = () => {
   return (
     <>
       <div className={styles.navBackground}></div>
-      <div className={styles.checker}>
-        <div className={styles.checkerRight}></div>
-        <div className={styles.checkerLeft}></div>
+      <div className={styles.bg}>
+        <div className={styles.bgContent}></div>
+        <div className={styles.bgRight}></div>
+        <div className={styles.bgLeft}></div>
       </div>
       <Promobar />
       <nav ref={ref} className={styles.nav} data-sticky={isSticky}>

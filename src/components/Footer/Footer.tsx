@@ -3,7 +3,7 @@ import styles from "./footer.module.css";
 import { Logo } from "../Logo/Logo";
 import { Text } from "../Text/Text";
 import { Link } from "@tanstack/react-router";
-import stylesNav from "../../components/Nav/nav.module.css";
+
 interface FooterProps {
   className?: string;
 }
@@ -122,7 +122,7 @@ export const Footer = (props: FooterProps) => {
           </div>
         </div>
       </Section>{" "}
-      <div className={stylesNav.checker}></div>
+      <div className={styles.footerChecker}></div>
     </footer>
   );
 };
