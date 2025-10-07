@@ -148,6 +148,7 @@
 .ui {
   display: grid;
   grid-column: bleedstart / bleedend;
+  padding-inline: 2rlh;
   place-self: center;
 }
 .feature {
