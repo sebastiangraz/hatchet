@@ -344,7 +344,7 @@ a.mobileButton {
   --direction: top;
   --color1: color-mix(
     in srgb,
-    hsl(var(--magenta)) calc(100% * var(--opacity-4)),
+    hsl(var(--magenta)) calc(100% * var(--opacity-6)),
     transparent
   );
   --color2: color-mix(
@@ -352,7 +352,7 @@ a.mobileButton {
     var(--accent) calc(100% * var(--opacity-7)),
     transparent
   );
-  --scale: 4;
+  --scale: 3;
   --speed: 320s;
   position: absolute;
   pointer-events: none;
