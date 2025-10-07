@@ -53,14 +53,6 @@
   }
 }
 
-.propCenter {
-  place-self: flex-start;
-  display: grid;
-  @media (--sm) {
-    place-self: center;
-  }
-}
-
 .syntax {
   display: flex;
   flex-wrap: wrap;

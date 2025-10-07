@@ -5,9 +5,6 @@
   justify-content: center;
   display: grid;
   margin: 2em 0;
-  @media (--sm) {
-    grid-column: 8 / end;
-  }
 }
 
 @keyframes mask-animation {
@@ -69,9 +66,6 @@
     padding-top: 0.5em;
     margin-top: 1em;
     box-shadow: 0 1px 0 var(--fg-border);
-    @media (--sm) {
-      grid-column: 8 / end;
-    }
   }
 
   :global .sr-only {
@@ -178,14 +172,6 @@
   composes: scrollbar from global;
   grid-column: start / end;
   overflow-y: hidden;
-
-  @media (--sm) {
-    grid-column: 8 / span end;
-  }
-  @media (--lg) {
-    grid-column: 8 / span end;
-    overflow: visible;
-  }
 }
 
 table {
@@ -262,10 +248,6 @@ figure[data-rehype-pretty-code-figure] {
 
   /* chromium hack for border radius clipping*/
   mask-image: radial-gradient(circle, white 100%, black 100%);
-
-  @media (--md) {
-    grid-column: 8 / end;
-  }
 
   pre {
     overflow-x: auto;

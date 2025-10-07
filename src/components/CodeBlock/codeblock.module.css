@@ -6,10 +6,6 @@
   z-index: 0;
   overflow: hidden;
   box-shadow: var(--border) var(--fg-border);
-
-  @media (--md) {
-    grid-column: 8 / end;
-  }
 }
 
 .filename {
@@ -28,7 +24,10 @@
   overflow-x: auto;
   font-family: var(--font-mono);
   font-size: var(--small);
-  padding: 1rlh;
+  padding: 1rlh 0;
+  @media (--1) {
+    padding: 1rlh;
+  }
 }
 
 .content :global(pre) {
