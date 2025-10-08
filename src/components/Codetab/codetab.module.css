@@ -38,6 +38,10 @@
   @media (--1) {
     font-size: var(--small);
   }
+  &:focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-offset: 1px;
+  }
 }
 
 .tab:hover {

@@ -1,5 +1,6 @@
 .details {
   position: relative;
+  border-bottom: 1px solid var(--fg-border);
 }
 
 summary.toggleButton {

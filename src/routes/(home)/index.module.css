@@ -7,6 +7,9 @@
   &[open] .codeBlock {
     transform: translateY(0);
   }
+  &[open] .expandableSection {
+    background-position: 0 -10rlh;
+  }
 }
 
 .accordion {
@@ -72,7 +75,15 @@
   letter-spacing: 0.03em;
 }
 .expandableSection {
-  background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-dark) 20%);
+  composes: cubicGradient from global;
+  --cubicColor: var(--navy);
+  [data-theme="dark"] & {
+    --cubicColor: var(--navy);
+  }
+  background-size: 100% 10rlh;
+  background-repeat: no-repeat;
+  transition: background 0.2s ease;
+  /* background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-dark) 20%); */
 }
 
 .expandableLeft {
