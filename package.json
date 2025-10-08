@@ -8,14 +8,14 @@
     "build": "vite build && tsc --noEmit",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "vite start",
-    "update": "npm outdated"
+    "update": "npm update --save"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
     "@tanstack/react-router": "^1.132.41",
-    "@tanstack/react-router-devtools": "^1.132.41",
-    "@tanstack/react-start": "^1.132.43",
+    "@tanstack/react-router-devtools": "^1.132.50",
+    "@tanstack/react-start": "^1.132.48",
     "@types/mdx": "^2.0.13",
     "motion": "^12.23.22",
     "nitro-nightly": "^3.0.0-20251006-010739-abc2846e",
@@ -32,8 +32,8 @@
     "@eslint/js": "^9.37.0",
     "@shikijs/transformers": "^3.13.0",
     "@types/node": "^24.7.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.37.0",
     "eslint-plugin-react": "^7.37.5",
@@ -41,7 +41,7 @@
     "nitro": "npm:nitro-nightly@^3.0.0-20251006-010739-abc2846e",
     "postcss-preset-env": "^10.4.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.45.0",
+    "typescript-eslint": "^8.46.0",
     "vite": "^7.1.9",
     "vite-tsconfig-paths": "^5.1.4"
   }

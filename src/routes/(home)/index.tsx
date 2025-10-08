@@ -32,6 +32,10 @@ export const Route = createFileRoute("/(home)/")({
   head: () => ({
     meta: [{ title: "Hatchet" }],
   }),
+  beforeLoad: ({ context }) => ({
+    ...context,
+    isHome: true,
+  }),
   component: RouteComponent,
 });
 

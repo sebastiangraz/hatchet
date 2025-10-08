@@ -50,16 +50,26 @@
   }
   @media (--1-max) {
     body[data-mobile-open="true"] & {
-      /* background-color: color-mix(
-        in srgb,
-        var(--bg-dark) calc(100% * var(--opacity-7)),
-        transparent
-      ); */
-      /* padding: 2rlh 0; */
       z-index: 2;
       .wrapper {
         transform: translateY(1rlh);
       }
+    }
+  }
+}
+
+@supports (width: calc-size(auto, size)) {
+  body[data-home="true"] {
+    .cta {
+      width: 0;
+      padding: 0;
+      margin-inline-start: 0;
+      min-width: 0;
+      opacity: 0;
+      transition:
+        width 0.16s ease,
+        margin-inline-start 0.1s ease,
+        padding 0.4s ease;
     }
   }
 }
@@ -141,7 +151,7 @@ body[data-mobile-open="true"] .navBackground {
   .cta {
     margin-inline-start: 2rlh;
   }
-  @supports (width: calc-size(auto, size)) {
+  /* @supports (width: calc-size(auto, size)) {
     .cta {
       width: 0;
       padding: 0;
@@ -153,7 +163,7 @@ body[data-mobile-open="true"] .navBackground {
         margin-inline-start 0.1s ease,
         padding 0.4s ease;
     }
-  }
+  } */
 }
 
 /* Burger Button */

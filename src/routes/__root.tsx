@@ -20,6 +20,7 @@ import { CodetabProvider } from "~/components/Codetab/CodetabContext";
 
 interface RootContext {
   theme?: theme;
+  isHome?: boolean;
 }
 
 export const Route = createRootRoute({
@@ -64,6 +65,7 @@ export const Route = createRootRoute({
   }),
   context: (): RootContext => ({
     theme: "dark",
+    isHome: false,
   }),
   component: RootComponent,
 });
@@ -82,13 +84,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   const currentContext = childMatches[childMatches.length - 1]
     ?.context as RootContext;
   const theme = currentContext?.theme || "dark";
+  const isHome = currentContext?.isHome || false;
 
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body data-theme={theme}>
+      <body data-theme={theme} data-home={isHome}>
         <CodetabProvider>
           <Nav />
           <RootLayout>{children}</RootLayout>
