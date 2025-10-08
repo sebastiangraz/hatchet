@@ -265,3 +265,5 @@ const tiles = [
     />
   </>,
 ];
+
+BlogAsset.displayName = "BlogAsset";

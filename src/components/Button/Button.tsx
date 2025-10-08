@@ -58,3 +58,5 @@ export const Button = (props: ButtonProps) => {
     </Link>
   );
 };
+
+Button.displayName = "Button";
